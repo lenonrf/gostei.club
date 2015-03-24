@@ -302,6 +302,43 @@ module.exports = function (grunt) {
     //   dist: {}
     // },
 
+    cssmin: {
+      options: {
+        shorthandCompacting: false,
+        roundingPrecision: -1
+      },
+      target: {
+        files: {
+          '<%= yeoman.dist %>/styles/output.min.css': [
+            '<%= yeoman.app %>/styles/font-awesome.css', 
+            '<%= yeoman.app %>/styles/bootstrap.css',
+            '<%= yeoman.app %>/styles/slick.css',
+            '<%= yeoman.app %>/styles/style.css',
+            '<%= yeoman.app %>/styles/skin-blue.css'
+          ]
+        }
+      }
+    },
+
+
+    uglify: {
+      my_target: {
+        files: {
+          '<%= yeoman.dist %>/scripts/output.min.js': [
+            '<%= yeoman.app %>/scripts/vendor/js/modernizr.custom.js',
+            '<%= yeoman.app %>/scripts/vendor/js/jquery.js', 
+            '<%= yeoman.app %>/scripts/vendor/js/bootstrap.min.js', 
+            '<%= yeoman.app %>/scripts/vendor/js/jquery.easing.min.js', 
+            '<%= yeoman.app %>/scripts/vendor/js/flex-slider/jquery.flexslider.js', 
+            '<%= yeoman.app %>/scripts/vendor/js/owl-carousel/owl.carousel.js', 
+            '<%= yeoman.app %>/scripts/vendor/js/slick/slick.js', 
+            '<%= yeoman.app %>/scripts/vendor/js/mc/jquery.ketchup.all.min.js', 
+            '<%= yeoman.app %>/scripts/vendor/js/main.js'
+          ]
+        }
+      }
+    },
+
     imagemin: {
       dist: {
         files: [{
@@ -457,8 +494,8 @@ module.exports = function (grunt) {
     'wiredep',
     'useminPrepare',
     'concurrent:dist',
-    'autoprefixer',
-    'concat',
+    //'autoprefixer',
+    //'concat',
     'ngAnnotate',
     'copy:dist',
     'cdnify',
