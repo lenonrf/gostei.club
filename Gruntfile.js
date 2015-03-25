@@ -66,9 +66,9 @@ module.exports = function (grunt) {
     // The actual grunt server settings
     connect: {
       options: {
-        port: 80,
+        port: 3009,
         // Change this to '0.0.0.0' to access the server from outside.
-        hostname: '0.0.0.0',
+        hostname: 'localhost',
         livereload: 35729
       },
       livereload: {
@@ -309,12 +309,12 @@ module.exports = function (grunt) {
       },
       target: {
         files: {
-          '<%= yeoman.dist %>/styles/output.min.css': [
-            '<%= yeoman.app %>/styles/font-awesome.css', 
-            '<%= yeoman.app %>/styles/bootstrap.css',
-            '<%= yeoman.app %>/styles/slick.css',
-            '<%= yeoman.app %>/styles/style.css',
-            '<%= yeoman.app %>/styles/skin-blue.css'
+          '<%= yeoman.dist %>/styles/main.css': [
+            //'<%= yeoman.app %>/styles/font-awesome.css',
+            //'<%= yeoman.app %>/styles/bootstrap.css',
+            //'<%= yeoman.app %>/styles/slick.css',
+            '<%= yeoman.app %>/styles/style.css'
+            //'<%= yeoman.app %>/styles/skin-blue.css'
           ]
         }
       }
@@ -324,16 +324,20 @@ module.exports = function (grunt) {
     uglify: {
       my_target: {
         files: {
-          '<%= yeoman.dist %>/scripts/output.min.js': [
-            '<%= yeoman.app %>/scripts/vendor/js/modernizr.custom.js',
-            '<%= yeoman.app %>/scripts/vendor/js/jquery.js', 
-            '<%= yeoman.app %>/scripts/vendor/js/bootstrap.min.js', 
-            '<%= yeoman.app %>/scripts/vendor/js/jquery.easing.min.js', 
-            '<%= yeoman.app %>/scripts/vendor/js/flex-slider/jquery.flexslider.js', 
-            '<%= yeoman.app %>/scripts/vendor/js/owl-carousel/owl.carousel.js', 
-            '<%= yeoman.app %>/scripts/vendor/js/slick/slick.js', 
-            '<%= yeoman.app %>/scripts/vendor/js/mc/jquery.ketchup.all.min.js', 
-            '<%= yeoman.app %>/scripts/vendor/js/main.js'
+          '<%= yeoman.dist %>/scripts/scripts.js': [
+            //'<%= yeoman.app %>/scripts/vendor/js/modernizr.custom.js',
+            //'<%= yeoman.app %>/scripts/vendor/js/jquery.js',
+            //'<%= yeoman.app %>/scripts/vendor/js/bootstrap.min.js',
+            //'<%= yeoman.app %>/scripts/vendor/js/jquery.easing.min.js',
+            //'<%= yeoman.app %>/scripts/vendor/js/flex-slider/jquery.flexslider.js',
+            //'<%= yeoman.app %>/scripts/vendor/js/owl-carousel/owl.carousel.js',
+            //'<%= yeoman.app %>/scripts/vendor/js/slick/slick.js',
+            //'<%= yeoman.app %>/scripts/vendor/js/mc/jquery.ketchup.all.min.js',
+            //'<%= yeoman.app %>/scripts/vendor/js/main.js'
+
+            '<%= yeoman.app %>/scripts/app.js',
+            '<%= yeoman.app %>/scripts/controllers/main.js',
+            '<%= yeoman.app %>/scripts/controllers/about.js'
           ]
         }
       }
@@ -498,13 +502,16 @@ module.exports = function (grunt) {
     //'concat',
     'ngAnnotate',
     'copy:dist',
-    'cdnify',
+    //'cdnify',
     'cssmin',
     'uglify',
-    'filerev',
+    //'filerev',
     'usemin',
     'htmlmin'
   ]);
+
+
+
 
   grunt.registerTask('default', [
     'newer:jshint',
