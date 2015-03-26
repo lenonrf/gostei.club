@@ -302,6 +302,8 @@ module.exports = function (grunt) {
     //   dist: {}
     // },
 
+
+/*
     cssmin: {
       options: {
         shorthandCompacting: false,
@@ -324,24 +326,24 @@ module.exports = function (grunt) {
     uglify: {
       my_target: {
         files: {
-          '<%= yeoman.dist %>/scripts/scripts.js': [
+          '<%= yeoman.dist %>/scripts/theme_2.js': [
             //'<%= yeoman.app %>/scripts/vendor/js/modernizr.custom.js',
             //'<%= yeoman.app %>/scripts/vendor/js/jquery.js',
             //'<%= yeoman.app %>/scripts/vendor/js/bootstrap.min.js',
-            //'<%= yeoman.app %>/scripts/vendor/js/jquery.easing.min.js',
-            //'<%= yeoman.app %>/scripts/vendor/js/flex-slider/jquery.flexslider.js',
-            //'<%= yeoman.app %>/scripts/vendor/js/owl-carousel/owl.carousel.js',
-            //'<%= yeoman.app %>/scripts/vendor/js/slick/slick.js',
-            //'<%= yeoman.app %>/scripts/vendor/js/mc/jquery.ketchup.all.min.js',
-            //'<%= yeoman.app %>/scripts/vendor/js/main.js'
+            '<%= yeoman.app %>/scripts/vendor/js/jquery.easing.min.js',
+            '<%= yeoman.app %>/scripts/vendor/js/flex-slider/jquery.flexslider.js',
+            '<%= yeoman.app %>/scripts/vendor/js/owl-carousel/owl.carousel.js',
+            '<%= yeoman.app %>/scripts/vendor/js/slick/slick.js',
+            '<%= yeoman.app %>/scripts/vendor/js/mc/jquery.ketchup.all.min.js',
+            '<%= yeoman.app %>/scripts/vendor/js/main.js'
 
-            '<%= yeoman.app %>/scripts/app.js',
-            '<%= yeoman.app %>/scripts/controllers/main.js',
-            '<%= yeoman.app %>/scripts/controllers/about.js'
+            //'<%= yeoman.app %>/scripts/app.js',
+            //'<%= yeoman.app %>/scripts/controllers/main.js',
+            //'<%= yeoman.app %>/scripts/controllers/about.js'
           ]
         }
       }
-    },
+    },*/
 
     imagemin: {
       dist: {
@@ -498,19 +500,17 @@ module.exports = function (grunt) {
     'wiredep',
     'useminPrepare',
     'concurrent:dist',
-    //'autoprefixer',
-    //'concat',
+    'autoprefixer',
+    'concat',
     'ngAnnotate',
     'copy:dist',
-    //'cdnify',
+    'cdnify',
     'cssmin',
     'uglify',
-    //'filerev',
+    'filerev',
     'usemin',
     'htmlmin'
   ]);
-
-
 
 
   grunt.registerTask('default', [
