@@ -35,15 +35,17 @@ module.exports = function (grunt) {
       },
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-        tasks: ['newer:jshint:all'],
+        //tasks: ['newer:jshint:all'],
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
       },
-      jsTest: {
-        files: ['test/spec/{,*/}*.js'],
-        tasks: ['newer:jshint:test', 'karma']
-      },
+
+      //jsTest: {
+        //files: ['test/spec/{,*/}*.js'],
+        //tasks: ['newer:jshint:test', 'karma']
+      //},
+
       compass: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         tasks: ['compass:server', 'autoprefixer']
@@ -57,7 +59,7 @@ module.exports = function (grunt) {
         },
         files: [
           '<%= yeoman.app %>/{,*/}*.html',
-          '.tmp/styles/{,*/}*.css',
+          '<%= yeoman.app %>/styles/{,*/}*.css',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
@@ -503,7 +505,7 @@ module.exports = function (grunt) {
     'autoprefixer',
     'concat',
     'ngAnnotate',
-    'copy:dist',
+    'copy',
     'cdnify',
     'cssmin',
     'uglify',

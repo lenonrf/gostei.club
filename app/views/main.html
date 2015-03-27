@@ -1,51 +1,47 @@
-  <!-- INTRO -->
-  <section id="intro" class="intro4">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
+    <!-- INTRO -->
+    <section id="intro" class="intro4">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
 
-                <div class="col-md-7" style="margin-bottom:15%;">
-                    <h2 style=" font-weight: 600; font-size:43px; margin-top:-10px; ">Receba produtos grátis em sua casa!</h2>
-                    <p class="lead" style="margin-top:-30px;" >Quer fazer parte do Clube de Oportunidades, receber produtos em casa de graça e nos contar o que achou?</p>
-                    <img class="img-responsive" src="http://gosteiclub-12bd.kxcdn.com/images/bg_home.png" alt=""  style="width:150%">
-                </div>
+          <div class="col-md-7" style="margin-bottom:15%;">
+            <h2 style=" font-weight: 600; font-size:43px; margin-top:-10px; ">Receba produtos grátis em sua casa!</h2>
+            <p class="lead" style="margin-top:-30px;" >Quer fazer parte do Clube de Oportunidades, receber produtos em casa de graça e nos contar o que achou?</p>
+            <img class="img-responsive" src="http://gosteiclub-12bd.kxcdn.com/images/bg_home.png" alt=""  style="width:150%">
+          </div>
 
-                <div class="col-md-5 sub-form">
-                    <div id="sub-form">
-                        <form class="subscribe" action="php/subscribe.php" id="invite" method="POST">
+          <div class="col-md-5 sub-form">
+            <div id="sub-form">
+              <form class="subscribe" novalidate id="invite" >
 
-                            <h4 style="margin-top:-15px; margin-bottom:20px; text-align:left; font-weight:bold; color:#888585;">Participe! É Grátis</h4>
+                <h4 style="margin-top:-15px; margin-bottom:20px; text-align:left; font-weight:bold; color:#888585;">Participe! É Grátis</h4>
 
-                            <h5 style="text-align:left; padding-left:54px;">100% </h5>
+                <h5 ng-class="classMessage" style="text-align:left; padding-left:54px;" id="messageStatus">100% </h5>
 
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <input type="text" name="fname" id="fname" class="fname" placeholder="Nome">
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="text" name="lname" id="lname" class="lname" placeholder="Sobrenome">
-                                </div>
-                            </div>
+                <input type="text" name="lname" id="lname" class="lname" placeholder="nome" ng-model="user.name">
+                <input type="email" class="e-mail" placeholder="exemplo@email.com" name="email" id="address" ng-model="user.email">
 
-                            <input type="email" class="e-mail" placeholder="E-mail" name="email" id="address" data-validate="validate(required, email)">
+                <select class="sexo" name="sexo" id="sexo" ng-model="user.gender">
+                  <option value="" disabled selected>sexo</option>
+                  <option value="F">Feminino</option>
+                  <option value="M">Masculino</option>
+                </select>
 
-                            <input  type="email" class="campo" placeholder="E-mail" name="email" id="address" data-validate="validate(required, email)">
+                <input type="checkbox" ng-model="user.accept" name="checkboxG1" checked id="checkboxG1" class="css-checkbox" REQUIRED/>
+                <label for="checkboxG1" class="css-label" style="padding-top:3px;"><span>Concordo com os <a class="term-popup" href="#">Termos e Condições</a></span></label>
+                <div class="clearfix"></div>
+                <div class="space40"></div>
 
-
-                            <input type="checkbox"  name="checkboxG1" checked id="checkboxG1" class="css-checkbox" REQUIRED/>
-                                <label for="checkboxG1" class="css-label" style="padding-top:3px;"><span>Concordo com os <a class="term-popup" href="#">Termos e Condições</a></span></label>
-                            <div class="clearfix"></div>
-                            <div class="space40"></div>
-                            <button type="submit" class="btn-main btn-center">Quero Participar!</button>
-                        </form>
-                    </div>
-                    <span id="result"></span>
-                </div>
+                <button type="button" class="btn-main btn-center" ng-click="checkout(user)">Quero Participar!</button>
+              </form>
+            </div>
+            <span id="result"></span>
+          </div>
 
 
-                </div>
+        </div>
 
-                <!-- ABOUT / INFO CONTENT -->
+        <!-- ABOUT / INFO CONTENT -->
 
 
       </div>
@@ -58,7 +54,7 @@
 
 
 
-    <!-- INFO BOXES -->
+  <!-- INFO BOXES -->
   <section class="info-content" id="degraca">
     <div class="container">
       <div class="content-head">
@@ -70,43 +66,43 @@
           <img src="http://gosteiclub-12bd.kxcdn.com/images/xtra/1.jpg" class="img-responsive" alt=""/>
           <h4>Roupas e Acessórios</h4>
           <p>
-          <ul class="space40" style="color:#898989;">
-            <li><i class="fa fa-check"></i> Camisetas, Camisas</li>
-            <li><i class="fa fa-check"></i> Calças, Bermudas</li>
-            <li><i class="fa fa-check"></i> Vestidos, Saias, Bijuterias</li>
-            <li><i class="fa fa-check"></i> Bonés, Chapéus, Perfumes</li>
-            <li><i class="fa fa-check"></i> Muitos outros...</li>
-          </ul>
+            <ul class="space40" style="color:#898989;">
+              <li><i class="fa fa-check"></i> Camisetas, Camisas</li>
+              <li><i class="fa fa-check"></i> Calças, Bermudas</li>
+              <li><i class="fa fa-check"></i> Vestidos, Saias, Bijuterias</li>
+              <li><i class="fa fa-check"></i> Bonés, Chapéus, Perfumes</li>
+              <li><i class="fa fa-check"></i> Muitos outros...</li>
+            </ul>
 
-                    </p>
+          </p>
         </div>
         <div class="col-md-4 ic-inner">
           <img src="http://gosteiclub-12bd.kxcdn.com/images/xtra/2.jpg" class="img-responsive" alt=""/>
           <h4>Eletrônicos e Gadgets</h4>
           <p>
-          <ul class="space40" style="color:#898989;">
-            <li><i class="fa fa-check"></i> Mouse, Mouse Pad</li>
-            <li><i class="fa fa-check"></i> Teclados, Mp3 Players</li>
-            <li><i class="fa fa-check"></i> Relógios, Fones</li>
-            <li><i class="fa fa-check"></i> Cabos e Conectores</li>
-            <li><i class="fa fa-check"></i> Entre outros..</li>
-          </ul>
+            <ul class="space40" style="color:#898989;">
+              <li><i class="fa fa-check"></i> Mouse, Mouse Pad</li>
+              <li><i class="fa fa-check"></i> Teclados, Mp3 Players</li>
+              <li><i class="fa fa-check"></i> Relógios, Fones</li>
+              <li><i class="fa fa-check"></i> Cabos e Conectores</li>
+              <li><i class="fa fa-check"></i> Entre outros..</li>
+            </ul>
 
-                    </p>
+          </p>
         </div>
         <div class="col-md-4 ic-inner">
           <img src="http://gosteiclub-12bd.kxcdn.com/images/xtra/3.jpg" class="img-responsive" alt=""/>
           <h4>Comidas, bebidas e itens de limpeza</h4>
           <p>
-          <ul class="space40" style="color:#898989;">
-            <li><i class="fa fa-check"></i> Sucos, Refrigerantes</li>
-            <li><i class="fa fa-check"></i> Gelatinas e Doces</li>
-            <li><i class="fa fa-check"></i> Produtos de Limpeza</li>
-            <li><i class="fa fa-check"></i> Utilidades Donésticas</li>
-            <li><i class="fa fa-check"></i> E muito mais..</li>
-          </ul>
+            <ul class="space40" style="color:#898989;">
+              <li><i class="fa fa-check"></i> Sucos, Refrigerantes</li>
+              <li><i class="fa fa-check"></i> Gelatinas e Doces</li>
+              <li><i class="fa fa-check"></i> Produtos de Limpeza</li>
+              <li><i class="fa fa-check"></i> Utilidades Donésticas</li>
+              <li><i class="fa fa-check"></i> E muito mais..</li>
+            </ul>
 
-                    </p>
+          </p>
         </div>
       </div>
 
@@ -114,16 +110,16 @@
   </section>
   <!-- INFO BOXES -->
 
-    <div id="depoimentos" style="height:80px;" ></div>
+  <div id="depoimentos" style="height:80px;" ></div>
   <!-- FEATURES -->
 
   <section id="features">
     <div class="container" >
       <div class="row">
-                        <div class="col-md-12">
-                            <h2 style="color:#fff; text-align:center; margin-top:10px; font-size:40px;">DEPOIMENTOS</h2>
-                            <p  style="color:#e2e1e1; margin-bottom:10px; text-align:center;">Várias pessoas já foram selecionadas para receber em sua casa, gratuítamente os produtos que enviamos. Faça parte deste clube você também.</p>
-                        </div>
+        <div class="col-md-12">
+          <h2 style="color:#fff; text-align:center; margin-top:10px; font-size:40px;">DEPOIMENTOS</h2>
+          <p  style="color:#e2e1e1; margin-bottom:10px; text-align:center;">Várias pessoas já foram selecionadas para receber em sua casa, gratuítamente os produtos que enviamos. Faça parte deste clube você também.</p>
+        </div>
 
         <div class="col-md-4" style="margin-bottom:100px;">
           <!-- Download App Section -->
@@ -182,7 +178,7 @@
 
 
 
-      <!-- SCREENSHOTS -->
+  <!-- SCREENSHOTS -->
   <section class="shots" id="marcas">
     <div class="container">
       <div class="content-head">
@@ -197,98 +193,98 @@
         <div class="col-md-12">
 
           <div class="shots-slide"
-              slick-slider="{dots: true, arrows: false, speed: 300, centerMode: false, slidesToShow: 4, slidesToScroll: 1, responsive: [{ breakpoint: 1024, settings: { slidesToShow: 3, slidesToScroll: 1, infinite: true, dots: true }}, { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1 } }, { breakpoint: 480, settings: { slidesToShow: 1, slidesToScroll: 1 }}]}">
+          slick-slider="{dots: true, arrows: false, speed: 300, centerMode: false, slidesToShow: 4, slidesToScroll: 1, responsive: [{ breakpoint: 1024, settings: { slidesToShow: 3, slidesToScroll: 1, infinite: true, dots: true }}, { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1 } }, { breakpoint: 480, settings: { slidesToShow: 1, slidesToScroll: 1 }}]}">
 
-            <div class="shots-thumb"><a><img ng-src="http://gosteiclub-12bd.kxcdn.com/images/shots/1.jpg"/></a></div>
-            <div class="shots-thumb"><a><img ng-src="http://gosteiclub-12bd.kxcdn.com/images/shots/2.jpg"/></a></div>
-            <div class="shots-thumb"><a><img ng-src="http://gosteiclub-12bd.kxcdn.com/images/shots/3.jpg"/></a></div>
-            <div class="shots-thumb"><a><img ng-src="http://gosteiclub-12bd.kxcdn.com/images/shots/4.jpg"/></a></div>
-            <div class="shots-thumb"><a><img ng-src="http://gosteiclub-12bd.kxcdn.com/images/shots/1.jpg"/></a></div>
-            <div class="shots-thumb"><a><img ng-src="http://gosteiclub-12bd.kxcdn.com/images/shots/2.jpg"/></a></div>
-            <div class="shots-thumb"><a><img ng-src="http://gosteiclub-12bd.kxcdn.com/images/shots/3.jpg"/></a></div>
-            <div class="shots-thumb"><a><img ng-src="http://gosteiclub-12bd.kxcdn.com/images/shots/4.jpg"/></a></div>
-          </div>
+          <div class="shots-thumb"><a><img ng-src="http://gosteiclub-12bd.kxcdn.com/images/shots/1.jpg"/></a></div>
+          <div class="shots-thumb"><a><img ng-src="http://gosteiclub-12bd.kxcdn.com/images/shots/2.jpg"/></a></div>
+          <div class="shots-thumb"><a><img ng-src="http://gosteiclub-12bd.kxcdn.com/images/shots/3.jpg"/></a></div>
+          <div class="shots-thumb"><a><img ng-src="http://gosteiclub-12bd.kxcdn.com/images/shots/4.jpg"/></a></div>
+          <div class="shots-thumb"><a><img ng-src="http://gosteiclub-12bd.kxcdn.com/images/shots/1.jpg"/></a></div>
+          <div class="shots-thumb"><a><img ng-src="http://gosteiclub-12bd.kxcdn.com/images/shots/2.jpg"/></a></div>
+          <div class="shots-thumb"><a><img ng-src="http://gosteiclub-12bd.kxcdn.com/images/shots/3.jpg"/></a></div>
+          <div class="shots-thumb"><a><img ng-src="http://gosteiclub-12bd.kxcdn.com/images/shots/4.jpg"/></a></div>
         </div>
       </div>
     </div>
-  </section>
-  <!-- SCREENSHOTS -->
+  </div>
+</section>
+<!-- SCREENSHOTS -->
 
 
 
 
 
 
-  <!-- FEATURES -->
-  <section id="features">
-    <div class="container">
-      <div class="row">
+<!-- FEATURES -->
+<section id="features">
+  <div class="container">
+    <div class="row">
 
-            </div>
-        </div>
-  </section>
-  <!-- FEATURES -->
+    </div>
+  </div>
+</section>
+<!-- FEATURES -->
 
-  <!-- FOOTER -->
-  <footer id="footer">
-    <div class="container">
-      <div class="row">
-
-
-               <div class="content-head" style="margin-top:-40px;">
-                    <h3>ENTRE EM CONTATO</h3>
-                    <p>Queremos saber a sua opinião :) </p>
-               </div>
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="container">
+    <div class="row">
 
 
-                <div class="content-head">
+     <div class="content-head" style="margin-top:-40px;">
+      <h3>ENTRE EM CONTATO</h3>
+      <p>Queremos saber a sua opinião :) </p>
+    </div>
 
-                <ul>
-                    <li>
-                        <div class="f-social">
-                            <a href="#" class="fa fa-facebook"></a>
-                            <a href="#" class="fa fa-twitter"></a>
-                            <a href="#" class="fa fa-instagram"></a>
-                        </div>
-                    </li>
-                </ul>
 
-                </div>
+    <div class="content-head">
 
-        <!-- Contact Form -->
-
-        <div class="content-head" style="margin-top:-40px; margin-bottom:0px;">
-          <form id="contactForm" action="php/contact.php" method="post">
-            <div class="row">
-              <div class="col-md-12">
-                <input name="senderName" id="senderName" type="text" placeholder="Nome" required="required" />
-                <input type="email" name="senderEmail" id="senderEmail" placeholder="Email" required="required"/>
-                <textarea rows="4" name="message" id="message" placeholder="Mensagem"></textarea>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <button type="submit" class="btn-main pull-right" style="width:150px;">Enviar</button>
-              </div>
-            </div>
-          </form>
-          <div id="sendingMessage" class="statusMessage">
-            <p><i class="fa fa-spin fa-spinner"></i>Enviando a sua Mensagem. Por favor Aguarde...</p>
+      <ul>
+        <li>
+          <div class="f-social">
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-instagram"></a>
           </div>
-          <div id="successMessage" class="successmessage">
-            <p><i class="fa fa-check"></i> Obrigado por enviar sua mensagem! Entraremos em contato em breve.</p>
-          </div>
-          <div id="failureMessage" class="errormessage">
-            <p><i class="fa fa-close"></i> Ocorreu um problema para enviar a sua mensagem. Tente novamente.</p>
-          </div>
-          <div id="incompleteMessage" class="statusMessage">
-            <p><i class="fa fa-warning"></i> Complete todos os campos</p>
+        </li>
+      </ul>
+
+    </div>
+
+    <!-- Contact Form -->
+
+    <div class="content-head" style="margin-top:-40px; margin-bottom:0px;">
+      <form id="contactForm" action="php/contact.php" method="post">
+        <div class="row">
+          <div class="col-md-12">
+            <input name="senderName" id="senderName" type="text" placeholder="Nome" required="required" />
+            <input type="email" name="senderEmail" id="senderEmail" placeholder="Email" required="required"/>
+            <textarea rows="4" name="message" id="message" placeholder="Mensagem"></textarea>
           </div>
         </div>
+        <div class="row">
+          <div class="col-md-12">
+            <button type="submit" class="btn-main pull-right" style="width:150px;">Enviar</button>
+          </div>
+        </div>
+      </form>
+      <div id="sendingMessage" class="statusMessage">
+        <p><i class="fa fa-spin fa-spinner"></i>Enviando a sua Mensagem. Por favor Aguarde...</p>
+      </div>
+      <div id="successMessage" class="successmessage">
+        <p><i class="fa fa-check"></i> Obrigado por enviar sua mensagem! Entraremos em contato em breve.</p>
+      </div>
+      <div id="failureMessage" class="errormessage">
+        <p><i class="fa fa-close"></i> Ocorreu um problema para enviar a sua mensagem. Tente novamente.</p>
+      </div>
+      <div id="incompleteMessage" class="statusMessage">
+        <p><i class="fa fa-warning"></i> Complete todos os campos</p>
       </div>
     </div>
-  </footer>
-  <!-- FOOTER -->
+  </div>
+</div>
+</footer>
+<!-- FOOTER -->
 
 
 

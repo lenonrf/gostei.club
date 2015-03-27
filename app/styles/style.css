@@ -90,6 +90,9 @@ h6 {
 	color: #222222;
 }
 
+
+
+
 .img-centered {
 	margin: 0 auto;
 }
@@ -392,7 +395,7 @@ header {
 	padding: 0;
 }
 
-.sub-form h5 {
+.sub-form-h5 {
 	display: table;
 	color: rgb(121, 121, 121);
 	letter-spacing: 0px;
@@ -408,6 +411,26 @@ header {
 	padding: 15px 10px;
 	margin-left: -15%;
 }
+
+.sub-form-h5-error {
+	display: table;
+	color: rgb(121, 121, 121);
+	letter-spacing: 0px;
+	text-align: center;
+	padding: 0px;
+	width: 130%;
+	text-transform: capitalize;
+	font-weight: 300;
+	font-size: 25px;
+	margin: 8px 0px 24px;
+	background: #FF0000;
+	color: #fff;
+	padding: 15px 10px;
+	margin-left: -15%;
+}
+
+
+
 
 .sub-form {
 	padding-left: 60px;
@@ -454,6 +477,17 @@ header {
 	font-size: 14px;
 }
 
+.sub-form form select {
+	border: 1px solid #e4e4e4;
+	background: transparent;
+	height: 50px;
+	padding: 10px 15px;
+	margin-bottom: 15px;
+	color: #AEA7A7;
+	width: 100%;
+	font-size: 14px;
+}
+
 .fname {
 	margin-bottom: 0;
 	border-radius: 5px 0 0 0;
@@ -466,6 +500,13 @@ header {
 }
 
 .e-mail {
+	margin-bottom: 0px;
+	border-radius: 0 0 0px 0px;
+	border-top: none !important;
+}
+
+.sexo {
+
 	margin-bottom: 0px;
 	border-radius: 0 0 0px 0px;
 	border-top: none !important;
@@ -2500,6 +2541,7 @@ header {
 	padding: 0px 0px 100px;
 }
 
+
 #quote-slider .owl-controls {
 	bottom: -50px;
 }
@@ -2583,20 +2625,5 @@ header {
 }
 
 
-
-
-
-
-
-
-
-#owl-demo .item{
-  margin: 3px;
-}
-#owl-demo .item img{
-  display: block;
-  width: 100%;
-  height: auto;
-}
 
 }
