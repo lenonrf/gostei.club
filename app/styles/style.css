@@ -587,12 +587,21 @@ header {
 
 /* 3.4. Intro / 4 */
 
+/*
 #intro.intro4 {
 	padding: 180px 0 0;
 	position: relative;
-	background: #2e96df url(../images/bg/4.jpg) no-repeat top right fixed;
+	background: #2e96df url(../images/bg4.jpg) no-repeat top right fixed;
 	background-size: 100% auto;
 	overflow: hidden;
+}*/
+
+#intro.intro4 {
+ padding: 180px 0 0;
+ position: relative;
+ background: #2e96df url(../images/bg4.jpg) no-repeat top right;
+ background-size: 100% auto;
+ overflow: hidden;
 }
 
 #intro.intro4 h2,
