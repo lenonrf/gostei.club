@@ -302,7 +302,6 @@ module.exports = function (grunt) {
     //   dist: {}
     // },
 
-
 /*
     cssmin: {
       options: {
@@ -311,16 +310,17 @@ module.exports = function (grunt) {
       },
       target: {
         files: {
-          '<%= yeoman.dist %>/styles/main.css': [
-            //'<%= yeoman.app %>/styles/font-awesome.css',
-            //'<%= yeoman.app %>/styles/bootstrap.css',
-            //'<%= yeoman.app %>/styles/slick.css',
-            '<%= yeoman.app %>/styles/style.css'
-            //'<%= yeoman.app %>/styles/skin-blue.css'
+          '<%= yeoman.dist %>/styles/main_2.css': [
+            '<%= yeoman.app %>/styles/vendor/font-awesome.css',
+            '<%= yeoman.app %>/styles/vendor/bootstrap.css',
+            '<%= yeoman.app %>/styles/vendor/slick.css',
+            //'<%= yeoman.app %>/styles/style.css'
+            '<%= yeoman.app %>/styles/vendor/skin-blue.css'
           ]
         }
       }
     },
+
 
 
     uglify: {
@@ -335,7 +335,7 @@ module.exports = function (grunt) {
             '<%= yeoman.app %>/scripts/vendor/js/owl-carousel/owl.carousel.js',
             '<%= yeoman.app %>/scripts/vendor/js/slick/slick.js',
             '<%= yeoman.app %>/scripts/vendor/js/mc/jquery.ketchup.all.min.js',
-            '<%= yeoman.app %>/scripts/vendor/js/main.js'
+            //'<%= yeoman.app %>/scripts/vendor/js/main.js'
 
             //'<%= yeoman.app %>/scripts/app.js',
             //'<%= yeoman.app %>/scripts/controllers/main.js',
