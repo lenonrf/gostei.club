@@ -16,18 +16,19 @@
 
                 <h4 style="margin-top:-15px; margin-bottom:20px; text-align:left; font-weight:bold; color:#888585;">Participe! É Grátis</h4>
 
-                <h5 ng-class="classMessage" style="text-align:left; padding-left:54px;" id="messageStatus">100% </h5>
+                <h5 ng-style="{'background-color': bgMsgColor}" class="sub-form-h5" style="text-align:left; padding-left:54px;" id="messageStatus">100% </h5>
 
-                <input type="text" name="lname" id="lname" class="lname" placeholder="nome" ng-model="user.name">
-                <input type="email" class="e-mail" placeholder="exemplo@email.com" name="email" id="address" ng-model="user.email">
+                <input ng-style="{'background-color': bgUserColor}" type="text" name="lname" id="lname" class="lname" placeholder="nome" ng-model="user.name">
 
-                <select class="sexo" name="sexo" id="sexo" ng-model="user.gender">
-                  <option value="" disabled selected>sexo</option>
-                  <option value="F">Feminino</option>
-                  <option value="M">Masculino</option>
+                <input ng-style="{'background-color': bgEmailColor}" type="text" name="email" id="email" class="e-mail" placeholder="exemplo@email.com" ng-model="user.email">
+
+                <select ng-style="{'background-color': bgGenderColor}" class="sexo" name="gender" id="gender" ng-model="user.gender">
+                  <option value="" disabled selected>&nbsp;&nbsp;sexo</option>
+                  <option value="F">&nbsp;&nbsp;Feminino</option>
+                  <option value="M">&nbsp;&nbsp;Masculino</option>
                 </select>
 
-                <input type="checkbox" ng-model="user.accept" name="checkboxG1" checked id="checkboxG1" class="css-checkbox" REQUIRED/>
+                <input type="checkbox" ng-model="user.terms" name="checkboxG1" checked id="checkboxG1" class="css-checkbox" REQUIRED/>
                 <label for="checkboxG1" class="css-label" style="padding-top:3px;"><span>Concordo com os <a class="term-popup" href="#">Termos e Condições</a></span></label>
                 <div class="clearfix"></div>
                 <div class="space40"></div>

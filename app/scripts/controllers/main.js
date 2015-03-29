@@ -10,24 +10,93 @@
 angular.module('gosteiclubApp')
   .controller('MainCtrl', function ($scope) {
 
-  	$scope.classMessage = 'sub-form-h5';
+  	$scope.user = {};
+    $scope.user.terms = true;
 
-	$scope.checkout = function (user) {
-    	$scope.validateFields(user);
-  	};
+
+
+  	$scope.checkout = function (user) {
+      	
+        if($scope.validateFields(user)){
+          
+
+          $scope.bgMsgColor = '#3498db';        
+          angular.element('#lname').focus();
+          angular.element('#messageStatus').html('100%');
+
+          alert('Vai pra tela de perguntas');
+        }
+    };
 
   	$scope.validateFields = function(user){
 
-  		if(isEmpty(user)){
-			console.log('isEmpty(user)', isEmpty(user));
+      var status = true;
 
-			$scope.classMessage = 'sub-form-h5-error';
-			console.log('messageStatus', angular.element('#messageStatus'));
 
+      console.log('user', user);
+
+      $scope.bgUserColor = '#FFFFFF';
+      $scope.bgEmailColor = '#FFFFFF';
+      $scope.bgGenderColor = '#FFFFFF';
+
+
+  		if(!isEmpty(user)){
+  			
+
+        if(isEmpty(user.name)){
+
+          $scope.bgMsgColor = '#CD0000';
+          $scope.bgUserColor = '#FFFACD';
+          
+          angular.element('#lname').focus();
+          angular.element('#messageStatus').html('Preencha o usu&aacuterio');
+
+          return false;
+
+        }
+
+
+        if(isEmpty(user.email)){
+
+          $scope.bgMsgColor = '#CD0000';
+          $scope.bgEmailColor = '#FFFACD';
+
+          angular.element('#email').focus();
+          angular.element('#messageStatus').html('Preencha o email');
+
+          return false;
+
+        }
+
+
+        if(isEmpty(user.gender)){
+
+          $scope.bgMsgColor = '#CD0000';
+          $scope.bgGenderColor = '#FFFACD';
+
+          angular.element('#gender').focus();
+          angular.element('#messageStatus').html('Preencha o sexo');
+
+          return false;
+
+        }
 
   		}else{
+        
+        $scope.bgMsgColor = '#CD0000';
+        $scope.bgGenderColor = '#FFFACD';
+        $scope.bgEmailColor = '#FFFACD';
+        $scope.bgUserColor = '#FFFACD';
+
+        angular.element('#lname').focus();
+        angular.element('#messageStatus').html('Preencha o formul&aacute;rio');
+
+        status = false;
+
   			console.log('isEmpty(user)', isEmpty(user));
   		}
+
+      return status;
   	};
 
 
@@ -39,5 +108,4 @@ angular.module('gosteiclubApp')
         	return true;
         }
     }
-
 });
