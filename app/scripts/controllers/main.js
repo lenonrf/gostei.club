@@ -8,12 +8,12 @@
  * Controller of the gosteiclubApp
  */
 angular.module('gosteiclubApp')
-  .controller('MainCtrl', function ($scope, Utils) {
+  .controller('MainCtrl', function ($scope, Utils, User) {
 
   	$scope.user = {};
     $scope.user.terms = true;
 
-
+    
 
 
   	$scope.checkout = function (user) {
@@ -23,6 +23,9 @@ angular.module('gosteiclubApp')
           $scope.bgMsgColor = '#3498db';        
           angular.element('#lname').focus();
           angular.element('#messageStatus').html('100%');
+
+
+          //console.log('User', User.getResource.get());
     
         }
     };

@@ -8,7 +8,7 @@
  * Factory in the gosteiclubApp.
  */
 angular.module('gosteiclubApp')
-  .factory('User', function () {
+  .factory('User', function ($resource) {
     
 
     var resource = $resource('localhost:3009/user/:userId',

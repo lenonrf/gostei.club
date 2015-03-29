@@ -402,7 +402,7 @@ header {
 	text-align: center;
 	padding: 0px;
 	width: 130%;
-	
+	text-transform: capitalize;
 	font-weight: 300;
 	font-size: 25px;
 	margin: 8px 0px 24px;
@@ -411,6 +411,24 @@ header {
 	padding: 15px 10px;
 	margin-left: -15%;
 }
+
+.sub-form-h5-error {
+	display: table;
+	color: rgb(121, 121, 121);
+	letter-spacing: 0px;
+	text-align: center;
+	padding: 0px;
+	width: 130%;
+	text-transform: capitalize;
+	font-weight: 300;
+	font-size: 25px;
+	margin: 8px 0px 24px;
+	background: #FF0000;
+	color: #fff;
+	padding: 15px 10px;
+	margin-left: -15%;
+}
+
 
 
 
@@ -569,21 +587,12 @@ header {
 
 /* 3.4. Intro / 4 */
 
-/*
 #intro.intro4 {
-	padding: 180px 0 0;
+	padding: 10% 0 0 0;
 	position: relative;
-	background: #2e96df url(../images/bg4.jpg) no-repeat top right fixed;
+	background: url(../images/bg/4.jpg) no-repeat top right;
 	background-size: 100% auto;
 	overflow: hidden;
-}*/
-
-#intro.intro4 {
- padding: 180px 0 0;
- position: relative;
- background: #2e96df url(../images/bg4.jpg) no-repeat top right;
- background-size: 100% auto;
- overflow: hidden;
 }
 
 #intro.intro4 h2,
@@ -2038,7 +2047,7 @@ header {
 
 #intro.intro4 {
 	background-size: auto 100%;
-	padding: 160px 0px 0px;
+	padding: 0px 0px 0px;
 }
 
 #intro.intro5 {
@@ -2346,7 +2355,7 @@ header {
 
 #intro.intro4 {
 	background-size: auto 100%;
-	padding: 120px 0px 100px;
+	/*padding: 120px 0px 0px;*/
 }
 
 #intro.intro7 {
