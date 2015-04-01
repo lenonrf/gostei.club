@@ -78,6 +78,10 @@ module.exports = function (grunt) {
           open: true,
           middleware: function (connect) {
             return [
+              connect().use(function (req, res, next) {
+                res.setHeader('Access-Control-Allow-Origin', '*');
+                next();
+              }),
               connect.static('.tmp'),
               connect().use(
                 '/bower_components',
@@ -88,6 +92,7 @@ module.exports = function (grunt) {
                 connect.static('./app/styles')
               ),
               connect.static(appConfig.app)
+
             ];
           }
         }

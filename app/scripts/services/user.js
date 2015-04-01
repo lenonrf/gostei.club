@@ -7,26 +7,36 @@
  * # User
  * Factory in the gosteiclubApp.
  */
-angular.module('gosteiclubApp')
-  .factory('User', function ($resource) {
-    
+ angular.module('gosteiclubApp')
+ .factory('User', function ($resource) {
 
-    var resource = $resource('localhost:3009/user/:userId',
-      {
-        userId:'userId'
 
-      }, {
-        charge: {
-          method:'POST', 
-          params:{
-            charge:true
-          }
+  this.data = {};
+  var self = this;
+
+  var actions = {
+    'get' : {
+      method: 'GET',
+      url: 'http://104.236.251.213:3009/users',
+      interceptor : {
+        response : function(response){
+          self.data = response.data;
+          return self.data;
         }
-    });
-
-    return {
-      getResource: function () {
-        return resource;
       }
-    };
-  });
+        
+    }
+  };
+
+  this.resource = $resource(null, {}, actions);
+
+  this.isLoogedIn = function(){
+    return self.data.logged;
+  };
+
+  this.getCachedData = function(){
+    return self.data;
+  };
+
+  return this;
+});

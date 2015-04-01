@@ -130,8 +130,8 @@ button:hover {
 	color: #fff;
 	border-radius: 5px;
 	border: none;
-	line-height: 45px;
-	padding: 0 24px;
+	line-height: 50px;
+	padding: 0 35px;
 	text-transform: none;
 	letter-spacing: 0.3px;
 	font-size: 14px;
@@ -292,13 +292,11 @@ header {
 }
 
 .navbar-brand {
-	color: #FFF !important;
-	text-transform: none;
+
 	margin: 0px;
-	font-size: 37px;
+
 	padding: 20px 0px 0px;
-	font-family: Vampiro One;
-	font-weight: 400;
+
 }
 
 .nav > li {
@@ -402,7 +400,6 @@ header {
 	text-align: center;
 	padding: 0px;
 	width: 130%;
-	text-transform: capitalize;
 	font-weight: 300;
 	font-size: 25px;
 	margin: 8px 0px 24px;
@@ -574,6 +571,10 @@ header {
 	font-family: Open Sans;
 	font-size: 13px;
 	margin: 20px 0 60px;
+ 
+   
+    
+    
 }
 
 #intro.intro3 h6 a {
@@ -588,11 +589,12 @@ header {
 /* 3.4. Intro / 4 */
 
 #intro.intro4 {
-	padding: 10% 0 13% 0;
+	padding: 9% 0 2% 0;
 	position: relative;
-	background: url(../images/bg/4.jpg) no-repeat top right;
+	background: #2f95df  url(../images/bg/4.jpg) no-repeat top right;
 	background-size: 100% auto;
 	overflow: hidden;
+    
 }
 
 #intro.intro4 h2,
@@ -1138,11 +1140,12 @@ header {
 /* 7. INFO BOXES */
 
 .info-content {
-	padding: 100px 0;
+	padding: 6% 0;
 }
 
 .ic-inner img {
 	border-radius: 5px;
+
 }
 
 .ic-inner h4 {

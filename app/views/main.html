@@ -1,31 +1,43 @@
 
     <!-- INTRO -->
     <section id="intro" class="intro4">
-      <div class="overlay"></div>
+
       <div class="container">
         <div class="row">
 
 
-              <div class="col-md-7" style="">
-                    <span style="font-weight: 600; color:#f0f0f0; font-size:36px;">Receba produtos grátis em sua casa!</span>
-                    <div class="col-md-14" style="color:#f0f0f0; margin-bottom:8%;" >Quer fazer parte do Clube de Oportunidades, receber produtos em casa de graça e nos contar o que achou?</div>
+              <div class="col-md-7" >
+                  <h3 style="font-weight: 550; letter-spacing: -1px; color:#fdb72c;  font-size:36px; font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif; margin-bottom:-2px">Receba Produtos Grátis em Casa!</h3>
+                    <div class="col-md-14" style="  font-size: 16px;
+  color: #fff;
+  font-weight: 200;
+  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif; margin-bottom:2%;">Quer fazer parte do nosso Clube de Oportunidades, receber produtos em casa sem pagar nada e nos contar o que achou?</div>
                     <img class="img-responsive" src="images/bg_home.png" alt=""  style="">
                 </div>
                 
+
+
+          <!--
+          <div class="col-md-7" style="margin-bottom:15%;">
+            <h2 style=" font-weight: 600; font-size:43px; margin-top:-10px; ">Receba produtos grátis em sua casa!</h2>
+            <p class="lead" style="margin-top:-30px;" >Quer fazer parte do Clube de Oportunidades, receber produtos em casa de graça e nos contar o que achou?</p>
+            <img class="img-responsive" src="images/bg_home.png" alt=""  style="width:150%">
+          </div>-->
+
           <div class="col-md-5 sub-form">
             <div id="sub-form">
               <form class="subscribe" novalidate id="invite" >
 
-                <h4 style="margin-top:-15px; margin-bottom:20px; text-align:left; font-weight:bold; color:#888585;">Participe! É Grátis</h4>
+                <h4 style="margin-top:-15px; margin-bottom:20px; text-align:left; font-weight: 500; color:#888585;">O Gostei é 100% Grátis</h4>
 
-                <h5 ng-style="{'background-color': bgMsgColor}" class="sub-form-h5" style="text-align:left; padding-left:54px;" id="messageStatus">100% </h5>
+                <h5 ng-style="{'background-color': bgMsgColor}" class="sub-form-h5" style="text-align:left; padding-left:54px;" id="messageStatus">Participe!</h5>
 
                 <input required ng-style="{'background-color': bgUserColor}" type="text" name="lname" id="lname" class="lname" placeholder="nome" ng-model="user.name">
 
                 <input required ng-style="{'background-color': bgEmailColor}" type="email" name="email" id="email" class="e-mail" placeholder="exemplo@email.com" ng-model="user.email">
 
-                <select ng-style="{'background-color': bgGenderColor}" class="sexo" name="gender" id="gender" ng-model="user.gender">
-                  <option value="" disabled selected>&nbsp;&nbsp;sexo</option>
+                <select ng-style="{'background-color': bgGenderColor}" class="sexo" name="gender" id="gender" ng-model="user.gender" >
+                  <option value="" disabled selected >&nbsp;&nbsp;sexo</option>
                   <option value="F">&nbsp;&nbsp;Feminino</option>
                   <option value="M">&nbsp;&nbsp;Masculino</option>
                 </select>
@@ -33,7 +45,7 @@
                 <input type="checkbox" ng-model="user.terms" name="checkboxG1" checked id="checkboxG1" class="css-checkbox" REQUIRED/>
                 <label for="checkboxG1" class="css-label" style="padding-top:3px;"><span>Concordo com os <a class="term-popup" href="#">Termos e Condições</a></span></label>
                 <div class="clearfix"></div>
-                <div class="space40"></div>
+                <div class="space20"></div>
 
                 <button type="submit" class="btn-main btn-center" ng-click="checkout(user)">Quero Participar!</button>
               </form>
@@ -53,7 +65,15 @@
   <!-- INTRO -->
 
 
+<!-- FEATURES -->
+<section id="features" style="background:  url(images/amostragratis.jpg) repeat-x top; background-size:85%; height:150px; ">
+     
+  <div class="container" >
 
+    <div class="row"  > </div>
+  </div>
+</section>
+<!-- FEATURES -->
 
 
 

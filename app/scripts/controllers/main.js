@@ -13,7 +13,7 @@ angular.module('gosteiclubApp')
   	$scope.user = {};
     $scope.user.terms = true;
 
-    
+     console.log('User', User.resource.get());
 
 
   	$scope.checkout = function (user) {
@@ -25,7 +25,7 @@ angular.module('gosteiclubApp')
           angular.element('#messageStatus').html('100%');
 
 
-          //console.log('User', User.getResource.get());
+         
     
         }
     };
