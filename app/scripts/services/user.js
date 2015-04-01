@@ -17,7 +17,7 @@
   var actions = {
     'get' : {
       method: 'GET',
-      url: 'http://104.236.251.213:3009/users',
+      url: '/api/users',
       interceptor : {
         response : function(response){
           self.data = response.data;
