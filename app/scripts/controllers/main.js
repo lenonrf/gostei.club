@@ -8,32 +8,59 @@
  * Controller of the gosteiclubApp
  */
 angular.module('gosteiclubApp')
-  .controller('MainCtrl', function ($scope, Utils, User) {
+  .controller('MainCtrl', function ($scope, $location, Utils, User) {
 
   	$scope.user = {};
     $scope.user.terms = true;
+    $scope.disableButton = false;
 
-     console.log('User', User.resource.get());
+    //console.log('User', User.resource.get());
 
 
   	$scope.checkout = function (user) {
       	
-        if($scope.validateFields(user)){
+        //if($scope.validateFields(user)){
+          $scope.disableButton = true;
           
-          $scope.bgMsgColor = '#3498db';        
-          angular.element('#lname').focus();
-          angular.element('#messageStatus').html('100%');
+
+          var dataBody = {
+            'name' : user.name,
+            'email' : user.email,
+            'gender' : user.gender
+          };
 
 
+          console.log('dataBody', dataBody);
+
+          var users = User.resource.save(dataBody, {}, onSuccess, onError);
+          
+          console.log('retorno', users);
          
     
-        }
+        //}
     };
 
 
 
+    function onSuccess(){
+      
+      $scope.bgMsgColor = '#3498db';        
+      angular.element('#lname').focus();
+      angular.element('#messageStatus').html('100%');
 
-  	$scope.validateFields = function(user){
+      $location.path('/perguntas');
+    }
+
+
+    function onError(data){
+      
+      console.log('error', data);
+
+    }
+
+
+
+  	function validateFields(user){
 
       var status = true;
 
@@ -97,7 +124,7 @@ angular.module('gosteiclubApp')
   		}
 
       return status;
-  	};
+  	}
 
 
 });

@@ -125,6 +125,25 @@ button:hover {
 
 /* 1.1. Theme Extras */
 
+
+.btn-main-disable {
+	background: #D3D5CE;
+	color: #fff;
+	border-radius: 5px;
+	border: none;
+	line-height: 50px;
+	padding: 0 35px;
+	text-transform: none;
+	letter-spacing: 0.3px;
+	font-size: 14px;
+	font-weight: 600;
+	transition: 0.4s;
+	-webkit-transition: 0.4s;
+	margin: 0 auto;
+	display: table;
+}
+
+
 .btn-main {
 	background: #749c0d;
 	color: #fff;

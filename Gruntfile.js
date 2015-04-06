@@ -74,29 +74,26 @@ module.exports = function (grunt) {
         livereload: 35729
       },
       livereload: {
-        options: {
-          open: true,
-          middleware: function (connect) {
-            return [
-              connect().use(function (req, res, next) {
-                res.setHeader('Access-Control-Allow-Origin', '*');
-                next();
-              }),
-              connect.static('.tmp'),
-              connect().use(
-                '/bower_components',
-                connect.static('./bower_components')
-              ),
-              connect().use(
-                '/app/styles',
-                connect.static('./app/styles')
-              ),
-              connect.static(appConfig.app)
-
-            ];
+          options: {
+            open: true,
+            middleware: function (connect) {
+              var middlewares = [
+                  //Enable CORS
+                  connect().use(function (req, res, next) {
+                    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3009');
+                    next();
+                  }),
+                  connect.static('.tmp'),
+                  connect().use(
+                    '/bower_components',
+                    connect.static('./bower_components')
+                  ),
+                  connect.static(appConfig.app)
+                ];
+              return middlewares;
+            }
           }
-        }
-      },
+        },
       test: {
         options: {
           port: 9001,

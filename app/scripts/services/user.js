@@ -10,29 +10,25 @@
  angular.module('gosteiclubApp')
  .factory('User', function ($resource) {
 
-
   this.data = {};
   var self = this;
 
   var actions = {
+
     'get' : {
       method: 'GET',
-      url: '/api/users',
+      isArray:true,
       interceptor : {
-        response : function(response){
-          self.data = response.data;
+        response : function (response) {
+          self.data.item = angular.extend(self.data.item, response.data.item);
           return self.data;
         }
       }
-        
-    }
+    },    
   };
 
-  this.resource = $resource(null, {}, actions);
+  this.resource = $resource('/api/users/', {}, actions);
 
-  this.isLoogedIn = function(){
-    return self.data.logged;
-  };
 
   this.getCachedData = function(){
     return self.data;
