@@ -10,6 +10,9 @@
  angular.module('gosteiclubApp')
  .factory('User', function ($resource) {
 
+  return $resource('/api/users/:email', {}, {salvar: {method:'POST', isArray:true}});
+
+/*
   this.data = {};
   var self = this;
 
@@ -27,12 +30,12 @@
     },    
   };
 
-  this.resource = $resource('/api/users/', {}, actions);
+  this.resource = 
 
 
   this.getCachedData = function(){
     return self.data;
   };
 
-  return this;
+  return this;*/
 });

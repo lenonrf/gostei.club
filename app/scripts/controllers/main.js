@@ -8,7 +8,7 @@
  * Controller of the gosteiclubApp
  */
 angular.module('gosteiclubApp')
-  .controller('MainCtrl', function ($scope, $location, Utils, User) {
+  .controller('MainCtrl', function ($scope, $location, Utils, User, $http) {
 
   	$scope.user = {};
     $scope.user.terms = true;
@@ -18,10 +18,13 @@ angular.module('gosteiclubApp')
 
 
   	$scope.checkout = function (user) {
-      	
+
         //if($scope.validateFields(user)){
           $scope.disableButton = true;
-          
+
+          $scope.user = new User();
+          console.log('$scope.user', $scope.user);
+
 
           var dataBody = {
             'name' : user.name,
@@ -30,31 +33,52 @@ angular.module('gosteiclubApp')
           };
 
 
-          console.log('dataBody', dataBody);
+          $scope.user.data = dataBody;
 
-          var users = User.resource.save(dataBody, {}, onSuccess, onError);
-          
-          console.log('retorno', users);
-         
-    
+          User.save($scope.user, onSuccess, onError);
+
+          $http.post('/api/users', dataBody).
+            success(function(data, status, headers, config) {
+              console.log('onSuccess', data);
+              console.log('status', status);
+              console.log('headers', headers);
+              console.log('config', config);
+            }).
+            error(function(data, status, headers, config) {
+              console.log('erro', data);
+              console.log('status', status);
+              console.log('headers', headers);
+              console.log('config', config);
+            });
+
+
+
         //}
     };
 
 
 
-    function onSuccess(){
-      
-      $scope.bgMsgColor = '#3498db';        
+    function onSuccess(data, status, headers, config){
+
+      console.log('onSuccess', data);
+      console.log('status', status);
+      console.log('headers', headers);
+      console.log('config', config);
+
+      /*$scope.bgMsgColor = '#3498db';
       angular.element('#lname').focus();
       angular.element('#messageStatus').html('100%');
 
-      $location.path('/perguntas');
+      $location.path('/perguntas');*/
     }
 
 
-    function onError(data){
-      
-      console.log('error', data);
+    function onError(data, status, headers, config){
+
+      console.log('onError`', data);
+      console.log('status', status);
+      console.log('headers', headers);
+      console.log('config', config);
 
     }
 
@@ -70,13 +94,13 @@ angular.module('gosteiclubApp')
 
 
   		if(!Utils.isEmpty(user)){
-  			
+
 
         if(Utils.isEmpty(user.name)){
 
           $scope.bgMsgColor = '#CD0000';
           $scope.bgUserColor = '#FFFACD';
-          
+
           angular.element('#lname').focus();
           angular.element('#messageStatus').html('Preencha o usu&aacuterio');
 
@@ -111,7 +135,7 @@ angular.module('gosteiclubApp')
         }
 
   		}else{
-        
+
         $scope.bgMsgColor = '#CD0000';
         $scope.bgGenderColor = '#FFFACD';
         $scope.bgEmailColor = '#FFFACD';
