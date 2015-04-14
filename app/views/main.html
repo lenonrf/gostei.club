@@ -1,222 +1,289 @@
+<!-- INTRO -->
+<section id="intro" class="intro4">
 
-    <!-- INTRO -->
-    <section id="intro" class="intro4">
-
-      <div class="container">
-        <div class="row">
+  <div class="container">
+    <div class="row">
 
 
-              <div class="col-md-7" >
-                  <h3 style="font-weight: 550; letter-spacing: -1px; color:#fdb72c;  font-size:36px; font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif; margin-bottom:-2px">Receba Produtos Grátis em Casa!</h3>
-                    <div class="col-md-14" style="  font-size: 16px;
+      <div class="col-md-7">
+        <h3
+          style="font-weight: 550; letter-spacing: -1px; color:#fdb72c;  font-size:36px; font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif; margin-bottom:-2px">
+          Receba Produtos Grátis em Casa!</h3>
+
+        <div class="col-md-14" style="  font-size: 16px;
   color: #fff;
   font-weight: 200;
-  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif; margin-bottom:2%;">Quer fazer parte do nosso Clube de Oportunidades, receber produtos em casa sem pagar nada e nos contar o que achou?</div>
-                    <img class="img-responsive" src="images/bg_home.png" alt=""  style="">
-                </div>
-                
-
-
-          <!--
-          <div class="col-md-7" style="margin-bottom:15%;">
-            <h2 style=" font-weight: 600; font-size:43px; margin-top:-10px; ">Receba produtos grátis em sua casa!</h2>
-            <p class="lead" style="margin-top:-30px;" >Quer fazer parte do Clube de Oportunidades, receber produtos em casa de graça e nos contar o que achou?</p>
-            <img class="img-responsive" src="images/bg_home.png" alt=""  style="width:150%">
-          </div>-->
-
-          <div class="col-md-5 sub-form">
-            <div id="sub-form">
-              <form class="subscribe" novalidate id="invite" >
-
-                <h4 style="margin-top:-15px; margin-bottom:20px; text-align:left; font-weight: 500; color:#888585;">O Gostei é 100% Grátis</h4>
-
-                <h5 ng-style="{'background-color': bgMsgColor}" class="sub-form-h5" style="text-align:left; padding-left:54px;" id="messageStatus">Participe!</h5>
-
-                <input required ng-style="{'background-color': bgUserColor}" type="text" name="lname" id="lname" class="lname" placeholder="nome" ng-model="user.name">
-
-                <input required ng-style="{'background-color': bgEmailColor}" type="email" name="email" id="email" class="e-mail" placeholder="exemplo@email.com" ng-model="user.email">
-
-                <select ng-style="{'background-color': bgGenderColor}" class="sexo" name="gender" id="gender" ng-model="user.gender" >
-                  <option value="" disabled selected >&nbsp;&nbsp;sexo</option>
-                  <option value="F">&nbsp;&nbsp;Feminino</option>
-                  <option value="M">&nbsp;&nbsp;Masculino</option>
-                </select>
-
-                <input type="checkbox" ng-model="user.terms" name="checkboxG1" checked id="checkboxG1" class="css-checkbox" REQUIRED/>
-                <label for="checkboxG1" class="css-label" style="padding-top:3px;"><span>Concordo com os <a class="term-popup" href="#">Termos e Condições</a></span></label>
-                <div class="clearfix"></div>
-                <div class="space20"></div>
-
-                <button type="button" ng-disabled="disableButton" ng-class="disableButton ? 'btn-main-disable btn-center' : 'btn-main btn-center'" ng-click="checkout(user)">Quero Participar!</button>
-              </form>
-            </div>
-            <span id="result"></span>
-          </div>
-
-
+  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif; margin-bottom:2%;">Quer fazer parte do nosso Clube
+          de Oportunidades, receber produtos em casa sem pagar nada e nos contar o que achou?
         </div>
+        <img class="img-responsive" src="images/bg_home.png" alt="" style="">
+      </div>
 
-        <!-- ABOUT / INFO CONTENT -->
+      <div class="col-md-5 sub-form">
+        <div id="sub-form">
+          <form class="subscribe" novalidate id="invite">
+
+            <h4 style="margin-top:-15px; margin-bottom:20px; text-align:left; font-weight: 500; color:#888585;">O Gostei
+              é 100% Grátis</h4>
+
+            <div ng-show="showFormFields">
+
+              <h5 ng-style="{'background-color': bgMsgColor}" class="sub-form-h5"
+                  style="text-align:left; padding-left:54px;" id="messageStatus">Participe!</h5>
+
+              <input ng-style="{'background-color': bgUserColor}" type="text" name="lname" id="lname" class="lname"
+                     placeholder="nome" ng-model="user.name">
+              <input ng-style="{'background-color': bgEmailColor}" type="email" name="email" id="email" class="e-mail"
+                     placeholder="exemplo@email.com" ng-model="user.email">
+
+              <div class="row">
+                <div class="col-md-6">
+                  <input type="text" disabled class="birthDateLabel" placeholder="data nascimento">
+                </div>
+                <div class="col-md-6">
+                  <input ng-style="{'background-color': bgBirthColor}" ui-mask="99/99/9999" type="text" name="email"
+                         id="birthDate" class="e-mail" placeholder="dd/mm/aaaa" ng-model="user.birthDate">
+                </div>
+              </div>
+
+              <select ng-style="{'background-color': bgGenderColor}" class="sexo" name="gender" id="gender"
+                      ng-model="user.gender">
+                <option value="" disabled selected>&nbsp;&nbsp;sexo</option>
+                <option value="F">&nbsp;&nbsp;Feminino</option>
+                <option value="M">&nbsp;&nbsp;Masculino</option>
+              </select>
+
+              <input type="checkbox" ng-model="user.terms" name="checkboxG1" checked id="checkboxG1"
+                     class="css-checkbox" REQUIRED/>
+              <label for="checkboxG1" class="css-label" style="padding-top:3px;"><span>Concordo com os <a
+                class="term-popup" href="#">Termos e Condições</a></span></label>
+
+              <div class="clearfix"></div>
+              <div class="space20"></div>
+
+              <button id="checkoutButton" type="button" ng-disabled="disableButton"
+                      ng-class="disableButton ? 'btn-main-disable btn-center' : 'btn-main btn-center'"
+                      ng-click="checkout(user)">Quero Participar!
+              </button>
+            </div>
+
+            <div ng-show="showEmailAlreadyThere">
+              <h5 ng-style="{'background-color': bgEmailAlreadyColor}" class="sub-form-h5"
+                  style="text-align:left;  margin-bottom:0px; padding-left:54px; color:#fdb72c;" id="messageEMAIL">Email
+                j&aacute; cadastrado!</h5>
+              <h5 ng-style="{'background-color': bgEmailAlreadyColor}" class="sub-form-h5"
+                  style="text-align:left; margin-top:0px; padding-left:54px;" id="messageEMAIL">{{user.data.email}}</h5>
+            </div>
+
+
+          </form>
+        </div>
 
 
       </div>
+
+
     </div>
-  </section>
-  <!-- INTRO -->
+
+    <!-- ABOUT / INFO CONTENT -->
+
+
+  </div>
+  </div>
+</section>
+<!-- INTRO -->
 
 
 <!-- FEATURES -->
-<section id="features" style="background:  url(images/amostragratis.jpg) repeat-x top; background-size:85%; height:150px; ">
-     
-  <div class="container" >
+<section id="features"
+         style="background:  url(images/amostragratis.jpg) repeat-x top; background-size:85%; height:150px; ">
 
-    <div class="row"  > </div>
+  <div class="container">
+
+    <div class="row"></div>
   </div>
 </section>
 <!-- FEATURES -->
 
 
+<!-- INFO BOXES -->
+<section class="info-content" id="degraca">
+  <div class="container">
+    <div class="content-head">
+      <h3 style="margin-bottom:10px;">De Graça?</h3>
 
-  <!-- INFO BOXES -->
-  <section class="info-content" id="degraca">
-    <div class="container">
-      <div class="content-head">
-        <h3 style="margin-bottom:10px;">De Graça?</h3>
-        <p>Sim, de graça.  Nosso objetivo é levar a opinião sobre a qualidade dos produtos para todos os participantes do gostei.club. Aproximando as marcas dos consumidores, gerando transparência e informação na hora da compra. </p>
-      </div>
-      <div class="row">
-        <div class="col-md-4 ic-inner">
-          <img src="http://gosteiclub-12bd.kxcdn.com/images/xtra/1.jpg" class="img-responsive" alt=""/>
-          <h4>Roupas e Acessórios</h4>
-          <p>
-            <ul class="space40" style="color:#898989;">
-              <li><i class="fa fa-check"></i> Camisetas, Camisas</li>
-              <li><i class="fa fa-check"></i> Calças, Bermudas</li>
-              <li><i class="fa fa-check"></i> Vestidos, Saias, Bijuterias</li>
-              <li><i class="fa fa-check"></i> Bonés, Chapéus, Perfumes</li>
-              <li><i class="fa fa-check"></i> Muitos outros...</li>
-            </ul>
-
-          </p>
-        </div>
-        <div class="col-md-4 ic-inner">
-          <img src="http://gosteiclub-12bd.kxcdn.com/images/xtra/2.jpg" class="img-responsive" alt=""/>
-          <h4>Eletrônicos e Gadgets</h4>
-          <p>
-            <ul class="space40" style="color:#898989;">
-              <li><i class="fa fa-check"></i> Mouse, Mouse Pad</li>
-              <li><i class="fa fa-check"></i> Teclados, Mp3 Players</li>
-              <li><i class="fa fa-check"></i> Relógios, Fones</li>
-              <li><i class="fa fa-check"></i> Cabos e Conectores</li>
-              <li><i class="fa fa-check"></i> Entre outros..</li>
-            </ul>
-
-          </p>
-        </div>
-        <div class="col-md-4 ic-inner">
-          <img src="http://gosteiclub-12bd.kxcdn.com/images/xtra/3.jpg" class="img-responsive" alt=""/>
-          <h4>Comidas, bebidas e itens de limpeza</h4>
-          <p>
-            <ul class="space40" style="color:#898989;">
-              <li><i class="fa fa-check"></i> Sucos, Refrigerantes</li>
-              <li><i class="fa fa-check"></i> Gelatinas e Doces</li>
-              <li><i class="fa fa-check"></i> Produtos de Limpeza</li>
-              <li><i class="fa fa-check"></i> Utilidades Donésticas</li>
-              <li><i class="fa fa-check"></i> E muito mais..</li>
-            </ul>
-
-          </p>
-        </div>
-      </div>
-
+      <p>Sim, de graça. Nosso objetivo é levar a opinião sobre a qualidade dos produtos para todos os participantes do
+        gostei.club. Aproximando as marcas dos consumidores, gerando transparência e informação na hora da compra. </p>
     </div>
-  </section>
-  <!-- INFO BOXES -->
+    <div class="row">
+      <div class="col-md-4 ic-inner">
+        <img src="http://gosteiclub-12bd.kxcdn.com/images/xtra/1.jpg" class="img-responsive" alt=""/>
+        <h4>Roupas e Acessórios</h4>
 
-  <div id="depoimentos" style="height:80px;" ></div>
-  <!-- FEATURES -->
+        <p>
+        <ul class="space40" style="color:#898989;">
+          <li><i class="fa fa-check"></i> Camisetas, Camisas</li>
+          <li><i class="fa fa-check"></i> Calças, Bermudas</li>
+          <li><i class="fa fa-check"></i> Vestidos, Saias, Bijuterias</li>
+          <li><i class="fa fa-check"></i> Bonés, Chapéus, Perfumes</li>
+          <li><i class="fa fa-check"></i> Muitos outros...</li>
+        </ul>
 
-  <section id="features">
-    <div class="container" >
-      <div class="row">
-        <div class="col-md-12">
-          <h2 style="color:#fff; text-align:center; margin-top:10px; font-size:40px;">DEPOIMENTOS</h2>
-          <p  style="color:#e2e1e1; margin-bottom:10px; text-align:center;">Várias pessoas já foram selecionadas para receber em sua casa, gratuítamente os produtos que enviamos. Faça parte deste clube você também.</p>
-        </div>
+        </p>
+      </div>
+      <div class="col-md-4 ic-inner">
+        <img src="http://gosteiclub-12bd.kxcdn.com/images/xtra/2.jpg" class="img-responsive" alt=""/>
+        <h4>Eletrônicos e Gadgets</h4>
 
-        <div class="col-md-4" style="margin-bottom:100px;">
-          <!-- Download App Section -->
-          <div class="space60"></div>
-          <div class="feature-content">
+        <p>
+        <ul class="space40" style="color:#898989;">
+          <li><i class="fa fa-check"></i> Mouse, Mouse Pad</li>
+          <li><i class="fa fa-check"></i> Teclados, Mp3 Players</li>
+          <li><i class="fa fa-check"></i> Relógios, Fones</li>
+          <li><i class="fa fa-check"></i> Cabos e Conectores</li>
+          <li><i class="fa fa-check"></i> Entre outros..</li>
+        </ul>
 
-            <img src="http://gosteiclub-12bd.kxcdn.com/images/p1.jpg" style="width:70px; border-radius: 40px; float:left;" >
-            <p style="padding-top:5px; ;">"E os meus olhos ficam sorrindo e pelas ruas vão te seguindo"<p><b >Pixinguinha</b></p></p>
-          </div>
-          <div class="feature-content">
-            <img src="http://gosteiclub-12bd.kxcdn.com/images/p2.jpg" style="width:70px; border-radius: 40px; float:left;" >
-            <p style="padding-top:5px;">"Tenho oito bandolins em casa. Depois deles, só tenho dois filhos e minha mulher"<p><b >Jacob do Bandolim</b></p></p>
-          </div>
-          <div class="feature-content">
-            <img src="http://gosteiclub-12bd.kxcdn.com/images/p3.jpg" style="width:70px; border-radius: 40px; float:left;" >
-            <p style="padding-top:5px;">"hoje. Aprendendo com o povo, pois só o povo ensina essa coisa"<p><b >Radamés Gnattali</b></p></p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="space60"></div>
-          <div class="feature-content">
-            <img src="http://gosteiclub-12bd.kxcdn.com/images/p4.jpg" style="width:70px; border-radius: 40px; float:left;" >
-            <p style="padding-top:5px;">"Eu somente sou útil, de alguma forma, através da música."<p><b >Heitor Villa-Lobos</b></p></p>
-          </div>
-          <div class="feature-content">
-            <img src="http://gosteiclub-12bd.kxcdn.com/images/p5.jpg" style="width:70px; border-radius: 40px; float:left;" >
-            <p style="padding-top:5px;">"Fundamental é mesmo o amor, é impossível ser feliz sozinho"<p><b >Tom Jobim</b></p></p>
-          </div>
-          <div class="feature-content">
-            <img src="http://gosteiclub-12bd.kxcdn.com/images/p6.jpg" style="width:70px; border-radius: 40px; float:left;" >
-            <p style="padding-top:5px;">"A vida é a arte do encontro, embora haja tanto desencontro pela vida."<p><b >Vinícius de Moraes</b></p></p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="space60"></div>
-          <div class="feature-content">
-            <img src="http://gosteiclub-12bd.kxcdn.com/images/p7.jpg" style="width:70px; border-radius: 40px; float:left;" >
-            <p style="padding-top:5px;">"Beija-me com todo o teu amor, senão eu morro de ciúme"<p><b >Cyro Monteiro</b></p></p>
-          </div>
-          <div class="feature-content">
-            <img src="http://gosteiclub-12bd.kxcdn.com/images/p8.jpg" style="width:70px; border-radius: 40px; float:left;" >
-            <p style="padding-top:5px;">"Nas cinzas do meu sonho Um hino então componho"<p><b >Elizeth Cardoso</b></p></p>
-          </div>
-          <div class="feature-content">
-            <img src="http://gosteiclub-12bd.kxcdn.com/images/p9.jpg" style="width:70px; border-radius: 40px; float:left;" >
-            <p style="padding-top:5px;">"No estilo choro, o violão se caracteriza por frases de contraponto"<p><b >Raphael Rabello</b></p></p>
-          </div>
-        </div>
+        </p>
+      </div>
+      <div class="col-md-4 ic-inner">
+        <img src="http://gosteiclub-12bd.kxcdn.com/images/xtra/3.jpg" class="img-responsive" alt=""/>
+        <h4>Comidas, bebidas e itens de limpeza</h4>
+
+        <p>
+        <ul class="space40" style="color:#898989;">
+          <li><i class="fa fa-check"></i> Sucos, Refrigerantes</li>
+          <li><i class="fa fa-check"></i> Gelatinas e Doces</li>
+          <li><i class="fa fa-check"></i> Produtos de Limpeza</li>
+          <li><i class="fa fa-check"></i> Utilidades Donésticas</li>
+          <li><i class="fa fa-check"></i> E muito mais..</li>
+        </ul>
+
+        </p>
       </div>
     </div>
-  </section>
-  <!-- FEATURES -->
 
+  </div>
+</section>
+<!-- INFO BOXES -->
 
+<div id="depoimentos" style="height:80px;"></div>
+<!-- FEATURES -->
 
+<section id="features">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 style="color:#fff; text-align:center; margin-top:10px; font-size:40px;">DEPOIMENTOS</h2>
 
-
-
-  <!-- SCREENSHOTS -->
-  <section class="shots" id="marcas">
-    <div class="container">
-      <div class="content-head">
-        <h3>Algumas Marcas Testadas</h3>
-        <p>Sempre procuramos bons parceiros, com produtos interessantes, para você testar e nos dizer o que acha.</p>
+        <p style="color:#e2e1e1; margin-bottom:10px; text-align:center;">Várias pessoas já foram selecionadas para
+          receber em sua casa, gratuítamente os produtos que enviamos. Faça parte deste clube você também.</p>
       </div>
-      <div class="row">
+
+      <div class="col-md-4" style="margin-bottom:100px;">
+        <!-- Download App Section -->
+        <div class="space60"></div>
+        <div class="feature-content">
+
+          <img src="http://gosteiclub-12bd.kxcdn.com/images/p1.jpg"
+               style="width:70px; border-radius: 40px; float:left;">
+
+          <p style="padding-top:5px; ;">"E os meus olhos ficam sorrindo e pelas ruas vão te seguindo"
+
+          <p><b>Pixinguinha</b></p></p>
+        </div>
+        <div class="feature-content">
+          <img src="http://gosteiclub-12bd.kxcdn.com/images/p2.jpg"
+               style="width:70px; border-radius: 40px; float:left;">
+
+          <p style="padding-top:5px;">"Tenho oito bandolins em casa. Depois deles, só tenho dois filhos e minha mulher"
+
+          <p><b>Jacob do Bandolim</b></p></p>
+        </div>
+        <div class="feature-content">
+          <img src="http://gosteiclub-12bd.kxcdn.com/images/p3.jpg"
+               style="width:70px; border-radius: 40px; float:left;">
+
+          <p style="padding-top:5px;">"hoje. Aprendendo com o povo, pois só o povo ensina essa coisa"
+
+          <p><b>Radamés Gnattali</b></p></p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="space60"></div>
+        <div class="feature-content">
+          <img src="http://gosteiclub-12bd.kxcdn.com/images/p4.jpg"
+               style="width:70px; border-radius: 40px; float:left;">
+
+          <p style="padding-top:5px;">"Eu somente sou útil, de alguma forma, através da música."
+
+          <p><b>Heitor Villa-Lobos</b></p></p>
+        </div>
+        <div class="feature-content">
+          <img src="http://gosteiclub-12bd.kxcdn.com/images/p5.jpg"
+               style="width:70px; border-radius: 40px; float:left;">
+
+          <p style="padding-top:5px;">"Fundamental é mesmo o amor, é impossível ser feliz sozinho"
+
+          <p><b>Tom Jobim</b></p></p>
+        </div>
+        <div class="feature-content">
+          <img src="http://gosteiclub-12bd.kxcdn.com/images/p6.jpg"
+               style="width:70px; border-radius: 40px; float:left;">
+
+          <p style="padding-top:5px;">"A vida é a arte do encontro, embora haja tanto desencontro pela vida."
+
+          <p><b>Vinícius de Moraes</b></p></p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="space60"></div>
+        <div class="feature-content">
+          <img src="http://gosteiclub-12bd.kxcdn.com/images/p7.jpg"
+               style="width:70px; border-radius: 40px; float:left;">
+
+          <p style="padding-top:5px;">"Beija-me com todo o teu amor, senão eu morro de ciúme"
+
+          <p><b>Cyro Monteiro</b></p></p>
+        </div>
+        <div class="feature-content">
+          <img src="http://gosteiclub-12bd.kxcdn.com/images/p8.jpg"
+               style="width:70px; border-radius: 40px; float:left;">
+
+          <p style="padding-top:5px;">"Nas cinzas do meu sonho Um hino então componho"
+
+          <p><b>Elizeth Cardoso</b></p></p>
+        </div>
+        <div class="feature-content">
+          <img src="http://gosteiclub-12bd.kxcdn.com/images/p9.jpg"
+               style="width:70px; border-radius: 40px; float:left;">
+
+          <p style="padding-top:5px;">"No estilo choro, o violão se caracteriza por frases de contraponto"
+
+          <p><b>Raphael Rabello</b></p></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- FEATURES -->
 
 
+<!-- SCREENSHOTS -->
+<section class="shots" id="marcas">
+  <div class="container">
+    <div class="content-head">
+      <h3>Algumas Marcas Testadas</h3>
+
+      <p>Sempre procuramos bons parceiros, com produtos interessantes, para você testar e nos dizer o que acha.</p>
+    </div>
+    <div class="row">
 
 
-        <div class="col-md-12">
+      <div class="col-md-12">
 
-          <div class="shots-slide"
-          slick-slider="{dots: true, arrows: false, speed: 300, centerMode: false, slidesToShow: 4, slidesToScroll: 1, responsive: [{ breakpoint: 1024, settings: { slidesToShow: 3, slidesToScroll: 1, infinite: true, dots: true }}, { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1 } }, { breakpoint: 480, settings: { slidesToShow: 1, slidesToScroll: 1 }}]}">
+        <div class="shots-slide"
+             slick-slider="{dots: true, arrows: false, speed: 300, centerMode: false, slidesToShow: 4, slidesToScroll: 1, responsive: [{ breakpoint: 1024, settings: { slidesToShow: 3, slidesToScroll: 1, infinite: true, dots: true }}, { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1 } }, { breakpoint: 480, settings: { slidesToShow: 1, slidesToScroll: 1 }}]}">
 
           <div class="shots-thumb"><a><img ng-src="http://gosteiclub-12bd.kxcdn.com/images/shots/1.jpg"/></a></div>
           <div class="shots-thumb"><a><img ng-src="http://gosteiclub-12bd.kxcdn.com/images/shots/2.jpg"/></a></div>
@@ -232,10 +299,6 @@
   </div>
 </section>
 <!-- SCREENSHOTS -->
-
-
-
-
 
 
 <!-- FEATURES -->
@@ -254,104 +317,105 @@
     <div class="row">
 
 
-     <div class="content-head" style="margin-top:-40px;">
-      <h3>ENTRE EM CONTATO</h3>
-      <p>Queremos saber a sua opinião :) </p>
-    </div>
+      <div class="content-head" style="margin-top:-40px;">
+        <h3>ENTRE EM CONTATO</h3>
+
+        <p>Queremos saber a sua opinião :) </p>
+      </div>
 
 
-    <div class="content-head">
+      <div class="content-head">
 
-      <ul>
-        <li>
-          <div class="f-social">
-            <a href="#" class="fa fa-facebook"></a>
-            <a href="#" class="fa fa-twitter"></a>
-            <a href="#" class="fa fa-instagram"></a>
+        <ul>
+          <li>
+            <div class="f-social">
+              <a href="#" class="fa fa-facebook"></a>
+              <a href="#" class="fa fa-twitter"></a>
+              <a href="#" class="fa fa-instagram"></a>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+
+      <!-- Contact Form -->
+
+      <div class="content-head" style="margin-top:-40px; margin-bottom:0px;">
+        <form id="contactForm" action="php/contact.php" method="post">
+          <div class="row">
+            <div class="col-md-12">
+              <input name="senderName" id="senderName" type="text" placeholder="Nome" required="required"/>
+              <input type="email" name="senderEmail" id="senderEmail" placeholder="Email" required="required"/>
+              <textarea rows="4" name="message" id="message" placeholder="Mensagem"></textarea>
+            </div>
           </div>
-        </li>
-      </ul>
-
-    </div>
-
-    <!-- Contact Form -->
-
-    <div class="content-head" style="margin-top:-40px; margin-bottom:0px;">
-      <form id="contactForm" action="php/contact.php" method="post">
-        <div class="row">
-          <div class="col-md-12">
-            <input name="senderName" id="senderName" type="text" placeholder="Nome" required="required" />
-            <input type="email" name="senderEmail" id="senderEmail" placeholder="Email" required="required"/>
-            <textarea rows="4" name="message" id="message" placeholder="Mensagem"></textarea>
+          <div class="row">
+            <div class="col-md-12">
+              <button type="submit" class="btn-main pull-right" style="width:150px;">Enviar</button>
+            </div>
           </div>
+        </form>
+        <div id="sendingMessage" class="statusMessage">
+          <p><i class="fa fa-spin fa-spinner"></i>Enviando a sua Mensagem. Por favor Aguarde...</p>
         </div>
-        <div class="row">
-          <div class="col-md-12">
-            <button type="submit" class="btn-main pull-right" style="width:150px;">Enviar</button>
-          </div>
+        <div id="successMessage" class="successmessage">
+          <p><i class="fa fa-check"></i> Obrigado por enviar sua mensagem! Entraremos em contato em breve.</p>
         </div>
-      </form>
-      <div id="sendingMessage" class="statusMessage">
-        <p><i class="fa fa-spin fa-spinner"></i>Enviando a sua Mensagem. Por favor Aguarde...</p>
-      </div>
-      <div id="successMessage" class="successmessage">
-        <p><i class="fa fa-check"></i> Obrigado por enviar sua mensagem! Entraremos em contato em breve.</p>
-      </div>
-      <div id="failureMessage" class="errormessage">
-        <p><i class="fa fa-close"></i> Ocorreu um problema para enviar a sua mensagem. Tente novamente.</p>
-      </div>
-      <div id="incompleteMessage" class="statusMessage">
-        <p><i class="fa fa-warning"></i> Complete todos os campos</p>
+        <div id="failureMessage" class="errormessage">
+          <p><i class="fa fa-close"></i> Ocorreu um problema para enviar a sua mensagem. Tente novamente.</p>
+        </div>
+        <div id="incompleteMessage" class="statusMessage">
+          <p><i class="fa fa-warning"></i> Complete todos os campos</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </footer>
 
 <script type="text/javascript">
 
-      $(document).ready(function($) {
-          "use strict";
+  $(document).ready(function ($) {
+    "use strict";
 
-          // Anchor Smooth Scroll
-          $('body').on('click', '.page-scroll', function(event) {
-              var $anchor = $(this);
-              $('html, body').stop().animate({
-                  scrollTop: $($anchor.attr('href')).offset().top
-              }, 1500, 'easeInOutExpo');
-              event.preventDefault();
-          });
-      });
+    // Anchor Smooth Scroll
+    $('body').on('click', '.page-scroll', function (event) {
+      var $anchor = $(this);
+      $('html, body').stop().animate({
+        scrollTop: $($anchor.attr('href')).offset().top
+      }, 1500, 'easeInOutExpo');
+      event.preventDefault();
+    });
+  });
 
-      // Custom Popup
-      $(".term-popup").on("click", function() {
-          $(".terms").addClass("terms-active");
-          $(".overlay-dark").addClass("active");
-      });
+  // Custom Popup
+  $(".term-popup").on("click", function () {
+    $(".terms").addClass("terms-active");
+    $(".overlay-dark").addClass("active");
+  });
 
-      $(".t-close").on("click", function() {
-          $(".terms").removeClass("terms-active");
-          $(".overlay-dark").removeClass("active");
-      });
+  $(".t-close").on("click", function () {
+    $(".terms").removeClass("terms-active");
+    $(".overlay-dark").removeClass("active");
+  });
 
-      // Fixed Header
-      $(window).scroll(function() {
-          
-          if(window.location.hash == '#/'){
+  // Fixed Header
+  $(window).scroll(function () {
 
-            var value = $(this).scrollTop();
-            if (value > 50){
-              $("header").css("background", "#000000").css("padding", "0px 0px 13px");
-              
-            }else{
-              $("header").css("background", "transparent").css("padding", "20px 0px 20px");
-            }
-             
-          }else{
-            $("header").css("background", "#000000").css("padding", "0px 0px 13px");
-          }
-      
-      });
-      
-      </script>
+    if (window.location.hash == '#/') {
+
+      var value = $(this).scrollTop();
+      if (value > 50) {
+        $("header").css("background", "#000000").css("padding", "0px 0px 13px");
+
+      } else {
+        $("header").css("background", "transparent").css("padding", "20px 0px 20px");
+      }
+
+    } else {
+      $("header").css("background", "#000000").css("padding", "0px 0px 13px");
+    }
+
+  });
+
+</script>
 <!-- FOOTER -->

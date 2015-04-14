@@ -42,6 +42,10 @@ Author: Dilipkumar
 
 /* 1. GLOBAL STYLES */
 
+
+.ng-enter           { animation: scaleUp 0.5s both ease-in; z-index: 8888; }
+.ng-leave           { animation: slideOutLeft 0.5s both ease-in; z-index: 9999; }
+
 body {
 	overflow-x: hidden;
 	font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
@@ -521,7 +525,23 @@ header {
 	border-top: none !important;
 }
 
+.birthDateLabel {
+  margin-bottom: 0px;
+  border-radius: 0 0 0px 0px;
+  border-top: none !important;
+  border-right: none !important;
+}
+
+.birthDateField {
+  margin-bottom: 0px;
+  border-radius: 0 0 0px 0px;
+  border-top: none !important;
+  border-left: none !important;
+}
+
 .sexo {
+
+  margin-top: -2px;
 
 	margin-bottom: 0px;
 	border-radius: 0 0 0px 0px;
@@ -590,10 +610,10 @@ header {
 	font-family: Open Sans;
 	font-size: 13px;
 	margin: 20px 0 60px;
- 
-   
-    
-    
+
+
+
+
 }
 
 #intro.intro3 h6 a {
@@ -613,7 +633,7 @@ header {
 	background: #2f95df  url(../images/bg/4.jpg) no-repeat top right;
 	background-size: 100% auto;
 	overflow: hidden;
-    
+
 }
 
 #intro.intro4 h2,

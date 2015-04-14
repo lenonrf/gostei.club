@@ -1,0 +1,1139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6f4877ae-a576-4ab9-8bd5-edeac59ce12a" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/participe.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/scripts/controllers/participe.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/amostragratis.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/bg/000.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/bg/1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/bg/2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/bg/4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/bg/4_.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/bg/5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/bg/6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/bg/7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/bg/8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/bg4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/bg_h.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/bg_home.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/bg_home.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/cbox.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/clients/1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/clients/2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/clients/3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/clients/4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/clients/5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/clients/6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/imgo.jpeg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/mapicon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/p1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/p2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/p3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/p4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/p5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/p6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/p7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/p8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/p9.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/plus.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/dark_rounded/btnNext.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/dark_rounded/btnPrevious.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/dark_rounded/contentPattern.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/dark_rounded/default_thumbnail.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/dark_rounded/loader.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/dark_rounded/sprite.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/dark_square/btnNext.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/dark_square/btnPrevious.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/dark_square/contentPattern.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/dark_square/default_thumbnail.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/dark_square/loader.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/dark_square/sprite.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/default/default_thumb.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/default/loader.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/default/sprite.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/default/sprite_next.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/default/sprite_prev.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/default/sprite_x.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/default/sprite_y.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/facebook/btnNext.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/facebook/btnPrevious.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/facebook/contentPatternBottom.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/facebook/contentPatternLeft.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/facebook/contentPatternRight.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/facebook/contentPatternTop.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/facebook/default_thumbnail.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/facebook/loader.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/facebook/sprite.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/light_rounded/btnNext.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/light_rounded/btnPrevious.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/light_rounded/default_thumbnail.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/light_rounded/loader.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/light_rounded/sprite.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/light_square/btnNext.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/light_square/btnPrevious.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/light_square/default_thumbnail.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/light_square/loader.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/prettyphoto/light_square/sprite.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/quote/1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/quote/2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/selecionado.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/shots/1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/shots/2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/shots/3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/shots/4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/shots/5.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/shots/6.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/shots/7.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/shots/8.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/slide/1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/slide/1/1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/slide/1/2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/slide/2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/xtra/1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/xtra/2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/xtra/3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/xtra/4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/images_OLD/yeoman.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/index_OLD.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/app.js" afterPath="$PROJECT_DIR$/app/scripts/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower.json" afterPath="$PROJECT_DIR$/bower.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/karma.conf.js" afterPath="$PROJECT_DIR$/test/karma.conf.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/main.html" afterPath="$PROJECT_DIR$/app/views/main.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/main.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/perguntas.html" afterPath="$PROJECT_DIR$/app/views/perguntas.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/perguntas.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/perguntas.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/style.css" afterPath="$PROJECT_DIR$/app/styles/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/services/user.js" afterPath="$PROJECT_DIR$/app/scripts/services/user.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/services/utils.js" afterPath="$PROJECT_DIR$/app/scripts/services/utils.js" />
+    </list>
+    <ignored path="gostei.club.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="gostei.club" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="main.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/main.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.307693">
+              <caret line="40" column="67" selection-start-line="40" selection-start-column="53" selection-end-line="40" selection-end-column="67" />
+              <folding>
+                <element signature="n#style#0;n#h4#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#label#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h5#0;n#div#1;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h5#1;n#div#1;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="perguntas.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/perguntas.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.689655">
+              <caret line="25" column="15" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/styles/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.40888888">
+              <caret line="530" column="2" selection-start-line="530" selection-start-column="2" selection-end-line="530" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="participe.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/controllers/participe.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="perguntas.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/perguntas.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-24.192308">
+              <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h2#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h2#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h2#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h2#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h2#0;n#div#1;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#1;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.1923075">
+              <caret line="139" column="46" selection-start-line="139" selection-start-column="46" selection-end-line="139" selection-end-column="46" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="37" column="23" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="participe.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/participe.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-24.692308">
+              <caret line="189" column="0" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#center#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#center#0;n#div#1;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h3#0;n#div#1;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h4#0;n#div#1;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#center#0;n#div#2;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h3#0;n#div#2;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h4#0;n#div#2;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#2;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#center#0;n#div#3;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h3#0;n#div#3;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h4#0;n#div#3;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#3;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#4;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#center#0;n#div#4;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h3#0;n#div#4;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h4#0;n#div#4;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#4;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#5;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#center#0;n#div#5;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h3#0;n#div#5;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h4#0;n#div#5;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#5;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#6;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#center#0;n#div#6;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h3#0;n#div#6;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h4#0;n#div#6;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#6;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#7;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#center#0;n#div#7;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h3#0;n#div#7;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h4#0;n#div#7;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#7;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#8;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#center#0;n#div#8;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h3#0;n#div#8;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h4#0;n#div#8;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#8;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#9;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#center#0;n#div#9;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h3#0;n#div#9;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h4#0;n#div#9;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#9;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#10;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#center#0;n#div#10;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h3#0;n#div#10;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h4#0;n#div#10;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#10;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#11;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#center#0;n#div#11;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h3#0;n#div#11;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h4#0;n#div#11;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#div#11;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="Html5" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="/usr/local/etc/nginx/nginx.conf" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/app/scripts/services/user.js" />
+        <option value="$PROJECT_DIR$/app/views/main.html" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/main.js" />
+        <option value="$PROJECT_DIR$/app/scripts/services/utils.js" />
+        <option value="$PROJECT_DIR$/app/styles/style.css" />
+        <option value="$PROJECT_DIR$/app/views/perguntas.html" />
+        <option value="$PROJECT_DIR$/app/views/participe.html" />
+        <option value="$PROJECT_DIR$/app/index.html" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/participe.js" />
+        <option value="$PROJECT_DIR$/app/scripts/app.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/perguntas.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true">
+    <gruntfile path="$PROJECT_DIR$/Gruntfile.js">
+      <alias-task name="build" info="Alias for &quot;clean:dist&quot;, &quot;wiredep&quot;, &quot;useminPrepare&quot;, &quot;concurrent:dist&quot;, &quot;autoprefixer&quot;, &quot;concat&quot;, &quot;ngAnnotate&quot;, &quot;copy&quot;, &quot;cdnify&quot;, &quot;cssmin&quot;, &quot;uglify&quot;, &quot;filerev&quot;, &quot;usemin&quot;, &quot;htmlmin&quot; tasks." file-path="$PROJECT_DIR$/Gruntfile.js">
+        <dependency value="clean:dist" />
+        <dependency value="wiredep" />
+        <dependency value="useminPrepare" />
+        <dependency value="concurrent:dist" />
+        <dependency value="autoprefixer" />
+        <dependency value="concat" />
+        <dependency value="ngAnnotate" />
+        <dependency value="copy" />
+        <dependency value="cdnify" />
+        <dependency value="cssmin" />
+        <dependency value="uglify" />
+        <dependency value="filerev" />
+        <dependency value="usemin" />
+        <dependency value="htmlmin" />
+      </alias-task>
+      <alias-task name="default" info="Alias for &quot;newer:jshint&quot;, &quot;test&quot;, &quot;build&quot; tasks." file-path="$PROJECT_DIR$/Gruntfile.js">
+        <dependency value="newer:jshint" />
+        <dependency value="test" />
+        <dependency value="build" />
+      </alias-task>
+      <alias-task name="test" info="Alias for &quot;clean:server&quot;, &quot;wiredep&quot;, &quot;concurrent:test&quot;, &quot;autoprefixer&quot;, &quot;connect:test&quot;, &quot;karma&quot; tasks." file-path="$PROJECT_DIR$/Gruntfile.js">
+        <dependency value="clean:server" />
+        <dependency value="wiredep" />
+        <dependency value="concurrent:test" />
+        <dependency value="autoprefixer" />
+        <dependency value="connect:test" />
+        <dependency value="karma" />
+      </alias-task>
+      <core-task name="any-newer" info="DEPRECATED TASK.  Use the &quot;newer&quot; task instead" file-path="$PROJECT_DIR$/node_modules/grunt-newer/tasks/newer.js" multi="false" />
+      <core-task name="autoprefixer" info="Prefix CSS files." file-path="$PROJECT_DIR$/node_modules/grunt-autoprefixer/tasks/autoprefixer.js" multi="true">
+        <target value="server" />
+        <target value="dist" />
+      </core-task>
+      <core-task name="cdnify" info="Replace scripts with refs to the Google CDN" file-path="$PROJECT_DIR$/node_modules/grunt-google-cdn/tasks/cdnify.js" multi="true">
+        <target value="dist" />
+      </core-task>
+      <core-task name="clean" info="Clean files and folders." file-path="$PROJECT_DIR$/node_modules/grunt-contrib-clean/tasks/clean.js" multi="true">
+        <target value="dist" />
+      </core-task>
+      <core-task name="compass" info="Compile Sass to CSS using Compass" file-path="$PROJECT_DIR$/node_modules/grunt-contrib-compass/tasks/compass.js" multi="true">
+        <target value="dist" />
+        <target value="server" />
+      </core-task>
+      <core-task name="concat" info="Concatenate files." file-path="$PROJECT_DIR$/node_modules/grunt-contrib-concat/tasks/concat.js" multi="true" />
+      <core-task name="concurrent" info="Run grunt tasks concurrently" file-path="$PROJECT_DIR$/node_modules/grunt-concurrent/tasks/concurrent.js" multi="true">
+        <target value="server" />
+        <target value="test" />
+        <target value="dist" />
+      </core-task>
+      <core-task name="configureProxies" info="Configure any specified connect proxies." file-path="$PROJECT_DIR$/node_modules/grunt-connect-proxy/tasks/connect_proxy.js" multi="false" />
+      <core-task name="connect" info="Start a connect web server." file-path="$PROJECT_DIR$/node_modules/grunt-contrib-connect/tasks/connect.js" multi="true">
+        <target value="livereload" />
+        <target value="test" />
+        <target value="dist" />
+      </core-task>
+      <core-task name="copy" info="Copy files." file-path="$PROJECT_DIR$/node_modules/grunt-contrib-copy/tasks/copy.js" multi="true">
+        <target value="dist" />
+        <target value="styles" />
+      </core-task>
+      <core-task name="cssmin" info="Minify CSS" file-path="$PROJECT_DIR$/node_modules/grunt-contrib-cssmin/tasks/cssmin.js" multi="true" />
+      <core-task name="filerev" info="File revisioning based on content hashing" file-path="$PROJECT_DIR$/node_modules/grunt-filerev/tasks/filerev.js" multi="true">
+        <target value="dist" />
+      </core-task>
+      <core-task name="htmlmin" info="Minify HTML" file-path="$PROJECT_DIR$/node_modules/grunt-contrib-htmlmin/tasks/htmlmin.js" multi="true">
+        <target value="dist" />
+      </core-task>
+      <core-task name="imagemin" info="Minify PNG, JPEG, GIF and SVG images" file-path="$PROJECT_DIR$/node_modules/grunt-contrib-imagemin/tasks/imagemin.js" multi="true">
+        <target value="dist" />
+      </core-task>
+      <core-task name="jshint" info="Validate files with JSHint." file-path="$PROJECT_DIR$/node_modules/grunt-contrib-jshint/tasks/jshint.js" multi="true">
+        <target value="all" />
+        <target value="test" />
+      </core-task>
+      <core-task name="karma" info="run karma." file-path="$PROJECT_DIR$/node_modules/grunt-karma/tasks/grunt-karma.js" multi="true">
+        <target value="unit" />
+      </core-task>
+      <core-task name="newer" info="Run a task with only those source files that have been modified since the last successful run." file-path="$PROJECT_DIR$/node_modules/grunt-newer/tasks/newer.js" multi="false" />
+      <core-task name="newer-clean" info="Remove cached timestamps." file-path="$PROJECT_DIR$/node_modules/grunt-newer/tasks/newer.js" multi="false" />
+      <core-task name="newer-postrun" info="Internal task." file-path="$PROJECT_DIR$/node_modules/grunt-newer/tasks/newer.js" multi="false" />
+      <core-task name="ngAnnotate" info="Add, remove and rebuild AngularJS dependency injection annotations" file-path="$PROJECT_DIR$/node_modules/grunt-ng-annotate/tasks/ng-annotate.js" multi="true">
+        <target value="dist" />
+      </core-task>
+      <core-task name="serve" info="Compile then start a connect web server" file-path="$PROJECT_DIR$/Gruntfile.js" multi="false" />
+      <core-task name="server" info="DEPRECATED TASK. Use the &quot;serve&quot; task instead" file-path="$PROJECT_DIR$/Gruntfile.js" multi="false" />
+      <core-task name="svgmin" info="Minify SVG" file-path="$PROJECT_DIR$/node_modules/grunt-svgmin/tasks/svgmin.js" multi="true">
+        <target value="dist" />
+      </core-task>
+      <core-task name="uglify" info="Minify files with UglifyJS." file-path="$PROJECT_DIR$/node_modules/grunt-contrib-uglify/tasks/uglify.js" multi="true" />
+      <core-task name="usemin" info="Replaces references to non-minified scripts / stylesheets" file-path="$PROJECT_DIR$/node_modules/grunt-usemin/tasks/usemin.js" multi="true">
+        <target value="html" />
+        <target value="css" />
+      </core-task>
+      <core-task name="useminPrepare" info="Using HTML markup as the primary source of information" file-path="$PROJECT_DIR$/node_modules/grunt-usemin/tasks/usemin.js" multi="true" />
+      <core-task name="watch" info="Run predefined tasks whenever watched files change." file-path="$PROJECT_DIR$/node_modules/grunt-contrib-watch/tasks/watch.js" multi="false">
+        <target value="bower" />
+        <target value="js" />
+        <target value="compass" />
+        <target value="gruntfile" />
+        <target value="livereload" />
+      </core-task>
+      <core-task name="wiredep" info="Inject Bower components into your source code." file-path="$PROJECT_DIR$/node_modules/grunt-wiredep/tasks/wiredep.js" multi="true">
+        <target value="app" />
+        <target value="test" />
+        <target value="sass" />
+      </core-task>
+    </gruntfile>
+    <gruntfile path="$PROJECT_DIR$/../checkout/gruntfile.js">
+      <alias-task name="codeQuality" info="Alias for &quot;build&quot;, &quot;jshint&quot; tasks." file-path="$PROJECT_DIR$/../checkout/gruntfile.js">
+        <dependency value="build" />
+        <dependency value="jshint" />
+      </alias-task>
+      <alias-task name="codequalityOnly" info="Alias for &quot;jshint&quot; task." file-path="$PROJECT_DIR$/../checkout/gruntfile.js">
+        <dependency value="jshint" />
+      </alias-task>
+      <alias-task name="default" info="Alias for &quot;concurrent:default&quot; task." file-path="$PROJECT_DIR$/../checkout/gruntfile.js">
+        <dependency value="concurrent:default" />
+      </alias-task>
+      <alias-task name="serve" info="Alias for &quot;default&quot;, &quot;watchFiles&quot; tasks." file-path="$PROJECT_DIR$/../checkout/gruntfile.js">
+        <dependency value="default" />
+        <dependency value="watchFiles" />
+      </alias-task>
+      <alias-task name="test" info="Alias for &quot;build&quot;, &quot;jasmine&quot; tasks." file-path="$PROJECT_DIR$/../checkout/gruntfile.js">
+        <dependency value="build" />
+        <dependency value="jasmine" />
+      </alias-task>
+      <alias-task name="testOnly" info="Alias for &quot;jasmine&quot; task." file-path="$PROJECT_DIR$/../checkout/gruntfile.js">
+        <dependency value="jasmine" />
+      </alias-task>
+      <core-task name="clean" info="Clean files and folders." file-path="$PROJECT_DIR$/../checkout/node_modules/grunt-contrib-clean/tasks/clean.js" multi="true" />
+      <core-task name="compress" info="Compress files." file-path="$PROJECT_DIR$/../checkout/node_modules/grunt-contrib-compress/tasks/compress.js" multi="true" />
+      <core-task name="concat" info="Concatenate files." file-path="$PROJECT_DIR$/../checkout/node_modules/grunt-contrib-concat/tasks/concat.js" multi="true" />
+      <core-task name="concurrent" info="Run grunt tasks concurrently" file-path="$PROJECT_DIR$/../checkout/node_modules/grunt-concurrent/tasks/concurrent.js" multi="true">
+        <target value="default" />
+        <target value="debug" />
+      </core-task>
+      <core-task name="cssmin" info="Minify CSS" file-path="$PROJECT_DIR$/../checkout/node_modules/grunt-contrib-cssmin/tasks/cssmin.js" multi="true" />
+      <core-task name="env" info="Specify an ENV configuration for future tasks in the chain" file-path="$PROJECT_DIR$/../checkout/node_modules/grunt-env/tasks/env.js" multi="true" />
+      <core-task name="karma" info="run karma." file-path="$PROJECT_DIR$/../checkout/node_modules/grunt-karma/tasks/grunt-karma.js" multi="true" />
+      <core-task name="loadConfig" info="Task that loads the config into a grunt option." file-path="$PROJECT_DIR$/../checkout/gruntfile.js" multi="false" />
+      <core-task name="mochaTest" info="Run node unit tests with Mocha" file-path="$PROJECT_DIR$/../checkout/node_modules/grunt-mocha-test/tasks/mocha-test.js" multi="true" />
+      <core-task name="ngmin" info="Annotate AngularJS scripts for minification" file-path="$PROJECT_DIR$/../checkout/node_modules/grunt-ngmin/tasks/ngmin.js" multi="true" />
+      <core-task name="node-inspector" info="Runs node-inspector to debug your node.js JavaScripts" file-path="$PROJECT_DIR$/../checkout/node_modules/grunt-node-inspector/tasks/inspector.js" multi="true">
+        <target value="custom" />
+      </core-task>
+      <core-task name="nodemon" info="Runs a nodemon monitor of your node.js server." file-path="$PROJECT_DIR$/../checkout/node_modules/grunt-nodemon/tasks/nodemon.js" multi="true">
+        <target value="dev" />
+      </core-task>
+      <core-task name="uglify" info="Minify files with UglifyJS." file-path="$PROJECT_DIR$/../checkout/node_modules/grunt-contrib-uglify/tasks/uglify.js" multi="true" />
+      <core-task name="usemin" info="Replaces references to non-minified scripts / stylesheets" file-path="$PROJECT_DIR$/../checkout/node_modules/grunt-usemin/tasks/usemin.js" multi="true" />
+      <core-task name="useminPrepare" info="Using HTML markup as the primary source of information" file-path="$PROJECT_DIR$/../checkout/node_modules/grunt-usemin/tasks/usemin.js" multi="true" />
+      <core-task name="watch" info="Run predefined tasks whenever watched files change." file-path="$PROJECT_DIR$/../checkout/node_modules/grunt-contrib-watch/tasks/watch.js" multi="false">
+        <target value="js" />
+      </core-task>
+    </gruntfile>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="NamedScopeManager">
+    <order />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gostei.club" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gostei.club" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gostei.club" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gostei.club" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gostei.club" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gostei.club" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gostei.club" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gostei.club" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gostei.club" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="styles" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gostei.club" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gostei.club" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gostei.club" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gostei.club" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="editor.config.accepted" value="true" />
+    <property name="recentsLimit" value="5" />
+    <property name="js.buildTools.grunt.node_interpreter" value="/usr/local/bin/node" />
+    <property name="js.buildTools.grunt.grunt-cli.package" value="/usr/local/lib/node_modules/grunt-cli" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
+    <property name="FullScreen" value="true" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
+  </component>
+  <component name="RunManager" selected="Grunt.js.gostei.club">
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <method />
+    </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="JsTestDriver-test-runner" factoryName="JsTestDriver">
+      <setting name="configLocationType" value="CONFIG_FILE" />
+      <setting name="settingsFile" value="" />
+      <setting name="serverType" value="INTERNAL" />
+      <setting name="preferredDebugBrowser" value="Chrome" />
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="cucumber.js" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" value="" />
+      <option name="executablePath" />
+      <option name="filePath" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.grunt" factoryName="Grunt.js">
+      <gruntfile value="$PROJECT_DIR$/Gruntfile.js" />
+      <tasks>
+        <task value="serve" />
+      </tasks>
+      <pass-parent-env-vars value="true" />
+      <force value="false" />
+      <verbose value="false" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="nginx.configuration.type" factoryName="nginx server">
+      <option name="serverDescriptorId" value="nginx.descriptor.1428378942348" />
+      <option name="showHttpLog" value="false" />
+      <option name="showErrorLog" value="false" />
+      <option name="httpLogPath" value="/usr/local/var/log/nginx/access.log" />
+      <option name="errorLogPath" value="/usr/local/var/log/nginx/error.log" />
+      <method />
+    </configuration>
+    <configuration default="false" name="gostei.club" type="js.build_tools.grunt" factoryName="Grunt.js">
+      <gruntfile value="$PROJECT_DIR$/Gruntfile.js" />
+      <tasks>
+        <task value="serve" />
+      </tasks>
+      <pass-parent-env-vars value="true" />
+      <force value="false" />
+      <verbose value="false" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="checkout" type="js.build_tools.grunt" factoryName="Grunt.js">
+      <gruntfile value="$PROJECT_DIR$/../checkout/gruntfile.js" />
+      <pass-parent-env-vars value="true" />
+      <force value="false" />
+      <verbose value="false" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="nginx" type="nginx.configuration.type" factoryName="nginx server">
+      <option name="serverDescriptorId" value="nginx.descriptor.1428378942348" />
+      <option name="showHttpLog" value="false" />
+      <option name="showErrorLog" value="false" />
+      <option name="httpLogPath" value="/usr/local/var/log/nginx/access.log" />
+      <option name="errorLogPath" value="/usr/local/var/log/nginx/error.log" />
+      <method />
+    </configuration>
+    <list size="3">
+      <item index="0" class="java.lang.String" itemvalue="Grunt.js.gostei.club" />
+      <item index="1" class="java.lang.String" itemvalue="Grunt.js.checkout" />
+      <item index="2" class="java.lang.String" itemvalue="nginx server.nginx" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6f4877ae-a576-4ab9-8bd5-edeac59ce12a" name="Default" comment="" />
+      <created>1428376998037</created>
+      <option name="number" value="Default" />
+      <updated>1428376998037</updated>
+    </task>
+    <task id="LOCAL-00001" summary="refatoracão">
+      <created>1428489535392</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1428489535392</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Grunt " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25019857" sideWeight="0.3821138" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284553" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19936457" sideWeight="0.60940033" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3041096" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25019857" sideWeight="0.39059967" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32786885" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329235" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="refatoracão" />
+    <option name="LAST_COMMIT_MESSAGE" value="refatoracão" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/views/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="102" selection-start-line="43" selection-start-column="98" selection-end-line="43" selection-end-column="102" />
+          <folding>
+            <element signature="n#style#0;n#h4#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h5#0;n#div#1;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h5#1;n#div#1;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="56" column="32" selection-start-line="56" selection-start-column="32" selection-end-line="56" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/styles/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="523" column="15" selection-start-line="523" selection-start-column="1" selection-end-line="523" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/perguntas.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="19" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/perguntas.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="71" selection-start-line="6" selection-start-column="71" selection-end-line="6" selection-end-column="71" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h2#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h2#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h2#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h2#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h2#0;n#div#1;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#1;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="129" column="0" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="10" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="51" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/etc/nginx/nginx.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13293944">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/etc/nginx/nginx.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5769231">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/services/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="11" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/perguntas.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-24.192308">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h2#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h2#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h2#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h2#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h2#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h2#0;n#div#1;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#1;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/participe.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-24.692308">
+          <caret line="189" column="0" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#center#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#center#0;n#div#1;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h3#0;n#div#1;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#1;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#center#0;n#div#2;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h3#0;n#div#2;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#2;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#2;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#center#0;n#div#3;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h3#0;n#div#3;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#3;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#3;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#center#0;n#div#4;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h3#0;n#div#4;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#4;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#4;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#5;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#center#0;n#div#5;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h3#0;n#div#5;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#5;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#5;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#6;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#center#0;n#div#6;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h3#0;n#div#6;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#6;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#6;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#7;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#center#0;n#div#7;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h3#0;n#div#7;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#7;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#7;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#8;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#center#0;n#div#8;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h3#0;n#div#8;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#8;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#8;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#9;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#center#0;n#div#9;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h3#0;n#div#9;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#9;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#9;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#10;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#center#0;n#div#10;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h3#0;n#div#10;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#10;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#10;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#11;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#center#0;n#div#11;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h3#0;n#div#11;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#11;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#11;n#div#0;n#div#0;n#section#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.1923075">
+          <caret line="139" column="46" selection-start-line="139" selection-start-column="46" selection-end-line="139" selection-end-column="46" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/participe.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="23" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/perguntas.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.689655">
+          <caret line="25" column="15" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.307693">
+          <caret line="40" column="67" selection-start-line="40" selection-start-column="53" selection-end-line="40" selection-end-column="67" />
+          <folding>
+            <element signature="n#style#0;n#h4#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h5#0;n#div#1;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h5#1;n#div#1;n#form#0;n#div#0;n#div#1;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/styles/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40888888">
+          <caret line="530" column="2" selection-start-line="530" selection-start-column="2" selection-end-line="530" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

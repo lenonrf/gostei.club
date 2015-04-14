@@ -9,7 +9,12 @@
  */
 angular.module('gosteiclubApp')
   .service('Utils', function () {
-    
+
+
+    this.setFixedMenu = function(){
+      $("header").css("background", "#000000").css("padding", "0px 0px 13px");
+    }
+
 
     /**
      * Valida se o objeto esta nulo

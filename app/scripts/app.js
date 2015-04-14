@@ -15,16 +15,17 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.mask'
   ])
   .config(function ($routeProvider, $httpProvider) {
 
     //$httpProvider.defaults.withCredentials = true;
-    
+
 
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
-    
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -33,6 +34,10 @@ angular
       .when('/perguntas', {
         templateUrl: 'views/perguntas.html',
         controller: 'PerguntasCtrl'
+      })
+      .when('/participe', {
+        templateUrl: 'views/participe.html',
+        controller: 'ParticipeCtrl'
       })
       .otherwise({
         redirectTo: '/'
