@@ -19,7 +19,7 @@
       <div class="col-md-14">
 
         <div ng-repeat="product in user.products" class="col-md-2 product">
-          <center><img src="images/products/{{product.image}}" class="product-image"/></center>
+          <center><img src="http://gosteiclub-12bd.kxcdn.com/images/products/{{product.image}}" class="product-image"/></center>
           <h3 class="product-title">{{product.name}}</h3>
         </div>
 
@@ -46,7 +46,7 @@
 
         <div ng-repeat="product in products" class="col-md-2 product">
 
-          <center><img src="images/products/{{product.image}}" class="product-image"/></center>
+          <center><img src="http://gosteiclub-12bd.kxcdn.com/images/products/{{product.image}}" class="product-image"/></center>
           <h3 class="product-title">{{product.name}}</h3>
           <h4 class="product-subtitle">{{product.quantity}} UNIDADES / GRÁTIS!</h4>
           <a ng-if="product.marked === false" id="link_{{product._id}}" class="product-linkbutton " ng-click="saveProduct(product)">EU QUERO!</a>
