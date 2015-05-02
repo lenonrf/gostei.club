@@ -43,6 +43,63 @@ Author: Dilipkumar
 /* 1. GLOBAL STYLES */
 
 
+.product {
+  background-color:#ffffff;
+  border: 1px solid #ededed;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border-radius:5px;
+}
+
+.product-image {
+  width:92%; padding:2px; margin-top:10px;
+}
+
+.product-title {
+  color:#000;
+  margin-bottom:15px;
+  font-size:20px;
+  letter-spacing: -1px;
+  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-weight: 500;
+}
+
+.product-subtitle {
+  margin-top:-10px; font-size:12px;
+}
+
+.product-linkbutton {
+  margin-bottom:15px;
+  background-color:#2a78c4;
+  font-weight: 200;
+  line-height: 34px;
+  border-radius:50px;
+  cursor: pointer;
+  color: #fff;
+  padding: 0 35px;
+  text-transform: none;
+  letter-spacing: 0.3px;
+  display: table;
+}
+
+.product-linkbutton-marked {
+  margin-bottom:15px;
+  background-color:#749c0d;
+  font-weight: 200;
+  line-height: 34px;
+  border-radius:50px;
+  cursor: default;
+  color: #fff;
+  padding: 0 35px;
+  text-transform: none;
+  letter-spacing: 0.3px;
+  display: table;
+  pointer-events: none;
+}
+
+
+
+
 .ng-enter           { animation: scaleUp 0.5s both ease-in; z-index: 8888; }
 .ng-leave           { animation: slideOutLeft 0.5s both ease-in; z-index: 9999; }
 
@@ -131,38 +188,57 @@ button:hover {
 
 
 .btn-main-disable {
-	background: #D3D5CE;
-	color: #fff;
-	border-radius: 5px;
-	border: none;
-	line-height: 50px;
-	padding: 0 35px;
-	text-transform: none;
-	letter-spacing: 0.3px;
-	font-size: 14px;
-	font-weight: 600;
-	transition: 0.4s;
-	-webkit-transition: 0.4s;
-	margin: 0 auto;
-	display: table;
+  color: #fff;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  border-radius:5px;
+
+  line-height: 55px;
+  padding: 0 50px;
+  text-transform: none;
+  letter-spacing: 0.3px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+  margin: 0 auto;
+  display: table;
+
+  text-shadow:0px -1px 0px #4f6816;
+  background: #D3D5CE;
+  -moz-box-shadow:inset 0px 1px 0px 0px #4f6816;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #4f6816;
+  box-shadow:inset 0px 1px 0px 0px #82ac25;
+  border:1px solid #62821b;
+  border-bottom-color: #4f6816;
 }
 
 
 .btn-main {
-	background: #749c0d;
-	color: #fff;
-	border-radius: 5px;
-	border: none;
-	line-height: 50px;
-	padding: 0 35px;
-	text-transform: none;
-	letter-spacing: 0.3px;
-	font-size: 14px;
-	font-weight: 600;
-	transition: 0.4s;
-	-webkit-transition: 0.4s;
-	margin: 0 auto;
-	display: table;
+
+  color: #fff;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  border-radius:5px;
+
+  line-height: 55px;
+  padding: 0 50px;
+  text-transform: none;
+  letter-spacing: 0.3px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+  margin: 0 auto;
+  display: table;
+
+  text-shadow:0px -1px 0px #4f6816;
+  background: #749c0d;
+  -moz-box-shadow:inset 0px 1px 0px 0px #4f6816;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #4f6816;
+  box-shadow:inset 0px 1px 0px 0px #82ac25;
+  border:1px solid #62821b;
+  border-bottom-color: #4f6816;
 }
 
 .btn-main:hover {
@@ -2669,3 +2745,16 @@ header {
 
 
 }
+
+.i-free-label {
+  position: absolute;
+  z-index: 1;
+  top: -2px;
+  right: 63px;
+  width: 52px;
+  height: 51px;
+  background: url('../images/gratis.png') no-repeat;
+}
+
+.pos_bt
+{position: relative;}

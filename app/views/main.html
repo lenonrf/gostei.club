@@ -7,19 +7,50 @@
 
       <div class="col-md-7">
         <h3
-          style="font-weight: 550; letter-spacing: -1px; color:#fdb72c;  font-size:36px; font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif; margin-bottom:-2px">
+          style="font-weight: 300; letter-spacing: -1px; color:#fdb72c;  font-size:36px; font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif; margin-bottom:5px">
           Receba Produtos Grátis em Casa!</h3>
 
         <div class="col-md-14" style="  font-size: 16px;
   color: #fff;
   font-weight: 200;
-  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif; margin-bottom:2%;">Quer fazer parte do nosso Clube
-          de Oportunidades, receber produtos em casa sem pagar nada e nos contar o que achou?
+  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif; margin-bottom:3%;">Faça parte do nosso Clube de Oportunidades, receba produtos em casa sem pagar nada e nos conte o que achou!
         </div>
+
         <img class="img-responsive" src="images/bg_home.png" alt="" style="">
       </div>
 
-      <div class="col-md-5 sub-form">
+      <div class="col-md-5 sub-form" id="loginForm" style="display: none">
+        <div id="sub-form">
+          <form class="subscribe" novalidate id="inviteLogin">
+
+            <h4 style="margin-top:-15px; margin-bottom:20px; text-align:left; font-weight: 500; color:#888585;">O Gostei
+              é 100% Grátis</h4>
+
+            <div>
+
+              <h5 ng-style="{'background-color': bgMsgLoginColor}" class="sub-form-h5"
+                  style="text-align:left; padding-left:54px;" id="messageStatusLogin">Digite seu email para entrar!</h5>
+
+
+              <input ng-style="{'background-color': bgEmailLoginColor}" type="email" name="email" id="emailLogin" class="lname"
+                     placeholder="exemplo@email.com" ng-model="user.email">
+
+              <div class="clearfix"></div>
+              <div class="space20"></div>
+
+              <button type="button" ng-disabled="disableButton"
+                      ng-class="disableButton ? 'btn-main-disable btn-center' : 'btn-main btn-center'"
+                      ng-click="login(user)">Entrar
+              </button>
+
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+
+      <div class="col-md-5 sub-form"  id="formFields">
         <div id="sub-form">
           <form class="subscribe" novalidate id="invite">
 
@@ -36,16 +67,6 @@
               <input ng-style="{'background-color': bgEmailColor}" type="email" name="email" id="email" class="e-mail"
                      placeholder="exemplo@email.com" ng-model="user.email">
 
-              <div class="row">
-                <div class="col-md-6">
-                  <input type="text" disabled class="birthDateLabel" placeholder="data nascimento">
-                </div>
-                <div class="col-md-6">
-                  <input ng-style="{'background-color': bgBirthColor}" ui-mask="99/99/9999" type="text" name="email"
-                         id="birthDate" class="e-mail" placeholder="dd/mm/aaaa" ng-model="user.birthDate">
-                </div>
-              </div>
-
               <select ng-style="{'background-color': bgGenderColor}" class="sexo" name="gender" id="gender"
                       ng-model="user.gender">
                 <option value="" disabled selected>&nbsp;&nbsp;sexo</option>
@@ -61,10 +82,16 @@
               <div class="clearfix"></div>
               <div class="space20"></div>
 
-              <button id="checkoutButton" type="button" ng-disabled="disableButton"
-                      ng-class="disableButton ? 'btn-main-disable btn-center' : 'btn-main btn-center'"
-                      ng-click="checkout(user)">Quero Participar!
-              </button>
+              <div class="pos_bt">
+                <button id="checkoutButton" class="btn-main btn-center" type="button" ng-disabled="disableButton"
+                        ng-class="disableButton ? 'btn-main-disable btn-center' : 'btn-main btn-center'"
+                        ng-click="checkout(user)">Quero Participar! <i class="i-free-label"></i>
+                </button>
+              </div>
+
+              <div class="pos_bt" style="text-align: center; padding-top: 15px;">
+              <span ><a class="term-popup" href="" ng-click="showLoginForm()">ou acesse sua conta</a></span>
+                </div>
             </div>
 
             <div ng-show="showEmailAlreadyThere">
@@ -300,77 +327,6 @@
 </section>
 <!-- SCREENSHOTS -->
 
-
-<!-- FEATURES -->
-<section id="features">
-  <div class="container">
-    <div class="row">
-
-    </div>
-  </div>
-</section>
-<!-- FEATURES -->
-
-<!-- FOOTER -->
-<footer id="footer">
-  <div class="container">
-    <div class="row">
-
-
-      <div class="content-head" style="margin-top:-40px;">
-        <h3>ENTRE EM CONTATO</h3>
-
-        <p>Queremos saber a sua opinião :) </p>
-      </div>
-
-
-      <div class="content-head">
-
-        <ul>
-          <li>
-            <div class="f-social">
-              <a href="#" class="fa fa-facebook"></a>
-              <a href="#" class="fa fa-twitter"></a>
-              <a href="#" class="fa fa-instagram"></a>
-            </div>
-          </li>
-        </ul>
-
-      </div>
-
-      <!-- Contact Form -->
-
-      <div class="content-head" style="margin-top:-40px; margin-bottom:0px;">
-        <form id="contactForm" action="php/contact.php" method="post">
-          <div class="row">
-            <div class="col-md-12">
-              <input name="senderName" id="senderName" type="text" placeholder="Nome" required="required"/>
-              <input type="email" name="senderEmail" id="senderEmail" placeholder="Email" required="required"/>
-              <textarea rows="4" name="message" id="message" placeholder="Mensagem"></textarea>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <button type="submit" class="btn-main pull-right" style="width:150px;">Enviar</button>
-            </div>
-          </div>
-        </form>
-        <div id="sendingMessage" class="statusMessage">
-          <p><i class="fa fa-spin fa-spinner"></i>Enviando a sua Mensagem. Por favor Aguarde...</p>
-        </div>
-        <div id="successMessage" class="successmessage">
-          <p><i class="fa fa-check"></i> Obrigado por enviar sua mensagem! Entraremos em contato em breve.</p>
-        </div>
-        <div id="failureMessage" class="errormessage">
-          <p><i class="fa fa-close"></i> Ocorreu um problema para enviar a sua mensagem. Tente novamente.</p>
-        </div>
-        <div id="incompleteMessage" class="statusMessage">
-          <p><i class="fa fa-warning"></i> Complete todos os campos</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
 
 <script type="text/javascript">
 

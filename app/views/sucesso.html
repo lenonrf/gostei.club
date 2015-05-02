@@ -1,0 +1,60 @@
+
+<section id="features">
+  <div id="features" style="  font-weight: 400; font-size:22px; background-color:#f7f6f6; margin-top:-55px;">
+    <div class="container"  >
+
+      <span style="color:#000; font-size:20px;"><b>Pronto, {{user.name}}. Verifique seu email e confirme seu cadastroI</b><br>
+        <p class="lead" style="font-weight: 400; font-size:14px;"><b>Veja Abaixo</b> Os produtos que você se candidatou para testar e navegue por outras oportunidades que temos para o momento!</p>
+
+    </div>
+
+  </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<div class="footer-copy">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-14">
+
+        <div ng-repeat="product in user.products" class="col-md-2 product">
+          <center><img src="images/products/{{product.image}}" class="product-image"/></center>
+          <h3 class="product-title">{{product.name}}</h3>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<section id="features" style="font-weight: 400; font-size:20px; background-color:#f7f6f6; margin-top:0px;">
+
+  <div class="container" style="margin-top:-60px">
+    <b>Temos Outras Oportunidades!</b><br>
+    <p class="lead" style="font-weight: 400; font-size:14px;"><b>Escolha outras oportunidades</b> que temos para o momento!</p>
+
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<div class="footer-copy">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-14">
+
+        <div ng-repeat="product in products" class="col-md-2 product">
+
+          <center><img src="images/products/{{product.image}}" class="product-image"/></center>
+          <h3 class="product-title">{{product.name}}</h3>
+          <h4 class="product-subtitle">{{product.quantity}} UNIDADES / GRÁTIS!</h4>
+          <a ng-if="product.marked === false" id="link_{{product._id}}" class="product-linkbutton " ng-click="saveProduct(product)">EU QUERO!</a>
+          <a ng-if="product.marked === true" class="product-linkbutton-marked">ESCOLHIDO!</a>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+

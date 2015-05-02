@@ -8,76 +8,112 @@
  * Controller of the gosteiclubApp
  */
 angular.module('gosteiclubApp')
-  .controller('MainCtrl', function ($scope, $location, Utils, User, $http) {
+  .controller('MainCtrl', function ($scope, $location, Utils, User, Login, $http) {
+
+    Utils.setDefaultMenu();
 
     $scope.user = User.getData() || {};
-    $scope.user.birthDate = null;
     $scope.user.terms = true;
     $scope.disableButton = false;
     $scope.showFormFields = true;
 
-    function getBirthDate(birthField){
+    /**
+     * Efetua o login do usuario
+     * @param user
+     * @returns {boolean}
+     */
+    $scope.login = function(user){
 
-      if(Utils.isEmpty(birthField)) return null;
+      if(!validateLogin(user)) return false;
 
-      var day   = birthField.substr(0, 2);
-      var month = birthField.substr(2, 2);
-      var year  = birthField.substr(4, 4);
-
-      return new Date(year+'-'+month+'-'+day);
-    }
-
-
-    $scope.checkout = function (user) {
-
-
-
-      if (validateFields(user)) {
-
-        console.log(user.birthDate);
-        console.log(getBirthDate(user.birthDate));
-
-
-        $scope.user.data = {
-          'name': user.name,
-          'email': user.email,
-          'gender': user.gender,
-          'birth': getBirthDate($scope.user.birthDate)
-        };
-
-        $scope.disableButton = true;
-        User.resource.save($scope.user.data, onSuccess, onError);
-
-      }
+      User.resource.get({email:user.email}, onSuccessDefault, onErrorLogin);
     };
 
 
-    function onSuccess(data) {
+    /**
+     * Executa o cadastro do usuario
+     * @param user
+     * @returns {boolean}
+     */
+    $scope.checkout = function (user) {
 
-      console.log('sucess', data);
+      if (!validateFields(user)) return false;
+
+      $scope.disableButton = true;
+
+      var data = {
+        'name': user.name,
+        'email': user.email,
+        'gender': user.gender
+      };
+
+      $http.post('/api/users', data).success(onSuccessDefault).error(onErrorCheckout);
+
+    };
 
 
-      User.setData({
-        name: data.name,
-        email: data.email,
-        gender: data.gender
-      });
+    /**
+     * Função de sucesso para login e cadastro
+     * @param data
+     */
+    function onSuccessDefault(data, status) {
 
+      data.isLogged = true;
+
+      User.setData(data);
       $location.path('/perguntas');
     }
 
 
-    function onError(data) {
+    /**
+     * Trata os erros vindo do login
+     * @param data
+     */
+    function onErrorLogin(data) {
 
-      console.log('error', data);
+      console.log('ERROR - onErrorLogin', data);
 
-      if (data.status === 400) {
+      if (data.status === 404) {
+        setMessageOnLogin('Email não cadastrado');
+      }
 
+      if (data.status === 500) {
+        setMessageOnLogin('Erro ao logar');
+      }
+    }
+
+
+    /**
+     * Trata os erros do cadastro
+     * @param data
+     */
+    function onErrorCheckout(data, status) {
+
+      console.log('ERROR - onErrorCheckout', data);
+
+      if (status === 400) {
         setMessageOnField('email', 'Email j&aacute; cadastrado');
         $scope.disableButton = false;
 
       }
     }
+
+
+
+    $scope.showLoginForm = function(){
+
+      $('#loginForm').css('display', 'block');
+      $('#formFields').css('display', 'none');
+
+    };
+
+
+
+    /**
+     *
+     * -------------------------------------------------------------------------------------------------------
+     * VALIDATORS
+     */
 
 
     function validateFields(user) {
@@ -102,41 +138,6 @@ angular.module('gosteiclubApp')
 
           setMessageOnField('email', 'Preencha o email');
           return false;
-        }
-
-
-        if (Utils.isEmpty(user.birthDate)) {
-
-          setMessageOnField('birthDate', 'Preencha a data de nascimento');
-          return false;
-
-        }else{
-
-          if(user.birthDate.length === 8){
-
-            var day   = user.birthDate.substr(0, 2);
-            var month = user.birthDate.substr(2, 2);
-            var year  = user.birthDate.substr(4, 4);
-
-            if(day > '31'){
-              setMessageOnField('birthDate', 'Dia Invalido');
-              return false;
-            }
-
-            if(month > '12'){
-              setMessageOnField('birthDate', 'Mes Invalido');
-              return false;
-            }
-
-            if(year > new Date().getFullYear()){
-              setMessageOnField('birthDate', 'Ano Invalido');
-              return false;
-            }
-
-          }else{
-            setMessageOnField('birthDate', 'Preencha a data de nascimento');
-            return false;
-          }
         }
 
 
@@ -215,4 +216,23 @@ angular.module('gosteiclubApp')
     }
 
 
+    function validateLogin(user){
+
+      if (Utils.isEmpty(user.email)) {
+        setMessageOnLogin('Preencha o email');
+        return false;
+      }
+
+      return true;
+    }
+
+
+    function setMessageOnLogin(message) {
+
+      $scope.bgMsgLoginColor = '#CD0000';
+      $scope.bgEmailLoginColor = '#FFFACD';
+
+      angular.element('#emailLogin').focus();
+      angular.element('#messageStatusLogin').html(message);
+    }
   });

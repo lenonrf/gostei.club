@@ -1,82 +1,248 @@
-<div class="container" style="margin-top:100px;">
-  <div class="row" id="headerPergunta">
+<!-- FEATURES -->
+<div id="features"
+     style="margin-top:20px; margin-bottom:20px;  font-weight: 400; font-size:22px; background-color:#f7f6f6;">
 
 
-    <div class="col-md-8" style="margin-bottom:20px;">
-
-      <h2 style="font-weight: 700; color:#3498db;   margin-top: 15px;">{{question.title}}</h2>
-
-      <p class="lead" style="font-weight: 400; font-size:14px;">{{question.description}}</p>
-
-      <div id="imageProduct" style="display: block">
-        <img style="margin-top:40px; display: block; margin-left: auto; margin-right: auto;" class="img-responsive"
-             src="{{question.image}}" alt="" style="">
-      </div>
-
-
+  <div class="container">
+    <div class="col-md-1"
+         style="width:50px; height:50px; border-size:1px; padding-top:5px; padding-left:15px;  border-style:solid; border-color:#3498db; -webkit-border-radius: 100px; margin-right:10px; -moz-border-radius: 100px; border-radius: 100px; font-size:24px; font-weight: 700; color:#3498db;">
+      1
     </div>
+    <span style="color:#000; font-size:20px;"><span style="font-size:16px">Olá,</span> <b>{{user.name}}</b> <span
+      style="font-size:16px">Bem-vindo ao nosso Clube de Oportunidades</span></span><br>
 
+    <p class="lead" style="font-weight: 400; font-size:14px;"><b>Primeiras oportunidades:</b> Escolha as oportunidades
+      dos parceiros, complete seu cadastro e aumente suas chances de ser escolhido:</p>
 
-    <div class="col-md-4"
-         style="margin-bottom:20px; padding-bottom: 15px; background-color: #3498db;  border-radius: 5px;">
+  </div>
 
-      <div class="col-md-7">
-        <h2 style="font-weight: 700; color:#ffffff; margin-top: 15px;"><b>Resposta:</b></h2>
-
-        <!--<a class="btn btn-success btn-lg" ng-click="getNextQuestion()" href="{{question.urlAnswer}}" target="_blank" role="button"><b>Sim</b></a> -->
-        <a class="btn btn-success btn-lg" ng-click="getNextQuestion(true)"  role="button"><b>Sim</b></a>
-        <a class="btn btn-warning btn-lg" ng-click="getNextQuestion()" role="button"><b>Não</b></a>
-      </div>
-
-      <div class="col-md-5">
-
-        <h2 style="font-weight: 700; color:#ffffff; margin-top: 15px; font-size: 60px; text-align: center"><b>{{user.score}}</b></h2>
-
-        <p style="font-weight: 400; color:#ffffff; font-size:20px; text-align: center"><B>Pontos</B></p>
-
-      </div>
-
-
-    </div>
+  <!-- FOOTER / COPYRIGHT -->
+  <div class="footer-copy">
 
   </div>
 
 
-  <div class="row" id="headerPontuacao" style="display:none;">
+  <!-- FEATURES -->
+  <section id="features" style="font-weight: 400; font-size:20px; background-color:#fff; margin-top:-40px;">
 
 
-    <div class="col-md-8" style="margin-bottom:20px;">
+    <div class="container">
 
-      <h2 style="font-weight: 700; color:#3498db;   margin-top: 15px;">Cadastre e acumule pontos</h2>
 
-      <p class="lead" style="font-weight: 400; font-size:14px;">{{question.description}}</p>
+      <div id="headerPergunta">
+
+
+        <div class="col-md-8" style="margin-top:-70px;">
+
+          <h2
+            style="font-weight: 600; color:#3498db;  margin-top: 10px;  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;     letter-spacing: -0.5px; ">
+            {{question.title}}</h2>
+
+          <p class="lead" style="font-weight: 400; font-size:14px;">{{question.description}}</p>
+
+          <div id="imageProduct" style="display: block">
+            <img style="margin-top:40px; display: block; margin-left: auto; margin-right: auto;" class="img-responsive"
+                 src="images/{{question.image}}" alt="" style="">
+          </div>
+
+        </div>
+
+
+        <div class="col-md-4"
+             style="margin-top:-70px; padding-bottom: 15px; background-color: #3498db;  border-radius: 5px;">
+
+
+          <div class="col-md-7">
+            <h2
+              style="font-weight: 700; color:#ffffff; margin-top: 20px;  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;  ">
+              <b>Resposta:</b></h2>
+
+            <!--<a class="btn btn-success btn-lg" ng-click="getNextQuestion()" href="{{question.urlAnswer}}" target="_blank" role="button"><b>Sim</b></a> -->
+            <a ng-disabled="disableAnswerButton"
+               ng-class="disableAnswerButton ? 'btn btn-success-disable btn-lg' : 'btn btn-success btn-lg'"
+               ng-click="setAnswerQuestion(true)" role="button"><b>Sim</b></a>
+
+            <a ng-disabled="disableAnswerButton"
+               ng-class="disableAnswerButton ? 'btn btn-warning-disable btn-lg' : 'btn btn-warning btn-lg'"
+               ng-click="setAnswerQuestion(false)" role="button"><b>Não</b></a>
+          </div>
+
+          <div class="col-md-5">
+
+            <p
+              style="font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif; font-weight: 700; color:#ffffff; margin-top: 15px; font-size: 50px; text-align: center">
+              <b><span style="color: #f1c40f">{{indexQuestion+1}}</span>/{{questionList.length}}</b></p>
+
+            <!-- <p style="font-weight: 400; color:#ffffff; font-size:20px; margin-top:-10px; text-align: center">
+               <B>Pontos</B></p>
+ -->
+
+          </div>
+
+
+        </div>
+
+      </div>
+
 
     </div>
 
 
-    <div class="col-md-4"
-         style="margin-bottom:20px; padding-bottom: 15px; background-color: #3498db;  border-radius: 5px;">
-
-      <div class="col-md-7">
-        <h2 style="font-weight: 700; color:#ffffff; margin-top: 15px;"><b>Ir para a Proxima?</b></h2>
-
-        <a class="btn btn-success btn-lg" ng-click="showPartner()" role="button"><b>Sim</b></a>
-      </div>
-
-      <div class="col-md-5">
-
-        <h2 style="font-weight: 700; color:#f1c40f; margin-top: 21px; font-size: 60px; text-align: center"><b>530</b>
-        </h2>
-
-        <p style="font-weight: 400; color:#ffffff; font-size:20px; text-align: center; margin-left: -7px;"><B>Pontos</B>
-        </p>
-
-      </div>
+</div>
+</section>
+<!-- FEATURES -->
 
 
+<!-- FEATURES -->
+<section id="features" style="font-weight: 400; font-size:20px; background-color:#f7f6f6; margin-top:20px;">
+
+
+  <div class="container" style="margin-top:-60px">
+    <div class="col-md-1"
+         style="width:50px; height:50px; border-size:1px; padding-top:5px; padding-left:15px;  border-style:solid; border-color:#3498db; -webkit-border-radius: 100px; margin-right:10px; -moz-border-radius: 100px; border-radius: 100px; font-size:24px; font-weight: 700; color:#3498db;">
+      2
     </div>
+    Escolha o que deseja receber:<br>
 
+    <p class="lead" style="font-weight: 400; font-size:14px;">Diga e que você gostaria de receber e torça para ser um
+      dos nossos selecionados:</p>
+
+  </div>
+</section>
+<!-- FEATURES -->
+
+
+<!-- PRODUCTS -->
+<div class="footer-copy">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-14">
+
+        <div ng-repeat="product in products" class="col-md-2 product">
+
+          <center><img src="images/products/{{product.image}}" class="product-image"/></center>
+          <h3 class="product-title">{{product.name}}</h3>
+          <h4 class="product-subtitle">{{product.quantity}} UNIDADES / GRÁTIS!</h4>
+          <a ng-if="product.marked === false" id="link_{{product._id}}" class="product-linkbutton " ng-click="saveProduct(product)">EU QUERO!</a>
+          <a ng-if="product.marked === true" class="product-linkbutton-marked">ESCOLHIDO!</a>
+
+        </div>
+
+      </div>
+    </div>
   </div>
 
 
+
+  <section id="features" style="font-weight: 400; font-size:20px; background-color:#f7f6f6; margin-top:20px;">
+
+
+    <div class="container" style="margin-top:-60px">
+      <div class="col-md-1"
+           style="width:50px; height:50px; border-size:1px; padding-top:5px; padding-left:15px;  border-style:solid; border-color:#3498db; -webkit-border-radius: 100px; margin-right:10px; -moz-border-radius: 100px; border-radius: 100px; font-size:24px; font-weight: 700; color:#3498db;">
+        3
+      </div>
+      Complete seus dados:<br>
+
+      <p class="lead" style="font-weight: 400; font-size:14px;">Precisamos das informação para enviar os produtos:</p>
+
+    </div>
+  </section>
+
+
+
+  <!-- FORM ETAPA 3 -->
+  <div class="footer-copy" style="margin-bottom:100px;">
+    <div class="container">
+
+      <div class="col-md-12" ng-show="isValidationError">
+        <div class="alert alert-danger" role="alert">
+          <span class="sr-only">Error:</span><b>{{validationMessage}}</b>
+        </div>
+      </div>
+
+      <form name="userForm" ng-submit="save()" novalidate>
+
+        <div class="col-md-12">
+          <div class="form-group col-md-4" show-errors>
+            <label>Data de Nascimento:</label>
+            <input ng-required name="user.birthDate" ui-mask="99/99/9999" placeholder="dd/mm/aaaa" ng-model="user.birthDate"
+                   type="text" class="form-control" id="birthDate" ng-style="{'background-color': bgBirthColor}">
+
+          </div>
+          <div class="form-group col-md-4">
+            <label for="cellphone">Celular:</label>
+            <input ng-required name="user.cellphone" ui-mask="(99) 99999-9999" placeholder="(__) _____-____"
+                   ng-model="user.cellphone" type="text" class="form-control" id="cellphone"
+                   ng-style="{'background-color': bgCellphoneColor}">
+          </div>
+          <div class="form-group col-md-4">
+            &nbsp;
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="form-group  col-md-8">
+            <label for="address">Endere&ccedil;o:</label>
+            <input ng-required name="user.address.street" ng-model="user.address.street" type="text"
+                   class="form-control" id="address" ng-style="{'background-color': bgAddressColor}">
+          </div>
+          <div class="form-group  col-md-4">
+            <label for="number">N&uacute;mero:</label>
+            <input ng-required name="user.address.number" ng-model="user.address.number" type="text"
+                   class="form-control" id="number" ng-style="{'background-color': bgNumberColor}">
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="form-group  col-md-4">
+            <label for="neighborhood">Bairro:</label>
+            <input ng-required name="user.address.neighborhood" ng-model="user.address.neighborhood" type="text"
+                   class="form-control" id="neighborhood" ng-style="{'background-color': bgNeighborhoodColor}">
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="complement">Complemento:</label>
+            <input ng-required name="user.address.complement" ng-model="user.address.complement" type="text"
+                   class="form-control" id="complement" ng-style="{'background-color': bgComplementColor}">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="zipcode">Cep:</label>
+            <input ng-required name="user.address.zipcode" ui-mask="9999-999" placeholder="____-___"
+                   ng-model="user.address.zipcode" type="text" class="form-control" id="zipcode"
+                   ng-style="{'background-color': bgZipcodeColor}">
+          </div>
+        </div>
+
+
+        <div class="col-md-12">
+          <div class="form-group col-md-4">
+            <label for="city">Cidade:</label>
+            <input ng-required name="user.address.city" ng-model="user.address.city" type="text" class="form-control"
+                   id="city" ng-style="{'background-color': bgCityColor}">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="state">Estado:</label>
+            <input ng-required name="user.address.state" ng-model="user.address.state" type="text" class="form-control"
+                   id="state" ng-style="{'background-color': bgStateColor}">
+          </div>
+          <div class="form-group col-md-4">
+            &nbsp;
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="space40"></div>
+
+        <button type="submit"
+                ng-disabled="disableSubmitButton"
+                ng-class="disableSubmitButton ? 'btn-main-disable btn-center' : 'btn-main btn-center'"
+                style="padding:10px 80px 10px 80px; font-size:20px;">Finalizar
+        </button>
+      </form>
+
+    </div>
+
+
+  </div>
 </div>
