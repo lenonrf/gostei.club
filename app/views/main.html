@@ -1,3 +1,29 @@
+
+<!-- MODAL TERMOS E CONDICOES \s-->
+
+  <script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+      <h3 class="modal-title">I'm a modal!</h3>
+    </div>
+    <div class="modal-body">
+      <ul>
+        <li ng-repeat="item in items">
+          <a ng-click="selected.item = item">{{ item }}</a>
+        </li>
+      </ul>
+      Selected: <b>{{ selected.item }}</b>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" ng-click="ok()">OK</button>
+      <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    </div>
+  </script>
+
+
+
+
+
+
 <!-- INTRO -->
 <section id="intro" class="intro4">
 
@@ -77,7 +103,7 @@
               <input type="checkbox" ng-model="user.terms" name="checkboxG1" checked id="checkboxG1"
                      class="css-checkbox" REQUIRED/>
               <label for="checkboxG1" class="css-label" style="padding-top:3px;"><span>Concordo com os <a
-                class="term-popup" href="#">Termos e Condições</a></span></label>
+                class="term-popup" href="#" ng-click="open()">Termos e Condições</a></span></label>
 
               <div class="clearfix"></div>
               <div class="space20"></div>

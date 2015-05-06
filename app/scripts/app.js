@@ -17,7 +17,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui.mask',
-    'ui.bootstrap.showErrors'
+    'ui.bootstrap.showErrors',
+    'ui.bootstrap.modal'
   ])
   .config(function ($routeProvider, $httpProvider, showErrorsConfigProvider) {
 

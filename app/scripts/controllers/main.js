@@ -8,7 +8,7 @@
  * Controller of the gosteiclubApp
  */
 angular.module('gosteiclubApp')
-  .controller('MainCtrl', function ($scope, $location, Utils, User, Login, $http) {
+  .controller('MainCtrl', function ($scope, $location, $modal, Utils, User, Login, $http) {
 
     Utils.setDefaultMenu();
 
@@ -16,6 +16,35 @@ angular.module('gosteiclubApp')
     $scope.user.terms = true;
     $scope.disableButton = false;
     $scope.showFormFields = true;
+
+
+
+    $scope.items = ['item1', 'item2', 'item3'];
+
+
+    $scope.open = function () {
+
+      console.log('aki');
+
+      var modalInstance = $modal.open({
+        animation: true,
+        templateUrl: '../../views/myModalContent.html',
+        controller: 'ModalTermosCtrl',
+        size: 'lg',
+        resolve: {
+          items: function () {
+            return $scope.items;
+          }
+        }
+      });
+
+      modalInstance.result.then(function (selectedItem) {
+        $scope.selected = selectedItem;
+      }, function () {
+        $log.info('Modal dismissed at: ' + new Date());
+      });
+    };
+
 
     /**
      * Efetua o login do usuario

@@ -8,10 +8,12 @@
  * Controller of the gosteiclubApp
  */
 angular.module('gosteiclubApp')
-  .controller('PerguntasCtrl', function ($scope, $window, $rootScope, $location, Question, User, Utils, Product, $timeout) {
+  .controller('PerguntasCtrl', function ($scope, $window, $http, $rootScope, $location, Question, User, Utils, Product) {
 
     if(!Utils.isLogged(User.data)){
+
       $location.path('/main');
+
     }else{
       $rootScope.showMenuCheckout = false;
       $rootScope.showMenuUser = true;
@@ -23,8 +25,6 @@ angular.module('gosteiclubApp')
     $scope.user = User.getData();
     $scope.user.score = 0;
     $scope.user.answers = [];
-    //$scope.user.products = [];
-    //$scope.user.address = {};
 
     // controla os botões da tela
     $scope.disableSubmitButton = true;
@@ -39,7 +39,28 @@ angular.module('gosteiclubApp')
     getProducts();
     showFirstQuestion();
 
+    $scope.$watch('user.address.zipcode', function() {
 
+      if($scope.user.address.zipcode){
+
+        $http.get('http://api.postmon.com.br/v1/cep/'+$scope.user.address.zipcode).success(function(data){
+
+          $scope.user.address.city = data.cidade;
+          $scope.user.address.state = data.estado;
+          $scope.user.address.neighborhood = data.bairro;
+          $scope.user.address.street = data.logradouro;
+
+          $('#endereco').css('display', 'block');
+          $scope.isValidationError = false;
+
+        }).error(function(){
+
+          setMessageOnField('zipcode', 'CEP inválido');
+          $('#endereco').css('display', 'none');
+
+        });
+      }
+    });
 
     /**
      * submita as peguntas
@@ -85,6 +106,17 @@ angular.module('gosteiclubApp')
 
         $scope.disableAnswerButton = true;
         $scope.step_1 = true;
+
+        $('#step_2').css('opacity', '1');
+        $('#step_2').css('pointer-events', 'auto');
+
+        $('#step_3').css('opacity', '1');
+        $('#step_3').css('pointer-events', 'auto');
+
+        $('#step_1').css('display', 'none');
+        $('#step_spacer').css('padding', '0px');
+        $('#features_3').css('margin-top', '-20px');
+
 
         setButtonFinalize();
       }
@@ -242,9 +274,6 @@ angular.module('gosteiclubApp')
           }
         }
 
-        //console.log('USER', userProducts);
-        //console.log('DATA', data);
-
       }, function(err){
 
       });
@@ -262,14 +291,10 @@ angular.module('gosteiclubApp')
       $scope.isValidationError = false;
 
       $scope.bgCellphoneColor = '#FFFFFF';
-      $scope.bgAddressColor = '#FFFFFF';
       $scope.bgNumberColor = '#FFFFFF';
       $scope.bgBirthColor = '#FFFFFF';
-      $scope.bgNeighborhoodColor = '#FFFFFF';
-      $scope.bgComplementColor = '#FFFFFF';
       $scope.bgZipcodeColor = '#FFFFFF';
-      $scope.bgCityColor = '#FFFFFF';
-      $scope.bgStateColor = '#FFFFFF';
+
 
       if (Utils.isEmpty($scope.user.birthDate)) {
 
@@ -311,11 +336,6 @@ angular.module('gosteiclubApp')
         return false;
       }
 
-      if (Utils.isEmpty($scope.user.address.street)) {
-
-        setMessageOnField('street', 'Preencha o endereço');
-        return false;
-      }
 
       if (Utils.isEmpty($scope.user.address.number)) {
 
@@ -323,33 +343,10 @@ angular.module('gosteiclubApp')
         return false;
       }
 
-      if (Utils.isEmpty($scope.user.address.neighborhood)) {
-
-        setMessageOnField('neighborhood', 'Preencha o bairro');
-        return false;
-      }
-
-      if (Utils.isEmpty($scope.user.address.complement)) {
-
-        setMessageOnField('complement', 'Preencha o complemento');
-        return false;
-      }
 
       if (Utils.isEmpty($scope.user.address.zipcode)) {
 
         setMessageOnField('zipcode', 'Preencha o Cep');
-        return false;
-      }
-
-      if (Utils.isEmpty($scope.user.address.city)) {
-
-        setMessageOnField('city', 'Preencha a cidade');
-        return false;
-      }
-
-      if (Utils.isEmpty($scope.user.address.state)) {
-
-        setMessageOnField('state', 'Preencha o estado');
         return false;
       }
 
@@ -375,17 +372,11 @@ angular.module('gosteiclubApp')
 
         case 'cellphone':
 
-        $scope.bgMsgColor = msgErrorColor;
-        $scope.bgCellphoneColor = warningColor;
-        angular.element('#cellphone').focus();
-        break;
-
-        case 'street':
-
           $scope.bgMsgColor = msgErrorColor;
-          $scope.bgAddressColor = warningColor;
-          angular.element('#street').focus();
+          $scope.bgCellphoneColor = warningColor;
+          angular.element('#cellphone').focus();
           break;
+
 
         case 'number':
 
@@ -399,20 +390,6 @@ angular.module('gosteiclubApp')
           $scope.bgMsgColor = msgErrorColor;
           $scope.bgBirthColor = warningColor;
           angular.element('#bithDate').focus();
-          break;
-
-        case 'neighborhood':
-
-          $scope.bgMsgColor = msgErrorColor;
-          $scope.bgNeighborhoodColor = warningColor;
-          angular.element('#neighborhood').focus();
-          break;
-
-        case 'complement':
-
-          $scope.bgMsgColor = msgErrorColor;
-          $scope.bgComplementColor = warningColor;
-          angular.element('#complement').focus();
           break;
 
         case 'zipcode':
@@ -429,12 +406,6 @@ angular.module('gosteiclubApp')
           angular.element('#city').focus();
           break;
 
-        case 'state':
-
-          $scope.bgMsgColor = msgErrorColor;
-          $scope.bgStateColor = warningColor;
-          angular.element('#state').focus();
-          break;
       }
     }
 

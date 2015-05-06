@@ -70,9 +70,12 @@
               <li><a class="page-scroll" href="#depoimentos">Depoimentos</a></li>
               <li><a class="page-scroll" href="#marcas">Marcas testadas</a></li>
               <li id="user" ng-show="showMenuUser"><a class="page-scroll" style="color: #8FD4F2 !important;" href="#perguntas">{{firstName}}</a></li>
-              <li id="entrarLI" ng-show="showMenuCheckout"><a class="page-scroll" href="" ng-click="click()">Entrar</a></li>
 
-						</ul>
+              <!--<li id="entrarLI" ng-show="showMenuCheckout"><a class="page-scroll" href="" ng-click="click()">Entrar</a></li>-->
+              <div style="display: none;" id="itemMenuEntrar">
+                <li id="entrarLI" ><a href="#"  ng-click="click()" class="btn-main btn-center">Quero Participar</a></li>
+              </div>
+            </ul>
 					</div>
 					<!-- /.navbar-collapse -->
 				</div>
@@ -120,8 +123,6 @@
 
 
 
-
-
 	<!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -135,6 +136,7 @@
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-ui-utils/ui-utils.js"></script>
     <script src="bower_components/angular-bootstrap-show-errors/src/showErrors.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -144,6 +146,7 @@
       <script src="scripts/controllers/perguntas.js"></script>
       <script src="scripts/controllers/sucesso.js"></script>
       <script src="scripts/controllers/header.js"></script>
+      <script src="scripts/controllers/modalTermos.js"></script>
 
         <script src="scripts/directives/slickslider.js"></script>
 
