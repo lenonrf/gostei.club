@@ -19,33 +19,6 @@ angular.module('gosteiclubApp')
 
 
 
-    $scope.items = ['item1', 'item2', 'item3'];
-
-
-    $scope.open = function () {
-
-      console.log('aki');
-
-      var modalInstance = $modal.open({
-        animation: true,
-        templateUrl: '../../views/myModalContent.html',
-        controller: 'ModalTermosCtrl',
-        size: 'lg',
-        resolve: {
-          items: function () {
-            return $scope.items;
-          }
-        }
-      });
-
-      modalInstance.result.then(function (selectedItem) {
-        $scope.selected = selectedItem;
-      }, function () {
-        $log.info('Modal dismissed at: ' + new Date());
-      });
-    };
-
-
     /**
      * Efetua o login do usuario
      * @param user
