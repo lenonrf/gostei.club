@@ -8,7 +8,7 @@
  * Controller of the gosteiclubApp
  */
 angular.module('gosteiclubApp')
-  .controller('MainCtrl', function ($scope, $location, $modal, Utils, User, Login, $http) {
+  .controller('MainCtrl', function ($scope, $rootScope, $location, $modal, Utils, User, Login, $http) {
 
     Utils.setDefaultMenu();
 
@@ -16,6 +16,7 @@ angular.module('gosteiclubApp')
     $scope.user.terms = true;
     $scope.disableButton = false;
     $scope.showFormFields = true;
+    $rootScope.showMenuItems = true;
 
 
 
@@ -49,6 +50,9 @@ angular.module('gosteiclubApp')
         'gender': user.gender
       };
 
+
+
+      //envio de dados para o bando de dados
       $http.post('/api/users', data).success(onSuccessDefault).error(onErrorCheckout);
 
     };
@@ -61,6 +65,23 @@ angular.module('gosteiclubApp')
     function onSuccessDefault(data, status) {
 
       data.isLogged = true;
+
+      // envio de dados para allin
+      var allin = {
+        evento : 'Novo Cadastro',
+        nm_email: data.email,
+        lista:{
+          nm_lista: 'gostei.club',
+          nome: data.name,
+          sexo: data.gender
+        }
+      };
+
+      try{
+        lc.sendData(allin);
+      }catch (e){
+        console.log('erro', e);
+      }
 
       User.setData(data);
       $location.path('/perguntas');

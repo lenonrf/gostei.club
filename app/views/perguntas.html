@@ -1,25 +1,56 @@
-<!-- FEATURES -->
-<div id="features_1"
-     style="padding-top:90px; margin-bottom:20px;  font-weight: 400; font-size:22px; background-color:#f7f6f6;">
+<div id="features_1" style="margin-top:90px; margin-bottom:15px;  font-weight: 400; font-size:22px; background-color:#fff;">
+  <div class="container" style="margin-bottom: 15px;">
+    <span style="color:#333333; font-size:18px;"><span style="font-size:16px">Olá</span> <span style="font-weight: 600;  letter-spacing:-1px;">{{user.name}}</span><span style="font-size:16px">, bem-vindo ao nosso Clube de Oportunidades</span></span><br>
+
+  </div>
+</div>
 
 
-  <div class="container">
-    <div class="col-md-1"
-         style="width:50px; height:50px; border-size:1px; padding-top:5px; padding-left:15px;  border-style:solid; border-color:#3498db; -webkit-border-radius: 100px; margin-right:10px; -moz-border-radius: 100px; border-radius: 100px; font-size:24px; font-weight: 700; color:#3498db;">
-      1
-    </div>
-    <span style="color:#000; font-size:20px;"><span style="font-size:16px">Olá,</span> <b>{{user.name}}</b> <span
-      style="font-size:16px">Bem-vindo ao nosso Clube de Oportunidades</span></span><br>
+  <!-- FEATURES -->
+<div id=""
+     style="font-weight: 400; font-size:22px; background-color:#f7f6f6; border-top:solid 1px #dddddd;">
 
-    <p class="lead" style="font-weight: 400; font-size:14px;"><b>Primeiras oportunidades:</b> Escolha as oportunidades
-      dos parceiros, complete seu cadastro e aumente suas chances de ser escolhido:</p>
+
+  <div class="container" style="padding-top:15px;">
+    <div class="col-md-1" style="width:50px; height:50px; border-size:1px; padding-top:5px; padding-left:15px;  border-style:solid; border-color:#3498db; -webkit-border-radius: 100px; margin-right:10px; -moz-border-radius: 100px; border-radius: 100px; font-size:24px; font-weight: 700; color:#3498db;">1</div>
+    Aumente suas chances de ganhar!<br>
+    <p class="lead" style="font-weight: 400; font-size:14px;">Escolha as oportunidades que combinam com você e aumente suas chances de ser escolhido:</p>
 
   </div>
 
   <div class="footer-copy" id="step_spacer"></div>
 
   <div  id="step_1">
-    <!-- FEATURES -->
+
+    <section id="features" style="font-weight: 400; font-size:20px; background-color:#fff; margin-top:-40px;">
+      <div class="container">
+        <div id="headerPergunta">
+          <div class="col-md-7" style="margin-top:-70px; margin-bottom:40px;">
+            <h2 style="font-weight: 600; color:#3498db;  margin-top: 10px;  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif; letter-spacing: -0.5px; ">{{question.title}}</h2>
+            <p class="lead" style="font-weight: 400; font-size:14px; padding-bottom:40px; color:#7e7e7e;">{{question.description}}</p>
+            <a ng-disabled="disableAnswerButton" class="btn btn-main" ng-click="setAnswerQuestion(true)" style="margin-bottom:10px;"  role="button"><b>SIM, Eu quero esta Oportunidade!</b></a>
+            <center><a ng-disabled="disableAnswerButton" href="" ng-click="setAnswerQuestion(false)"role="button" style="font-size:12px; color:#525252; ">Não tenho interesse</a></center>
+          </div>
+
+          <div class="col-md-5" style="margin-top:-90px; background-color: #fff;">
+            <div id="imageProduct" style="display: block">
+              <img style="margin-top:40px; display: block; margin-left: auto; margin-right: auto;" class="img-responsive"
+                   src="http://gosteiclub-12bd.kxcdn.com/images/{{question.image}}" alt="" style="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+    <!-- FEATURES
     <section id="features_2" style="font-weight: 400; font-size:20px; background-color:#fff; padding-top:35px;">
 
 
@@ -54,7 +85,6 @@
                 style="font-weight: 700; color:#ffffff; margin-top: 20px;  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;  ">
                 <b>Resposta:</b></h2>
 
-              <!--<a class="btn btn-success btn-lg" ng-click="getNextQuestion()" href="{{question.urlAnswer}}" target="_blank" role="button"><b>Sim</b></a> -->
               <a ng-disabled="disableAnswerButton"
                  ng-class="disableAnswerButton ? 'btn btn-success-disable btn-lg' : 'btn btn-success btn-lg'"
                  ng-click="setAnswerQuestion(true)" role="button"><b>Sim</b></a>
@@ -75,7 +105,7 @@
         </div>
       </div>
 
-    </section>
+    </section>-->
   </div>
 </div>
 <!-- FEATURES -->

@@ -4,6 +4,7 @@
 angular.module('gosteiclubApp')
   .controller('HeaderCtrl', function ($scope, $rootScope) {
 
+    $rootScope.showMenuItems = true;
     $rootScope.showMenuUser = false;
     $rootScope.showMenuCheckout = false;
 

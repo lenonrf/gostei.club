@@ -66,9 +66,9 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" id="menuHome">
 						<ul class="nav navbar-nav navbar-right">
-							<li><a class="page-scroll" href="#degraca">De Graça?</a></li>
-              <li><a class="page-scroll" href="#depoimentos">Depoimentos</a></li>
-              <li><a class="page-scroll" href="#marcas">Marcas testadas</a></li>
+							<li ng-show="showMenuItems"><a class="page-scroll" href="#degraca">De Graça?</a></li>
+              <li ng-show="showMenuItems"><a class="page-scroll" href="#depoimentos">Depoimentos</a></li>
+              <li ng-show="showMenuItems"><a class="page-scroll" href="#marcas">Marcas testadas</a></li>
               <li id="user" ng-show="showMenuUser"><a class="page-scroll" style="color: #8FD4F2 !important;" href="#perguntas">{{firstName}}</a></li>
 
               <!--<li id="entrarLI" ng-show="showMenuCheckout"><a class="page-scroll" href="" ng-click="click()">Entrar</a></li>-->
@@ -135,6 +135,11 @@
     </script>
 
 
+  <!-- Integração com Allin -->
+  <script src="//i.btg360.com.br/lc.js" type="text/javascript"></script>
+  <script type="text/javascript">__blc['id'] = "5942";</script>
+
+
 
 	<!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -159,9 +164,7 @@
       <script src="scripts/controllers/perguntas.js"></script>
       <script src="scripts/controllers/sucesso.js"></script>
       <script src="scripts/controllers/header.js"></script>
-      <script src="scripts/controllers/modalTermos.js"></script>
-
-        <script src="scripts/directives/slickslider.js"></script>
+      <script src="scripts/directives/slickslider.js"></script>
 
 			<script src="scripts/services/utils.js"></script>
 			<script src="scripts/services/user.js"></script>

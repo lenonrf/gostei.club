@@ -21,8 +21,8 @@ angular.module('gosteiclubApp')
         score : 560,
         iframeHeight: 1250,
         image: 'frigobar.png',
-        title: 'Receba 1 mês de filtro Brastemp Grátis!',
-        description: 'Conheça o filtro bastemp e tal, seja feliz e de muitos clique para gente. Conheça o filtro bastemp e tal, seja feliz e de muitos clique para gente. ',
+        title: 'Quer testar por 30 dias GRÁTIS o purificador de água da Brastemp na sua casa?',
+        description: 'Estudos feitos no Brasil comprovam que parte da água entregue pela companhia de saneamento do seu Estado é de qualidade abaixo do ideal para o consumo.',
         urlAnswer: 'http://brastemp.acxiom.com.br/?utm_source=bleads&utm_medium=wbrastemp&utm_content=email'
 
       };
@@ -52,7 +52,7 @@ angular.module('gosteiclubApp')
         score : 130,
         image: 'chevrolet.png',
         title: 'Ganhe um carro chevolet',
-        description: 'Deseja receber um super desconto na nossa mensalidade?',
+        description: 'Mensalmente, o dinheiro é retirado da conta para compor um ou mais bens. A pessoa pode ser contemplada por lance (oferecer maior percentual em relação ao valor do bem) ou sorteio.',
         urlAnswer: 'http://compare-ja.com/chevrolet/'
 
       };

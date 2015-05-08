@@ -16,7 +16,8 @@ angular.module('gosteiclubApp')
 
     }else{
       $rootScope.showMenuCheckout = false;
-      $rootScope.showMenuUser = true;
+      $rootScope.showMenuItems = false;
+      $rootScope.showMenuUser = false;
       $rootScope.firstName = Utils.getFirstName(User.getData().name);
     }
 
