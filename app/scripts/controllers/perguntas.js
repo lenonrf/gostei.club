@@ -116,7 +116,7 @@ angular.module('gosteiclubApp')
 
         $('#step_1').css('display', 'none');
         $('#step_spacer').css('padding', '0px');
-        $('#features_3').css('margin-top', '-20px');
+        $('#features_3').css('border-top', '0px');
 
 
         setButtonFinalize();
