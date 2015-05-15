@@ -18,7 +18,8 @@ angular
     'ngTouch',
     'ui.mask',
     'ui.bootstrap.showErrors',
-    'ui.bootstrap.modal'
+    'ui.bootstrap.modal',
+    'angulartics', 'angulartics.google.analytics'
   ])
   .config(function ($routeProvider, $httpProvider, showErrorsConfigProvider) {
 
