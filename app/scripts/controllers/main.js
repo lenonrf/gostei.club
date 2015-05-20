@@ -8,7 +8,7 @@
  * Controller of the gosteiclubApp
  */
 angular.module('gosteiclubApp')
-  .controller('MainCtrl', function ($scope, $rootScope, $location, $modal, Utils, User, Login, $http) {
+  .controller('MainCtrl', function ($scope, $rootScope, $location, $modal, Utils, User, Login, $http, Product) {
 
     Utils.setDefaultMenu();
 
@@ -17,6 +17,25 @@ angular.module('gosteiclubApp')
     $scope.disableButton = false;
     $scope.showFormFields = true;
     $rootScope.showMenuItems = true;
+
+    getProducts();
+
+
+
+    /**
+     * Retorna os produtos cadastrados
+     * @returns {*|{method, isArray}}
+     */
+    function getProducts() {
+
+      Product.resource.query(function(data){
+        $scope.products = data;
+      }, function(err){});
+    }
+
+    $scope.focusCheckout = function(){
+      $("#lname").focus();
+    }
 
 
 
@@ -29,7 +48,13 @@ angular.module('gosteiclubApp')
 
       if(!validateLogin(user)) return false;
 
-      User.resource.get({email:user.email}, onSuccessDefault, onErrorLogin);
+      User.resource.get({email:user.email}, function(data){
+
+        data.isLogged = true;
+        User.setData(data);
+        $location.path('/perguntas');
+
+      }, onErrorLogin);
     };
 
 
@@ -50,8 +75,6 @@ angular.module('gosteiclubApp')
         'gender': user.gender
       };
 
-
-
       //envio de dados para o bando de dados
       $http.post('/api/users', data).success(onSuccessDefault).error(onErrorCheckout);
 
@@ -59,7 +82,7 @@ angular.module('gosteiclubApp')
 
 
     /**
-     * Função de sucesso para login e cadastro
+     * Função de sucesso para cadastro
      * @param data
      */
     function onSuccessDefault(data, status) {
