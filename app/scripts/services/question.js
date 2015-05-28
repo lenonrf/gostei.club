@@ -57,7 +57,7 @@ angular.module('gosteiclubApp')
 
       };*/
 
-      return [question_1];
+      return [question_1, question_2];
 
       //return [question_1, question_2, question_3, question_4];
     };
