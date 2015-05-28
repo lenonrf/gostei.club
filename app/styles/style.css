@@ -216,6 +216,37 @@ button:hover {
   border-bottom-color: #4f6816;
 }
 
+.botaoMenu {
+
+  border: 0px;
+
+  color: #fff;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  border-radius:5px;
+
+  line-height: 55px;
+  padding: 0 50px;
+  text-transform: none;
+  letter-spacing: 0.3px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+  margin: 0 auto;
+  display: table;
+
+  text-shadow:0px -1px 0px #4f6816;
+  background: #749c0d;
+  -moz-box-shadow:inset 0px 1px 0px 0px #4f6816;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #4f6816;
+  box-shadow:inset 0px 1px 0px 0px #82ac25;
+
+  border-bottom-color: #4f6816;
+}
+
+
+.botaoMenu:hover { background-color: #749c0d }
 
 .btn-main {
 

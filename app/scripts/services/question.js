@@ -20,14 +20,14 @@ angular.module('gosteiclubApp')
         idQuestion : 1,
         score : 560,
         iframeHeight: 1250,
-        image: 'frigobar.png',
-        title: 'Quer testar por 30 dias GRÁTIS o purificador de água da Brastemp na sua casa?',
-        description: 'Estudos feitos no Brasil comprovam que parte da água entregue pela companhia de saneamento do seu Estado é de qualidade abaixo do ideal para o consumo.',
-        urlAnswer: 'http://brastemp.acxiom.com.br/?utm_source=bleads&utm_medium=wbrastemp&utm_content=email'
+        image: 'english.jpeg',
+        title: 'Como está o seu Inglês? Te damos 14 dias Grátis na EnglishTown.',
+        description: 'inscreva-se e utilize 14 dias sem pagar nada.',
+        urlAnswer: 'http://www.englishtown.com.br/'
 
       };
 
-      var question_2 = {
+     /* var question_2 = {
         idQuestion : 2,
         score : 100,
         image: 'wiseup.jpg',
@@ -55,10 +55,11 @@ angular.module('gosteiclubApp')
         description: 'Mensalmente, o dinheiro é retirado da conta para compor um ou mais bens. A pessoa pode ser contemplada por lance (oferecer maior percentual em relação ao valor do bem) ou sorteio.',
         urlAnswer: 'http://compare-ja.com/chevrolet/'
 
-      };
+      };*/
 
+      return [question_1];
 
-      return [question_1, question_2, question_3, question_4];
+      //return [question_1, question_2, question_3, question_4];
     };
 
   });
