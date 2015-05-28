@@ -27,17 +27,17 @@ angular.module('gosteiclubApp')
 
       };
 
-     /* var question_2 = {
+     var question_2 = {
         idQuestion : 2,
         score : 100,
-        image: 'wiseup.jpg',
-        title: 'Do you speak english?',
-        description: 'Deseja receber um super desconto na nossa mensalidade?',
-        urlAnswer: 'http://www.wiseup.com'
+        image: 'seulima.jpeg',
+        title: 'Está no ar a promoção Encontro Premiado, ganhe até 350 mil reais.',
+        description: 'é só clicar e participar, é sem pagar nada!',
+        urlAnswer: 'http://encontropremiado.com.br/cadastro/criar/?mktcode=X4EL01&transaction_id=&nome=&sobrenome=&email='
 
       };
 
-      var question_3 = {
+      /* var question_3 = {
         idQuestion : 3,
         score : 200,
         image: 'greenpeace.jpg',
