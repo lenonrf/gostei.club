@@ -42,6 +42,17 @@ angular.module('gosteiclubApp')
         idQuestion : 1,
         score : 560,
         iframeHeight: 1250,
+        image: 'magazine.jpeg',
+        title: 'Precisando aumentar a sua renda? Que tal montar uma loja na internet só sua?',
+        description: 'É só se cadastrar e trabalhar de casa!',
+        urlAnswer: 'https://www.magazinevoce.com.br'
+
+      };
+
+      var question_4 = {
+        idQuestion : 1,
+        score : 560,
+        iframeHeight: 1250,
         image: 'english.jpeg',
         title: 'Como está o seu Inglês? Te damos 14 dias Grátis na EnglishTown.',
         description: 'inscreva-se e utilize 14 dias sem pagar nada.',
@@ -49,7 +60,7 @@ angular.module('gosteiclubApp')
 
       };
 
-     var question_4 = {
+     var question_5 = {
         idQuestion : 2,
         score : 100,
         image: 'seulima.jpeg',
@@ -60,7 +71,7 @@ angular.module('gosteiclubApp')
       };
 
 
-      return [question_1, question_2, question_3, question_4];
+      return [question_1, question_2, question_3, question_4, question_5];
 
       //return [question_1, question_2, question_3, question_4];
     };
