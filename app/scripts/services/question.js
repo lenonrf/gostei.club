@@ -23,7 +23,7 @@ angular.module('gosteiclubApp')
         image: 'udbc.jpeg',
         title: 'Sua carreira precisa melhorar? Estude pela internet e Ganhe um Tablet Totalmente Grátis.',
         description: 'Faça aulas 100% on-line e conclua a sua pós graduação.',
-        urlAnswer: 'http://www.portaleducacao.com.br/adnet/lppos/?'
+        urlAnswer: 'http://springmedia.go2cloud.org/aff_c?offer_id=396&aff_id=1208&source=AFF'
 
       };
 
@@ -34,8 +34,8 @@ angular.module('gosteiclubApp')
         iframeHeight: 1250,
         image: 'magazine.jpeg',
         title: 'Que tal montar uma loja na internet só sua e de graça?',
-        description: 'Aumente  sua renda tendo uma loja totalmente GRÁTIS da Magazine Luiza. Divulgue os produtos para seus amigos e família e fature alto da sua casa.',
-        urlAnswer: 'https://www.magazinevoce.com.br'
+        description: 'Aumente  sua renda com a loja totalmente GRÁTIS da Magazine Luiza. Divulgue os produtos para seus amigos e família e fature alto da sua própria casa.',
+        urlAnswer: 'http://springmedia.go2cloud.org/aff_c?offer_id=214&aff_id=1208&source=AFF'
 
       };
 
@@ -46,7 +46,7 @@ angular.module('gosteiclubApp')
         image: 'english.jpeg',
         title: 'Não está muito bem no Inglês? Podemos te ajudar!',
         description: 'Cadastre-se na EnglishTown e receba 14 dias de aulas COMPLETAMENTE GRÁTIS.',
-        urlAnswer: 'http://www.englishtown.com.br/'
+        urlAnswer: 'http://springmedia.go2cloud.org/aff_c?offer_id=246&aff_id=1208&source=AFF'
 
       };
 
@@ -55,8 +55,8 @@ angular.module('gosteiclubApp')
         score : 100,
         image: 'seulima.jpeg',
         title: 'Quer ganhar até 350 mil reais sem fazer nada?',
-        description: 'É só se cadastrar na promoção encontro premiado e torcer para ser sorteado!',
-        urlAnswer: 'http://encontropremiado.com.br/cadastro/criar/?mktcode=X4EL01&transaction_id=&nome=&sobrenome=&email='
+        description: 'É só se cadastrar na promoção Encontro Premiado e torcer para ser sorteado!',
+        urlAnswer: 'http://springmedia.go2cloud.org/aff_c?offer_id=439&aff_id=1208&source=AFF'
 
       };
 
