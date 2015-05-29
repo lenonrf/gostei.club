@@ -50,33 +50,25 @@
 	<header>
 
 		<!-- Navigation -->
-		<nav class="navbar navbar-default navbar-top" >
+		<nav class="navbar " >
 			<div class="container" ng-controller="HeaderCtrl">
-				<div class="col-md-12"  >
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<div class="navbar-header page-scroll">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						</button>
+
+					<div class="navbar-header">
 						<a class="navbar-brand" href="#page-top" style="margin-top:-5px;"><img src="images/logo.png" width="23%" /></a>
 					</div>
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" id="menuHome">
-						<ul class="nav navbar-nav navbar-right">
+
+
+						<ul class="nav navbar-nav navbar-right" id="menuHome">
 							<li ng-show="showMenuItems"><a class="page-scroll" href="#degraca">De Graça?</a></li>
+              <li ng-show="showMenuItems"><a class="page-scroll" href="#oportunidade">Oportunidades</a></li>
               <li ng-show="showMenuItems"><a class="page-scroll" href="#depoimentos">Depoimentos</a></li>
               <li ng-show="showMenuItems"><a class="page-scroll" href="#marcas">Marcas testadas</a></li>
               <li id="user" ng-show="showMenuUser"><a class="page-scroll" style="color: #8FD4F2 !important;" href="#perguntas">{{firstName}}</a></li>
 
-              <li style="display: none;" id="itemMenuEntrar"><a href="" onclick="$('#lname').focus();" class="botaoMenu">Quero Participar</a></li>
+              <li style="display: none;" id="itemMenuEntrar"><button onclick="$('#lname').focus();" class="botaoMenu">Quero Participar</button></li>
 
             </ul>
-					</div>
-					<!-- /.navbar-collapse -->
-				</div>
+
 			</div>
 		</nav>
 	</header>

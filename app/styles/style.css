@@ -125,7 +125,7 @@ p {
 a,
 a:hover {
 	outline: 0;
-	color: #3498DB;
+	/*color: #3498DB;*/
 	transition: 0.3s;
 	-webkit-transition: 0.3s;
 	text-decoration: none;
@@ -218,35 +218,36 @@ button:hover {
 
 .botaoMenu {
 
-  border: 0px;
-
+  height: 35px;
+  border: 1px solid #fff !important;
   color: #fff;
-  -moz-border-radius:5px;
-  -webkit-border-radius:5px;
   border-radius:5px;
-
-  line-height: 55px;
-  padding: 0 50px;
-  text-transform: none;
   letter-spacing: 0.3px;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 400;
   transition: 0.4s;
   -webkit-transition: 0.4s;
-  margin: 0 auto;
-  display: table;
-
   text-shadow:0px -1px 0px #4f6816;
   background: #749c0d;
   -moz-box-shadow:inset 0px 1px 0px 0px #4f6816;
   -webkit-box-shadow:inset 0px 1px 0px 0px #4f6816;
   box-shadow:inset 0px 1px 0px 0px #82ac25;
 
-  border-bottom-color: #4f6816;
 }
 
 
-.botaoMenu:hover { background-color: #749c0d }
+.botaoMenu:hover {
+  text-shadow:0px -1px 0px #dfb302 !important;
+  background: #ffcc00 !important;
+  -moz-box-shadow:inset 0px 1px 0px 0px #dfb302 !important;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #dfb302 !important;
+  box-shadow:inset 0px 1px 0px 0px #ffcc00 !important;
+  border:1px solid #dfb302 !important;
+  border-bottom-color: #dfb302 !important;
+  color: #Fff;
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+}
 
 .btn-main {
 
@@ -290,10 +291,10 @@ button:hover {
   -webkit-transition: 0.4s;
 }
 
-.btn-white {
+/*.btn-white {
 	background: #fff;
 	color: #3498DB;
-}
+}*/
 
 .btn-left {
 	margin: 0;
@@ -435,7 +436,6 @@ header {
 .navbar-brand {
 
 	margin: 0px;
-
 	padding: 20px 0px 0px;
 
 }
@@ -462,7 +462,7 @@ header {
 
 .nav > li > a:hover ,
 .nav > li.active > a {
-	color: #3498db !important;
+	/*color: #3498db !important;*/
 	border-color: #fff !important;
 	background: #FFF !important;
 }
@@ -472,9 +472,9 @@ header {
 }
 
 .nav > li:last-child > a:hover {
-	color: #fff !important;
+	/*color: #fff !important;
 	border-color: #3498db !important;
-	background: #3498db !important;
+	background: #3498db !important;*/
 }
 
 .navbar-right {
