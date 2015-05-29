@@ -20,21 +20,22 @@ angular.module('gosteiclubApp')
         idQuestion : 1,
         score : 560,
         iframeHeight: 1250,
-        image: 'claro.jpeg',
-        title: 'Em época de crise é bom rever os plano de TV a cabo, que tal pagar apenas 49,90?',
-        description: '90 canais com 2 equipamentos!',
-        urlAnswer: ''
+        image: 'udbc.jpeg',
+        title: 'Sua carreira precisa melhorar? Estude pela internet e Ganhe um Tablet Totalmente Grátis.',
+        description: 'Faça aulas 100% on-line e conclua a sua pós graduação.',
+        urlAnswer: 'http://www.portaleducacao.com.br/adnet/lppos/?'
 
       };
+
 
       var question_2 = {
         idQuestion : 1,
         score : 560,
         iframeHeight: 1250,
-        image: 'udbc.jpeg',
-        title: 'Ganhe Grátis um Tablet',
-        description: 'Nos cursos do Portal Educação você ganha um tablet',
-        urlAnswer: 'http://www.portaleducacao.com.br/adnet/lppos/?'
+        image: 'magazine.jpeg',
+        title: 'Que tal montar uma loja na internet só sua e de graça?',
+        description: 'Aumente  sua renda tendo uma loja totalmente GRÁTIS da Magazine Luiza. Divulgue os produtos para seus amigos e família e fature alto da sua casa.',
+        urlAnswer: 'https://www.magazinevoce.com.br'
 
       };
 
@@ -42,38 +43,36 @@ angular.module('gosteiclubApp')
         idQuestion : 1,
         score : 560,
         iframeHeight: 1250,
-        image: 'magazine.jpeg',
-        title: 'Precisando aumentar a sua renda? Que tal montar uma loja na internet só sua?',
-        description: 'É só se cadastrar e trabalhar de casa!',
-        urlAnswer: 'https://www.magazinevoce.com.br'
-
-      };
-
-      var question_4 = {
-        idQuestion : 1,
-        score : 560,
-        iframeHeight: 1250,
         image: 'english.jpeg',
-        title: 'Como está o seu Inglês? Te damos 14 dias Grátis na EnglishTown.',
-        description: 'inscreva-se e utilize 14 dias sem pagar nada.',
+        title: 'Não está muito bem no Inglês? Podemos te ajudar!',
+        description: 'Cadastre-se na EnglishTown e receba 14 dias de aulas COMPLETAMENTE GRÁTIS.',
         urlAnswer: 'http://www.englishtown.com.br/'
 
       };
 
-     var question_5 = {
+     var question_4 = {
         idQuestion : 2,
         score : 100,
         image: 'seulima.jpeg',
-        title: 'Está no ar a promoção Encontro Premiado, ganhe até 350 mil reais.',
-        description: 'É só clicar e participar, é sem pagar nada!',
+        title: 'Quer ganhar até 350 mil reais sem fazer nada?',
+        description: 'É só se cadastrar na promoção encontro premiado e torcer para ser sorteado!',
         urlAnswer: 'http://encontropremiado.com.br/cadastro/criar/?mktcode=X4EL01&transaction_id=&nome=&sobrenome=&email='
+
+      };
+
+      var question_5 = {
+        idQuestion : 2,
+        score : 100,
+        image: 'direitos.jpeg',
+        title: 'Você é contra a violência contra a mulher?',
+        description: 'Saiba como apoiar a defesa dos direitos humanos no Brasil, é Grátis!',
+        urlAnswer: 'http://springmedia.go2cloud.org/aff_c?offer_id=338&aff_id=1208&source=AFF'
 
       };
 
 
       return [question_1, question_2, question_3, question_4, question_5];
 
-      //return [question_1, question_2, question_3, question_4];
     };
 
   });
