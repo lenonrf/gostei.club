@@ -65,7 +65,9 @@
               <li ng-show="showMenuItems"><a class="page-scroll" href="#marcas">Marcas testadas</a></li>
               <li id="user" ng-show="showMenuUser"><a class="page-scroll" style="color: #8FD4F2 !important;" href="#perguntas">{{firstName}}</a></li>
 
-              <li style="display: none;" id="itemMenuEntrar"><button onclick="$('#lname').focus();" class="botaoMenu">Quero Participar</button></li>
+              <li style="display: none;" id="itemMenuEntrar">
+                <button onclick="$('#loginForm').css('display', 'none');$('#formFields').css('display', 'block');$('#lname').focus();" class="botaoMenu">Quero Participar</button>
+              </li>
 
             </ul>
 
