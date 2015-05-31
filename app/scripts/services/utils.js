@@ -41,4 +41,17 @@ angular.module('gosteiclubApp')
       var nameSplited = name.split(' ');
       return nameSplited[0];
     }
+
+
+    this.getDateFormated = function(date){
+
+      if(date === null){
+        date = new Date();
+        return date.getDate()+'/'+(date.getMonth()+1)+'/'+date.getFullYear();
+      }
+
+      return date.getDate()+'/'+(date.getMonth()+1)+'/'+date.getFullYear();
+    };
+
+
  });
