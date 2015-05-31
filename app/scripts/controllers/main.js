@@ -33,9 +33,6 @@ angular.module('gosteiclubApp')
       }, function(err){});
     }
 
-    $scope.focusCheckout = function(){
-      $("#lname").focus();
-    }
 
 
 
@@ -153,6 +150,13 @@ angular.module('gosteiclubApp')
       $('#formFields').css('display', 'none');
 
     };
+
+
+    $scope.showCheckoutForm = function(){
+      $('#loginForm').css('display', 'none');
+      $('#formFields').css('display', 'block');
+      $("#lname").focus();
+    }
 
 
 

@@ -45,6 +45,10 @@
                       ng-click="login(user)">Entrar
               </button>
 
+              <div class="pos_bt" style="text-align: center; padding-top: 15px;">
+                <span ><a href="" ng-click="showCheckoutForm()">ou cadastre-se</a></span>
+              </div>
+
             </div>
 
           </form>
@@ -92,8 +96,8 @@
               </div>
 
               <div class="pos_bt" style="text-align: center; padding-top: 15px;">
-              <span ><a href="" ng-click="showLoginForm()">ou acesse sua conta</a></span>
-                </div>
+                <span ><a href="" ng-click="showLoginForm()">ou acesse sua conta</a></span>
+              </div>
             </div>
 
 
@@ -206,7 +210,7 @@
         <center><img src="http://gosteiclub-12bd.kxcdn.com/images/products/{{product.image}}" class="product-image"/></center>
         <h3 class="product-title">{{product.name}}</h3>
         <h4 class="product-subtitle">{{product.quantity}} UNIDADES / GRÁTIS!</h4>
-        <a id="link_{{product._id}}" class="product-linkbutton " ng-click="focusCheckout()">EU QUERO!</a>
+        <a id="link_{{product._id}}" class="product-linkbutton " ng-click="showCheckoutForm()">EU QUERO!</a>
       </div>
     </div>
 
