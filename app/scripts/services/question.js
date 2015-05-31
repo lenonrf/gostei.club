@@ -16,7 +16,7 @@ angular.module('gosteiclubApp')
      */
     this.getQuestionList = function(){
 
-      var question_1 = {
+      var portal = {
         idQuestion : 1,
         score : 560,
         iframeHeight: 1250,
@@ -28,7 +28,7 @@ angular.module('gosteiclubApp')
       };
 
 
-      var question_2 = {
+      var magazine = {
         idQuestion : 1,
         score : 560,
         iframeHeight: 1250,
@@ -39,7 +39,7 @@ angular.module('gosteiclubApp')
 
       };
 
-      var question_3 = {
+      var englishtown = {
         idQuestion : 1,
         score : 560,
         iframeHeight: 1250,
@@ -50,7 +50,7 @@ angular.module('gosteiclubApp')
 
       };
 
-     var question_4 = {
+     var seulima = {
         idQuestion : 2,
         score : 100,
         image: 'seulima.jpeg',
@@ -60,7 +60,7 @@ angular.module('gosteiclubApp')
 
       };
 
-      var question_5 = {
+      var fundoBrasil = {
         idQuestion : 2,
         score : 100,
         image: 'direitos.jpeg',
@@ -71,7 +71,7 @@ angular.module('gosteiclubApp')
       };
 
 
-      return [question_1, question_2, question_3, question_4, question_5];
+      return [englishtown, magazine, seulima, portal, fundoBrasil];
 
     };
 
