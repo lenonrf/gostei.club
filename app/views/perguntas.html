@@ -25,19 +25,23 @@
     <section id="features" style=" font-weight: 400; font-size:20px; background-color:#fff; margin-top:-40px;">
       <div class="container">
         <div id="headerPergunta">
-          <div class="col-md-7" style="margin-top:-70px; margin-bottom:40px;">
-            <h2 style="font-weight: 600; color:#3498db;  margin-top: 10px;  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif; letter-spacing: -0.5px; ">{{question.title}}</h2>
-            <p class="lead" style="font-weight: 400; font-size:14px; padding-bottom:40px; color:#7e7e7e;">{{question.description}}</p>
-            <a ng-disabled="disableAnswerButton" class="btn btn-main" ng-click="setAnswerQuestion(true)" style="margin-bottom:10px;"  role="button"><b>SIM, Eu quero esta Oportunidade!</b></a>
-            <center><a ng-disabled="disableAnswerButton" href="" ng-click="setAnswerQuestion(false)"role="button" style="font-size:12px; color:#525252; ">Não tenho interesse</a></center>
-          </div>
+          <div class="row">
 
-          <div class="col-md-5" style="margin-top:-90px; background-color: #fff;">
-            <div id="imageProduct" style="display: block;">
-              <img style=" border-radius: 5px; margin-top:40px; display: block; margin-left: auto; margin-right: auto;" class="img-responsive"
-                   src="http://gosteiclub-12bd.kxcdn.com/images/{{question.image}}" alt="" style="">
+            <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12" style="margin-top:-90px; background-color: #fff;">
+
+                <img style=" border-radius: 5px;   margin-bottom: 25%; margin-top:40px; margin-left: auto; margin-right: auto;" class="img-responsive"
+                     src="http://gosteiclub-12bd.kxcdn.com/images/{{question.image}}" >
+
+            </div>
+
+            <div class="col-md-7 col-lg-7 col-sm-12 col-xs-12" style="margin-top:-70px; margin-bottom:40px;">
+              <h2 style="font-weight: 600; color:#3498db;  margin-top: 10px;  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif; letter-spacing: -0.5px; ">{{question.title}}</h2>
+              <p class="lead" style="font-weight: 400;   margin-left: 16px;   margin-right: 16px; font-size:14px; padding-bottom:40px; color:#7e7e7e;">{{question.description}}</p>
+              <a ng-disabled="disableAnswerButton" class="btn btn-main" ng-click="setAnswerQuestion(true)" style="margin-bottom:10px;"  role="button"><b>SIM, Eu quero esta Oportunidade!</b></a>
+              <center><a ng-disabled="disableAnswerButton" href="" ng-click="setAnswerQuestion(false)"role="button" style="font-size:12px; color:#525252; ">Não tenho interesse</a></center>
             </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -70,13 +74,13 @@
     <div class="row">
       <div class="col-md-14">
 
-        <div ng-repeat="product in products" class="col-md-2 product">
+        <div ng-repeat="product in products" class="col-md-2 col-sm-2 col-xs-12 product" >
 
-          <center><img src="http://gosteiclub-12bd.kxcdn.com/images/products/{{product.image}}" class="product-image"/></center>
-          <h3 class="product-title">{{product.name}}</h3>
+          <img src="http://gosteiclub-12bd.kxcdn.com/images/products/{{product.image}}" class="product-image"/>
+          <h3 class="product-title" style="height: 44px;">{{product.name}}</h3>
           <h4 class="product-subtitle">{{product.quantity}} UNIDADES / GRÁTIS!</h4>
-          <a ng-if="product.marked === false" id="link_{{product._id}}" class="product-linkbutton " ng-click="saveProduct(product)">EU QUERO!</a>
-          <a ng-if="product.marked === true" class="product-linkbutton-marked">ESCOLHIDO!</a>
+
+          <a id="link_{{product._id}}" class="product-linkbutton " ng-click="showCheckoutForm()">EU QUERO!</a>
 
         </div>
 

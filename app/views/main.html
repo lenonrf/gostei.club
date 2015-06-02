@@ -7,32 +7,24 @@
     <div class="row">
 
 
-      <div class="col-md-7">
-        <h3
+      <div class="col-md-7 col-lg-7 col-sm-12">
+        <h3 id="tituloHome"
           style="font-weight: 300; letter-spacing: -1px; color:#fdb72c;  font-size:36px; font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif; margin-bottom:5px">
           Receba Produtos Grátis em Casa!</h3>
 
-        <div class="col-md-14" style="  font-size: 16px;
-  color: #fff;
-  font-weight: 200;
-  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif; margin-bottom:3%;">Faça parte do nosso Clube de Oportunidades, receba produtos em casa sem pagar nada e nos conte o que achou!
+        <div class="col-md-14" style=" padding-left: 15px; padding-right: 15px;  font-size: 16px; color: #fff; font-weight: 200; font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif; margin-bottom:3%;">Faça parte do nosso Clube de Oportunidades, receba produtos em casa sem pagar nada e nos conte o que achou!
         </div>
 
-        <img class="img-responsive" src="images/bg_home.png" alt="" style="">
+        <img class="img-responsive" id="imgEtapasGostei" src="images/bg_home.png" alt="" style="">
       </div>
 
-      <div class="col-md-5 sub-form" id="loginForm" style="display: none">
-        <div id="sub-form">
+      <div class="col-md-5 col-lg-5  col-sm-12 sub-form" id="loginForm" style="display: none">
+
           <form class="subscribe" novalidate id="inviteLogin">
 
-            <h4 style="margin-top:-15px; margin-bottom:20px; text-align:left; font-weight: 500; color:#888585;">O Gostei
-              é 100% Grátis</h4>
+            <h4  id="messageStatusLogin" style="margin-top:-15px; margin-bottom:20px; text-align:left; font-weight: 500; color:#888585;">Digite seu email para entrar!</h4>
 
             <div>
-
-              <h5 ng-style="{'background-color': bgMsgLoginColor}" class="sub-form-h5"
-                  style="text-align:left; padding-left:54px;" id="messageStatusLogin">Digite seu email para entrar!</h5>
-
 
               <input ng-style="{'background-color': bgEmailLoginColor}" type="email" name="email" id="emailLogin" class="lname"
                      placeholder="exemplo@email.com" ng-model="user.email">
@@ -52,11 +44,11 @@
             </div>
 
           </form>
-        </div>
+
       </div>
 
 
-      <div class="col-md-5 sub-form"  id="formFields">
+      <div class="col-md-5 col-lg-5  col-sm-12 sub-form"  id="formFields">
         <div id="sub-form">
           <form class="subscribe" novalidate id="invite">
 
@@ -65,8 +57,8 @@
 
             <div ng-show="showFormFields">
 
-              <h5 ng-style="{'background-color': bgMsgColor}" class="sub-form-h5"
-                  style="text-align:left; padding-left:54px;" id="messageStatus">Cadastre-se e Participe!</h5>
+              <h5  ng-style="{'background-color': bgMsgColor}" class="sub-form-h5"
+                  style="text-align:left;" id="messageStatus">Cadastre-se e Participe!</h5>
 
               <input ng-style="{'background-color': bgUserColor}" type="text" name="lname" id="lname" class="lname"
                      placeholder="nome" ng-model="user.name">
@@ -122,7 +114,6 @@
 <!-- FEATURES -->
 <section id="features"
          style="background:  url(images/amostragratis.jpg) repeat-x top; background-size:85%; height:150px; ">
-
   <div class="container">
 
     <div class="row" id="degraca" ></div>
@@ -204,15 +195,16 @@
       <p>Veja alguns produtos que estamos testando neste momento e clique para participar: </p>
     </div>
 
-    <div class="col-md-14">
-      <div ng-repeat="product in products" class="col-md-2 product">
 
-        <center><img src="http://gosteiclub-12bd.kxcdn.com/images/products/{{product.image}}" class="product-image"/></center>
-        <h3 class="product-title">{{product.name}}</h3>
+      <div ng-repeat="product in products" class="col-md-2 col-sm-2 col-xs-12 product" >
+
+        <img src="http://gosteiclub-12bd.kxcdn.com/images/products/{{product.image}}" class="product-image"/>
+        <h3 class="product-title" style="height: 44px;">{{product.name}}</h3>
         <h4 class="product-subtitle">{{product.quantity}} UNIDADES / GRÁTIS!</h4>
-        <a id="link_{{product._id}}" class="product-linkbutton " ng-click="showCheckoutForm()">EU QUERO!</a>
+
+          <a id="link_{{product._id}}" class="product-linkbutton " ng-click="showCheckoutForm()">EU QUERO!</a>
+
       </div>
-    </div>
 
   </div>
 </section>
