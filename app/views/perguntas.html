@@ -80,7 +80,8 @@
           <h3 class="product-title" style="height: 44px;">{{product.name}}</h3>
           <h4 class="product-subtitle">{{product.quantity}} UNIDADES / GRÁTIS!</h4>
 
-          <a id="link_{{product._id}}" class="product-linkbutton " ng-click="showCheckoutForm()">EU QUERO!</a>
+          <a ng-if="product.marked === false" id="link_{{product._id}}" class="product-linkbutton " ng-click="saveProduct(product)">EU QUERO!</a>
+          <a ng-if="product.marked === true" class="product-linkbutton-marked">ESCOLHIDO!</a>
 
         </div>
 
