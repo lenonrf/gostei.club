@@ -2235,7 +2235,7 @@ header {
   }
 }
 
-@media  (max-width : 769px) {
+@media  (max-width : 380px) {
   #tituloHome {
     margin-top: 70px;
   }
