@@ -70,8 +70,48 @@ angular.module('gosteiclubApp')
 
       };
 
+      var gslim = {
+        idQuestion : 2,
+        score : 100,
+        image: 'gslim.jpg',
+        title: 'Perca peso muito mais rapido!',
+        description: 'O G-SLIM é um novo e poderoso aliado na perda de peso. Graças à sua ação anti-oxidante, seu corpo todo funciona melhor e você emagrece muito mais rápido!',
+        urlAnswer: 'http://springmedia.go2cloud.org/aff_c?offer_id=304&aff_id=1208&source=AFF'
 
-      return [englishtown, magazine, seulima, portal, fundoBrasil];
+      };
+
+      var dietaDosNumeros = {
+        idQuestion : 2,
+        score : 100,
+        image: 'dietaDosNumeros.jpg',
+        title: 'O segredo da boa forma em suas mãos',
+        description: 'Com a dieta dos números Seleções você não precisa mais passar fome e poderá esquecer as dietas cheias de restrições que trazem apenas resultados temporários.',
+        urlAnswer: 'http://springmedia.go2cloud.org/aff_c?offer_id=366&aff_id=1208&source=AFF'
+
+      };
+
+      var turmaDaMonica = {
+        idQuestion : 2,
+        score : 100,
+        image: 'turmaDaMonica.jpg',
+        title: 'Deixe que a Turma da Mônica desperte o prazer da leitura no seu filho.',
+        description: 'GANHE 6 PRESENTES GRÁTIS!',
+        urlAnswer: 'http://springmedia.go2cloud.org/aff_c?offer_id=176&aff_id=1208&source=AFF&url_id=1216'
+
+      };
+
+      var megaLipo = {
+        idQuestion : 2,
+        score : 100,
+        image: 'kitlipo.jpg',
+        title: 'Necessita emagrecer urgente? Agora você pode.',
+        description: 'Saiba como apoiar a defesa dos direitos humanos no Brasil, é Grátis!',
+        urlAnswer: 'http://springmedia.go2cloud.org/aff_c?offer_id=310&aff_id=1208&source=AFF'
+
+      };
+
+
+      return [dietaDosNumeros, englishtown, seulima, turmaDaMonica, gslim, magazine];
 
     };
 
