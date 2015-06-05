@@ -111,7 +111,7 @@ angular.module('gosteiclubApp')
       };
 
 
-      return [dietaDosNumeros, englishtown, seulima, turmaDaMonica, gslim, magazine];
+      return [englishtown, seulima, dietaDosNumeros, turmaDaMonica, gslim, magazine];
 
     };
 
