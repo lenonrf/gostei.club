@@ -91,7 +91,7 @@ angular.module('gosteiclubApp')
         evento : 'Novo Cadastro',
         nm_email: data.email,
         lista:{
-          nm_lista: 'gostei',
+          nm_lista: 'gostei.club',
           nome: data.name,
           sexo: data.gender,
           dt_cadastro: Utils.getDateFormated(null)
