@@ -85,7 +85,7 @@ angular.module('gosteiclubApp')
     function onSuccessDefault(data, status) {
 
       data.isLogged = true;
-      /*
+      
       // envio de dados para allin
       var allin = {
         evento : 'Novo Cadastro',
@@ -102,7 +102,7 @@ angular.module('gosteiclubApp')
         lc.sendData(allin);
       }catch (e){
         console.log('erro', e);
-      }*/
+      }
 
       User.setData(data);
       $location.path('/perguntas');
