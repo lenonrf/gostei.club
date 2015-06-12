@@ -110,8 +110,39 @@ angular.module('gosteiclubApp')
 
       };
 
+      var claro = {
+        idQuestion : 2,
+        score : 100,
+        image: 'claro2.jpeg',
+        title: 'Em tempos de crise temos que diminuir os custos, não acha?',
+        description: 'A Claro tem um plano com TV com mais de 90 canais e 2 equipamentos, Internet Rápida, Telefone Fixo e Celular por apenas R$ 49,90.  Economize!',
+        urlAnswer: 'http://springmedia.go2cloud.org/aff_c?offer_id=432&aff_id=1208&source=AFF'
 
-      return [englishtown, seulima, dietaDosNumeros, turmaDaMonica, gslim, magazine];
+      };
+
+      var videncia = {
+        idQuestion : 2,
+        score : 100,
+        image: 'crisnedium.jpg',
+        title: 'Temos uma vidência on-line grátis para você!',
+        description: 'O que você precisar saber? Amor? Sorte? Dinheiro? Descubra',
+        urlAnswer: 'http://springmedia.go2cloud.org/aff_c?offer_id=58&aff_id=1208&source=AFF'
+
+      };
+
+      var manager = {
+        idQuestion : 2,
+        score : 100,
+        image: 'manager.jpeg',
+        title: 'Precisando de um emprego novo?',
+        description: 'A Manager está com vagas para todo o Brasil. Para você encontrar seu emprego, te damos 7 dias Grátis. Aproveite!',
+        urlAnswer: 'http://springmedia.go2cloud.org/aff_c?offer_id=186&aff_id=1208&source=AFF'
+
+      };
+
+
+
+      return [englishtown, claro, videncia, manager, magazine, seulima];
 
     };
 
