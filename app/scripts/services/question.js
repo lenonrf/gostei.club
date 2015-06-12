@@ -135,7 +135,7 @@ angular.module('gosteiclubApp')
         score : 100,
         image: 'manager.jpeg',
         title: 'Precisando de um emprego novo?',
-        description: 'A Manager está com vagas para todo o Brasil. Para você encontrar seu emprego, te damos 7 dias Grátis. Aproveite!',
+        description: 'A Manager está com vagas para todo o Brasil. Para você encontrar seu emprego, TE DAMOS 7 DIAS GRÁTIS. Aproveite!',
         urlAnswer: 'http://springmedia.go2cloud.org/aff_c?offer_id=186&aff_id=1208&source=AFF'
 
       };
