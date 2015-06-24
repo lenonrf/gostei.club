@@ -116,7 +116,7 @@ angular.module('gosteiclubApp')
         image: 'claro2.jpeg',
         title: 'Em tempos de crise temos que diminuir os custos, não acha?',
         description: 'A Claro tem um plano com TV com mais de 90 canais e 2 equipamentos, Internet Rápida, Telefone Fixo e Celular por apenas R$ 49,90.  Economize!',
-        urlAnswer: 'http://springmedia.go2cloud.org/aff_c?offer_id=432&aff_id=1208&source=AFF'
+        urlAnswer: 'http://springmedia.go2cloud.org/aff_c?offer_id=476&aff_id=1208&source=AFF'
 
       };
 
@@ -141,8 +141,30 @@ angular.module('gosteiclubApp')
       };
 
 
+      var clubedalu = {
+        idQuestion : 2,
+        score : 100,
+        image: 'clubelu.jpeg',
+        title: 'Faça parte do Clube da Lú do Magazine Luiza e saiba antes de todos as ofertas do saldão',
+        description: 'Cadastre-se no site e fique por dentro.',
+        urlAnswer: 'http://springmedia.go2cloud.org/aff_c?offer_id=346&aff_id=1208&source=AFF'
 
-      return [englishtown, claro, videncia, manager, magazine, seulima];
+      };
+
+
+      var brastemp = {
+        idQuestion : 2,
+        score : 100,
+        image: 'brastemp.jpeg',
+        title: 'Você Ganhou um mês Grátis de Filtro Brastemp e R$ 80,00 reais de créditos na NetShoes.',
+        description: 'Promoção exclusiva para os participantes do Gostei.Club. Só esta semana!',
+        urlAnswer: 'http://springmedia.go2cloud.org/aff_c?offer_id=126&aff_id=1208&source=AFF&url_id=1268'
+
+      };
+
+
+
+      return [brastemp, englishtown, claro, videncia, clubedalu, seulima, manager, magazine];
 
     };
 
