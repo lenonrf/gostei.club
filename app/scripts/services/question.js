@@ -164,7 +164,7 @@ angular.module('gosteiclubApp')
 
 
 
-      return [brastemp, englishtown, claro, videncia, clubedalu, seulima, manager, magazine];
+      return [brastemp, englishtown, claro, videncia, seulima, manager];
 
     };
 
