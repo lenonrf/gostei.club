@@ -8,7 +8,7 @@
  * Factory in the gosteiclubApp.
  */
 angular.module('gosteiclubApp')
-  .service('Question', function ($resource) {
+  .factory('Question', function ($resource) {
 
     /**
      * Retorna uma lista de questoes para o usuario
@@ -163,9 +163,24 @@ angular.module('gosteiclubApp')
       };
 
 
-      return [brastemp, englishtown, claro, videncia, seulima, manager];
+      //return [brastemp, englishtown, claro, videncia, seulima, manager];
 
 
     };
+
+    this.data = {};
+    var self = this;
+
+    this.resource = $resource('/api/oportunities/:id');
+
+    this.getData = function(){
+      return self.data;
+    };
+
+    this.setData = function(data){
+      return self.data = data;
+    };
+
+    return this;
 
   });

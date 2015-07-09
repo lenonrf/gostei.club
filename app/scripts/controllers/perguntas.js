@@ -36,9 +36,10 @@ angular.module('gosteiclubApp')
     $scope.step_1 = false;
     $scope.step_2 = false;
 
-    $scope.questionList = getQuestionList();
+    //$scope.questionList = getQuestionList();
     getProducts();
-    showFirstQuestion();
+    //showFirstQuestion();
+    getQuestionList();
 
     $scope.$watch('user.address.zipcode', function() {
 
@@ -248,7 +249,36 @@ angular.module('gosteiclubApp')
      * @returns {*[]}
      */
     function getQuestionList() {
-      return Question.getQuestionList();
+      //return Question.getQuestionList();
+
+      Question.resource.query(function(data){
+
+        $scope.allQuestions = data;
+        $scope.questionList = [];
+
+        for(var i=0; i<$scope.allQuestions.length; i++){
+          if($scope.allQuestions[i].status === true){
+            $scope.questionList.push($scope.allQuestions[i]);
+          }
+        }
+
+        console.log('$scope.allQuestions', $scope.allQuestions);
+        console.log('$scope.questionList', $scope.questionList);
+
+        var question = $scope.questionList[0];
+
+        $scope.question = {
+
+          title: question.title,
+          description: question.description,
+          answerList: question.answerList,
+          image: question.image,
+          urlAnswer: question.urlAnswer
+        };
+
+      }, function(err){
+        console.log('err', err);
+      });
     }
 
 

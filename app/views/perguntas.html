@@ -30,7 +30,7 @@
             <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12" style="margin-top:-90px; background-color: #fff;">
 
                 <img style=" border-radius: 5px;   margin-bottom: 25%; margin-top:40px; margin-left: auto; margin-right: auto;" class="img-responsive"
-                     src="http://gosteiclub-12bd.kxcdn.com/images/{{question.image}}" >
+                     src="{{question.image}}" >
 
             </div>
 
@@ -76,7 +76,7 @@
 
         <div ng-repeat="product in products" class="col-md-2 col-sm-2 col-xs-12 product" >
 
-          <img src="http://gosteiclub-12bd.kxcdn.com/images/products/{{product.image}}" class="product-image"/>
+          <img src="{{product.image}}" class="product-image"/>
           <h3 class="product-title" style="height: 44px;">{{product.name}}</h3>
           <h4 class="product-subtitle">{{product.quantity}} UNIDADES / GRÁTIS!</h4>
 
