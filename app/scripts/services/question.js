@@ -163,7 +163,7 @@ angular.module('gosteiclubApp')
       };
 
 
-      return [brastemp, englishtown, claro, videncia, magazine, seulima, manager];
+      return [brastemp, englishtown, videncia, magazine, seulima, manager];
 
 
     };
