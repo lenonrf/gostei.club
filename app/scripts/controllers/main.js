@@ -18,6 +18,14 @@ angular.module('gosteiclubApp')
     $scope.showFormFields = true;
     $rootScope.showMenuItems = true;
 
+    if(!Utils.isEmpty($location.search().email)){
+
+      var user = {};
+      user.email = $location.search().email;
+      executeLogin(user, 'home');
+    }
+
+
     getProducts();
 
 
@@ -42,6 +50,11 @@ angular.module('gosteiclubApp')
      * @returns {boolean}
      */
     $scope.login = function(user){
+      executeLogin(user, 'perguntas');
+    };
+
+
+    function executeLogin(user, page) {
 
       if(!validateLogin(user)) return false;
 
@@ -49,10 +62,10 @@ angular.module('gosteiclubApp')
 
         data.isLogged = true;
         User.setData(data);
-        $location.path('/perguntas');
+        $location.path('/'+page);
 
       }, onErrorLogin);
-    };
+    }
 
 
     /**
@@ -85,7 +98,7 @@ angular.module('gosteiclubApp')
     function onSuccessDefault(data, status) {
 
       data.isLogged = true;
-      
+
       // envio de dados para allin
       var allin = {
         evento : 'Novo Cadastro',

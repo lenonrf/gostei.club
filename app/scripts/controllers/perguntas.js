@@ -80,8 +80,8 @@ angular.module('gosteiclubApp')
 
     function onSuccess(data) {
       User.setData(data);
-      console.log('sucesso', data)
-      $location.path('/sucesso');
+      //console.log('sucesso', data)
+      $location.path('/home');
     }
 
     function onError(data) {
@@ -262,8 +262,8 @@ angular.module('gosteiclubApp')
           }
         }
 
-        console.log('$scope.allQuestions', $scope.allQuestions);
-        console.log('$scope.questionList', $scope.questionList);
+        //console.log('$scope.allQuestions', $scope.allQuestions);
+        //console.log('$scope.questionList', $scope.questionList);
 
         var question = $scope.questionList[0];
 
