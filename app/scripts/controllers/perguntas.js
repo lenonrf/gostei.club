@@ -257,7 +257,10 @@ angular.module('gosteiclubApp')
         $scope.questionList = [];
 
         for(var i=0; i<$scope.allQuestions.length; i++){
-          if($scope.allQuestions[i].status === true){
+
+          if($scope.allQuestions[i].status === true &&
+            $scope.allQuestions[i].isQuestion === true){
+
             $scope.questionList.push($scope.allQuestions[i]);
           }
         }
