@@ -22,7 +22,13 @@ angular.module('gosteiclubApp')
 
       var user = {};
       user.email = $location.search().email;
-      executeLogin(user, 'home');
+
+      if(!Utils.isEmpty($location.search().canal)){
+        executeLogin(user, 'perguntas');
+      }else{
+        executeLogin(user, 'home');
+      }
+
     }
 
 
