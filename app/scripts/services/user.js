@@ -60,7 +60,7 @@
      };
 
      this.setLogged = function(isLogged){
-       return self.data.isLogged = isLogged;
+       //return self.data.isLogged = isLogged;
      };
 
      return this;
