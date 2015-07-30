@@ -33,7 +33,10 @@ angular.module('gosteiclubApp')
 
             $location.path('/perguntas');
 
-          }, onErrorLogin);
+          }, function(){
+            console.log('erro get user');
+            $location.path('/main');
+          });
 
 
         }else{
