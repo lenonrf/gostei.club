@@ -23,10 +23,9 @@ angular.module('gosteiclubApp')
       var user = {};
       user.email = $location.search().email;
 
-      console.log('canal', $location.search().canal);
-
       if(!Utils.isEmpty($location.search().canal)){
         executeLogin(user, 'perguntas');
+        enviarDadosAllin(user);
       }else{
         executeLogin(user, 'home');
       }
@@ -66,12 +65,20 @@ angular.module('gosteiclubApp')
 
       if(!validateLogin(user)) return false;
 
-      User.resource.get({email:user.email}, function(data){
+      var data = getUser(user.email);
 
-        data.isLogged = true;
-        User.setData(data);
-        $location.path('/'+page);
+      data.isLogged = true;
+      User.setData(data);
+      $location.path('/'+page);
 
+
+    }
+
+
+    function getUser(emailUser){
+
+      User.resource.get({email:emailUser}, function(data){
+        return data;
       }, onErrorLogin);
     }
 
@@ -107,6 +114,15 @@ angular.module('gosteiclubApp')
 
       data.isLogged = true;
 
+      enviarDadosAllin(data);
+
+      User.setData(data);
+      $location.path('/perguntas');
+    }
+
+
+    function enviarDadosAllin(data){
+
       // envio de dados para allin
       var allin = {
         evento : 'Novo Cadastro',
@@ -125,8 +141,6 @@ angular.module('gosteiclubApp')
         console.log('erro', e);
       }
 
-      User.setData(data);
-      $location.path('/perguntas');
     }
 
 
