@@ -8,11 +8,41 @@
  * Controller of the gosteiclubApp
  */
 angular.module('gosteiclubApp')
-  .controller('PerguntasCtrl', function ($scope, $window, $http, $rootScope, $location, Question, User, Utils, Product) {
+  .controller('PerguntasCtrl', function ($scope, $window, $http, $rootScope, $location, Allin, Question, User, Utils, Product) {
+
+
+
 
     if(!Utils.isLogged(User.data)){
 
-      $location.path('/main');
+
+      if(!Utils.isEmpty($location.search().email)){
+
+        var user = {};
+        user.email = $location.search().email;
+
+        if(!Utils.isEmpty($location.search().canal)){
+
+
+          User.resource.get({email:user.email}, function(data){
+
+            Allin.enviarDadosAllin(data);
+
+            User.setData(data);
+            User.setLogged(true);
+
+            $location.path('/perguntas');
+
+          }, onErrorLogin);
+
+
+        }else{
+          $location.path('/main');
+        }
+
+      }else{
+        $location.path('/main');
+      }
 
     }else{
       $rootScope.showMenuCheckout = false;
