@@ -18,14 +18,28 @@ angular.module('gosteiclubApp')
     $scope.showFormFields = true;
     $rootScope.showMenuItems = true;
 
+
+
     if(!Utils.isEmpty($location.search().email)){
 
       var user = {};
       user.email = $location.search().email;
 
       if(!Utils.isEmpty($location.search().canal)){
-        executeLogin(user, 'perguntas');
-        enviarDadosAllin(user);
+
+
+        User.resource.get({email:user.email}, function(data){
+
+          enviarDadosAllin(data);
+
+          User.setData(data);
+          User.setLogged(true);
+
+          $location.path('/perguntas');
+
+        }, onErrorLogin);
+
+
       }else{
         executeLogin(user, 'home');
       }
@@ -65,21 +79,17 @@ angular.module('gosteiclubApp')
 
       if(!validateLogin(user)) return false;
 
-      var data = getUser(user.email);
+      User.resource.get({email:user.email}, function(data){
 
-      User.setData(data);
-      User.setLogged(true);
-      $location.path('/'+page);
+        User.setData(data);
+        User.setLogged(true);
+        $location.path('/'+page);
 
-    }
-
-
-    function getUser(emailUser){
-
-      User.resource.get({email:emailUser}, function(data){
-        return data;
       }, onErrorLogin);
+
     }
+
+
 
 
     /**
