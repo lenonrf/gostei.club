@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('gosteiclubApp')
-  .service('Allin', function ($resource) {
+  .service('Allin', function (Utils) {
 
 
     this.enviarDadosAllin = function(data){
