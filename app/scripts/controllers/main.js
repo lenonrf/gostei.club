@@ -67,10 +67,9 @@ angular.module('gosteiclubApp')
 
       var data = getUser(user.email);
 
-      data.isLogged = true;
       User.setData(data);
+      User.setLogged(true);
       $location.path('/'+page);
-
 
     }
 
