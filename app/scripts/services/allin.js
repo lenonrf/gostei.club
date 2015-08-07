@@ -4,7 +4,7 @@ angular.module('gosteiclubApp')
   .service('Allin', function (Utils) {
 
 
-    this.enviarDadosAllin = function(data){
+    this.sendDataToWelcomeLifeCycle = function(data){
 
       var allin = {
         evento : 'Novo Cadastro',

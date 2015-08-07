@@ -8,21 +8,7 @@
  * Controller of the gosteiclubApp
  */
 angular.module('gosteiclubApp')
-  .controller('PerguntasCtrl', function ($scope, $window, $http, $rootScope, $location, Question, User, Utils, Product) {
-
-
-    if(!Utils.isLogged(User.data)){
-
-      $location.path('/main');
-
-    }else{
-      $rootScope.showMenuCheckout = false;
-      $rootScope.showMenuItems = false;
-      $rootScope.showMenuUser = false;
-      $rootScope.firstName = Utils.getFirstName(User.getData().name);
-    }
-
-    Utils.setFixedMenu();
+  .controller('PerguntasCtrl', function ($scope, $window, $http, $rootScope, $location, Allin, Question, User, Utils, Product) {
 
     $scope.user = User.getData();
     $scope.user.score = 0;
@@ -37,9 +23,42 @@ angular.module('gosteiclubApp')
     $scope.step_1 = false;
     $scope.step_2 = false;
 
-    //$scope.questionList = getQuestionList();
+
+    if(!Utils.isLogged(User.data)){
+
+      console.log('isUserFromLandingPage', User.isUserFromLandingPage($location));
+
+      if(User.isUserFromLandingPage($location)){
+
+        User.resource.get({email:$location.search().email}, function(data){
+
+          // TODO - Mudar a logica para o backend
+          Allin.sendDataToWelcomeLifeCycle(data);
+
+          User.setData(data);
+          User.setLogged(true);
+          $scope.user = User.getData();
+
+        }, function(){
+          $location.path('/main');
+        });
+
+
+      }else{
+        $location.path('/main');
+      }
+
+
+    }else{
+
+      $rootScope.showMenuCheckout = false;
+      $rootScope.showMenuItems = false;
+      $rootScope.showMenuUser = false;
+      $rootScope.firstName = Utils.getFirstName(User.getData().name);
+    }
+
+    Utils.setFixedMenu();
     getProducts();
-    //showFirstQuestion();
     getQuestionList();
 
     $scope.$watch('user.address.zipcode', function() {

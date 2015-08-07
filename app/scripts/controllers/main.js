@@ -19,33 +19,12 @@ angular.module('gosteiclubApp')
     $rootScope.showMenuItems = true;
 
 
-
-    if(!Utils.isEmpty($location.search().email)){
+    if(User.isUserFromEmail($location)){
 
       var user = {};
       user.email = $location.search().email;
-
-      if(!Utils.isEmpty($location.search().canal)){
-
-
-        User.resource.get({email:user.email}, function(data){
-
-          Allin.enviarDadosAllin(data);
-
-          User.setData(data);
-          User.setLogged(true);
-
-          $location.path('/perguntas');
-
-        }, onErrorLogin);
-
-
-      }else{
-        executeLogin(user, 'home');
-      }
-
+      executeLogin(user, 'home');
     }
-
 
     getProducts();
 
@@ -102,11 +81,17 @@ angular.module('gosteiclubApp')
       if (!validateFields(user)) return false;
 
       $scope.disableButton = true;
+      var canal = 'gostei.club';
+
+      if(!Utils.isEmpty($location.search().utm_source)){
+        canal = $location.search().utm_source;
+      }
 
       var data = {
         'name': user.name,
         'email': user.email,
-        'gender': user.gender
+        'gender': user.gender,
+        'canal' : canal
       };
 
       //envio de dados para o bando de dados
@@ -121,7 +106,7 @@ angular.module('gosteiclubApp')
      */
     function onSuccessDefault(data, status) {
 
-      Allin.enviarDadosAllin(data);
+      Allin.sendDataToWelcomeLifeCycle(data);
 
       User.setData(data);
       User.setLogged(true);
