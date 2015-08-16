@@ -198,6 +198,29 @@
     </div>
 
 
+    <div class="pricing">
+      <div class="row">
+        <div class="col-md-2" ng-repeat="product in products">
+          <div class="panel panel-default text-center" style="border: 1px solid #ededed;">
+            <div style="backgound-color:#fff; padding-bottom:10px;">
+              <img src="{{product.image}}" style="width:100%;" />
+            </div>
+            <div class="panel-heading">
+              <strong>{{product.name}}</strong>
+            </div>
+            <ul class="list-group">
+              <li class="list-group-item">{{product.quantity}} Unidades <b>Grátis</b></li>
+              <li class="list-group-item">
+                <a id="link_{{product._id}}" ng-click="showCheckoutForm()" class="btn-main" href="">Eu Quero!</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--
       <div ng-repeat="product in products" class="col-md-2 col-sm-2 col-xs-12 product" >
 
         <img src="{{product.image}}" class="product-image"/>
@@ -206,7 +229,7 @@
 
           <a id="link_{{product._id}}" class="product-linkbutton " ng-click="showCheckoutForm()">EU QUERO!</a>
 
-      </div>
+      </div>-->
 
   </div>
 </section>

@@ -4,12 +4,13 @@
     <span style="color:#333333; font-size:18px;"><span style="font-size:16px">Olá</span> <span style="font-weight: 600;  letter-spacing:-1px;">{{user.name}}</span><span style="font-size:16px">, bem-vindo ao nosso Clube de Oportunidades</span></span><br>
 
   </div>
+  <div id="oportunidade"></div>
 </div>
 
 
 <!-- OPORTUNIDADE -->
 <section id="features" style="font-size:20px; background-color:#f7f6f6; margin-top:0px;">
-  <div class="container" style="margin-top:-60px">
+  <div  class="container" style="margin-top:-60px">
     <b>Oportunidades</b>
     <p class="lead" style="font-weight: 400; font-size:14px;">O Gostei trabalha pra te oferecer as melhores oportunidades da internet!</p>
   </div>
@@ -35,11 +36,17 @@
                   <a class="btn btn-main" href="{{item.urlAnswer}}" target="_blank"  role="button"><b>SIM, Eu quero esta Oportunidade!</b></a>
                 </div>
 
+                <div id="amostras"></div>
                 <p> </p>
+
               </div>
+
             </div>
           </div>
+
     </div>
+
+  </div>
   </div>
 
 
@@ -47,7 +54,7 @@
 <section id="features" style="font-size:20px; background-color:#f7f6f6; margin-top:0px;">
 
   <div class="container" style="margin-top:-60px">
-    <b>Produtos Disponíveis</b>
+    <b>Amostras Grátis</b>
     <p class="lead" style="font-weight: 400; font-size:14px;"><b>Veja Abaixo</b> os produtos que você se candidatou para testar e navegue por outras oportunidades que temos para o momento!</p>
 
   </div>
@@ -59,15 +66,29 @@
     <div class="row">
       <div class="col-md-14">
 
-        <div ng-repeat="product in products" class="col-md-2 col-sm-2 col-xs-12 product" >
-
-          <img src="{{product.image}}" class="product-image"/>
-          <h3 class="product-title" style="height: 44px;">{{product.name}}</h3>
-          <h4 class="product-subtitle">{{product.quantity}} UNIDADES / GRÁTIS!</h4>
-
-          <a ng-if="product.marked === false" id="link_{{product._id}}" class="product-linkbutton " ng-click="saveProduct(product)">EU QUERO!</a>
-          <a ng-if="product.marked === true" class="product-linkbutton-marked">ESCOLHIDO!</a>
-
+        <div class="pricing">
+          <div class="row">
+            <div class="col-md-2" ng-repeat="product in products">
+              <div class="panel panel-default text-center" style="border: 1px solid #ededed;">
+                <div style="backgound-color:#fff; padding-bottom:10px;">
+                  <img src="{{product.image}}" style="width:100%;" />
+                </div>
+                <div class="panel-heading">
+                  <strong>{{product.name}}</strong>
+                </div>
+                <ul class="list-group">
+                  <li class="list-group-item">{{product.quantity}} Unidades <b>Grátis</b></li>
+                  <li class="list-group-item">
+                    <a id="link_{{product._id}}"
+                       ng-class="product.marked ? 'product-linkbutton-marked' : 'product-linkbutton'"
+                       ng-click="saveProduct(product)">
+                      {{ product.marked  === true ? "ESCOLHIDO" : "EU QUERO!"}}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -110,4 +131,5 @@
         </div>
       </div>
     </div>
+  </div>
 

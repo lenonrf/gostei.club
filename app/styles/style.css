@@ -80,7 +80,7 @@ Author: Dilipkumar
   margin: 0 auto;
   background-color:#2a78c4;
   font-weight: 200;
-  border-radius:50px;
+  border-radius:5px;
   cursor: pointer;
   color: #fff;
   padding: 5% 10% 5% 10%;
@@ -93,14 +93,13 @@ Author: Dilipkumar
   margin: 0 auto;
   background-color:#749c0d;
   font-weight: 200;
-  border-radius:50px;
-  cursor: default;
+  border-radius:5px;
+  cursor: pointer;
   color: #fff;
   padding: 5% 10% 5% 10%;
   text-transform: none;
   letter-spacing: 0.3px;
   display: table;
-  pointer-events: none;
 }
 
 
@@ -1539,70 +1538,70 @@ header {
 /* 12. PRICING TABLE */
 
 .pricing {
-	padding: 80px 0 90px;
-	background: #115684;
+/* padding: 80px 0 90px;
+  background: #115684;*/
 }
 
 .price {
-	font-size: 70px;
-	color: #fff;
+  font-size: 70px;
+  color: #fff;
 }
 
 .price-cents {
-	vertical-align: super;
-	font-size: 50%;
+  vertical-align: super;
+  font-size: 50%;
 }
 
 .list-group-item {
-	color: #757575;
-	font-size: 14px;
-	border: none;
-	border-bottom: 1px solid #e5e5e5;
-	margin: 0px;
+  color: #757575;
+  font-size: 14px;
+  border: none;
+  border-bottom: 1px solid #e5e5e5;
+  margin: 0px;
 }
 
 .list-group-item:last-child {
-	border-bottom: none;
-	padding-top: 20px;
+  border-bottom: none;
+  padding-top: 20px;
 }
 
 .list-group .btn {
-	background: #1abc9c !important;
-	border-color: #0fa285;
+  background: #1abc9c !important;
+  border-color: #0fa285;
 }
 
 .list-group .btn:hover {
-	background: #0fa285 !important;
+  background: #0fa285 !important;
 }
 
 .panel-default {
-	border: none;
-	padding: 15px 0px;
+  border: none;
+  padding: 15px 0px;
 }
 
 .panel-body {
-	font-family: Open sans;
-	font-size: 13px;
-	line-height: 23px;
-	font-weight: 400;
-	color: #fff;
-	padding: 40px 0;
-	background: #3498DB;
+  font-family: Open sans;
+  font-size: 13px;
+  line-height: 23px;
+  font-weight: 400;
+  color: #fff;
+  padding: 40px 0;
+  background: #3498DB;
 }
 
 .panel-default > .panel-heading {
-	text-transform: uppercase;
-	padding: 6px 15px 18px;
+  text-transform: uppercase;
+  padding: 6px 15px 18px;
 }
 
 .panel-default > .panel-heading span {
-	top: -2px;
-	position: relative;
+  top: -2px;
+  position: relative;
 }
 
 .pricing .btn-main {
-	line-height: 38px;
-	padding: 0px 20px;
+  line-height: 38px;
+  padding: 0px 20px;
 }
 
 /* 13. SERVICES / 2 */

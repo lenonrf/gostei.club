@@ -8,15 +8,14 @@
  * Controller of the gosteiclubApp
  */
 angular.module('gosteiclubApp')
-  .controller('MainCtrl', function ($scope, $rootScope, $location, $modal, Allin, Utils, User, Login, $http, Product) {
+  .controller('MainCtrl', function ($scope, $rootScope, $location, $modal, Allin, Menu, Utils, User, Login, $http, Product) {
 
-    Utils.setDefaultMenu();
+    Menu.setMenu('MainCtrl');
 
     $scope.user = User.getData() || {};
     $scope.user.terms = true;
     $scope.disableButton = false;
     $scope.showFormFields = true;
-    $rootScope.showMenuItems = true;
 
 
     if(User.isUserFromEmail($location)){

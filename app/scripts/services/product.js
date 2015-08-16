@@ -23,6 +23,7 @@ angular.module('gosteiclubApp')
       return self.data = data;
     };
 
+
     return this;
 
   });

@@ -8,7 +8,9 @@
  * Controller of the gosteiclubApp
  */
 angular.module('gosteiclubApp')
-  .controller('PerguntasCtrl', function ($scope, $window, $http, $rootScope, $location, Allin, Question, User, Utils, Product) {
+  .controller('PerguntasCtrl', function ($scope, $window, $http, $rootScope, $location, Menu, Allin, Question, User, Utils, Product) {
+
+    Menu.setMenu('PerguntasCtrl');
 
     $scope.user = User.getData();
     $scope.user.score = 0;
@@ -51,13 +53,13 @@ angular.module('gosteiclubApp')
 
     }else{
 
-      $rootScope.showMenuCheckout = false;
-      $rootScope.showMenuItems = false;
-      $rootScope.showMenuUser = false;
+
       $rootScope.firstName = Utils.getFirstName(User.getData().name);
     }
 
-    Utils.setFixedMenu();
+
+
+
     getProducts();
     getQuestionList();
 
@@ -146,20 +148,24 @@ angular.module('gosteiclubApp')
 
 
     /**
-     * Salva a opcao de produto esclhido pelo usuario
+     * Salva a opcao de produto escolhido pelo usuario
      * @param product
      */
     $scope.saveProduct = function (product) {
 
-      $scope.user.products.push(product);
-      $scope.step_2 = true;
 
-      $('#link_' + product._id).css('background-color', '#749c0d');
-      $('#link_' + product._id).css('cursor', 'default');
-      $('#link_' + product._id).html('ESCOLHIDO!');
-      $('#link_' + product._id).css('pointer-events', 'none');
+      if( (product.marked === false) || (Utils.isEmpty(product.marked))){
 
-      setButtonFinalize();
+        product.marked = true;
+        $scope.user.products.push(product);
+
+      }else{
+
+        product.marked = false;
+        $scope.user.products.splice($scope.user.products.indexOf(product), 1);
+
+      }
+
     };
 
 

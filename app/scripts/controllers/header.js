@@ -2,11 +2,9 @@
 
 
 angular.module('gosteiclubApp')
-  .controller('HeaderCtrl', function ($scope, $rootScope) {
+  .controller('HeaderCtrl', function ($scope, $rootScope, Menu) {
 
-    $rootScope.showMenuItems = true;
-    $rootScope.showMenuUser = false;
-    $rootScope.showMenuCheckout = false;
+    Menu.setMenu('MainCtrl');
 
     $scope.click = function(){
 

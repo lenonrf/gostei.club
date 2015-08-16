@@ -64,22 +64,37 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
 
-          <ul class="nav navbar-nav navbar-right nav-collapse">
-            <li ng-show="showMenuItems"><a class="page-scroll" href="#degraca">De Graça?</a></li>
-            <li ng-show="showMenuItems"><a class="page-scroll" href="#oportunidade">Oportunidades</a></li>
-            <li ng-show="showMenuItems"><a class="page-scroll" href="#depoimentos">Depoimentos</a></li>
-            <li ng-show="showMenuItems"><a class="page-scroll" href="#marcas">Marcas testadas</a></li>
-            <li ng-show="showMenuItems" style="display: none;" id="itemMenuEntrar">
+          <ul ng-show="showMenuItems" class="nav navbar-nav navbar-right nav-collapse">
+
+            <!--
+            <li><a class="page-scroll" href="#degraca">De Graça?</a></li>
+            <li><a class="page-scroll" href="#oportunidade">Oportunidades</a></li>
+            <li><a class="page-scroll" href="#depoimentos">Depoimentos</a></li>
+            <li><a class="page-scroll" href="#marcas">Marcas testadas</a></li>-->
+
+            <li><a class="page-scroll" href="{{menu.link_1.href}}">{{menu.link_1.nome}}</a></li>
+            <li><a class="page-scroll" href="{{menu.link_2.href}}">{{menu.link_2.nome}}</a></li>
+            <li><a class="page-scroll" href="{{menu.link_3.href}}">{{menu.link_3.nome}}</a></li>
+            <li><a class="page-scroll" href="{{menu.link_4.href}}">{{menu.link_4.nome}}</a></li>
+
+            <li style="display: none;" id="itemMenuEntrar">
               <button onclick="$('#loginForm').css('display', 'none');$('#formFields').css('display', 'block');$('#lname').focus();" class="botaoMenu">Quero Participar</button>
             </li>
           </ul>
+
+          <ul ng-show="showMenuHome" class="nav navbar-nav navbar-right nav-collapse" style="display: none;">
+            <li><a class="page-scroll" href="#oportunidade">Oportunidades</a></li>
+            <li><a class="page-scroll" href="#depoimentos">Produtos</a></li>
+          </ul>
+
+
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
 	</header>
 
-	<div ng-view="" id="mainView"></div>
+	<div ng-view="" id="mainView" autoscroll="true"></div>
 
   <div class="footer-copy" style="padding-top: 2px; display: none;" id="divPartners">
   <div id="content">
@@ -189,6 +204,7 @@
 			<script src="scripts/services/utils.js"></script>
 			<script src="scripts/services/user.js"></script>
       <script src="scripts/services/question.js"></script>
+      <script src="scripts/services/menu.js"></script>
       <script src="scripts/services/product.js"></script>
       <script src="scripts/services/login.js"></script>
       <script src="scripts/services/allin.js"></script>

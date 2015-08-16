@@ -2,7 +2,9 @@
 
 
 angular.module('gosteiclubApp')
-  .controller('HomeCtrl', function ($scope, $http, $location, User, Utils, Product, Question) {
+  .controller('HomeCtrl', function ($scope, $rootScope, $http, $location, Menu, User, Utils, Product) {
+
+    Menu.setMenu('HomeCtrl');
 
     if(!Utils.isLogged(User.data)){
       $location.path('/main');
@@ -13,6 +15,47 @@ angular.module('gosteiclubApp')
     getOportunityList();
 
     $scope.user = User.getData();
+
+
+
+    /**
+     * Salva a opcao de produto escolhido pelo usuario
+     * @param product
+     */
+    $scope.saveProduct = function (product) {
+
+
+      if( (product.marked === false) || (Utils.isEmpty(product.marked))){
+
+        product.marked = true;
+        $scope.user.products.push(product);
+
+      }else{
+
+        product.marked = false;
+        $scope.user.products.splice($scope.user.products.indexOf(product), 1);
+
+      }
+
+      console.log('Email', User.data.email);
+      console.log('$scope.user', $scope.user.products);
+
+      //var user = {}
+      //user.products = $scope.user.products;
+      //console.log('user', user);
+      //User.resource.put({'email'  : User.data.email}, user.products, onSuccess, onError);
+
+    };
+
+    function onSuccess(data) {
+      console.log('SUCESS', data);
+
+    }
+
+    function onError(data) {
+      console.log('ERROR', data);
+
+    }
 
 
     /**
