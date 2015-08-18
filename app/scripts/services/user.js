@@ -100,6 +100,19 @@
        return self.data.isLogged = isLogged;
      };
 
+
+     /**
+      * Verifica se o usuario esta completo
+      * @param isLogged
+      * @returns {*}
+      */
+     this.isUserCompleted = function(user){
+       //console.log('user', user);
+       //console.log('isUserCompleted', user.address.zipcode !== "" ? true : false);
+
+       return user.address.zipcode !== "" ? true : false;
+     };
+
      return this;
 
 });

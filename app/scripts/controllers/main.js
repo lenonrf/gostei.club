@@ -22,6 +22,7 @@ angular.module('gosteiclubApp')
 
       var user = {};
       user.email = $location.search().email;
+
       executeLogin(user, 'home');
     }
 
@@ -49,7 +50,7 @@ angular.module('gosteiclubApp')
      * @returns {boolean}
      */
     $scope.login = function(user){
-      executeLogin(user, 'perguntas');
+      executeLogin(user, 'home');
     };
 
 
@@ -61,7 +62,13 @@ angular.module('gosteiclubApp')
 
         User.setData(data);
         User.setLogged(true);
-        $location.path('/'+page);
+
+        if(User.isUserCompleted(data)){
+          $location.path('/'+page);
+        }else{
+          $location.path('/perguntas');
+        }
+
 
       }, onErrorLogin);
 
