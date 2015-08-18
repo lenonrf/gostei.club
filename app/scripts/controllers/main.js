@@ -135,14 +135,16 @@ angular.module('gosteiclubApp')
      * Trata os erros do cadastro
      * @param data
      */
-    function onErrorCheckout(data, status) {
-
-      console.log('ERROR - onErrorCheckout', data);
+    function onErrorCheckout(data, status, transformResponse) {
 
       if (status === 400) {
-        setMessageOnField('email', 'Email j&aacute; cadastrado');
+        setMessageOnField('email', 'Erro ao cadastrar');
         $scope.disableButton = false;
 
+      }
+
+      if (status === 409) {
+        executeLogin({email:data.email}, 'home');
       }
     }
 
