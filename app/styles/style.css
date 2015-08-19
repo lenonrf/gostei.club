@@ -291,7 +291,7 @@ button:hover {
   -moz-box-shadow:inset 0px 1px 0px 0px #dfb302;
   -webkit-box-shadow:inset 0px 1px 0px 0px #dfb302;
   box-shadow:inset 0px 1px 0px 0px #ffcc00;
-  border:1px solid #dfb302;
+  /*border:1px solid #dfb302;*/
   border-bottom-color: #dfb302;
   color: #Fff;
   transition: 0.4s;
