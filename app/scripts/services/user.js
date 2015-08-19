@@ -69,6 +69,34 @@
      };
 
 
+
+     /**
+      * Retorna a o subID da campanha
+      * @param location
+      * @returns {boolean}
+      */
+     this.getCampaing = function(location) {
+
+       var isUtmCampaingParameter = !Utils.isEmpty(location.search().utm_campaign);
+
+       if (isUtmCampaingParameter) {
+         return location.search().utm_campaign;
+       }
+
+       if(location.path() === '/perguntas'){
+         return 'GPG';
+       }
+
+       if(location.path() === '/home'){
+         return 'GBC';
+       }
+
+
+     };
+
+
+
+
      /**
       * Define se o usuario esta vondp atraves de uma landingpage
       * @param location

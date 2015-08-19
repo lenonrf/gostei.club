@@ -28,8 +28,6 @@ angular.module('gosteiclubApp')
 
     if(!Utils.isLogged(User.data)){
 
-      console.log('isUserFromLandingPage', User.isUserFromLandingPage($location));
-
       if(User.isUserFromLandingPage($location)){
 
         User.resource.get({email:$location.search().email}, function(data){
@@ -50,14 +48,11 @@ angular.module('gosteiclubApp')
         $location.path('/main');
       }
 
-
     }else{
-
-
       $rootScope.firstName = Utils.getFirstName(User.getData().name);
     }
 
-
+    $scope.campaign = User.getCampaing($location);
 
 
     getProducts();
@@ -209,7 +204,7 @@ angular.module('gosteiclubApp')
       if (answerType === true) {
         $scope.user.answers.push(question.idQuestion);
         $scope.user.score = $scope.user.score + question.score;
-        $window.open(question.urlAnswer, '_blank');
+        $window.open(question.urlAnswer+'&aff_sub='+$scope.campaign, '_blank');
       }
     }
 

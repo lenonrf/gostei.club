@@ -15,6 +15,7 @@ angular.module('gosteiclubApp')
     getOportunityList();
 
     $scope.user = User.getData();
+    $scope.campaign = User.getCampaing($location);
 
 
 
