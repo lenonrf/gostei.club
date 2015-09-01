@@ -489,14 +489,14 @@ angular.module('gosteiclubApp')
         case 'state':
 
           $scope.bgMsgColor = msgErrorColor;
-          $scope.bgCityColor = warningColor;
+          $scope.bgStateColor = warningColor;
           angular.element('#state').focus();
           break;
           
         case 'address':
 
           $scope.bgMsgColor = msgErrorColor;
-          $scope.bgCityColor = warningColor;
+          $scope.bgAddressColor = warningColor;
           angular.element('#address').focus();
           break;
 
