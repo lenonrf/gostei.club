@@ -412,6 +412,11 @@ angular.module('gosteiclubApp')
         setMessageOnField('city', 'Preencha a Cidade');
         return false;
       }
+      if (Utils.isEmpty($scope.user.address.neighborhood)) {
+
+        setMessageOnField('neighborhood', 'Preencha o Bairro');
+        return false;
+      }
       if (Utils.isEmpty($scope.user.address.state)) {
 
         setMessageOnField('state', 'Preencha o Estado');
@@ -483,6 +488,13 @@ angular.module('gosteiclubApp')
 
           $scope.bgMsgColor = msgErrorColor;
           $scope.bgCityColor = warningColor;
+          angular.element('#city').focus();
+          break;
+          
+        case 'neighborhood':
+
+          $scope.bgMsgColor = msgErrorColor;
+          $scope.bgNeighborhoodColor = warningColor;
           angular.element('#city').focus();
           break;
           
