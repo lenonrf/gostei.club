@@ -58,7 +58,7 @@ angular.module('gosteiclubApp')
     getProducts();
     getQuestionList();
 
-    $scope.$watch('user.address.zipcode', function() {
+   /* $scope.$watch('user.address.zipcode', function() {
 
       if($scope.user.address.zipcode){
 
@@ -79,7 +79,7 @@ angular.module('gosteiclubApp')
 
         });
       }
-    });
+    });*/
 
     /**
      * submita as peguntas
