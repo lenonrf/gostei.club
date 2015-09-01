@@ -392,18 +392,43 @@ angular.module('gosteiclubApp')
       }
 
 
+      if (Utils.isEmpty($scope.user.address.zipcode)) {
+
+        setMessageOnField('zipcode', 'Preencha o Cep');
+        return false;
+      }
+      
+      
+      
+      
+      
+      if (Utils.isEmpty($scope.user.address.street)) {
+
+        setMessageOnField('address', 'Preencha o Endereço');
+        return false;
+      }
+      if (Utils.isEmpty($scope.user.address.city)) {
+
+        setMessageOnField('city', 'Preencha a Cidade');
+        return false;
+      }
+      if (Utils.isEmpty($scope.user.address.state)) {
+
+        setMessageOnField('state', 'Preencha o Estado');
+        return false;
+      }
+
+
+
+
+
+
       if (Utils.isEmpty($scope.user.address.number)) {
 
         setMessageOnField('number', 'Preencha o numero');
         return false;
       }
 
-
-      if (Utils.isEmpty($scope.user.address.zipcode)) {
-
-        setMessageOnField('zipcode', 'Preencha o Cep');
-        return false;
-      }
 
       return true;
 
@@ -459,6 +484,20 @@ angular.module('gosteiclubApp')
           $scope.bgMsgColor = msgErrorColor;
           $scope.bgCityColor = warningColor;
           angular.element('#city').focus();
+          break;
+          
+        case 'state':
+
+          $scope.bgMsgColor = msgErrorColor;
+          $scope.bgCityColor = warningColor;
+          angular.element('#state').focus();
+          break;
+          
+        case 'address':
+
+          $scope.bgMsgColor = msgErrorColor;
+          $scope.bgCityColor = warningColor;
+          angular.element('#address').focus();
           break;
 
       }
