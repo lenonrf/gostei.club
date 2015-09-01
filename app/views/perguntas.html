@@ -173,7 +173,7 @@
           </div>
         </div>
 
-        <div id="endereco" style="display: none;">
+        <div id="endereco" style="display: block;">
 
           <div class="col-md-12">
             <div class="form-group  col-md-4">
@@ -181,8 +181,19 @@
               <input  ng-required name="user.address.street" ng-model="user.address.street" type="text"
                      class="form-control" id="address" ng-style="{'background-color': bgAddressColor}">
             </div>
-
           </div>
+          
+          
+          <div class="col-md-12">
+            <div class="form-group  col-md-4">
+              <label for="address">Bairro:</label>
+              <input  ng-required name="user.address.neighborhood" ng-model="user.address.neighborhood" type="text"
+                     class="form-control" id="neighborhood" ng-style="{'background-color': bgNeighborhoodColor}">
+            </div>
+          </div>
+
+          
+          
 
           <div class="col-md-12">
             <div class="form-group col-md-3">

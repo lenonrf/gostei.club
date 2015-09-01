@@ -60,7 +60,7 @@ angular.module('gosteiclubApp')
     $rootScope.products = getProducts(User);
     getQuestionList();
 
-    $scope.$watch('user.address.zipcode', function() {
+   /* $scope.$watch('user.address.zipcode', function() {
 
       if($scope.user.address.zipcode){
 
@@ -81,7 +81,7 @@ angular.module('gosteiclubApp')
 
         });
       }
-    });
+    });*/
 
     /**
      * submita as peguntas
@@ -393,18 +393,48 @@ angular.module('gosteiclubApp')
       }
 
 
+      if (Utils.isEmpty($scope.user.address.zipcode)) {
+
+        setMessageOnField('zipcode', 'Preencha o Cep');
+        return false;
+      }
+      
+      
+      
+      
+      
+      if (Utils.isEmpty($scope.user.address.street)) {
+
+        setMessageOnField('address', 'Preencha o Endereço');
+        return false;
+      }
+      if (Utils.isEmpty($scope.user.address.neighborhood)) {
+
+        setMessageOnField('neighborhood', 'Preencha o Bairro');
+        return false;
+      }
+      if (Utils.isEmpty($scope.user.address.city)) {
+
+        setMessageOnField('city', 'Preencha a Cidade');
+        return false;
+      }
+      if (Utils.isEmpty($scope.user.address.state)) {
+
+        setMessageOnField('state', 'Preencha o Estado');
+        return false;
+      }
+
+
+
+
+
+
       if (Utils.isEmpty($scope.user.address.number)) {
 
         setMessageOnField('number', 'Preencha o numero');
         return false;
       }
 
-
-      if (Utils.isEmpty($scope.user.address.zipcode)) {
-
-        setMessageOnField('zipcode', 'Preencha o Cep');
-        return false;
-      }
 
       return true;
 
@@ -460,6 +490,27 @@ angular.module('gosteiclubApp')
           $scope.bgMsgColor = msgErrorColor;
           $scope.bgCityColor = warningColor;
           angular.element('#city').focus();
+          break;
+          
+        case 'neighborhood':
+
+          $scope.bgMsgColor = msgErrorColor;
+          $scope.bgNeighborhoodColor = warningColor;
+          angular.element('#neighborhood').focus();
+          break;
+          
+        case 'state':
+
+          $scope.bgMsgColor = msgErrorColor;
+          $scope.bgStateColor = warningColor;
+          angular.element('#state').focus();
+          break;
+          
+        case 'address':
+
+          $scope.bgMsgColor = msgErrorColor;
+          $scope.bgAddressColor = warningColor;
+          angular.element('#address').focus();
           break;
 
       }
