@@ -26,6 +26,8 @@ angular.module('gosteiclubApp')
     $scope.step_2 = false;
 
 
+
+
     if(!Utils.isLogged(User.data)){
 
       if(User.isUserFromLandingPage($location)){
@@ -52,10 +54,10 @@ angular.module('gosteiclubApp')
       $rootScope.firstName = Utils.getFirstName(User.getData().name);
     }
 
+
     $scope.campaign = User.getCampaing($location);
 
-
-    getProducts();
+    $rootScope.products = getProducts(User);
     getQuestionList();
 
     $scope.$watch('user.address.zipcode', function() {
@@ -97,7 +99,6 @@ angular.module('gosteiclubApp')
 
     function onSuccess(data) {
       User.setData(data);
-      //console.log('sucesso', data)
       $location.path('/home');
     }
 
@@ -310,12 +311,11 @@ angular.module('gosteiclubApp')
      * Retorna os produtos cadastrados
      * @returns {*|{method, isArray}}
      */
-    function getProducts() {
+    function getProducts(user) {
 
       Product.resource.query(function(data){
 
-        $scope.products = data;
-        var userProducts = User.getData().products;
+        var userProducts = user.getData().products;
 
         for(var p_index=0; p_index<data.length; p_index++){
 
@@ -329,9 +329,10 @@ angular.module('gosteiclubApp')
           }
         }
 
-      }, function(err){
+        return data;
 
-      });
+
+      }, function(err){ });
     }
 
 

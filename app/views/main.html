@@ -52,32 +52,31 @@
 
       <div class="col-md-5 sub-form"  id="formFields">
         <div id="sub-form">
-          <form class="subscribe" novalidate id="invite">
+          <form class="subscribe" novalidate id="invite" style="padding: 15px 30px 30px;">
 
-            <h4 style="margin-top:-15px; margin-bottom:20px; text-align:left; font-weight: 500; color:#888585;">O Gostei
-              é 100% Grátis</h4>
+           <!-- <h4 style="margin-top:-15px; margin-bottom:20px; text-align:left; font-weight: 500; color:#888585;">O Gostei
+              é 100% Grátis</h4>-->
+
+            <h5  ng-style="{'background-color': bgMsgColor}" class="sub-form-h5"
+                 style="text-align:left;" id="messageStatus">Cadastre-se e Participe!</h5>
 
             <div ng-show="showFormFields">
 
-              <h5  ng-style="{'background-color': bgMsgColor}" class="sub-form-h5"
-                  style="text-align:left;" id="messageStatus">Cadastre-se e Participe!</h5>
-
+              <label style="color:#898989;">Nome Completo</label>
               <input ng-style="{'background-color': bgUserColor}" type="text" name="lname" id="lname" class="lname"
-                     placeholder="nome" ng-model="user.name">
-              <input ng-style="{'background-color': bgEmailColor}" type="email" name="email" id="email" class="e-mail"
-                     placeholder="exemplo@email.com" ng-model="user.email">
+                     placeholder="" ng-model="user.name" style="margin-bottom:15px;">
 
-              <select ng-style="{'background-color': bgGenderColor}" class="sexo" name="gender" id="gender"
+              <label style="color:#898989;">Email</label>
+              <input ng-style="{'background-color': bgEmailColor}" type="email" name="email" id="email" class="lname"
+                     placeholder="" ng-model="user.email" style="margin-bottom:15px;">
+
+              <label style="color:#898989;">Sexo</label>
+              <select ng-style="{'background-color': bgGenderColor}" class="lname" name="gender" id="gender"
                       ng-model="user.gender">
-                <option value="" disabled selected>&nbsp;&nbsp;sexo</option>
+                <option value="" disabled selected>&nbsp;&nbsp;</option>
                 <option value="F">&nbsp;&nbsp;Feminino</option>
                 <option value="M">&nbsp;&nbsp;Masculino</option>
               </select>
-
-              <input type="checkbox" ng-model="user.terms" name="checkboxG1" checked id="checkboxG1"
-                     class="css-checkbox" REQUIRED/>
-              <input type="checkbox"  name="checkboxG1" checked id="checkboxG1" class="css-checkbox" REQUIRED/>
-              <label for="checkboxG1" class="css-label" style="padding-top:3px;"><span>Concordo com os <a class="term-popup" href="">Termos e Condições</a></span></label>
 
               <div class="clearfix"></div>
               <div class="space20"></div>
@@ -85,7 +84,7 @@
               <div class="pos_bt">
                 <button id="checkoutButton" class="btn-main btn-center" type="button" ng-disabled="disableButton"
                         ng-class="disableButton ? 'btn-main-disable btn-center' : 'btn-main btn-center'"
-                        ng-click="checkout(user)">Quero Participar! <i class="i-free-label"></i>
+                        ng-click="checkoutStepOne(user)">Quero Participar! <i class="i-free-label"></i>
                 </button>
               </div>
 
@@ -95,11 +94,42 @@
             </div>
 
 
+            <div ng-show="showFormFields_STEP2">
+
+              <label style="color:#898989;">Data de Nascimento</label>
+              <input ng-style="{'background-color': bgBirthColor}" ui-mask="99/99/9999" type="text" name="birthDate" id="birthDate" class="lname"
+                     placeholder="dd/mm/yyyy" ng-model="user.birthDate" style="margin-bottom:15px;">
+
+              <label style="color:#898989;">Celular</label>
+              <input ng-style="{'background-color': bgCellphoneColor}" ui-mask="(99) 99999-9999" type="text" name="cellphone" id="cellphone" class="lname"
+                     placeholder="(__) _____-____" ng-model="user.cellphone" style="margin-bottom:15px;">
+
+              <label style="color:#898989;">Cep</label>
+              <input ng-style="{'background-color': bgZipCodeColor}" ui-mask="99999-999" type="text" name="zipcode" id="zipcode" class="lname"
+                     placeholder="_____-___" ng-model="user.address.zipcode" style="margin-bottom:15px;">
+
+              <label style="color:#888585;"><span>* Concordo com os <a class="term-popup" href="">Termos e Condições</a></span></label>
+
+              <div class="clearfix"></div>
+              <div class="space20"></div>
+
+              <div class="pos_bt">
+                <button id="" class="btn-main btn-center" type="button" ng-disabled="disableButton"
+                        ng-class="disableButton ? 'btn-main-disable btn-center' : 'btn-main btn-center'"
+                        ng-click="checkoutStepTwo(user)">Cadastrar
+                </button>
+              </div>
+
+            </div>
+
+
           </form>
         </div>
 
 
       </div>
+
+
 
 
     </div>

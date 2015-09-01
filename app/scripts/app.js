@@ -10,21 +10,18 @@
  */
 angular
   .module('gosteiclubApp', [
+    'ui.mask',
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ui.mask',
     'ui.bootstrap.showErrors',
     'ui.bootstrap.modal',
     'angulartics', 'angulartics.google.analytics'
   ])
   .config(function ($routeProvider, $httpProvider, showErrorsConfigProvider) {
-
-    //$httpProvider.defaults.withCredentials = true;
-
 
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];

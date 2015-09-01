@@ -16,33 +16,17 @@ angular.module('gosteiclubApp')
     $scope.user.terms = true;
     $scope.disableButton = false;
     $scope.showFormFields = true;
+    $scope.showFormFields_STEP2 = false;
 
 
     if(User.isUserFromEmail($location)){
-
       var user = {};
       user.email = $location.search().email;
-
       executeLogin(user, 'home');
     }
 
-    getProducts();
 
-
-
-    /**
-     * Retorna os produtos cadastrados
-     * @returns {*|{method, isArray}}
-     */
-    function getProducts() {
-
-      Product.resource.query(function(data){
-        $scope.products = data;
-      }, function(err){});
-    }
-
-
-
+    $scope.products = Product.getProducts(user);
 
     /**
      * Efetua o login do usuario
@@ -75,6 +59,15 @@ angular.module('gosteiclubApp')
     }
 
 
+    $scope.checkoutStepOne = function (user) {
+
+      if (!validateFieldsStepOne(user)) return false;
+
+      $scope.showFormFields = false;
+      $scope.showFormFields_STEP2 = true;
+
+
+    };
 
 
     /**
@@ -82,9 +75,9 @@ angular.module('gosteiclubApp')
      * @param user
      * @returns {boolean}
      */
-    $scope.checkout = function (user) {
+    $scope.checkoutStepTwo = function (user) {
 
-      if (!validateFields(user)) return false;
+      if (!validateFieldsStepTwo(user)) return false;
 
       $scope.disableButton = true;
       var canal = 'gostei.club';
@@ -182,7 +175,7 @@ angular.module('gosteiclubApp')
      */
 
 
-    function validateFields(user) {
+    function validateFieldsStepOne(user) {
 
       var status = true;
 
@@ -213,6 +206,9 @@ angular.module('gosteiclubApp')
           return false;
         }
 
+        $scope.bgMsgColor = '#3498db';
+        angular.element('#messageStatus').html('Preencha o formul&aacute;rio');
+
 
       } else {
 
@@ -220,6 +216,55 @@ angular.module('gosteiclubApp')
         $scope.bgGenderColor = '#FFFACD';
         $scope.bgEmailColor = '#FFFACD';
         $scope.bgUserColor = '#FFFACD';
+
+        angular.element('#lname').focus();
+        angular.element('#messageStatus').html('Preencha o formul&aacute;rio');
+
+        status = false;
+      }
+
+      return status;
+    }
+
+
+
+    function validateFieldsStepTwo(user) {
+
+      var status = true;
+
+      $scope.bgCellphoneColor = '#FFFFFF';
+      $scope.bgBirthColor = '#FFFFFF';
+      $scope.bgZipCodeColor = '#FFFFFF';
+
+      if (!Utils.isEmpty(user)) {
+
+
+        if (Utils.isEmpty(user.birthDate)) {
+
+          setMessageOnField('birthDate', 'Preencha a Data de Nascimento');
+          return false;
+        }
+
+        if (Utils.isEmpty(user.cellphone)) {
+
+          setMessageOnField('cellphone', 'Preencha o Celular');
+          return false;
+        }
+
+        if (Utils.isEmpty(user.address.zipcode)) {
+
+          setMessageOnField('zipcode', 'Preencha o Cep');
+          return false;
+        }
+
+
+
+      } else {
+
+        $scope.bgMsgColor = '#CD0000';
+        $scope.bgCellphoneColor = '#FFFACD';
+        $scope.bgBirthColor = '#FFFACD';
+        $scope.bgZipCodeColor = '#FFFACD';
 
         angular.element('#lname').focus();
         angular.element('#messageStatus').html('Preencha o formul&aacute;rio');
@@ -270,6 +315,20 @@ angular.module('gosteiclubApp')
           $scope.bgMsgColor = msgErrorColor;
           $scope.bgBirthColor = warningColor;
           angular.element('#bithDate').focus();
+          break;
+
+        case 'cellphone':
+
+          $scope.bgMsgColor = msgErrorColor;
+          $scope.bgCellphoneColor = warningColor;
+          angular.element('#cellphone').focus();
+          break;
+
+        case 'zipcode':
+
+          $scope.bgMsgColor = msgErrorColor;
+          $scope.bgZipCodeColor = warningColor;
+          angular.element('#zipcode').focus();
           break;
 
         case 'emailAlreadyThere':

@@ -11,7 +11,11 @@ angular.module('gosteiclubApp')
     }
 
     Utils.setFixedMenu();
-    getProducts();
+
+    //if(Utils.isEmpty($rootScope.products)){
+      getProducts();
+    //}
+
     getOportunityList();
 
     $scope.user = User.getData();
@@ -81,6 +85,9 @@ angular.module('gosteiclubApp')
             }
           }
         }
+
+        console.log('data', data);
+        console.log('$scope.products', $scope.products);
 
       }, function(err){
 
