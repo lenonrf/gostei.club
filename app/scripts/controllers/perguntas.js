@@ -29,8 +29,10 @@ angular.module('gosteiclubApp')
 
 
     if(!Utils.isLogged(User.data)){
+      console.log('Utils.isLogged');
 
       if(User.isUserFromLandingPage($location)){
+        console.log('User.isUserFromLandingPage');
 
         User.resource.get({email:$location.search().email}, function(data){
 
@@ -47,20 +49,22 @@ angular.module('gosteiclubApp')
 
 
       }else{
+        console.log('User.isUserFromLandingPage - else');
         $location.path('/main');
       }
 
     }else{
+      console.log('Utils.isLogged - else');
       $rootScope.firstName = Utils.getFirstName(User.getData().name);
     }
 
 
     $scope.campaign = User.getCampaing($location);
 
-    $rootScope.products = getProducts(User);
+    getProducts(User);
     getQuestionList();
 
-   /* $scope.$watch('user.address.zipcode', function() {
+    $scope.$watch('user.address.zipcode', function() {
 
       if($scope.user.address.zipcode){
 
@@ -76,12 +80,12 @@ angular.module('gosteiclubApp')
 
         }).error(function(){
 
-          setMessageOnField('zipcode', 'CEP inválido');
-          $('#endereco').css('display', 'none');
+          //setMessageOnField('zipcode', 'CEP inválido');
+          //$('#endereco').css('display', 'none');
 
         });
       }
-    });*/
+    });
 
     /**
      * submita as peguntas
@@ -92,7 +96,7 @@ angular.module('gosteiclubApp')
         return false;
       }
 
-      $scope.user.birthDate = getBirthDate($scope.user.birthDate);
+      $scope.user.birthDate = Utils.getBirthDate($scope.user.birthDate);
       User.resource.put({'email'  : User.data.email}, $scope.user, onSuccess, onError);
 
     };
@@ -163,19 +167,6 @@ angular.module('gosteiclubApp')
       }
 
     };
-
-
-    function getBirthDate(birthField){
-
-      if(Utils.isEmpty(birthField)) return null;
-
-      var day   = birthField.substr(0, 2);
-      var month = birthField.substr(2, 2);
-      var year  = birthField.substr(4, 4);
-
-      return new Date(year, (month-1), day);
-    }
-
 
 
 
@@ -329,7 +320,7 @@ angular.module('gosteiclubApp')
           }
         }
 
-        return data;
+        $scope.products = data;
 
 
       }, function(err){ });
@@ -398,11 +389,11 @@ angular.module('gosteiclubApp')
         setMessageOnField('zipcode', 'Preencha o Cep');
         return false;
       }
-      
-      
-      
-      
-      
+
+
+
+
+
       if (Utils.isEmpty($scope.user.address.street)) {
 
         setMessageOnField('address', 'Preencha o Endereço');
@@ -491,21 +482,21 @@ angular.module('gosteiclubApp')
           $scope.bgCityColor = warningColor;
           angular.element('#city').focus();
           break;
-          
+
         case 'neighborhood':
 
           $scope.bgMsgColor = msgErrorColor;
           $scope.bgNeighborhoodColor = warningColor;
           angular.element('#neighborhood').focus();
           break;
-          
+
         case 'state':
 
           $scope.bgMsgColor = msgErrorColor;
           $scope.bgStateColor = warningColor;
           angular.element('#state').focus();
           break;
-          
+
         case 'address':
 
           $scope.bgMsgColor = msgErrorColor;

@@ -8,11 +8,13 @@
  * Controller of the gosteiclubApp
  */
 angular.module('gosteiclubApp')
-  .controller('MainCtrl', function ($scope, $rootScope, $location, $modal, Allin, Menu, Utils, User, Login, $http, Product) {
+  .controller('MainCtrl', function ($scope, $rootScope, $location, $modal, Canal, Allin, Menu, Utils, User, Login, $http, Product) {
 
     Menu.setMenu('MainCtrl');
 
+    $scope.canais = Canal.getCanais();
     $scope.user = User.getData() || {};
+    $scope.user.address = {}
     $scope.user.terms = true;
     $scope.disableButton = false;
     $scope.showFormFields = true;
@@ -26,7 +28,12 @@ angular.module('gosteiclubApp')
     }
 
 
-    $scope.products = Product.getProducts(user);
+    Product.resource.query(function(data){
+      $scope.products = data;
+    }, function(err){ });
+
+
+
 
     /**
      * Efetua o login do usuario
@@ -80,21 +87,47 @@ angular.module('gosteiclubApp')
       if (!validateFieldsStepTwo(user)) return false;
 
       $scope.disableButton = true;
-      var canal = 'gostei.club';
+      var canalParam = Canal.defineUserCanal($location, $scope.canais);
 
-      if(!Utils.isEmpty($location.search().utm_source)){
-        canal = $location.search().utm_source;
-      }
 
-      var data = {
-        'name': user.name,
-        'email': user.email,
-        'gender': user.gender,
-        'canal' : canal
-      };
+      $http.get('/api/canais?code='+canalParam).then(function(data){
 
-      //envio de dados para o bando de dados
-      $http.post('/api/users', data).success(onSuccessDefault).error(onErrorCheckout);
+        var dataCheckout = {
+          'name': user.name,
+          'email': user.email,
+          'gender': user.gender,
+          'canal': data.data[0]._id,
+          'birthDate': Utils.getBirthDate(user.birthDate),
+          'cellphone': user.cellphone,
+          'address' :{
+            'zipcode' : user.address.zipcode
+          }
+
+        };
+
+        $http.post('/api/users', dataCheckout).success(onSuccessDefault).error(onErrorCheckout);
+
+
+        /*$http.get('http://api.postmon.com.br/v1/cep/'+$scope.user.address.zipcode).success(function(data){
+
+          dataCheckout.address = {
+
+            'zipcode': data.cep,
+            'city' : data.cidade,
+            'state' : data.estado,
+            'neighborhood' : data.bairro,
+            'street' : data.logradouro
+          };
+
+          $http.post('/api/users', dataCheckout).success(onSuccessDefault).error(onErrorCheckout);
+
+        }).error(function(){
+          $http.post('/api/users', dataCheckout).success(onSuccessDefault).error(onErrorCheckout);
+        });*/
+
+
+
+      });
 
     };
 
@@ -191,6 +224,16 @@ angular.module('gosteiclubApp')
 
           setMessageOnField('name', 'Preencha o usu&aacuterio');
           return false;
+
+        }else{
+
+          user.name = user.name.trim();
+          var isFullName = /^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/.test(user.name);
+
+          if(!isFullName){
+            setMessageOnField('name', 'Preencha com nome completo');
+            return false;
+          }
         }
 
         if (Utils.isEmpty(user.email)) {
@@ -205,9 +248,6 @@ angular.module('gosteiclubApp')
           setMessageOnField('gender', 'Preencha o sexo');
           return false;
         }
-
-        $scope.bgMsgColor = '#3498db';
-        angular.element('#messageStatus').html('Preencha o formul&aacute;rio');
 
 
       } else {
@@ -243,6 +283,23 @@ angular.module('gosteiclubApp')
 
           setMessageOnField('birthDate', 'Preencha a Data de Nascimento');
           return false;
+
+        }else{
+
+          var day   = user.birthDate.substr(0, 2);
+          var month = user.birthDate.substr(2, 2);
+          //var year  = user.birthDate.substr(4, 4);
+
+          if(day>31){
+            setMessageOnField('birthDate', 'Preencha um dia válido');
+            return false;
+          }
+
+          if(month>12){
+            setMessageOnField('birthDate', 'Preencha um mês válido');
+            return false;
+          }
+
         }
 
         if (Utils.isEmpty(user.cellphone)) {
@@ -251,10 +308,12 @@ angular.module('gosteiclubApp')
           return false;
         }
 
+
         if (Utils.isEmpty(user.address.zipcode)) {
 
           setMessageOnField('zipcode', 'Preencha o Cep');
           return false;
+
         }
 
 

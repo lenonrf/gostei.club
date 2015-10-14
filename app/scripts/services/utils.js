@@ -24,6 +24,7 @@ angular.module('gosteiclubApp')
       $("#entrarLI").css("display", "block");
     };
 
+
     /**
      * Valida se o objeto esta nulo
      */
@@ -52,6 +53,19 @@ angular.module('gosteiclubApp')
 
       return date.getDate()+'/'+(date.getMonth()+1)+'/'+date.getFullYear();
     };
+
+
+
+    this.getBirthDate = function(birthField){
+
+      if(this.isEmpty(birthField)) return null;
+
+      var day   = birthField.substr(0, 2);
+      var month = birthField.substr(2, 2);
+      var year  = birthField.substr(4, 4);
+
+      return new Date(year, (month-1), day);
+    }
 
 
  });

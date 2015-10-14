@@ -44,10 +44,7 @@ angular.module('gosteiclubApp')
               }
             }
 
-            console.log('data', data);
-
             return data;
-
 
           }, function(err){ });
         };
