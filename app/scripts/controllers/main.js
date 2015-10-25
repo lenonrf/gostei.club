@@ -105,16 +105,17 @@ angular.module('gosteiclubApp')
 
         };
 
-        $http.post('/api/users', dataCheckout).success(onSuccessDefault).error(onErrorCheckout);
 
-
-        /*$http.get('http://api.postmon.com.br/v1/cep/'+$scope.user.address.zipcode).success(function(data){
+        //$http.get('http://api.postmon.com.br/v1/cep/'+$scope.user.address.zipcode).success(function(data){
+        $http.get('http://cep.correiocontrol.com.br/'+$scope.user.address.zipcode+'.json').success(function(data){
 
           dataCheckout.address = {
 
             'zipcode': data.cep,
-            'city' : data.cidade,
-            'state' : data.estado,
+            //'city' : data.cidade,
+            //'state' : data.estado,
+            'city' : data.localidade,
+            'state' : data.uf,
             'neighborhood' : data.bairro,
             'street' : data.logradouro
           };
@@ -122,8 +123,13 @@ angular.module('gosteiclubApp')
           $http.post('/api/users', dataCheckout).success(onSuccessDefault).error(onErrorCheckout);
 
         }).error(function(){
-          $http.post('/api/users', dataCheckout).success(onSuccessDefault).error(onErrorCheckout);
-        });*/
+
+          user.address.zipcode = null;
+          $scope.disableButton = false;
+          validateFieldsStepTwo(user);
+
+          //$http.post('/api/users', dataCheckout).success(onSuccessDefault).error(onErrorCheckout);
+        });
 
 
 
@@ -311,7 +317,7 @@ angular.module('gosteiclubApp')
 
         if (Utils.isEmpty(user.address.zipcode)) {
 
-          setMessageOnField('zipcode', 'Preencha o Cep');
+          setMessageOnField('zipcode', 'Cep Inválido');
           return false;
 
         }

@@ -17,7 +17,7 @@ angular.module('gosteiclubApp')
     $scope.user.answers = [];
 
     // controla os botões da tela
-    $scope.disableSubmitButton = true;
+    $scope.disableSubmitButton = false;
     $scope.disableAnswerButton = false;
     $scope.isValidationError = false;
 
@@ -25,6 +25,9 @@ angular.module('gosteiclubApp')
     $scope.step_1 = false;
     $scope.step_2 = false;
 
+    $scope.coreg = {};
+    $scope.coreg.oqueha = true;
+    $scope.coreg.carsystem = true;
 
 
 
@@ -92,12 +95,18 @@ angular.module('gosteiclubApp')
      */
     $scope.save = function () {
 
-      if (!validateFields()) {
-        return false;
-      }
+      //if (!validateFields()) {
+        //return false;
+      //}
 
-      $scope.user.birthDate = Utils.getBirthDate($scope.user.birthDate);
-      User.resource.put({'email'  : User.data.email}, $scope.user, onSuccess, onError);
+
+      $http.post('/api/coregs', { user: $scope.user, coreg :$scope.coreg})
+        .success(function(data){
+          console.log('data', data);
+        }).error(function(){});
+
+      //$scope.user.birthDate = Utils.getBirthDate($scope.user.birthDate);
+      //User.resource.put({'email'  : User.data.email}, $scope.user, onSuccess, onError);
 
     };
 
