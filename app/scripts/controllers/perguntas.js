@@ -95,18 +95,18 @@ angular.module('gosteiclubApp')
      */
     $scope.save = function () {
 
-      //if (!validateFields()) {
-        //return false;
-      //}
+      if (!validateFields()) {
+        return false;
+      }
 
 
-      $http.post('/api/coregs', { user: $scope.user, coreg :$scope.coreg})
+      /*$http.post('/api/coregs', { user: $scope.user, coreg :$scope.coreg})
         .success(function(data){
           console.log('data', data);
-        }).error(function(){});
+        }).error(function(){});*/
 
-      //$scope.user.birthDate = Utils.getBirthDate($scope.user.birthDate);
-      //User.resource.put({'email'  : User.data.email}, $scope.user, onSuccess, onError);
+      $scope.user.birthDate = Utils.getBirthDate($scope.user.birthDate);
+      User.resource.put({'email'  : User.data.email}, $scope.user, onSuccess, onError);
 
     };
 
