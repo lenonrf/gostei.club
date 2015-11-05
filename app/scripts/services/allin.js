@@ -3,7 +3,6 @@
 angular.module('gosteiclubApp')
   .service('Allin', function (Utils) {
 
-
     this.sendDataToWelcomeLifeCycle = function(data){
 
       var allin = {
@@ -20,7 +19,7 @@ angular.module('gosteiclubApp')
       try{
         lc.sendData(allin);
       }catch (e){
-        console.log('erro', e);
+        console.log('Erro ao enviar Allin', e);
       }
 
     };

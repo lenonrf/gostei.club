@@ -8,13 +8,13 @@
  * Factory in the gosteiclubApp.
  */
  angular.module('gosteiclubApp')
- .factory('User', function ($resource, Utils) {
+ .factory('User', function ($resource, $http, Utils) {
 
      this.data = {};
      var self = this;
 
 
-     this.resource = $resource('/api/users;email=:email',
+     this.resource = $resource('/api/users/email/:email',
        { email: ' @email'}, {
 
          put: {
@@ -135,11 +135,17 @@
       * @returns {*}
       */
      this.isUserCompleted = function(user){
-       //console.log('user', user);
-       //console.log('isUserCompleted', user.address.zipcode !== "" ? true : false);
-
        return user.address.zipcode !== "" ? true : false;
      };
+
+
+     /**
+      * Executa os Sponsorings do usuario
+       * @param user
+      */
+     this.sendSponsoring  = function(){
+       $http.post('/api/users/sponsoring', self.data).success().error();
+     }
 
      return this;
 

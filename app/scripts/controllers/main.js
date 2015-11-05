@@ -70,9 +70,17 @@ angular.module('gosteiclubApp')
 
       if (!validateFieldsStepOne(user)) return false;
 
-      $scope.showFormFields = false;
-      $scope.showFormFields_STEP2 = true;
+      /**
+       * Insere o usuario
+       */
+      $http.post('/api/users', user).success(function(data){
 
+        Allin.sendDataToWelcomeLifeCycle(data);
+
+        $scope.showFormFields = false;
+        $scope.showFormFields_STEP2 = true;
+
+      }).error(onErrorCheckout);
 
     };
 
@@ -105,22 +113,19 @@ angular.module('gosteiclubApp')
 
         };
 
-
-        //$http.get('http://api.postmon.com.br/v1/cep/'+$scope.user.address.zipcode).success(function(data){
         $http.get('http://cep.correiocontrol.com.br/'+$scope.user.address.zipcode+'.json').success(function(data){
 
           dataCheckout.address = {
-
             'zipcode': data.cep,
-            //'city' : data.cidade,
-            //'state' : data.estado,
             'city' : data.localidade,
             'state' : data.uf,
             'neighborhood' : data.bairro,
             'street' : data.logradouro
           };
 
-          $http.post('/api/users', dataCheckout).success(onSuccessDefault).error(onErrorCheckout);
+
+          User.resource.put({'email'  : dataCheckout.email}, dataCheckout, onSuccess, onErrorCheckout);
+
 
         }).error(function(){
 
@@ -128,7 +133,6 @@ angular.module('gosteiclubApp')
           $scope.disableButton = false;
           validateFieldsStepTwo(user);
 
-          //$http.post('/api/users', dataCheckout).success(onSuccessDefault).error(onErrorCheckout);
         });
 
 
@@ -142,11 +146,10 @@ angular.module('gosteiclubApp')
      * Função de sucesso para cadastro
      * @param data
      */
-    function onSuccessDefault(data, status) {
-
-      Allin.sendDataToWelcomeLifeCycle(data);
+    function onSuccess(data, status) {
 
       User.setData(data);
+      User.sendSponsoring();
       User.setLogged(true);
       $location.path('/perguntas');
     }

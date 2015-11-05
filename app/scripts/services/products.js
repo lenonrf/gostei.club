@@ -8,7 +8,7 @@
  * Factory in the gosteiclubApp.
  */
 angular.module('gosteiclubApp')
-  .factory('Product', function ($resource, Utils) {
+  .factory('Product', function ($resource, $http, Utils) {
 
     this.data = {};
     var self = this;
@@ -22,6 +22,7 @@ angular.module('gosteiclubApp')
     this.setData = function(data){
       return self.data = data;
     };
+
 
 
         /**

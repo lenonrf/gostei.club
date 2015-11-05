@@ -17,31 +17,48 @@ angular.module('gosteiclubApp')
     $scope.user.answers = [];
 
     // controla os botões da tela
-    $scope.disableSubmitButton = false;
+    $scope.isStepButtonDisabled = true;
     $scope.disableAnswerButton = false;
     $scope.isValidationError = false;
-
     $scope.indexQuestion = 0;
-    $scope.step_1 = false;
-    $scope.step_2 = false;
 
     $scope.coreg = {};
-    $scope.coreg.oqueha = true;
-    $scope.coreg.carsystem = true;
+    $scope.steps = ['active', 'disabled', 'disabled', 'disabled'];
+
+
+    $scope.nextStep = function(){
+
+      for(var x=0; x<$scope.steps.length; x++){
+
+        if($scope.steps[x] === 'active'){
+          $scope.steps[x] = 'complete';
+          $scope.isStepButtonDisabled = true;
+          $scope.steps[x+1] = 'active';
+          break;
+        }
+      }
+    };
+
+
+    $scope.sendCoreg = function(){
+
+      console.log($scope.coreg);
+
+      $http.post('/api/coregs', { user: $scope.user, coreg :$scope.coreg})
+       .success(function(data){
+       //console.log('data', data);
+       }).error(function(){});
+
+    };
 
 
 
     if(!Utils.isLogged(User.data)){
-      console.log('Utils.isLogged');
-
       if(User.isUserFromLandingPage($location)){
-        console.log('User.isUserFromLandingPage');
 
         User.resource.get({email:$location.search().email}, function(data){
 
-          // TODO - Mudar a logica para o backend
           Allin.sendDataToWelcomeLifeCycle(data);
-
           User.setData(data);
           User.setLogged(true);
           $scope.user = User.getData();
@@ -49,7 +66,6 @@ angular.module('gosteiclubApp')
         }, function(){
           $location.path('/main');
         });
-
 
       }else{
         console.log('User.isUserFromLandingPage - else');
@@ -136,22 +152,7 @@ angular.module('gosteiclubApp')
         showNextQuestion();
 
       } else {
-
-        $scope.disableAnswerButton = true;
-        $scope.step_1 = true;
-
-        $('#step_2').css('opacity', '1');
-        $('#step_2').css('pointer-events', 'auto');
-
-        $('#step_3').css('opacity', '1');
-        $('#step_3').css('pointer-events', 'auto');
-
-        $('#step_1').css('display', 'none');
-        $('#step_spacer').css('padding', '0px');
-        $('#features_3').css('border-top', '0px');
-
-
-        setButtonFinalize();
+        $scope.nextStep();
       }
     };
 
@@ -161,6 +162,8 @@ angular.module('gosteiclubApp')
      * @param product
      */
     $scope.saveProduct = function (product) {
+
+      $scope.isStepButtonDisabled = false;
 
 
       if( (product.marked === false) || (Utils.isEmpty(product.marked))){
@@ -183,15 +186,7 @@ angular.module('gosteiclubApp')
      * ----------------------------------------------------------------------------------------
      */
 
-    /**
-     * Veririfica se o botao de finalizar esta apto para ser liberado
-     */
-    function setButtonFinalize() {
-      //if ($scope.step_1 && $scope.step_2) {
-      if ($scope.step_1) {
-        $scope.disableSubmitButton = false;
-      }
-    }
+
 
 
     /**
@@ -287,9 +282,6 @@ angular.module('gosteiclubApp')
           }
         }
 
-        //console.log('$scope.allQuestions', $scope.allQuestions);
-        //console.log('$scope.questionList', $scope.questionList);
-
         var question = $scope.questionList[0];
 
         $scope.question = {
@@ -352,7 +344,7 @@ angular.module('gosteiclubApp')
       $scope.bgZipcodeColor = '#FFFFFF';
 
 
-      if (Utils.isEmpty($scope.user.birthDate)) {
+      /*if (Utils.isEmpty($scope.user.birthDate)) {
 
         setMessageOnField('birthDate', 'Preencha a data de nascimento');
         return false;
@@ -390,7 +382,7 @@ angular.module('gosteiclubApp')
 
         setMessageOnField('cellphone', 'Preencha o celular');
         return false;
-      }
+      }*/
 
 
       if (Utils.isEmpty($scope.user.address.zipcode)) {
