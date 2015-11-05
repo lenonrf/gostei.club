@@ -144,7 +144,7 @@
        * @param user
       */
      this.sendSponsoring  = function(){
-       $http.post('/api/users/sponsoring', self.data).success().error();
+       $http.post('/api/users/sponsoring', self.data).success(function(){}).error(function(){});
      }
 
      return this;
