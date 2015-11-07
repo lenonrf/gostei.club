@@ -13,8 +13,10 @@
      this.data = {};
      var self = this;
 
+     this.resource = $resource('/api/users/:id');
 
-     this.resource = $resource('/api/users/email/:email',
+     this.resourceEmail = $resource('/api/users/email/:email',
+
        { email: ' @email'}, {
 
          put: {

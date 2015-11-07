@@ -8,17 +8,21 @@
  * Controller of the gosteiclubApp
  */
 angular.module('gosteiclubApp')
-  .controller('MainCtrl', function ($scope, $rootScope, $location, $modal, Canal, Allin, Menu, Utils, User, Login, $http, Product) {
+  .controller('MainCtrl', function ($scope, $rootScope, $location, $modal, Cep, Canal, Allin, Menu, Utils, User, Login, $http, Product) {
 
     Menu.setMenu('MainCtrl');
 
-    $scope.canais = Canal.getCanais();
     $scope.user = User.getData() || {};
     $scope.user.address = {}
     $scope.user.terms = true;
     $scope.disableButton = false;
     $scope.showFormFields = true;
     $scope.showFormFields_STEP2 = false;
+
+    Canal.resource.query(
+      {code: Canal.defineUserCanal($location)}, function(data){
+        $scope.user.canal =  data[0]._id;
+    });
 
 
     if(User.isUserFromEmail($location)){
@@ -27,12 +31,9 @@ angular.module('gosteiclubApp')
       executeLogin(user, 'home');
     }
 
-
     Product.resource.query(function(data){
       $scope.products = data;
     }, function(err){ });
-
-
 
 
     /**
@@ -49,7 +50,7 @@ angular.module('gosteiclubApp')
 
       if(!validateLogin(user)) return false;
 
-      User.resource.get({email:user.email}, function(data){
+      User.resourceEmail.get({email:user.email}, function(data){
 
         User.setData(data);
         User.setLogged(true);
@@ -70,17 +71,19 @@ angular.module('gosteiclubApp')
 
       if (!validateFieldsStepOne(user)) return false;
 
-      /**
-       * Insere o usuario
-       */
-      $http.post('/api/users', user).success(function(data){
+      User.resourceEmail.get({email:user.email}, function(data){
 
-        Allin.sendDataToWelcomeLifeCycle(data);
+        User.setData(data);
+        User.setLogged(true);
+        $location.path('/perguntas');
 
-        $scope.showFormFields = false;
-        $scope.showFormFields_STEP2 = true;
+      }, function(){
 
-      }).error(onErrorCheckout);
+          User.resource.save(user, function(data){
+            Allin.sendDataToWelcomeLifeCycle(data);
+            showStep2();
+          });
+      });
 
     };
 
@@ -93,50 +96,24 @@ angular.module('gosteiclubApp')
     $scope.checkoutStepTwo = function (user) {
 
       if (!validateFieldsStepTwo(user)) return false;
-
       $scope.disableButton = true;
-      var canalParam = Canal.defineUserCanal($location, $scope.canais);
 
+      Cep.resource.get({cep: $scope.user.address.zipcode}, function(data){
 
-      $http.get('/api/canais?code='+canalParam).then(function(data){
-
-        var dataCheckout = {
-          'name': user.name,
-          'email': user.email,
-          'gender': user.gender,
-          'canal': data.data[0]._id,
-          'birthDate': Utils.getBirthDate(user.birthDate),
-          'cellphone': user.cellphone,
-          'address' :{
-            'zipcode' : user.address.zipcode
-          }
-
+        user.address = {
+          'zipcode': data.cep,
+          'city' : data.localidade,
+          'state' : data.uf,
+          'neighborhood' : data.bairro,
+          'street' : data.logradouro
         };
 
-        $http.get('http://cep.correiocontrol.com.br/'+$scope.user.address.zipcode+'.json').success(function(data){
+        User.resourceEmail.put({'email'  : user.email}, user, onSuccess, onErrorCheckout);
 
-          dataCheckout.address = {
-            'zipcode': data.cep,
-            'city' : data.localidade,
-            'state' : data.uf,
-            'neighborhood' : data.bairro,
-            'street' : data.logradouro
-          };
-
-
-          User.resource.put({'email'  : dataCheckout.email}, dataCheckout, onSuccess, onErrorCheckout);
-
-
-        }).error(function(){
-
-          user.address.zipcode = null;
-          $scope.disableButton = false;
-          validateFieldsStepTwo(user);
-
-        });
-
-
-
+      }, function(err){
+        user.address.zipcode = null;
+        $scope.disableButton = false;
+        validateFieldsStepTwo(user);
       });
 
     };
@@ -206,6 +183,15 @@ angular.module('gosteiclubApp')
       $("#lname").focus();
     }
 
+
+
+    function showStep2() {
+
+      $scope.showFormFields = false;
+      $scope.showFormFields_STEP2 = true;
+      $scope.bgMsgColor = '#3498db';
+      angular.element('#messageStatus').html('Complete o formul&aacute;rio');
+    }
 
 
 
@@ -342,6 +328,9 @@ angular.module('gosteiclubApp')
 
       return status;
     }
+
+
+
 
 
     function setMessageOnField(field, message) {

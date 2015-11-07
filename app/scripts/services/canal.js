@@ -13,7 +13,11 @@ angular.module('gosteiclubApp')
     this.data = {};
     var self = this;
 
-    this.resource = $resource('/api/canais/:id');
+    this.resource = $resource('/api/canais/:id',{},{
+      query: {
+        method:'GET', isArray:true
+      }
+    });
 
     this.getData = function(){
       return self.data;
@@ -25,7 +29,6 @@ angular.module('gosteiclubApp')
 
     this.getCanais = function(user) {
       this.resource.query(function(data){
-        console.log('canais', data);
         return data;
       }, function(err){ });
     };
@@ -36,14 +39,13 @@ angular.module('gosteiclubApp')
      * @param location
      * @returns {string}
      */
-    this.defineUserCanal = function(location, canais){
+    this.defineUserCanal = function(location){
 
       var canalParam = 'gostei.club';
 
       if(!Utils.isEmpty(location.search().utm_source)){
         canalParam = location.search().utm_source;
       }
-
 
       return canalParam;
 
