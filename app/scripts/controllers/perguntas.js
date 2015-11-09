@@ -122,7 +122,7 @@ angular.module('gosteiclubApp')
         }).error(function(){});*/
 
       $scope.user.birthDate = Utils.getBirthDate($scope.user.birthDate);
-      User.resource.put({'email'  : User.data.email}, $scope.user, onSuccess, onError);
+      User.resourceEmail.put({'email'  : User.data.email}, $scope.user, onSuccess, onError);
 
     };
 
