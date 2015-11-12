@@ -97,8 +97,10 @@ angular.module('gosteiclubApp')
 
       if (!validateFieldsStepTwo(user)) return false;
       $scope.disableButton = true;
+      
+      User.resourceEmail.put({'email'  : user.email}, user, onSuccess, onErrorCheckout);
 
-      Cep.resource.get({cep: $scope.user.address.zipcode}, function(data){
+      /*Cep.resource.get({cep: $scope.user.address.zipcode}, function(data){
 
         user.address = {
           'zipcode': data.cep,
@@ -114,7 +116,7 @@ angular.module('gosteiclubApp')
         user.address.zipcode = null;
         $scope.disableButton = false;
         validateFieldsStepTwo(user);
-      });
+      });*/
 
     };
 
