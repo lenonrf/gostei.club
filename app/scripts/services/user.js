@@ -15,6 +15,8 @@
 
      this.resource = $resource('/api/users/:id');
 
+     this.resourceCoreg = $resource('/api/users/:id/coreg');
+
      this.resourceEmail = $resource('/api/users/email/:email',
 
        { email: ' @email'}, {

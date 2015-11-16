@@ -68,4 +68,12 @@ angular.module('gosteiclubApp')
     }
 
 
+    this.getUserYears = function(date){
+
+      var now = new Date();
+      var birthDate = this.getBirthDate(date);
+      return now.getFullYear() - birthDate.getFullYear();
+    };
+
+
  });

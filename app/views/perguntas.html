@@ -14,28 +14,28 @@
     <div class="col-sm-12 cols-md-12 cols-lg-12">
       <div class="row bs-wizard" style="border-bottom:0;">
 
-       <!-- <div class="col-xs-3 bs-wizard-step {{steps[0]}}">
+       <div class="col-xs-3 bs-wizard-step {{steps[0]}}">
           <div class="text-center bs-wizard-stepnum">Perguntas</div>
           <div class="progress"><div class="progress-bar"></div></div>
           <a href="#" class="bs-wizard-dot"></a>
           <!--<div class="bs-wizard-info text-center"></div>-->
-        <!--</div>-->
+        </div>
 
-        <div class="col-xs-4 bs-wizard-step {{steps[0]}}"><!-- complete -->
+        <div class="col-xs-3 bs-wizard-step {{steps[1]}}"><!-- complete -->
           <div class="text-center bs-wizard-stepnum">Oportunidades</div>
           <div class="progress"><div class="progress-bar"></div></div>
           <a href="#" class="bs-wizard-dot"></a>
           <!--<div class="bs-wizard-info text-center"></div>-->
         </div>
 
-        <div class="col-xs-4 bs-wizard-step {{steps[1]}}"><!-- complete -->
+        <div class="col-xs-3 bs-wizard-step {{steps[2]}}"><!-- complete -->
           <div class="text-center bs-wizard-stepnum">Amostras Grátis</div>
           <div class="progress"><div class="progress-bar"></div></div>
           <a href="#" class="bs-wizard-dot"></a>
           <!--<div class="bs-wizard-info text-center"></div>-->
         </div>
 
-        <div class="col-xs-4 bs-wizard-step {{steps[2]}}"><!-- active -->
+        <div class="col-xs-3 bs-wizard-step {{steps[3]}}"><!-- active -->
           <div class="text-center bs-wizard-stepnum">Entrega</div>
           <div class="progress"><div class="progress-bar"></div></div>
           <a href="#" class="bs-wizard-dot"></a>
@@ -48,7 +48,7 @@
 </section>
 
 
-<!-- COREG
+<!-- COREG -->
 <section ng-show="(steps[0] === 'active') ? true : false"
          id="features_3" style="font-weight: 400; font-size:20px; background-color:#f7f6f6; padding-top: 76px; border-top:solid 1px #dddddd;">
   <div class="container" style="margin-top:-60px">
@@ -74,33 +74,36 @@
 
 <div ng-show="(steps[0] === 'active') ? true : false"
      class="container" style="margin-top:30px; margin-bottom:10px">
-<div class="row">
 
-  <div class="col-md-12">
-    <div class="blockquote-box clearfix">
-      <div class="row">
-        <div class="col-md-2">
-          <div class="pull-left">
-            <img style="width: 150px; height: 150px;" src="http://gosteiclub-12bd.kxcdn.com/images/oqueha.jpg" alt="" class="" />
+
+  <div class="row">
+
+    <div class="col-md-12" ng-repeat="coreg in coregs">
+      <div class="blockquote-box clearfix">
+        <div class="row">
+          <div class="col-md-2">
+            <div class="pull-left">
+              <img style="width: 150px; height: 150px;" ng-src="{{coreg.image}}" alt="" class="" />
+            </div>
           </div>
-        </div>
 
-        <div class="col-md-10">
-          <h4>Você gosta de cozinhar e curte testar novas receitas?</h4>
-          <p>Cerca de 3 receitas 100% grátis por semana, pra você testar, colecionar e receber muitos elogios.</p>
-          <p>
-            <input type="radio" ng-model="coreg.oqueha" ng-value="true"  ng-click="isStepButtonDisabled = false">&nbsp;sim&nbsp;&nbsp;&nbsp;
-            <input type="radio" ng-model="coreg.oqueha" ng-value="false" ng-click="isStepButtonDisabled = false">&nbsp;não
-          </p>
-        </div>
+          <div class="col-md-10">
+            <h4>{{coreg.title}}</h4>
+            <p>{{coreg.description}}</p>
+            <p>
+              <input type="radio" name="{{coreg.code}}" ng-checked="true" ng-click="addUserCoreg(coreg._id, true)">&nbsp;sim&nbsp;&nbsp;&nbsp;
+            </p>
+            <p>
+              <input type="radio" name="{{coreg.code}}" ng-click="addUserCoreg(coreg._id, false)">&nbsp;não
+            </p>
+          </div>
 
+        </div>
       </div>
     </div>
-  </div>
 
+  </div>
 </div>
-</div>
-</div> -->
 
 
 
@@ -108,7 +111,7 @@
 
 
 <!-- OPORTUNIDADES -->
-<section ng-show="(steps[0] === 'active') ? true : false"
+<section ng-show="(steps[1] === 'active') ? true : false"
          id="features_3" style="font-weight: 400; font-size:20px; background-color:#f7f6f6; padding-top: 76px; border-top:solid 1px #dddddd;">
   <div class="container" style="margin-top:-60px">
     <div class="row">
@@ -131,7 +134,7 @@
   </div>
 </section>
 
-<div ng-show="(steps[0] === 'active') ? true : false"
+<div ng-show="(steps[1] === 'active') ? true : false"
      style="font-weight: 400; margin-top:60px; font-size:22px; background-color:#f7f6f6; border-top:solid 1px #dddddd;">
 
   <div  id="step_1">
@@ -144,7 +147,7 @@
             <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12" style="margin-top:-90px; background-color: #fff;">
 
                 <img style=" border-radius: 5px;   margin-bottom: 25%; margin-top:40px; margin-left: auto; margin-right: auto;" class="img-responsive"
-                     src="{{question.image}}" >
+                     ng-src="{{question.image}}" >
 
             </div>
 
@@ -171,7 +174,7 @@
 
 
 <!-- PRODUTOS -->
-<section ng-show="(steps[1] === 'active') ? true : false"
+<section ng-show="(steps[2] === 'active') ? true : false"
          id="features_3" style="font-weight: 400; font-size:20px; background-color:#f7f6f6; padding-top: 76px; border-top:solid 1px #dddddd;">
   <div class="container" style="margin-top:-60px">
     <div class="row">
@@ -193,7 +196,7 @@
   </div>
 </section>
 
-<div ng-show="(steps[1] === 'active') ? true : false"
+<div ng-show="(steps[2] === 'active') ? true : false"
      class="footer-copy">
   <!--<div class="container" id="step_2" style="opacity: 0.5; pointer-events: none; ">-->
   <div class="container">
@@ -204,7 +207,7 @@
             <div class="col-md-2" ng-repeat="product in products">
               <div class="panel panel-default text-center" style="border: 1px solid #ededed;">
                 <div style="backgound-color:#fff; padding-bottom:10px;">
-                  <img src="{{product.image}}" style="width:100%;" />
+                  <img ng-src="{{product.image}}" style="width:100%;" />
                 </div>
                 <div class="panel-heading">
                   <strong>{{product.name}}</strong>
@@ -231,7 +234,7 @@
 
   <!-- FORM DE DADOS -->
 
-  <section ng-show="(steps[2] === 'active') ? true : false"
+  <section ng-show="(steps[3] === 'active') ? true : false"
             style="font-weight: 400; font-size:20px; background-color:#f7f6f6; padding-top: 76px; border-top:solid 1px #dddddd;">
     <div class="container" style="margin-top:-60px">
       <div class="row">
@@ -251,7 +254,7 @@
   </section>
 
 
-  <div ng-show="(steps[2] === 'active') ? true : false"
+  <div ng-show="(steps[3] === 'active') ? true : false"
        class="footer-copy"  style="margin-bottom:20px;">
     <div class="container" style="">
 

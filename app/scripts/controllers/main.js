@@ -97,7 +97,10 @@ angular.module('gosteiclubApp')
 
       if (!validateFieldsStepTwo(user)) return false;
       $scope.disableButton = true;
-      
+
+      user.birthDate = Utils.getBirthDate(user.birthDate);
+      console.log('user', user);
+
       User.resourceEmail.put({'email'  : user.email}, user, onSuccess, onErrorCheckout);
 
       /*Cep.resource.get({cep: $scope.user.address.zipcode}, function(data){

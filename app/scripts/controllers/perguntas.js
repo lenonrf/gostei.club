@@ -8,13 +8,12 @@
  * Controller of the gosteiclubApp
  */
 angular.module('gosteiclubApp')
-  .controller('PerguntasCtrl', function ($scope, $window, $http, $rootScope, $location, Menu, Allin, Question, User, Utils, Product) {
+  .controller('PerguntasCtrl', function ($scope, $window, $http, $rootScope, $location, Coreg, Menu, Allin, Question, User, Utils, Product) {
 
     Menu.setMenu('PerguntasCtrl');
 
     $scope.user = User.getData();
-    $scope.user.score = 0;
-    $scope.user.answers = [];
+    $scope.user.coregs = [];
 
     // controla os botões da tela
     $scope.isStepButtonDisabled = true;
@@ -22,36 +21,15 @@ angular.module('gosteiclubApp')
     $scope.isValidationError = false;
     $scope.indexQuestion = 0;
 
-    $scope.coreg = {};
-    $scope.steps = ['active', 'disabled', 'disabled', 'disabled'];
+    getQuestionList();
+    getProducts(User);
 
 
-    $scope.nextStep = function(){
 
-      for(var x=0; x<$scope.steps.length; x++){
-
-        if($scope.steps[x] === 'active'){
-          $scope.steps[x] = 'complete';
-          $scope.isStepButtonDisabled = true;
-          $scope.steps[x+1] = 'active';
-          break;
-        }
-      }
-    };
-
-
-    $scope.sendCoreg = function(){
-
-      console.log($scope.coreg);
-
-      $http.post('/api/coregs', { user: $scope.user, coreg :$scope.coreg})
-       .success(function(data){
-       //console.log('data', data);
-       }).error(function(){});
-
-    };
-
-
+    /**
+     * -------------------------------------------------------------------
+     * Login
+     */
 
     if(!Utils.isLogged(User.data)){
       if(User.isUserFromLandingPage($location)){
@@ -68,205 +46,117 @@ angular.module('gosteiclubApp')
         });
 
       }else{
-        console.log('User.isUserFromLandingPage - else');
         $location.path('/main');
       }
 
     }else{
-      console.log('Utils.isLogged - else');
       $rootScope.firstName = Utils.getFirstName(User.getData().name);
     }
 
 
-    $scope.campaign = User.getCampaing($location);
 
-    getProducts(User);
-    getQuestionList();
 
-    $scope.$watch('user.address.zipcode', function() {
 
-      if($scope.user.address.zipcode){
 
-        $http.get('http://api.postmon.com.br/v1/cep/'+$scope.user.address.zipcode).success(function(data){
 
-          $scope.user.address.city = data.cidade;
-          $scope.user.address.state = data.estado;
-          $scope.user.address.neighborhood = data.bairro;
-          $scope.user.address.street = data.logradouro;
+    /**
+     * -------------------------------------------------------------------
+     * Coregs
+     */
 
-          $('#endereco').css('display', 'block');
-          $scope.isValidationError = false;
+    Coreg.resource.query(function(data){
 
-        }).error(function(){
+      $scope.coregs = [];
 
-          //setMessageOnField('zipcode', 'CEP inválido');
-          //$('#endereco').css('display', 'none');
 
-        });
+      for(var x=0; x<data.length; x++){
+
+        data[x].answer = true;
+
+        if(data[x].code === 'estrelafone'){
+
+          var date = new Date();
+          var hour = date.getHours();
+          var weekday = date.getDay();
+
+          //TODO - SEGUIMENTACAO
+          var userYears = Utils.getUserYears($scope.user.birthDate);
+           if((userYears >= 30) && ($scope.user.gender === 'F')){
+
+             if((weekday != 0) && (weekday != 6)){
+                 if((hour>7) && (hour<24)){
+
+                   $scope.coregs.push(data[x]);
+
+                   $scope.user.coregs.push({
+                     _id : data[x]._id,
+                     answer : true
+                   });
+                 }
+             }
+           }
+
+        }else{
+          $scope.coregs.push(data[x]);
+          $scope.user.coregs.push({
+            _id : data[x]._id,
+            answer : true
+          });
+        }
       }
+
+
     });
 
-    /**
-     * submita as peguntas
-     */
-    $scope.save = function () {
+    $scope.steps = ['active', 'disabled', 'disabled', 'disabled'];
 
-      if (!validateFields()) {
-        return false;
+    $scope.addUserCoreg = function(coregId, answer){
+
+      var isExists = false;
+
+      for(var x=0; x<$scope.user.coregs.length; x++){
+
+        if($scope.user.coregs[x]._id === coregId){
+          $scope.user.coregs[x].answer = answer;
+          isExists = true;
+        }
+      }
+
+      if(!isExists){
+
+        $scope.user.coregs.push({
+          _id : coregId,
+          answer : answer
+        });
+      }
+
+      if($scope.user.coregs.length === $scope.coregs.length){
+        $scope.isStepButtonDisabled = false;
       }
 
 
-      /*$http.post('/api/coregs', { user: $scope.user, coreg :$scope.coreg})
-        .success(function(data){
-          console.log('data', data);
-        }).error(function(){});*/
+      console.log('$scope.coregs', $scope.user.coregs);
 
-      $scope.user.birthDate = Utils.getBirthDate($scope.user.birthDate);
-      User.resourceEmail.put({'email'  : User.data.email}, $scope.user, onSuccess, onError);
 
     };
 
-    function onSuccess(data) {
-      User.setData(data);
-      $location.path('/home');
-    }
+    $scope.sendCoreg = function(){
 
-    function onError(data) {
-      console.log('error', data);
-      $scope.isValidationError = true;
-      $scope.validationMessage = 'Ocorreu um erro no envio dos dados.';
-    }
-
-
-
-
-    /**
-     * Função que retorna na tela a proxima pergunta e trata os dados da resposta
-     * @param answer
-     */
-    $scope.setAnswerQuestion = function (answerType) {
-
-      setUserAnswer(answerType);
-
-      if (hasNextQuestion()) {
-        showNextQuestion();
-
-      } else {
-        $scope.nextStep();
-      }
-    };
-
-
-    /**
-     * Salva a opcao de produto escolhido pelo usuario
-     * @param product
-     */
-    $scope.saveProduct = function (product) {
-
-      $scope.isStepButtonDisabled = false;
-
-
-      if( (product.marked === false) || (Utils.isEmpty(product.marked))){
-
-        product.marked = true;
-        $scope.user.products.push(product);
-
-      }else{
-
-        product.marked = false;
-        $scope.user.products.splice($scope.user.products.indexOf(product), 1);
-
-      }
+      User.resourceCoreg.save({'id'  : $scope.user._id}, $scope.user.coregs, function(){}, function(){});
 
     };
 
 
 
-    /**
-     * ----------------------------------------------------------------------------------------
-     */
-
 
 
 
     /**
-     * Seta a resposta, calcula score e exibe a tela
-     * @param answerType
+     * -------------------------------------------------------------------
+     * Oportunidades
      */
-    function setUserAnswer(answerType) {
 
-      var question = getQuestion($scope.indexQuestion);
-
-      if (answerType === true) {
-        $scope.user.answers.push(question.idQuestion);
-        $scope.user.score = $scope.user.score + question.score;
-        $window.open(question.urlAnswer+'&aff_sub='+$scope.campaign, '_blank');
-      }
-    }
-
-
-    /**
-     * Verifica se ainda existe questoes na lista
-     * @returns {boolean}
-     */
-    function hasNextQuestion() {
-      return ($scope.indexQuestion + 1 !== $scope.questionList.length);
-    }
-
-
-    /**
-     * Retorna uma questão da lista atraves do seu indice
-     * @param index
-     * @returns {*}
-     */
-    function getQuestion(index) {
-      return $scope.questionList[index];
-    }
-
-
-    /**
-     * Mostra a proxima questão na tela
-     */
-    function showNextQuestion() {
-
-      $scope.indexQuestion = $scope.indexQuestion + 1;
-      var question = getQuestion($scope.indexQuestion);
-
-      $scope.question = {
-
-        title: question.title,
-        description: question.description,
-        answerList: question.answerList,
-        image: question.image,
-        urlAnswer: question.urlAnswer
-      };
-    }
-
-
-    /**
-     * Mostra na tela sempre a primeira pergunta do lista de questoes
-     */
-    function showFirstQuestion() {
-
-      var question = getQuestion(0);
-
-      $scope.question = {
-
-        title: question.title,
-        description: question.description,
-        answerList: question.answerList,
-        image: question.image,
-        urlAnswer: question.urlAnswer
-      };
-    }
-
-
-    /**
-     * Rertona uma lista de questões cadastradas
-     * @returns {*[]}
-     */
     function getQuestionList() {
-      //return Question.getQuestionList();
 
       Question.resource.query(function(data){
 
@@ -298,11 +188,102 @@ angular.module('gosteiclubApp')
       });
     }
 
+    $scope.nextStep = function(){
+
+      for(var x=0; x<$scope.steps.length; x++){
+
+        if($scope.steps[x] === 'active'){
+          $scope.steps[x] = 'complete';
+          $scope.isStepButtonDisabled = true;
+          $scope.steps[x+1] = 'active';
+          break;
+        }
+      }
+    };
+
+    $scope.setAnswerQuestion = function (answerType) {
+
+      setUserAnswer(answerType);
+
+      if (hasNextQuestion()) {
+        showNextQuestion();
+
+      } else {
+        $scope.nextStep();
+      }
+    };
+
+
+    $scope.campaign = User.getCampaing($location);
+
+
+    function setUserAnswer(answerType) {
+
+      var question = getQuestion($scope.indexQuestion);
+
+      if (answerType === true) {
+        $scope.user.answers.push(question.idQuestion);
+        $scope.user.score = $scope.user.score + question.score;
+        $window.open(question.urlAnswer+'&aff_sub='+$scope.campaign, '_blank');
+      }
+    }
+
+
+    function hasNextQuestion() {
+      return ($scope.indexQuestion + 1 !== $scope.questionList.length);
+    }
+
+
+    function getQuestion(index) {
+      return $scope.questionList[index];
+    }
+
+
+    function showNextQuestion() {
+
+      $scope.indexQuestion = $scope.indexQuestion + 1;
+      var question = getQuestion($scope.indexQuestion);
+
+      $scope.question = {
+
+        title: question.title,
+        description: question.description,
+        answerList: question.answerList,
+        image: question.image,
+        urlAnswer: question.urlAnswer
+      };
+    }
+
+
+
+
+
 
     /**
-     * Retorna os produtos cadastrados
-     * @returns {*|{method, isArray}}
+     * -------------------------------------------------------------------
+     * Produtos
      */
+
+    $scope.saveProduct = function (product) {
+
+      $scope.isStepButtonDisabled = false;
+
+
+      if( (product.marked === false) || (Utils.isEmpty(product.marked))){
+
+        product.marked = true;
+        $scope.user.products.push(product);
+
+      }else{
+
+        product.marked = false;
+        $scope.user.products.splice($scope.user.products.indexOf(product), 1);
+
+      }
+
+    };
+
+
     function getProducts(user) {
 
       Product.resource.query(function(data){
@@ -330,8 +311,63 @@ angular.module('gosteiclubApp')
 
 
 
+
+
+
     /**
-     * ----------------------------------------------------------------------------------------
+     * -------------------------------------------------------------------
+     * Entrega
+     */
+    $scope.save = function () {
+
+      if (!validateFields()) {
+        return false;
+      }
+
+      $scope.user.birthDate = Utils.getBirthDate($scope.user.birthDate);
+      User.resourceEmail.put({'email'  : User.data.email}, $scope.user, onSuccess, onError);
+
+    };
+
+    function onSuccess(data) {
+      User.setData(data);
+      $location.path('/home');
+    }
+
+    function onError(data) {
+      console.log('error', data);
+      $scope.isValidationError = true;
+      $scope.validationMessage = 'Ocorreu um erro no envio dos dados.';
+    }
+
+    /*$scope.$watch('user.address.zipcode', function() {
+
+     if($scope.user.address.zipcode){
+
+     $http.get('http://api.postmon.com.br/v1/cep/'+$scope.user.address.zipcode).success(function(data){
+
+     $scope.user.address.city = data.cidade;
+     $scope.user.address.state = data.estado;
+     $scope.user.address.neighborhood = data.bairro;
+     $scope.user.address.street = data.logradouro;
+
+     $('#endereco').css('display', 'block');
+     $scope.isValidationError = false;
+
+     }).error(function(){
+
+     //setMessageOnField('zipcode', 'CEP inválido');
+     //$('#endereco').css('display', 'none');
+
+     });
+     }
+     });*/
+
+
+
+    /**
+     * -------------------------------------------------------------------
+     * Validators
      */
 
     function validateFields() {
