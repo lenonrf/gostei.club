@@ -8,6 +8,8 @@ angular.module('gosteiclubApp')
       $location.path('/main');
     }
 
+    $rootScope.showFooter = false;
+
     Utils.setFixedMenu();
     getProducts();
 

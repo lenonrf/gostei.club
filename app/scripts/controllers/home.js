@@ -5,6 +5,7 @@ angular.module('gosteiclubApp')
   .controller('HomeCtrl', function ($scope, $rootScope, $http, $location, Menu, User, Utils, Product) {
 
     Menu.setMenu('HomeCtrl');
+    $rootScope.showFooter = false;
 
     if(!Utils.isLogged(User.data)){
       $location.path('/main');

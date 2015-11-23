@@ -10,6 +10,7 @@
 angular.module('gosteiclubApp')
   .controller('MainCtrl', function ($scope, $rootScope, $location, $modal, Cep, Canal, Allin, Menu, Utils, User, Login, $http, Product) {
 
+    $rootScope.showFooter = true;
     $rootScope.titleModal = 'Termos e Condoções';
     $rootScope.textModal = '<p>Gostei.club é um Clube de Oportunidades que oferece aos seus participantes de forma 100% gratuita produtos e serviços para avaliação. O Participante do Clube indica sempre as oportunidades que deseja participar, recebendo em casa apenas o que gostaria de testar.</p><br /> ' +
     '<p>As avaliações de produtos e serviços serão divulgados no site com o percentual de aprovação de cada produto por cada usuário que participou do teste. Serão escolhidos o mínimo de 20 pessoas e o máximo de 1000 pessoas por teste.</p><br /> ' +

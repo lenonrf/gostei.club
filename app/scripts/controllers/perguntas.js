@@ -11,6 +11,7 @@ angular.module('gosteiclubApp')
   .controller('PerguntasCtrl', function ($scope, $window, $http, $rootScope, $location, Coreg, Menu, Allin, Question, User, Utils, Product) {
 
     Menu.setMenu('PerguntasCtrl');
+    $rootScope.showFooter = false;
 
     $scope.user = User.getData();
     $scope.user.coregs = [];
