@@ -105,15 +105,23 @@
 
 
 	<!-- FOOTER / COPYRIGHT -->
-	<div class="footer-copy">
+	<div class="footer-copy" ng-controller="FooterCtrl">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-7">
+				<div class="col-md-6">
 					<p>&copy; 2015. Todos os Direitos Reservados Gostei.club</p>
 				</div>
 
-				<div class="col-md-5">
-					<a class="backtotop page-scroll" href="#page-top">Quero Participar! &Delta;</a>
+        <div class="col-md-2">
+          <a class="term-popup" href="" ng-click="showTermos()">Termos e condições</a>
+        </div>
+
+        <div class="col-md-2">
+          <a class="term-popup" href="" ng-click="showPoliticaPrivacidade()">Política de Privacidade</a>
+        </div>
+
+				<div class="col-md-2">
+					<a  href="#page-top">Quero Participar!</a>
 				</div>
 			</div>
 		</div>
@@ -125,13 +133,10 @@
 <div class="overlay-dark"></div>
 <div class="terms">
   <span class="t-close fa fa-close"></span>
-  <h3>Termos e Condições:</h3>
+  <h3>{{titleModal}}:</h3>
 
-    <p>Gostei.club é um Clube de Oportunidades que oferece aos seus participantes de forma 100% gratuita produtos e serviços para avaliação. O Participante do Clube indica sempre as oportunidades que deseja participar, recebendo em casa apenas o que gostaria de testar.</p><br />
-  <p>As avaliações de produtos e serviços serão divulgados no site com o percentual de aprovação de cada produto por cada usuário que participou do teste. Serão escolhidos o mínimo de 20 pessoas e o máximo de 1000 pessoas por teste.</p><br />
-  <p>As chances de escolha para avaliação de produtos aumenta se o participante estiver sempre com os dados completos e demonstrar interesse em nossos testes, divulgando na redes sociais o recebimentos dos produtos/amostras e indicando o site para amigos e familiares.</p><br />
-  <p>Os produtos não podem ser trocados ou substituídos. Serão enviados através dos correios para o local indicado pelo participante. É proibida a comercialização dos produtos recebidos para teste.</p><br />
-  <p>Estamos sempre abertos no nosso canal fale conosco para qualquer sugestão de produto e de melhorias para nosso Clube de Oportunidades.</p><br />
+  <div data-ng-bind-html="textModal"></div>
+
 </div>
 
 
@@ -200,6 +205,7 @@
       <script src="scripts/controllers/sucesso.js"></script>
       <script src="scripts/controllers/header.js"></script>
       <script src="scripts/controllers/home.js"></script>
+      <script src="scripts/controllers/footer.js"></script>
       <script src="scripts/directives/slickslider.js"></script>
 
 			<script src="scripts/services/utils.js"></script>
@@ -212,6 +218,7 @@
       <script src="scripts/services/allin.js"></script>
       <script src="scripts/services/cep.js"></script>
       <script src="scripts/services/coreg.js"></script>
+
         <!-- endbuild -->
 
 

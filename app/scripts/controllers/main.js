@@ -10,6 +10,14 @@
 angular.module('gosteiclubApp')
   .controller('MainCtrl', function ($scope, $rootScope, $location, $modal, Cep, Canal, Allin, Menu, Utils, User, Login, $http, Product) {
 
+    $rootScope.titleModal = 'Termos e Condoções';
+    $rootScope.textModal = '<p>Gostei.club é um Clube de Oportunidades que oferece aos seus participantes de forma 100% gratuita produtos e serviços para avaliação. O Participante do Clube indica sempre as oportunidades que deseja participar, recebendo em casa apenas o que gostaria de testar.</p><br /> ' +
+    '<p>As avaliações de produtos e serviços serão divulgados no site com o percentual de aprovação de cada produto por cada usuário que participou do teste. Serão escolhidos o mínimo de 20 pessoas e o máximo de 1000 pessoas por teste.</p><br /> ' +
+    '<p>As chances de escolha para avaliação de produtos aumenta se o participante estiver sempre com os dados completos e demonstrar interesse em nossos testes, divulgando na redes sociais o recebimentos dos produtos/amostras e indicando o site para amigos e familiares.</p><br /> ' +
+    '<p>Os produtos não podem ser trocados ou substituídos. Serão enviados através dos correios para o local indicado pelo participante. É proibida a comercialização dos produtos recebidos para teste.</p><br /> ' +
+    '<p>Estamos sempre abertos no nosso canal fale conosco para qualquer sugestão de produto e de melhorias para nosso Clube de Oportunidades.</p><br />';
+
+
     Menu.setMenu('MainCtrl');
 
     $scope.user = User.getData() || {};
@@ -302,11 +310,27 @@ angular.module('gosteiclubApp')
 
         }
 
+
+
+
+
+
+
+
+
+
         if (Utils.isEmpty(user.cellphone)) {
 
           setMessageOnField('cellphone', 'Preencha o Celular');
           return false;
         }
+
+
+
+
+
+
+
 
 
         if (Utils.isEmpty(user.address.zipcode)) {
