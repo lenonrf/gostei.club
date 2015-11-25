@@ -70,46 +70,57 @@ angular.module('gosteiclubApp')
       $scope.coregs = [];
 
 
-      for(var x=0; x<data.length; x++){
+        for(var x=0; x<data.length; x++){
 
-        data[x].answer = true;
+          if(data[x].status){
 
-        if(data[x].code === 'estrelafone'){
+            data[x].answer = true;
 
-          var date = new Date();
-          var hour = date.getHours();
-          var weekday = date.getDay();
+            if(data[x].code === 'estrelafone'){
 
-          //TODO - SEGUIMENTACAO
-          var userYears = Utils.getUserYears($scope.user.birthDate);
-           if((userYears >= 30) && ($scope.user.gender === 'F')){
+              var date = new Date();
+              var hour = date.getHours();
+              var weekday = date.getDay();
 
-             if((weekday != 0) && (weekday != 6)){
-                 if((hour>7) && (hour<24)){
+              //TODO - SEGUIMENTACAO
+              var userYears = Utils.getUserYears($scope.user.birthDate);
+              if((userYears >= 30) && ($scope.user.gender === 'F')){
 
-                   $scope.coregs.push(data[x]);
+                if((weekday != 0) && (weekday != 6)){
+                  if((hour>7) && (hour<24)){
 
-                   $scope.user.coregs.push({
-                     _id : data[x]._id,
-                     answer : true
-                   });
-                 }
-             }
-           }
+                    $scope.coregs.push(data[x]);
 
-        }else{
-          $scope.coregs.push(data[x]);
-          $scope.user.coregs.push({
-            _id : data[x]._id,
-            answer : true
-          });
-        }
+                    $scope.user.coregs.push({
+                      _id : data[x]._id,
+                      answer : true
+                    });
+                  }
+                }
+              }
+
+            }else{
+              $scope.coregs.push(data[x]);
+              $scope.user.coregs.push({
+                _id : data[x]._id,
+                answer : true
+              });
+            }
+          }
       }
 
 
+      if( $scope.coregs.length === 0){
+        $scope.steps = ['complete', 'active', 'disabled', 'disabled'];
+      }else{
+        $scope.steps = ['active', 'disabled', 'disabled', 'disabled'];
+      }
+
     });
 
-    $scope.steps = ['active', 'disabled', 'disabled', 'disabled'];
+
+
+
 
     $scope.addUserCoreg = function(coregId, answer){
 
