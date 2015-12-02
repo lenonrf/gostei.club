@@ -202,7 +202,7 @@ angular.module('gosteiclubApp')
       var question = $scope.corredor[$scope.indexQuestion];
 
       if (answerType === true) {
-        $window.open(question.urlAnswer+'&aff_sub='+$scope.campaign, '_blank');
+        $window.open(question.urlAnswer+'&aff_sub='+User.getCampaing($location), '_blank');
       }
 
       if (hasNextQuestion()) {
