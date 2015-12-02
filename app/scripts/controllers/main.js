@@ -8,7 +8,8 @@
  * Controller of the gosteiclubApp
  */
 angular.module('gosteiclubApp')
-  .controller('MainCtrl', function ($scope, $rootScope, $location, $modal, Cep, Canal, Allin, Menu, Utils, User, Login, $http, Product) {
+  .controller('MainCtrl', function ($scope, $rootScope, $location, $modal, SessionLanding,
+                                    deviceDetector, Cep, Canal, Allin, Menu, Utils, User, Login, $http, Product) {
 
     $rootScope.showFooter = true;
     $rootScope.titleModal = 'Termos e Condoções';
@@ -18,6 +19,9 @@ angular.module('gosteiclubApp')
     '<p>Os produtos não podem ser trocados ou substituídos. Serão enviados através dos correios para o local indicado pelo participante. É proibida a comercialização dos produtos recebidos para teste.</p><br /> ' +
     '<p>Estamos sempre abertos no nosso canal fale conosco para qualquer sugestão de produto e de melhorias para nosso Clube de Oportunidades.</p><br />';
 
+
+    $rootScope.deviceAccess = Utils.getDevice();
+    SessionLanding.getSessionLanding($location, $rootScope);
 
     Menu.setMenu('MainCtrl');
 

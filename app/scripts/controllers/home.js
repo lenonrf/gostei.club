@@ -13,10 +13,7 @@ angular.module('gosteiclubApp')
 
     Utils.setFixedMenu();
 
-    //if(Utils.isEmpty($rootScope.products)){
-      getProducts();
-    //}
-
+    getProducts();
     getOportunityList();
 
     $scope.user = User.getData();
@@ -43,25 +40,9 @@ angular.module('gosteiclubApp')
 
       }
 
-      console.log('Email', User.data.email);
-      console.log('$scope.user', $scope.user.products);
-
-      //var user = {}
-      //user.products = $scope.user.products;
-      //console.log('user', user);
-      //User.resource.put({'email'  : User.data.email}, user.products, onSuccess, onError);
 
     };
 
-    function onSuccess(data) {
-      console.log('SUCESS', data);
-
-    }
-
-    function onError(data) {
-      console.log('ERROR', data);
-
-    }
 
 
     /**
@@ -87,9 +68,6 @@ angular.module('gosteiclubApp')
           }
         }
 
-        console.log('data', data);
-        console.log('$scope.products', $scope.products);
-
       }, function(err){
 
       });
@@ -104,7 +82,7 @@ angular.module('gosteiclubApp')
     function getOportunityList() {
 
 
-      $http.get('/api/oportunities/sorteios').
+      $http.get('/api/oportunities').
         success(function(data) {
 
           $scope.data = data;
@@ -125,24 +103,6 @@ angular.module('gosteiclubApp')
 
 
 
-
-      $http.get('/api/oportunities/cupons').
-        success(function(data, status, headers, config) {
-
-          $scope.data = data;
-          $scope.cupons = [];
-
-          for(var i=0; i<$scope.data.length; i++){
-            if($scope.data[i].status === true){
-              $scope.cupons.push($scope.data[i]);
-            }
-          }
-
-          //console.log('cupons', $scope.cupons);
-        }).
-        error(function(data, status, headers, config) {
-          console.log('ERROR '+status, data);
-        });
     }
 
   });

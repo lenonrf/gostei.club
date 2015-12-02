@@ -8,7 +8,7 @@
  * Service in the gosteiclubApp.
  */
 angular.module('gosteiclubApp')
-  .service('Utils', function () {
+  .service('Utils', function (deviceDetector) {
 
     this.isLogged = function(user){
       return !this.isEmpty(user.email);
@@ -73,6 +73,20 @@ angular.module('gosteiclubApp')
       var now = new Date();
       var birthDate = this.getBirthDate(date);
       return now.getFullYear() - birthDate.getFullYear();
+    };
+
+
+    this.getDevice = function(){
+
+      if(deviceDetector.isDesktop()){
+
+        return 'desktop';
+
+      }else if(deviceDetector.isMobile() || deviceDetector.isTablet()){
+
+        return 'mobile';
+
+      }
     };
 
 

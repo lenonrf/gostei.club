@@ -19,7 +19,9 @@ angular
     'ngTouch',
     'ui.bootstrap.showErrors',
     'ui.bootstrap.modal',
-    'angulartics', 'angulartics.google.analytics'
+    'angulartics',
+    'angulartics.google.analytics',
+    'ng.deviceDetector'
   ])
   .config(function ($routeProvider, $httpProvider, showErrorsConfigProvider) {
 

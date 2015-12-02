@@ -8,7 +8,7 @@
  * Controller of the gosteiclubApp
  */
 angular.module('gosteiclubApp')
-  .controller('PerguntasCtrl', function ($scope, $window, $http, $rootScope, $location, Coreg, Menu, Allin, Question, User, Utils, Product) {
+  .controller('PerguntasCtrl', function ($scope, $window, $http, $rootScope, $location, Coreg, Menu, Allin, Campaing, User, Utils, Product) {
 
     Menu.setMenu('PerguntasCtrl');
     $rootScope.showFooter = false;
@@ -17,13 +17,10 @@ angular.module('gosteiclubApp')
     $scope.user.coregs = [];
 
     // controla os botões da tela
-    $scope.isStepButtonDisabled = false;
+    $scope.isStepButtonDisabled = true;
     $scope.disableAnswerButton = false;
     $scope.isValidationError = false;
     $scope.indexQuestion = 0;
-
-    getQuestionList();
-    getProducts(User);
 
 
 
@@ -56,7 +53,8 @@ angular.module('gosteiclubApp')
 
 
 
-
+    getCampaings();
+    getProducts(User);
 
 
 
@@ -162,57 +160,50 @@ angular.module('gosteiclubApp')
 
     /**
      * -------------------------------------------------------------------
-     * Oportunidades
+     * Campanhas corredor
      */
 
-    function getQuestionList() {
+    function getCampaings() {
 
-      Question.resource.query(function(data){
+      $http.get('/api/oportunities/user/'+$scope.user._id
+        +'?sessionlanding='+$rootScope.sessionLanding._id
+        +'&deviceAccess='+$rootScope.deviceAccess).success(function(data){
 
-        $scope.allQuestions = data;
-        $scope.questionList = [];
+        $scope.campaings = data;
+        $scope.corredor = [];
 
-        for(var i=0; i<$scope.allQuestions.length; i++){
-
-          if($scope.allQuestions[i].status === true &&
-            $scope.allQuestions[i].isQuestion === true){
-
-            $scope.questionList.push($scope.allQuestions[i]);
+        for(var i=0; i<$scope.campaings.length; i++){
+          if($scope.campaings[i].isQuestion === true){
+            $scope.corredor.push($scope.campaings[i]);
           }
         }
 
-        var question = $scope.questionList[0];
-
         $scope.question = {
 
-          title: question.title,
-          description: question.description,
-          answerList: question.answerList,
-          image: question.image,
-          urlAnswer: question.urlAnswer
+          title: $scope.corredor[0].title,
+          description: $scope.corredor[0].description,
+          answerList: $scope.corredor[0].answerList,
+          image: $scope.corredor[0].image,
+          urlAnswer: $scope.corredor[0].urlAnswer
         };
 
-      }, function(err){
-        console.log('err', err);
-      });
+
+      }).error(function(){});
     }
 
-    $scope.nextStep = function(){
 
-      for(var x=0; x<$scope.steps.length; x++){
 
-        if($scope.steps[x] === 'active'){
-          $scope.steps[x] = 'complete';
-          $scope.isStepButtonDisabled = true;
-          $scope.steps[x+1] = 'active';
-          break;
-        }
-      }
-    };
+
+
+
 
     $scope.setAnswerQuestion = function (answerType) {
 
-      setUserAnswer(answerType);
+      var question = $scope.corredor[$scope.indexQuestion];
+
+      if (answerType === true) {
+        $window.open(question.urlAnswer+'&aff_sub='+$scope.campaign, '_blank');
+      }
 
       if (hasNextQuestion()) {
         showNextQuestion();
@@ -223,35 +214,18 @@ angular.module('gosteiclubApp')
     };
 
 
-    $scope.campaign = User.getCampaing($location);
 
-
-    function setUserAnswer(answerType) {
-
-      var question = getQuestion($scope.indexQuestion);
-
-      if (answerType === true) {
-        $scope.user.answers.push(question.idQuestion);
-        $scope.user.score = $scope.user.score + question.score;
-        $window.open(question.urlAnswer+'&aff_sub='+$scope.campaign, '_blank');
-      }
-    }
 
 
     function hasNextQuestion() {
-      return ($scope.indexQuestion + 1 !== $scope.questionList.length);
-    }
-
-
-    function getQuestion(index) {
-      return $scope.questionList[index];
+      return ($scope.indexQuestion + 1 !== $scope.corredor.length);
     }
 
 
     function showNextQuestion() {
 
       $scope.indexQuestion = $scope.indexQuestion + 1;
-      var question = getQuestion($scope.indexQuestion);
+      var question = $scope.corredor[$scope.indexQuestion];
 
       $scope.question = {
 
@@ -265,6 +239,20 @@ angular.module('gosteiclubApp')
 
 
 
+
+
+    $scope.nextStep = function(){
+
+      for(var x=0; x<$scope.steps.length; x++){
+
+        if($scope.steps[x] === 'active'){
+          $scope.steps[x] = 'complete';
+          $scope.isStepButtonDisabled = true;
+          $scope.steps[x+1] = 'active';
+          break;
+        }
+      }
+    };
 
 
 

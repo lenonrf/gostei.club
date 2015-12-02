@@ -51,6 +51,8 @@ module.exports = function(config) {
       'bower_components/angulartics/src/angulartics-marketo.js',
       'bower_components/angulartics/src/angulartics-intercom.js',
       'bower_components/angular-ui-mask/dist/mask.js',
+      'bower_components/re-tree/re-tree.js',
+      'bower_components/ng-device-detector/ng-device-detector.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',
