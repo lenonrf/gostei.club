@@ -15,12 +15,14 @@ angular.module('gosteiclubApp')
 
     $scope.user = User.getData();
     $scope.user.coregs = [];
+    $rootScope.steps = ['complete', 'active', 'disabled', 'disabled'];
 
     // controla os botões da tela
-    $scope.isStepButtonDisabled = true;
+    $rootScope.isStepButtonDisabled = true;
     $scope.disableAnswerButton = false;
     $scope.isValidationError = false;
     $scope.indexQuestion = 0;
+
 
 
 
@@ -109,9 +111,9 @@ angular.module('gosteiclubApp')
 
 
       if( $scope.coregs.length === 0){
-        $scope.steps = ['complete', 'active', 'disabled', 'disabled'];
+        $rootScope.steps = ['complete', 'active', 'disabled', 'disabled'];
       }else{
-        $scope.steps = ['active', 'disabled', 'disabled', 'disabled'];
+        $rootScope.steps = ['active', 'disabled', 'disabled', 'disabled'];
       }
 
     });
@@ -141,7 +143,7 @@ angular.module('gosteiclubApp')
       }
 
       if($scope.user.coregs.length === $scope.coregs.length){
-        $scope.isStepButtonDisabled = false;
+        $rootScope.isStepButtonDisabled = false;
       }
 
 
@@ -164,6 +166,10 @@ angular.module('gosteiclubApp')
      */
 
     function getCampaings() {
+
+      if(!$rootScope.sessionLanding){
+        return null;
+      }
 
       $http.get('/api/oportunities/user/'+$scope.user._id
         +'?sessionlanding='+$rootScope.sessionLanding._id
@@ -202,7 +208,7 @@ angular.module('gosteiclubApp')
       var question = $scope.corredor[$scope.indexQuestion];
 
       if (answerType === true) {
-        $window.open(question.urlAnswer+'&aff_sub='+User.getCampaing($location), '_blank');
+        $window.open(question.urlAnswer+'&aff_sub='+User.getCampaing($location, $rootScope.deviceAccess), '_blank');
       }
 
       if (hasNextQuestion()) {
@@ -243,12 +249,12 @@ angular.module('gosteiclubApp')
 
     $scope.nextStep = function(){
 
-      for(var x=0; x<$scope.steps.length; x++){
+      for(var x=0; x<$rootScope.steps.length; x++){
 
-        if($scope.steps[x] === 'active'){
-          $scope.steps[x] = 'complete';
-          $scope.isStepButtonDisabled = true;
-          $scope.steps[x+1] = 'active';
+        if($rootScope.steps[x] === 'active'){
+          $rootScope.steps[x] = 'complete';
+          $rootScope.isStepButtonDisabled = true;
+          $rootScope.steps[x+1] = 'active';
           break;
         }
       }
@@ -263,7 +269,7 @@ angular.module('gosteiclubApp')
 
     $scope.saveProduct = function (product) {
 
-      $scope.isStepButtonDisabled = false;
+      $rootScope.isStepButtonDisabled = false;
 
 
       if( (product.marked === false) || (Utils.isEmpty(product.marked))){

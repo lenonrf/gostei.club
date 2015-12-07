@@ -79,20 +79,27 @@
       * @param location
       * @returns {boolean}
       */
-     this.getCampaing = function(location) {
+     this.getCampaing = function(location, deviceAccess) {
 
        var isUtmCampaingParameter = !Utils.isEmpty(location.search().utm_campaign);
+
+       var devicePrefix = '';
+       if(deviceAccess === 'mobile'){
+         devicePrefix = 'M';
+       }else{
+         devicePrefix = 'D';
+       }
 
        if (isUtmCampaingParameter) {
          return location.search().utm_campaign;
        }
 
        if(location.path() === '/perguntas'){
-         return 'GPG';
+         return devicePrefix+'_GPG';
        }
 
        if(location.path() === '/home'){
-         return 'GBC';
+         return devicePrefix+'_GBC';
        }
 
 

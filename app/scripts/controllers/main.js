@@ -12,6 +12,7 @@ angular.module('gosteiclubApp')
                                     deviceDetector, Cep, Canal, Allin, Menu, Utils, User, Login,
                                     $http, Product, TermsConditions) {
 
+    $rootScope.isStepButtonDisabled = false;
     $rootScope.showFooter = true;
     $rootScope.titleModal = 'Termos e Condoções';
     $rootScope.textModal = TermsConditions.getTermsConditionsText();

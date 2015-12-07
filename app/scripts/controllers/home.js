@@ -13,11 +13,11 @@ angular.module('gosteiclubApp')
 
     Utils.setFixedMenu();
 
+    $scope.user = User.getData();
+    $scope.campaign = User.getCampaing($location, $rootScope.deviceAccess);
+
     getProducts();
     getOportunityList();
-
-    $scope.user = User.getData();
-    $scope.campaign = User.getCampaing($location);
 
 
 
@@ -81,9 +81,13 @@ angular.module('gosteiclubApp')
      */
     function getOportunityList() {
 
+      if(!$rootScope.sessionLanding){
+        return null;
+      }
 
-      $http.get('/api/oportunities').
-        success(function(data) {
+      $http.get('/api/oportunities/user/'+$scope.user._id
+      +'?sessionlanding='+$rootScope.sessionLanding._id
+      +'&deviceAccess='+$rootScope.deviceAccess).success(function(data){
 
           $scope.data = data;
           $scope.oportunities = [];
@@ -94,7 +98,6 @@ angular.module('gosteiclubApp')
             }
           }
 
-          //console.log('oportunities', $scope.oportunities);
 
         }).
         error(function(data, status) {

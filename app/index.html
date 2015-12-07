@@ -61,21 +61,26 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" style="  margin-left: 0px; margin-top: -5px;"><img id="logoHome" src="images/logo.png" width="115px;" /></a>
+
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
+        <div ng-controller="PerguntasCtrl" ng-show="!showMenuItems" class="itemNext">
+          <button ng-disabled="isStepButtonDisabled"
+                  ng-class="isStepButtonDisabled ? 'botaoMenuDisable' : 'botaoMenu'"
+                  ng-click="nextStep();">Próximo ></button>
+        </div>
 
-          <ul ng-show="showMenuItems" class="nav navbar-nav navbar-right nav-collapse">
+        <div id="navbar" ng-show="showMenuItems" class="navbar-collapse collapse">
 
-            <!--
-            <li><a class="page-scroll" href="#degraca">De Graça?</a></li>
-            <li><a class="page-scroll" href="#oportunidade">Oportunidades</a></li>
-            <li><a class="page-scroll" href="#depoimentos">Depoimentos</a></li>
-            <li><a class="page-scroll" href="#marcas">Marcas testadas</a></li>-->
+          <ul  class="nav navbar-nav navbar-right nav-collapse">
 
             <li><a class="page-scroll" href="{{menu.link_1.href}}">{{menu.link_1.nome}}</a></li>
             <li><a class="page-scroll" href="{{menu.link_2.href}}">{{menu.link_2.nome}}</a></li>
             <li><a class="page-scroll" href="{{menu.link_3.href}}">{{menu.link_3.nome}}</a></li>
             <li><a class="page-scroll" href="{{menu.link_4.href}}">{{menu.link_4.nome}}</a></li>
+
+            <li id="itemNext">
+
+            </li>
 
             <li style="display: none;" id="itemMenuEntrar">
               <button onclick="$('#loginForm').css('display', 'none');$('#formFields').css('display', 'block');$('#lname').focus();" class="botaoMenu">Quero Participar</button>
@@ -88,7 +93,7 @@
           </ul>
 
 
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </nav>
 

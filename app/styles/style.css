@@ -96,6 +96,40 @@ Author: Dilipkumar
 #logo img { position: absolute; right: 0; bottom: 0; height: 41px; width: 115px; }
 
 
+.imageCoreg{
+  width: 150px; height: 150px;
+}
+
+.itemNext{
+  display: none;
+}
+
+.oportunitiesTitle{
+
+  font-weight: 600;
+  color:#3498db;
+  margin-top: 10px;
+  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+  letter-spacing: -0.5px;
+
+}
+.oportunitiesDescription{
+  font-weight: 400;
+  margin-right: 16px;
+  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size:14px;
+  padding-bottom:40px;
+  color:#7e7e7e;
+}
+
+
+.stepNumber{
+
+  width:50px; height:50px; border-size:1px; padding-top:5px; padding-left:15px;
+  border-style:solid; border-color:#3498db; -webkit-border-radius: 100px; margin-left:10px;
+  -moz-border-radius: 100px; border-radius: 100px; font-size:24px; font-weight: 700; color:#3498db;
+}
+
 .product {
   background-color:#ffffff;
   border: 1px solid #ededed;
@@ -332,6 +366,56 @@ button:hover {
 
   border-bottom-color: #4f6816;
 }
+
+
+
+.btn-main_2 {
+
+  border: 0px;
+
+  color: #fff;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  border-radius:5px;
+  padding: 0 10%;
+
+  line-height: 55px;
+  text-transform: none;
+  letter-spacing: 0.3px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+  margin: 0 auto;
+  display: table;
+
+  text-shadow:0px -1px 0px #4f6816;
+  background: #749c0d;
+  -moz-box-shadow:inset 0px 1px 0px 0px #4f6816;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #4f6816;
+  box-shadow:inset 0px 1px 0px 0px #82ac25;
+
+  border-bottom-color: #4f6816;
+}
+
+
+.btn-main_2:hover {
+  text-shadow:0px -1px 0px #dfb302;
+  background: #ffcc00;
+  -moz-box-shadow:inset 0px 1px 0px 0px #dfb302;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #dfb302;
+  box-shadow:inset 0px 1px 0px 0px #ffcc00;
+  /*border:1px solid #dfb302;*/
+  border-bottom-color: #dfb302;
+  color: #Fff;
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+}
+
+
+
+
+
 
 .btn-main:hover {
   text-shadow:0px -1px 0px #dfb302;
@@ -2292,7 +2376,7 @@ header {
   }
 
   #headerMenu{
-    display: none;
+    /*display: none;*/
   }
 
   #bonecos{
@@ -2343,7 +2427,7 @@ header {
 
   #intro.intro4 {
     background-size: auto 100%;
-    padding: 0px 0px 0px;
+    padding: 100px 0px 0px;
   }
 
   #intro.intro5 {
@@ -2586,6 +2670,74 @@ header {
 /* Mobile (Upto 767px) */
 @media only screen and (max-width: 767px)  {
 
+  .imageCoreg{
+    width: 100px; height: 100px;
+  }
+
+  .itemNext{
+     display: block;
+     float: right;
+     margin-top: -40px;
+     margin-right: 15px;
+   }
+
+
+  .botaoMenuDisable{
+
+    height: 35px;
+    border: 1px solid #fff !important;
+    color: #fff;
+    border-radius:5px;
+    letter-spacing: 0.3px;
+    font-size: 11px;
+    font-weight: 400;
+    transition: 0.4s;
+    -webkit-transition: 0.4s;
+    text-shadow:0px -1px 0px #4f6816;
+    background: #D3D5CE;
+    -moz-box-shadow:inset 0px 1px 0px 0px #4f6816;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #4f6816;
+    box-shadow:inset 0px 1px 0px 0px #82ac25;
+
+  }
+
+
+
+  .botaonext{
+    display: none;
+  }
+
+  .oportunitiesbox{
+    margin-top:79px;
+  }
+
+  .oportunitiesTitle{
+
+    font-size: larger;
+    font-weight: 600;
+    color:#3498db;
+    margin-top: 10px;
+    font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+    letter-spacing: -0.5px;
+  }
+
+  .oportunitiesDescription{
+    font-weight: 400;
+    margin-right: 16px;
+    font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size:14px;
+    padding-bottom:8px;
+    color:#7e7e7e;
+  }
+
+  .stepsbox{
+    display: none;
+  }
+
+  .bs-wizard{
+    font-size: 5px;
+  }
+
   .sub-form {
     padding-left: 15px;
     padding-top: 15px;
@@ -2657,7 +2809,7 @@ header {
 
   #intro.intro4 {
     background-size: auto 100%;
-    /*padding: 120px 0px 0px;*/
+    padding: 100px 0px 0px;
   }
 
   #intro.intro7 {
@@ -2746,7 +2898,7 @@ header {
   }
 
   header {
-    height:50px;
+    height:77px;
   }
 
   .dual-btns a {
@@ -2907,7 +3059,7 @@ header {
     float: none;
     background: #fff;
     margin: 15px 0px 0;
-    background: #115684;
+    background: #333;
     padding: 0 20px 25px;
     width: 100%;
   }
