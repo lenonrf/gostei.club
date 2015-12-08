@@ -15,6 +15,7 @@ angular.module('gosteiclubApp')
 
     $scope.user = User.getData();
     $scope.user.coregs = [];
+    $scope.coregsSelecteds = 0;
     $rootScope.steps = ['complete', 'active', 'disabled', 'disabled'];
 
     // controla os botões da tela
@@ -145,7 +146,6 @@ angular.module('gosteiclubApp')
       if($scope.user.coregs.length === $scope.coregs.length){
         $rootScope.isStepButtonDisabled = false;
       }
-
 
     };
 

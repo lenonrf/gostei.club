@@ -87,11 +87,8 @@
           <div class="col-xs-8 col-md-10">
             <h4>{{coreg.title}}</h4>
             <p>{{coreg.description}}</p>
-            <p>
-              <input type="radio" name="{{coreg.code}}" ng-click="addUserCoreg(coreg._id, true)">&nbsp;sim&nbsp;&nbsp;&nbsp;
-            </p>
-            <p>
-              <input type="radio" name="{{coreg.code}}" ng-click="addUserCoreg(coreg._id, false)">&nbsp;não
+            <p ng-repeat="item in coreg.questions">
+              <input type="radio" name="{{coreg.code}}" ng-click="addUserCoreg(coreg._id, item.isCorrect)">&nbsp;&nbsp;{{item.text}}
             </p>
           </div>
 
