@@ -893,11 +893,22 @@ header {
 #intro.intro4 {
 	padding: 9% 0 2% 0;
 	position: relative;
-	background: #2f95df  url(../images/bg/4.jpg) no-repeat top right;
+	background: #2f95df  url(http://gosteiclub-12bd.kxcdn.com/images/4.jpg) no-repeat top right;
 	background-size: 100% auto;
 	overflow: hidden;
 
 }
+
+#intro.introVidencia {
+  padding: 9% 0 2% 0;
+  position: relative;
+  background: #2f95df  url(http://gosteiclub-12bd.kxcdn.com/images/bg_videncia.jpg) no-repeat top right;
+  background-size: 100% auto;
+  overflow: hidden;
+
+}
+
+
 
 #intro.intro4 h2,
 #intro.intro4 p {
@@ -907,9 +918,23 @@ header {
 
 }
 
+#intro.introVidencia h2,
+#intro.introVidencia  p {
+  /*
+  text-align: left;
+  padding: 0 0 100px 0;*/
+
+}
+
+
 #intro.intro4 .dual-btns {
 	margin: 0 auto;
 	display: table;
+}
+
+#intro.introVidencia .dual-btns {
+  margin: 0 auto;
+  display: table;
 }
 
 /* 3.5. Intro / 5 */
@@ -2404,6 +2429,7 @@ header {
   #intro.intro2 ,
   #intro.intro3 ,
   #intro.intro4 ,
+  #intro.introVidencia ,
   #intro.intro5 ,
   #intro.intro6 ,
   #intro.intro7 {
@@ -2426,6 +2452,11 @@ header {
   }
 
   #intro.intro4 {
+    background-size: auto 100%;
+    padding: 100px 0px 0px;
+  }
+
+  #intro.introVidencia {
     background-size: auto 100%;
     padding: 100px 0px 0px;
   }
@@ -2645,6 +2676,11 @@ header {
     padding: 0px;
   }
 
+  #intro.introVidencia p {
+    text-align: center;
+    padding: 0px;
+  }
+
   #intro.intro6 h2 {
     margin: -29px 0px 25px;
     font-size: 39px;
@@ -2811,6 +2847,12 @@ header {
     background-size: auto 100%;
     padding: 100px 0px 0px;
   }
+
+  #intro.introVidencia {
+    background-size: auto 100%;
+    padding: 100px 0px 0px;
+  }
+
 
   #intro.intro7 {
     background-size: auto 100%;

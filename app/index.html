@@ -64,7 +64,7 @@
 
         </div>
         <div ng-controller="PerguntasCtrl" ng-show="!showMenuItems" class="itemNext">
-          <button ng-disabled="isStepButtonDisabled"
+          <button ng-show="!showMenuItems" ng-disabled="isStepButtonDisabled"
                   ng-class="isStepButtonDisabled ? 'botaoMenuDisable' : 'botaoMenu'"
                   ng-click="nextStep();">Próximo ></button>
         </div>
@@ -73,14 +73,11 @@
 
           <ul  class="nav navbar-nav navbar-right nav-collapse">
 
-            <li><a class="page-scroll" href="{{menu.link_1.href}}">{{menu.link_1.nome}}</a></li>
-            <li><a class="page-scroll" href="{{menu.link_2.href}}">{{menu.link_2.nome}}</a></li>
-            <li><a class="page-scroll" href="{{menu.link_3.href}}">{{menu.link_3.nome}}</a></li>
-            <li><a class="page-scroll" href="{{menu.link_4.href}}">{{menu.link_4.nome}}</a></li>
-
-            <li id="itemNext">
-
+            <li ng-repeat="item in menu">
+              <a class="page-scroll" href="{{item.href}}">{{item.nome}}</a>
             </li>
+
+            <li id="itemNext"> </li>
 
             <li style="display: none;" id="itemMenuEntrar">
               <button onclick="$('#loginForm').css('display', 'none');$('#formFields').css('display', 'block');$('#lname').focus();" class="botaoMenu">Quero Participar</button>
@@ -88,8 +85,8 @@
           </ul>
 
           <ul ng-show="showMenuHome" class="nav navbar-nav navbar-right nav-collapse" style="display: none;">
-            <li><a class="page-scroll" href="#oportunidade">Oportunidades</a></li>
-            <li><a class="page-scroll" href="#depoimentos">Produtos</a></li>
+            <li><a class="page-scroll" href="{{menu.link_depoimentos.href}}">{{menu.link_depoimentos.nome}}</a></li>
+            <li><a class="page-scroll" href="{{menu.link_amostras.href}}">{{menu.link_amostras.nome}}</a></li>
           </ul>
 
 

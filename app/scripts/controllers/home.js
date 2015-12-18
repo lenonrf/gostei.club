@@ -39,8 +39,6 @@ angular.module('gosteiclubApp')
         $scope.user.products.splice($scope.user.products.indexOf(product), 1);
 
       }
-
-
     };
 
 

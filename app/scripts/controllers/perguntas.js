@@ -171,6 +171,10 @@ angular.module('gosteiclubApp')
         return null;
       }
 
+      console.log('/api/oportunities/user/'+$scope.user._id
+      +'?sessionlanding='+$rootScope.sessionLanding._id
+      +'&deviceAccess='+$rootScope.deviceAccess);
+
       $http.get('/api/oportunities/user/'+$scope.user._id
         +'?sessionlanding='+$rootScope.sessionLanding._id
         +'&deviceAccess='+$rootScope.deviceAccess).success(function(data){
@@ -251,11 +255,29 @@ angular.module('gosteiclubApp')
 
       for(var x=0; x<$rootScope.steps.length; x++){
 
-        if($rootScope.steps[x] === 'active'){
-          $rootScope.steps[x] = 'complete';
-          $rootScope.isStepButtonDisabled = true;
-          $rootScope.steps[x+1] = 'active';
-          break;
+        if($rootScope.sessionLandingData.isAmostras){
+
+          if($rootScope.steps[x] === 'active'){
+            $rootScope.steps[x] = 'complete';
+            $rootScope.isStepButtonDisabled = true;
+            $rootScope.steps[x+1] = 'active';
+            break;
+          }
+
+        }else{
+
+          if($rootScope.steps[x] === 'active'){
+
+            if(x === 1){
+              onSuccess($scope.user);
+              break;
+            }
+
+            $rootScope.steps[x] = 'complete';
+            $rootScope.isStepButtonDisabled = true;
+            $rootScope.steps[x+1] = 'active';
+            break;
+          }
         }
       }
     };
@@ -297,16 +319,20 @@ angular.module('gosteiclubApp')
 
           data[p_index].marked = false;
 
-          for(var u_index=0; u_index<userProducts.length; u_index++){
+          if(userProducts){
 
-            if(userProducts[u_index]._id === data[p_index]._id){
-              data[p_index].marked = true;
+            for(var u_index=0; u_index<userProducts.length; u_index++){
+
+              if(userProducts[u_index]._id === data[p_index]._id){
+                data[p_index].marked = true;
+              }
             }
           }
+
+
         }
 
         $scope.products = data;
-
 
       }, function(err){ });
     }

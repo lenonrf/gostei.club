@@ -1,7 +1,7 @@
 
 
 <!-- INTRO -->
-<section id="intro" class="intro4">
+<section id="intro" ng-class="sessionLandingData.isVidencias ? 'introVidencia' : 'intro4'" >
 
   <div class="container">
     <div class="row">
@@ -9,15 +9,14 @@
 
       <div class="col-md-7">
         <h3
-          style="font-weight: 300; letter-spacing: -1px; color:#fdb72c;  font-size:36px; font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif; margin-bottom:5px">
-          Receba Produtos Grátis em Casa!</h3>
+          style="font-weight: 300; letter-spacing: -1px; color:#fdb72c;  font-size:36px; font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif; margin-bottom:5px">{{sessionLandingData.main.title}}</h3>
 
         <div class="col-md-14" style="  font-size: 16px;
   color: #fff;
   font-weight: 200;
-  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif; margin-bottom:3%;">Faça parte do nosso Clube de Oportunidades, receba produtos em casa sem pagar nada e nos conte o que achou!
+  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif; margin-bottom:3%;">{{sessionLandingData.main.desc}}
         </div>
-        <img id="bonecos" class="img-responsive" src="images/bg_home.png" alt="" style="">
+        <img id="bonecos" class="img-responsive" src="{{sessionLandingData.bgHome}}" alt="" style="">
       </div>
 
       <div class="col-md-5 col-lg-5  col-sm-12 sub-form" id="loginForm" style="display: none">
@@ -50,7 +49,7 @@
       </div>
 
 
-      <div class="col-md-5 sub-form"  id="formFields">
+      <div class="col-md-5 sub-form"  id="formFields" style="margin-bottom: 15px;">
         <div id="sub-form">
           <form class="subscribe" novalidate id="invite" style="padding: 15px 30px 30px;">
 
@@ -144,67 +143,64 @@
 
 
 <!-- FEATURES -->
-<section id="features"
-         style="background:  url(images/amostragratis.jpg) repeat-x top; background-size:85%; height:150px; ">
-  <div class="container">
-
-    <div class="row" id="degraca" ></div>
-  </div>
+<section ng-show="sessionLandingData.isAmostras" id="features"
+         style="  background: url(http://gosteiclub-12bd.kxcdn.com/images/amostragratis.jpg) repeat-x top;
+  background-size: 85%;
+  height: 150px;">
 </section>
 <!-- FEATURES -->
+<div class="container">
 
+  <div class="row" id="degraca" ></div>
+</div>
 
 <!-- INFO BOXES -->
 <section class="info-content" style="padding-top: 50px;">
   <div class="container">
-    <div class="content-head">
-      <h3 style="margin-bottom:10px;">De Graça?</h3>
+    <div class="content-head" ng-show="sessionLandingData.showDeGraca">
+      <h3 style="margin-bottom:10px;">{{sessionLandingData.deGraca.title}}</h3>
 
-      <p>Sim, de graça. Nosso objetivo é levar a opinião sobre a qualidade dos produtos para todos os participantes do
-        gostei.club. Aproximando as marcas dos consumidores, gerando transparência e informação na hora da compra. </p>
+      <p>{{sessionLandingData.deGraca.desc}}</p>
     </div>
-    <div class="row">
+    <div class="row" ng-show="sessionLandingData.showDeGracaImages">
       <div class="col-md-4 ic-inner">
-        <img src="http://gosteiclub-12bd.kxcdn.com/images/xtra/1.jpg" class="img-responsive" alt=""/>
-        <h4>Roupas e Acessórios</h4>
+        <img src="{{sessionLandingData.deGraca.item1.image}}" class="img-responsive" alt=""/>
+        <h4>{{sessionLandingData.deGraca.item1.title}}</h4>
 
         <p>
         <ul class="space40" style="color:#898989;">
-          <li><i class="fa fa-check"></i> Camisetas, Camisas</li>
-          <li><i class="fa fa-check"></i> Calças, Bermudas</li>
-          <li><i class="fa fa-check"></i> Vestidos, Saias, Bijuterias</li>
-          <li><i class="fa fa-check"></i> Bonés, Chapéus, Perfumes</li>
-          <li><i class="fa fa-check"></i> Muitos outros...</li>
+          <li><i class="fa fa-check"></i> {{sessionLandingData.deGraca.item1.mark1}}</li>
+          <li><i class="fa fa-check"></i> {{sessionLandingData.deGraca.item1.mark2}}</li>
+          <li><i class="fa fa-check"></i> {{sessionLandingData.deGraca.item1.mark3}}</li>
+          <li><i class="fa fa-check"></i> {{sessionLandingData.deGraca.item1.mark4}}</li>
         </ul>
 
         </p>
       </div>
       <div class="col-md-4 ic-inner">
-        <img src="http://gosteiclub-12bd.kxcdn.com/images/xtra/2.jpg" class="img-responsive" alt=""/>
-        <h4>Eletrônicos e Gadgets</h4>
+        <img src="{{sessionLandingData.deGraca.item2.image}}" class="img-responsive" alt=""/>
+        <h4>{{sessionLandingData.deGraca.item2.title}}</h4>
 
         <p>
         <ul class="space40" style="color:#898989;">
-          <li><i class="fa fa-check"></i> Mouse, Mouse Pad</li>
-          <li><i class="fa fa-check"></i> Teclados, Mp3 Players</li>
-          <li><i class="fa fa-check"></i> Relógios, Fones</li>
-          <li><i class="fa fa-check"></i> Cabos e Conectores</li>
-          <li><i class="fa fa-check"></i> Entre outros..</li>
+          <li><i class="fa fa-check"></i> {{sessionLandingData.deGraca.item2.mark1}}</li>
+          <li><i class="fa fa-check"></i> {{sessionLandingData.deGraca.item2.mark2}}</li>
+          <li><i class="fa fa-check"></i> {{sessionLandingData.deGraca.item2.mark3}}</li>
+          <li><i class="fa fa-check"></i> {{sessionLandingData.deGraca.item2.mark4}}</li>
         </ul>
 
         </p>
       </div>
       <div class="col-md-4 ic-inner" >
-        <img src="http://gosteiclub-12bd.kxcdn.com/images/xtra/3.jpg" class="img-responsive" alt=""/>
-        <h4>Comidas, bebidas e itens de limpeza</h4>
+        <img src="{{sessionLandingData.deGraca.item3.image}}" class="img-responsive" alt=""/>
+        <h4>{{sessionLandingData.deGraca.item3.title}}</h4>
 
         <p>
         <ul class="space40" style="color:#898989;">
-          <li><i class="fa fa-check"></i> Sucos, Refrigerantes</li>
-          <li><i class="fa fa-check"></i> Gelatinas e Doces</li>
-          <li><i class="fa fa-check"></i> Produtos de Limpeza</li>
-          <li><i class="fa fa-check"></i> Utilidades Donésticas</li>
-          <li><i class="fa fa-check"></i> E muito mais..</li>
+          <li><i class="fa fa-check"></i> {{sessionLandingData.deGraca.item3.mark1}}</li>
+          <li><i class="fa fa-check"></i> {{sessionLandingData.deGraca.item3.mark2}}</li>
+          <li><i class="fa fa-check"></i> {{sessionLandingData.deGraca.item3.mark3}}</li>
+          <li><i class="fa fa-check"></i> {{sessionLandingData.deGraca.item3.mark4}}</li>
         </ul>
 
         </p>
@@ -212,13 +208,13 @@
 
 
     </div>
-    <div id="oportunidade" style="height: 80px;"></div>
+    <div id="oportunidade" style="height: 80px;" ng-show="sessionLandingData.showOportunidades"></div>
   </div>
 
 
   <!-- FOOTER / COPYRIGHT -->
 
-  <div class="container" style=" margin-bottom:-100px;" >
+  <div class="container" style=" margin-bottom:-100px;" ng-show="sessionLandingData.showOportunidades">
 
 
     <div class="content-head">
@@ -265,10 +261,10 @@
 </section>
 <!-- INFO BOXES -->
 
-<div id="depoimentos" style="height: 150px;"></div>
+<div id="depoimentos" style="height: 150px;" ng-show="sessionLandingData.showDepoimentos"></div>
 <!-- FEATURES -->
 
-<section id="features" style="padding-top: 50px;">
+<section id="features" style="padding-top: 50px;" ng-show="sessionLandingData.showDepoimentos">
   <div class="container" >
     <div class="row">
       <div class="col-md-12">
@@ -344,20 +340,26 @@
 
 
 <!-- SCREENSHOTS -->
-<section class="shots" id="marcas">
+<section class="shots" id="marcas" ng-show="sessionLandingData.showMarcas">
   <div class="container">
     <div class="content-head">
-      <h3>Algumas Marcas Testadas</h3>
+      <h3>{{sessionLandingData.marcas.title}}</h3>
 
-      <p>Sempre procuramos bons parceiros, com produtos interessantes, para você testar e nos dizer o que acha.</p>
+      <p>{{sessionLandingData.marcas.desc}}</p>
     </div>
     <div class="row">
 
 
       <div class="col-md-12">
 
-        <div class="shots-slide"
+        <div ng-show="sessionLandingData.isRevendas" style="text-align:center;">
+          <img ng-src="http://gosteiclub-12bd.kxcdn.com/images/bottom_1.jpg"/>
+          <img ng-src="http://gosteiclub-12bd.kxcdn.com/images/bottom_2.jpg"/>
+        </div>
+
+        <div ng-show="sessionLandingData.isAmostras" class="shots-slide"
              slick-slider="{dots: true, arrows: false, speed: 300, centerMode: false, slidesToShow: 4, slidesToScroll: 1, responsive: [{ breakpoint: 1024, settings: { slidesToShow: 3, slidesToScroll: 1, infinite: true, dots: true }}, { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1 } }, { breakpoint: 480, settings: { slidesToShow: 1, slidesToScroll: 1 }}]}">
+
 
           <div class="shots-thumb"><a><img ng-src="http://gosteiclub-12bd.kxcdn.com/images/shots/1.jpg"/></a></div>
           <div class="shots-thumb"><a><img ng-src="http://gosteiclub-12bd.kxcdn.com/images/shots/2.jpg"/></a></div>
@@ -367,6 +369,8 @@
           <div class="shots-thumb"><a><img ng-src="http://gosteiclub-12bd.kxcdn.com/images/shots/2.jpg"/></a></div>
           <div class="shots-thumb"><a><img ng-src="http://gosteiclub-12bd.kxcdn.com/images/shots/3.jpg"/></a></div>
           <div class="shots-thumb"><a><img ng-src="http://gosteiclub-12bd.kxcdn.com/images/shots/4.jpg"/></a></div>
+
+
         </div>
       </div>
     </div>

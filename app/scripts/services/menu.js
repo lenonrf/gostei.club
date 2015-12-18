@@ -2,55 +2,121 @@
 
 
 angular.module('gosteiclubApp')
-  .service('Menu', function ($rootScope) {
+  .service('Menu', function ($rootScope, $location, SessionLanding) {
 
     $rootScope.menu = {};
 
 
-    var main = {
-      link_1 : { nome : 'De Graça?', href : '#degraca' },
-      link_2 : { nome : 'Oportunidades', href : '#oportunidade' },
-      link_3 : { nome : 'Depoimentos', href : '#depoimentos' },
-      link_4 : { nome : 'Marcas testadas', href : '#marcas' }
-    };
+    this.setMenu = function(controller){
 
+      $rootScope.menu =
+        this.getMenuBySessionLanding(SessionLanding.getSessionCodeByLocation($location), controller);
 
-    var home = {
-      link_1 : { nome : 'Oportunidades', href : '#oportunidade' },
-      link_2 : { nome : 'Amostras Gratis', href : '#amostras' },
-      link_3 : null,
-      link_4 : null,
     };
 
 
 
-    this.setMenu= function(controller){
 
-      switch(controller) {
+    this.getMenuBySessionLanding = function (sessionLandingCode, controller){
 
-        case 'PerguntasCtrl':
 
-          $rootScope.menu = null;
-          $rootScope.showMenuItems = false;
-          this.setFixedMenu();
+      if(controller === 'MainCtrl'){
+
+        this.setDefaultMenu();
+        $rootScope.showMenuItems = true;
+        return this.getMenuItems(sessionLandingCode, controller);
+
+      }
+
+
+      if(controller === 'PerguntasCtrl'){
+
+        $rootScope.showMenuItems = false;
+        this.setFixedMenu();
+        return null;
+      }
+
+
+      if(controller === 'HomeCtrl'){
+
+        $rootScope.showMenuItems = true;
+        this.setFixedMenu();
+        return this.getMenuItems(sessionLandingCode, controller);
+      }
+
+
+    };
+
+
+
+
+    this.getMenuItems = function(sessionLandingCode, controller){
+
+
+      switch(sessionLandingCode) {
+
+        case 'amostras':
+
+          if (controller === 'MainCtrl') {
+
+            return [
+              {nome: 'De Graça?', href: '#degraca'},
+              {nome: 'Oportunidades', href: '#oportunidade'},
+              {nome: 'Depoimentos', href: '#depoimentos'},
+              {nome: 'Marcas', href: '#marcas'}
+            ];
+          }
+
+          if (controller === 'HomeCtrl') {
+
+            return [
+              {nome: 'Oportunidades', href: '#oportunidade'},
+              {nome: 'Amostras Gratis', href: '#amostras'}
+            ];
+          }
+
           break;
 
-        case 'HomeCtrl':
 
-          $rootScope.menu = home;
-          $rootScope.showMenuItems = true;
-          this.setFixedMenu();
+
+
+
+        case 'videncias':
+
+          if (controller === 'MainCtrl') {
+            return [{nome: 'De Graça?', href: '#degraca'}];
+          }
+
+          if (controller === 'HomeCtrl') {
+            return [{nome: 'Oportunidades', href: '#oportunidade'}];
+          }
+
           break;
 
-        case 'MainCtrl':
 
-          $rootScope.menu = main;
-          $rootScope.showMenuItems = true;
-          this.setDefaultMenu();
+
+
+
+        case 'revendas':
+
+          if (controller === 'MainCtrl') {
+            return [
+              {nome: 'De Graça?', href: '#degraca'},
+              {nome: 'Marcas', href: '#marcas'}
+            ];
+          }
+
+          if (controller === 'HomeCtrl') {
+            return [{nome: 'Oportunidades', href: '#oportunidade'}];
+          }
+
           break;
 
       }
-    }
+
+    };
+
+
 
 
     this.setFixedMenu = function(){

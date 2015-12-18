@@ -16,10 +16,27 @@ angular.module('gosteiclubApp')
     $rootScope.showFooter = true;
     $rootScope.titleModal = 'Termos e Condoções';
     $rootScope.textModal = TermsConditions.getTermsConditionsText();
+    $rootScope.sessionLanding = {};
 
 
     $rootScope.deviceAccess = Utils.getDevice();
-    SessionLanding.getSessionLanding($location, $rootScope);
+    //SessionLanding.getSessionLanding($location, $rootScope);
+
+    var sessionCode = SessionLanding.getSessionCodeByLocation($location);
+    if(sessionCode != null){
+      $http.get('/api/sessionlanding?code='+sessionCode).success(function(data){
+
+        $rootScope.sessionLanding = data[0];
+        $rootScope.sessionLandingData = SessionLanding.getDataFromLanding($rootScope, sessionCode);
+
+        console.log('sessionLanding',  $rootScope.sessionLanding);
+
+
+      }).error(function(){});
+    }
+
+
+
 
     Menu.setMenu('MainCtrl');
 
@@ -110,8 +127,6 @@ angular.module('gosteiclubApp')
       $scope.disableButton = true;
 
       user.birthDate = Utils.getBirthDate(user.birthDate);
-      console.log('user', user);
-
       User.resourceEmail.put({'email'  : user.email}, user, onSuccess, onErrorCheckout);
 
       /*Cep.resource.get({cep: $scope.user.address.zipcode}, function(data){
@@ -314,26 +329,11 @@ angular.module('gosteiclubApp')
         }
 
 
-
-
-
-
-
-
-
-
         if (Utils.isEmpty(user.cellphone)) {
 
           setMessageOnField('cellphone', 'Preencha o Celular');
           return false;
         }
-
-
-
-
-
-
-
 
 
         if (Utils.isEmpty(user.address.zipcode)) {
@@ -342,7 +342,6 @@ angular.module('gosteiclubApp')
           return false;
 
         }
-
 
 
       } else {
