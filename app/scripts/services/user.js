@@ -79,9 +79,11 @@
       * @param location
       * @returns {boolean}
       */
-     this.getCampaing = function(location, deviceAccess) {
+     this.getCampaing = function(location, deviceAccess, sessionLanding) {
 
        var isUtmCampaingParameter = !Utils.isEmpty(location.search().utm_campaign);
+
+       console.log('sessionLanding', sessionLanding);
 
        var devicePrefix = '';
        if(deviceAccess === 'mobile'){
@@ -90,16 +92,25 @@
          devicePrefix = 'D';
        }
 
+       var sessionCode = '';
+       if(sessionLanding.code === 'amostras'){
+         sessionCode = 'AMT';
+       }else if(sessionLanding.code === 'videncias'){
+         sessionCode = 'VDC';
+       }else if(sessionLanding.code  === 'revendas'){
+         sessionCode = 'RVD';
+       }
+
        if (isUtmCampaingParameter) {
          return location.search().utm_campaign;
        }
 
        if(location.path() === '/perguntas'){
-         return devicePrefix+'_GPG';
+         return sessionCode+'_'+devicePrefix+'_GPG';
        }
 
        if(location.path() === '/home'){
-         return devicePrefix+'_GBC';
+         return sessionCode+'_'+devicePrefix+'_GBC';
        }
 
 

@@ -29,8 +29,6 @@ angular.module('gosteiclubApp')
         $rootScope.sessionLanding = data[0];
         $rootScope.sessionLandingData = SessionLanding.getDataFromLanding($rootScope, sessionCode);
 
-        console.log('sessionLanding',  $rootScope.sessionLanding);
-
 
       }).error(function(){});
     }
