@@ -88,7 +88,7 @@
             <h4>{{coreg.title}}</h4>
             <p>{{coreg.description}}</p>
             <p ng-repeat="item in coreg.questions">
-              <input type="radio" name="{{coreg.code}}" ng-click="addUserCoreg(coreg._id, item.isCorrect)">&nbsp;&nbsp;{{item.text}}
+              <input ng-checked="item.isSelected" type="radio" name="{{coreg.code}}" ng-click="addUserCoreg(coreg._id, item.isCorrect)">&nbsp;&nbsp;{{item.text}}
             </p>
           </div>
 

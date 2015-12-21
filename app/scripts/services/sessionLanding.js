@@ -115,7 +115,7 @@ angular.module('gosteiclubApp')
           objReturn.isRevendas = true;
 
           objReturn.showDeGraca = true;
-          objReturn.showDeGracaImages = false;
+          objReturn.showDeGracaImages = true;
           objReturn.showOportunidades = false;
           objReturn.showDepoimentos = false;
           objReturn.showMarcas = true;
@@ -125,6 +125,27 @@ angular.module('gosteiclubApp')
 
           objReturn.deGraca.title = 'DE GRAÇA?';
           objReturn.deGraca.desc = 'Sim, de graça. Nosso objetivo é levar as melhores oportunidades para os participantes do nosso clube. Seja um novo trabalho, uma revenda, ou qualquer outra oportunidade na internet que  ajude nossos usuários! Veja algumas coisas que você pode revender!';
+
+          objReturn.deGraca.item1.title = 'Roupas e Acessórios';
+          objReturn.deGraca.item1.mark1 = 'Camisetas, Camisas';
+          objReturn.deGraca.item1.mark2 = 'Vestidos, Saias, Bijuterias';
+          objReturn.deGraca.item1.mark3 = 'Bonés, Chapéus, Perfumes';
+          objReturn.deGraca.item1.mark4 = 'Muitos outros...';
+          objReturn.deGraca.item1.image = 'http://gosteiclub-12bd.kxcdn.com/images/xtra/1.jpg';
+
+          objReturn.deGraca.item2.title = 'Eletrônicos e Gadgets';
+          objReturn.deGraca.item2.mark1 = 'Mouse, Mouse Pad';
+          objReturn.deGraca.item2.mark2 = 'Teclados, Mp3 Players';
+          objReturn.deGraca.item2.mark3 = 'Relógios, Fones';
+          objReturn.deGraca.item2.mark4 = 'Entre outros...';
+          objReturn.deGraca.item2.image = 'http://gosteiclub-12bd.kxcdn.com/images/xtra/2.jpg';
+
+          objReturn.deGraca.item3.title = 'Comidas, bebidas e itens de limpeza';
+          objReturn.deGraca.item3.mark1 = 'Sucos, Refrigerantes';
+          objReturn.deGraca.item3.mark2 = 'Gelatinas e Doces';
+          objReturn.deGraca.item3.mark3 = 'Produtos de Limpeza';
+          objReturn.deGraca.item3.mark4 = 'E muito mais...';
+          objReturn.deGraca.item3.image = 'http://gosteiclub-12bd.kxcdn.com/images/xtra/3.jpg';
 
           objReturn.marcas.title = 'ALGUMAS MARCAS QUE TRABALHAMOS';
           objReturn.marcas.desc = 'Sempre procuramos bons parceiros, com produtos interessantes, para você testar e nos dizer o que acha.';

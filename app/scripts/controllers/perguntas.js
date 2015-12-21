@@ -70,12 +70,36 @@ angular.module('gosteiclubApp')
 
       $scope.coregs = [];
 
-
         for(var x=0; x<data.length; x++){
 
           if(data[x].status){
-
             data[x].answer = true;
+
+
+            if(data[x].code === 'oqueha'){
+
+              for(var y=0; y<data[x].questions.length; y++){
+
+                if(data[x].questions[y].isCorrect === true){
+                  data[x].questions[y].isSelected = true;
+                  //$scope.addUserCoreg(data[x]._id, true);
+
+                 /* $scope.user.coregs.push({
+                    _id : data[x]._id,
+                    answer : true
+                  });*/
+
+
+                }else{
+                  data[x].questions[y].isSelected = false;
+                }
+              }
+
+
+            }
+
+
+
 
             if(data[x].code === 'estrelafone'){
 
