@@ -120,7 +120,7 @@ angular.module('gosteiclubApp')
           objReturn.showDepoimentos = false;
           objReturn.showMarcas = true;
 
-          objReturn.main.title = 'Aumente a sua renda trabalhando em casa!';
+          objReturn.main.title = 'Ganhe Dinheiro sendo um super revendedor!';
           objReturn.main.desc = 'Faça parte do nosso clube de Oportunidades e descubra todas as revendas disponíveis no mercado para você aumentar a sua renda trabalhando de casa!';
 
           objReturn.deGraca.title = 'DE GRAÇA?';
@@ -148,7 +148,7 @@ angular.module('gosteiclubApp')
           objReturn.deGraca.item3.image = 'http://gosteiclub-12bd.kxcdn.com/images/xtra/3.jpg';
 
           objReturn.marcas.title = 'ALGUMAS MARCAS QUE TRABALHAMOS';
-          objReturn.marcas.desc = 'Sempre procuramos bons parceiros, com produtos interessantes, para você testar e nos dizer o que acha.';
+          objReturn.marcas.desc = 'Sempre procuramos bons parceiros, com produtos interessantes, para você trabalhar.';
 
           objReturn.bgHome = 'http://gosteiclub-12bd.kxcdn.com/images/bg_home_revenda.png';
 
