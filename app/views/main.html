@@ -11,10 +11,7 @@
         <h3
           style="font-weight: 300; letter-spacing: -1px; color:#fdb72c;  font-size:36px; font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif; margin-bottom:5px">{{sessionLandingData.main.title}}</h3>
 
-        <div class="col-md-14" style="  font-size: 16px;
-  color: #fff;
-  font-weight: 200;
-  font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif; margin-bottom:3%;">{{sessionLandingData.main.desc}}
+        <div class="col-md-14" style="  font-size: 16px; color: #fff; font-weight: 200; font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif; margin-bottom:3%;">{{sessionLandingData.main.desc}}
         </div>
         <img id="bonecos" class="img-responsive" src="{{sessionLandingData.bgHome}}" alt="" style="">
       </div>
@@ -143,7 +140,7 @@
 
 
 <!-- FEATURES -->
-<section ng-show="sessionLandingData.isAmostras" id="features"
+<section ng-show="sessionLandingData.isAmostras || sessionLandingData.isRevendas" id="features"
          style="  background: url(http://gosteiclub-12bd.kxcdn.com/images/amostragratis.jpg) repeat-x top;
   background-size: 85%;
   height: 150px;">
