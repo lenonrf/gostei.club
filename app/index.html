@@ -10,7 +10,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
   <meta name="google-site-verification" content="Qz_zpCpdci7O3lm9lbWOfb3miLlAymhuZ3La_it7RRg" />
-	<title>Gostei.club - Seu Clube de Oportunidades | Produtos e amostras grátis para você testar!</title>
+	<title>{{ 'TITLE' | translate}} </title>
 
 	<!-- Mobile Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -66,7 +66,7 @@
         <div ng-controller="PerguntasCtrl" ng-show="!showMenuItems" class="itemNext">
           <button ng-show="!showMenuItems" ng-disabled="isStepButtonDisabled"
                   ng-class="isStepButtonDisabled ? 'botaoMenuDisable' : 'botaoMenu'"
-                  ng-click="nextStep();">Próximo ></button>
+                  ng-click="nextStep();">{{ 'FIELDS.BUTTON_NEXT' | translate}}</button>
         </div>
 
         <div id="navbar" ng-show="showMenuItems" class="navbar-collapse collapse">
@@ -111,19 +111,19 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6">
-					<p>&copy; 2015. Todos os Direitos Reservados Gostei.club</p>
+					<p>&copy; {{ 'FOOTER.DESC' | translate}}</p>
 				</div>
 
         <div class="col-md-2" ng-show="showFooter">
-          <a class="term-popup" href="" ng-click="showTermos()">Termos e condições</a>
+          <a class="term-popup" href="" ng-click="showTermos()">{{ 'FOOTER.TERMS_CONDITIONS' | translate}}</a>
         </div>
 
         <div class="col-md-2" ng-show="showFooter">
-          <a class="term-popup" href="" ng-click="showPoliticaPrivacidade()">Política de Privacidade</a>
+          <a class="term-popup" href="" ng-click="showPoliticaPrivacidade()">{{ 'FOOTER.PRIVACY_POLICY' | translate}}</a>
         </div>
 
 				<div class="col-md-2" ng-show="showFooter">
-					<a  href="#page-top">Quero Participar!</a>
+					<a  href="#page-top">{{ 'FOOTER.IWANT_PARTICIPATE' | translate}}</a>
 				</div>
 			</div>
 		</div>
@@ -199,6 +199,7 @@
     <script src="bower_components/angular-ui-mask/dist/mask.js"></script>
     <script src="bower_components/re-tree/re-tree.js"></script>
     <script src="bower_components/ng-device-detector/ng-device-detector.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -224,6 +225,10 @@
       <script src="scripts/services/coreg.js"></script>
       <script src="scripts/services/sessionLanding.js"></script>
       <script src="scripts/services/termsConditions.js"></script>
+
+      <script src="scripts/providers/appTranslateProviderBR.js"></script>
+      <script src="scripts/providers/appTranslateProviderFR.js"></script>
+
 
         <!-- endbuild -->
 

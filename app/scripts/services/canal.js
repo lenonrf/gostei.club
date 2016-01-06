@@ -41,7 +41,8 @@ angular.module('gosteiclubApp')
      */
     this.defineUserCanal = function(location){
 
-      var canalParam = 'gostei.club';
+      var canalParam = location.host(); //'gostei.club';
+      canalParam = canalParam.replace('www.','');
 
       if(!Utils.isEmpty(location.search().utm_source)){
         canalParam = location.search().utm_source;

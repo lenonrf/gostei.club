@@ -2,7 +2,7 @@
 
 
 angular.module('gosteiclubApp')
-  .controller('HomeCtrl', function ($scope, $rootScope, $http, $location, Menu, User, Utils, Product) {
+  .controller('HomeCtrl', function ($scope, $rootScope, $http,$translate, $location, Menu, User, Utils, Product) {
 
     Menu.setMenu('HomeCtrl');
     $rootScope.showFooter = false;
@@ -20,7 +20,8 @@ angular.module('gosteiclubApp')
     getProducts();
     getOportunityList();
 
-
+    $scope.escolhido = $translate.instant('HALL.FREESAMPLE_05');
+    $scope.euquero =  $translate.instant('HALL.FREESAMPLE_06');
 
     /**
      * Salva a opcao de produto escolhido pelo usuario

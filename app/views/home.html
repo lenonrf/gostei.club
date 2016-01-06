@@ -1,7 +1,7 @@
 
 <div id="features_1" style="margin-top:90px; margin-bottom:15px;  font-weight: 400; font-size:22px; background-color:#fff;">
   <div class="container" style="margin-bottom: 15px;">
-    <span style="color:#333333; font-size:18px;"><span style="font-size:16px">Olá</span> <span style="font-weight: 600;  letter-spacing:-1px;">{{user.name}}</span><span style="font-size:16px">, bem-vindo ao nosso Clube de Oportunidades</span></span><br>
+    <span style="color:#333333; font-size:18px;"><span style="font-size:16px">{{'HOME.HOME_00' | translate}}</span> <span style="font-weight: 600;  letter-spacing:-1px;">{{user.name}}</span><span style="font-size:16px">{{'HOME.HOME_01' | translate}}</span></span><br>
 
   </div>
   <div id="oportunidade"></div>
@@ -11,8 +11,8 @@
 <!-- OPORTUNIDADE -->
 <section id="features" style="font-size:20px; background-color:#f7f6f6; margin-top:0px;">
   <div  class="container" style="margin-top:-60px">
-    <b>Oportunidades</b>
-    <p class="lead" style="font-weight: 400; font-size:14px;">O Gostei trabalha pra te oferecer as melhores oportunidades da internet!</p>
+    <b>{{'HOME.HOME_02' | translate}}</b>
+    <p class="lead" style="font-weight: 400; font-size:14px;">{{'HOME.HOME_03' | translate}}</p>
   </div>
 </section>
 <div class="footer-copy" style="padding-top: 15px;">
@@ -33,7 +33,7 @@
                 <p>{{item.description}}</p>
 
                 <div class="row" style="padding-top: 15px;">
-                  <a class="btn btn-main" href="{{item.urlAnswer+'&aff_sub='+campaign}}" target="_blank"  role="button"><b>SIM, Eu quero esta Oportunidade!</b></a>
+                  <a class="btn btn-main" href="{{item.urlAnswer+'&aff_sub='+campaign}}" target="_blank"  role="button"><b>{{'HOME.HOME_04' | translate}}</b></a>
                 </div>
 
 
@@ -54,8 +54,8 @@
 <section ng-show="sessionLandingData.isAmostras" id="features" style="font-size:20px; background-color:#f7f6f6; margin-top:0px;">
 
   <div class="container" style="margin-top:-60px">
-    <b>Amostras Grátis</b>
-    <p class="lead" style="font-weight: 400; font-size:14px;"><b>Veja Abaixo</b> os produtos que você se candidatou para testar e navegue por outras oportunidades que temos para o momento!</p>
+    <b>{{'HOME.HOME_05' | translate}}</b>
+    <p class="lead" style="font-weight: 400; font-size:14px;"><b>{{'HOME.HOME_06' | translate}}</b>{{'HOME.HOME_07' | translate}}</p>
 
   </div>
 </section>
@@ -75,12 +75,12 @@
                   <strong>{{product.name}}</strong>
                 </div>
                 <ul class="list-group">
-                  <li class="list-group-item">{{product.quantity}} Unidades <b>Grátis</b></li>
+                  <li class="list-group-item">{{product.quantity}} {{'HOME.HOME_08' | translate}} <b>{{'HOME.HOME_09' | translate}}</b></li>
                   <li class="list-group-item">
                     <a id="link_{{product._id}}"
                        ng-class="product.marked ? 'product-linkbutton-marked' : 'product-linkbutton'"
                        ng-click="saveProduct(product)">
-                      {{ product.marked  === true ? "ESCOLHIDO" : "EU QUERO!"}}
+                      {{ product.marked  === true ? escolhido : euquero}}
                     </a>
                   </li>
                 </ul>

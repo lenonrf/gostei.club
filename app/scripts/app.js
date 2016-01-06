@@ -1,13 +1,6 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name gosteiclubApp
- * @description
- * # gosteiclubApp
- *
- * Main module of the application.
- */
+
 angular
   .module('gosteiclubApp', [
     'ui.mask',
@@ -21,18 +14,20 @@ angular
     'ui.bootstrap.modal',
     'angulartics',
     'angulartics.google.analytics',
-    'ng.deviceDetector'
+    'ng.deviceDetector',
+    'pascalprecht.translate'
   ])
-  .config(function ($routeProvider, $httpProvider, showErrorsConfigProvider) {
+  .config(function ($routeProvider, $httpProvider, $translateProvider,
+                    AppTranslateFRProvider, AppTranslateBRProvider, showErrorsConfigProvider) {
 
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
-
+    $httpProvider.interceptors.push('languageInterceptor');
     showErrorsConfigProvider.showSuccess(true);
 
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: 'views/MAIN.html',
         controller: 'MainCtrl'
       })
       .when('/perguntas', {
@@ -52,7 +47,7 @@ angular
         controller: ''
       })
       .when('/marcas', {
-        templateUrl: 'views/marcas.html',
+        templateUrl: 'views/MARCAS.html',
         controller: ''
       })
       .when('/home', {
@@ -62,4 +57,132 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+
+
+
+
+    $translateProvider.translations('pt-BR-RVD', {
+
+      'TITLE'   : AppTranslateBRProvider.getTitle('pt-BR-RVD'),
+      'MAIN'    : AppTranslateBRProvider.getMain('pt-BR-RVD'),
+      'BRANDS'  : AppTranslateBRProvider.getBrands('pt-BR-RVD'),
+      'BGHOME'  : AppTranslateBRProvider.getBgHome('pt-BR-RVD'),
+      'MENU'    : AppTranslateBRProvider.getMenuItems(),
+      'FIELDS'  : AppTranslateBRProvider.getFields(),
+      'DEGRACA' : AppTranslateBRProvider.getItsFree(),
+      'FOOTER'  : AppTranslateBRProvider.getFooter(),
+
+      'HALL' : AppTranslateBRProvider.getHall(),
+      'HOME' : AppTranslateBRProvider.getHome(),
+      'VALIDATION' : AppTranslateBRProvider.getValidation()
+
+
+    });
+
+
+
+    $translateProvider.translations('pt-BR-AMT', {
+
+      'TITLE'   : AppTranslateBRProvider.getTitle('pt-BR-AMT'),
+      'MAIN'    : AppTranslateBRProvider.getMain('pt-BR-AMT'),
+      'BRANDS'  : AppTranslateBRProvider.getBrands('pt-BR-AMT'),
+      'BGHOME'  : AppTranslateBRProvider.getBgHome('pt-BR-AMT'),
+      'MENU'    : AppTranslateBRProvider.getMenuItems(),
+      'FIELDS'  : AppTranslateBRProvider.getFields(),
+      'DEGRACA' : AppTranslateBRProvider.getItsFree(),
+      'FOOTER'  : AppTranslateBRProvider.getFooter(),
+      'TESTIMONIALS' : AppTranslateBRProvider.getTestimonials(),
+      'OPORTUNITY'   : AppTranslateBRProvider.getOportunity(),
+
+      'HALL' : AppTranslateBRProvider.getHall(),
+      'HOME' : AppTranslateBRProvider.getHome(),
+      'VALIDATION' : AppTranslateBRProvider.getValidation()
+
+    });
+
+
+    $translateProvider.translations('pt-BR-VDC', {
+
+      'TITLE'   : AppTranslateBRProvider.getTitle('pt-BR-VDC'),
+      'MAIN'    : AppTranslateBRProvider.getMain('pt-BR-VDC'),
+      'BGHOME'  : AppTranslateBRProvider.getBgHome('pt-BR-VDC'),
+      'DEGRACA' : AppTranslateBRProvider.getItsFree('pt-BR-VDC'),
+      'MENU'    : AppTranslateBRProvider.getMenuItems(),
+      'FIELDS'  : AppTranslateBRProvider.getFields(),
+      'FOOTER'  : AppTranslateBRProvider.getFooter(),
+
+      'HALL' : AppTranslateBRProvider.getHall(),
+      'HOME' : AppTranslateBRProvider.getHome(),
+      'VALIDATION' : AppTranslateBRProvider.getValidation()
+
+    });
+
+
+
+
+
+    $translateProvider.translations('fr-FR', {
+
+      'TITLE'   : AppTranslateFRProvider.getTitle(),
+      'MAIN'    : AppTranslateFRProvider.getMain(),
+      'BRANDS'  : AppTranslateFRProvider.getBrands(),
+      'BGHOME'  : AppTranslateFRProvider.getBgHome(),
+      'MENU'    : AppTranslateFRProvider.getMenuItems(),
+      'FIELDS'  : AppTranslateFRProvider.getFields(),
+      'DEGRACA' : AppTranslateFRProvider.getItsFree(),
+      'FOOTER'  : AppTranslateFRProvider.getFooter(),
+      'TESTIMONIALS' : AppTranslateFRProvider.getTestimonials(),
+      'OPORTUNITY'   : AppTranslateFRProvider.getOportunity(),
+
+      'HALL' : AppTranslateFRProvider.getHall(),
+      'HOME' : AppTranslateFRProvider.getHome(),
+      'VALIDATION' : AppTranslateFRProvider.getValidation()
+
+
+    });
+
+
+    $translateProvider.preferredLanguage('pt-BR');
+    $translateProvider.useSanitizeValueStrategy('escapeParameters');
+
+
+  })
+
+  .factory('languageInterceptor', function ($cookieStore, $translate, $location) {
+    return {
+
+      request: function (config) {
+
+        switch ($location.host()){
+
+          case 'www.gostei.club':
+          case 'gostei.club':
+            config.headers['x-language-origin'] = 'pt-BR';
+            $translate.use('pt-BR-AMT');
+            break;
+
+          case 'www.revendas.gostei.club':
+          case 'revendas.gostei.club':
+            config.headers['x-language-origin'] = 'pt-BR';
+            $translate.use('pt-BR-RVD');
+            break;
+
+          case 'www.videncias.gostei.club':
+          case 'videncias.gostei.club':
+            config.headers['x-language-origin'] = 'pt-BR';
+            $translate.use('pt-BR-VDC');
+            break;
+
+          case 'fr.gostei.club':
+            config.headers['x-language-origin'] = 'fr-FR';
+            $translate.use('fr-FR');
+            break;
+        }
+
+        console.log('x-language-origin', config.headers["x-language-origin"]);
+
+        return config;
+
+      }
+    };
   });

@@ -1,9 +1,3 @@
-<!--<div id="features_1" style="margin-top:90px; margin-bottom:15px;  font-weight: 400; font-size:22px; background-color:#fff;">
-  <div class="container" style="margin-bottom: 15px;">
-    <span style="color:#333333; font-size:18px;"><span style="font-size:16px">Olá</span> <span style="font-weight: 600;  letter-spacing:-1px;">{{user.name}}</span><span style="font-size:16px">, bem-vindo ao nosso Clube de Oportunidades</span></span><br>
-
-  </div>
-</div>-->
 
 <section style="margin-top:79px; margin-bottom: 15px;" >
 
@@ -15,28 +9,28 @@
       <div class="row bs-wizard" style="border-bottom:0;">
 
        <div class="col-xs-3 bs-wizard-step {{steps[0]}}">
-          <div class="text-center bs-wizard-stepnum stepboxtext">Perguntas</div>
+          <div class="text-center bs-wizard-stepnum stepboxtext">{{'HALL.QUESTIONS' | translate}}</div>
           <div class="progress"><div class="progress-bar"></div></div>
           <a href="#" class="bs-wizard-dot"></a>
           <!--<div class="bs-wizard-info text-center"></div>-->
         </div>
 
         <div class="col-xs-3 bs-wizard-step {{steps[1]}}"><!-- complete -->
-          <div class="text-center bs-wizard-stepnum stepboxtext">Oportunidades</div>
+          <div class="text-center bs-wizard-stepnum stepboxtext">{{'HALL.OPORTUNITIES' | translate}}</div>
           <div class="progress"><div class="progress-bar"></div></div>
           <a href="#" class="bs-wizard-dot"></a>
           <!--<div class="bs-wizard-info text-center"></div>-->
         </div>
 
         <div class="col-xs-3 bs-wizard-step {{steps[2]}}"><!-- complete -->
-          <div class="text-center bs-wizard-stepnum stepboxtext">Amostras Grátis</div>
+          <div class="text-center bs-wizard-stepnum stepboxtext">{{'HALL.FREESAMPLES' | translate}}</div>
           <div class="progress"><div class="progress-bar"></div></div>
           <a href="#" class="bs-wizard-dot"></a>
           <!--<div class="bs-wizard-info text-center"></div>-->
         </div>
 
         <div class="col-xs-3 bs-wizard-step {{steps[3]}}"><!-- active -->
-          <div class="text-center bs-wizard-stepnum stepboxtext">Entrega</div>
+          <div class="text-center bs-wizard-stepnum stepboxtext">{{'HALL.DELIVERY' | translate}}</div>
           <div class="progress"><div class="progress-bar"></div></div>
           <a href="#" class="bs-wizard-dot"></a>
           <!--<div class="bs-wizard-info text-center"></div>-->
@@ -56,13 +50,13 @@
       <div class="col-xs-1 col-md-1 stepNumber">1
       </div>
       <div class="col-xs-10 col-md-7">
-        Queremos conhecer melhor você:<br>
-        <p class="lead" style="font-weight: 400; font-size:14px;">Nos ajude a entender quais são suas preferencias:</p>
+        {{'HALL.COREG_01' | translate}}<br>
+        <p class="lead" style="font-weight: 400; font-size:14px;">{{'HALL.COREG_02' | translate}}</p>
       </div>
       <div class="col-md-4 text-right col-xs-1 botaonext">
         <button ng-disabled="isStepButtonDisabled"
                 ng-class="isStepButtonDisabled ? 'btn-main-disable btn-center' : 'btn-main btn-center'"
-                ng-click="nextStep(); sendCoreg()" style="float: right; font-size:18px;"> Próximo ></button>
+                ng-click="nextStep(); sendCoreg()" style="float: right; font-size:18px;"> {{'FIELDS.BUTTON_NEXT' | translate}}</button>
       </div>
 
     </div>
@@ -112,13 +106,13 @@
       <div class="col-xs-1 col-md-1 stepNumber">2
       </div>
       <div class="col-xs-10 col-md-7">
-        Aumente suas chances de ser escolhido!<br>
-        <p class="lead" style="font-weight: 400; font-size:14px;">Escolha as oportunidades que combinam com você e aumente suas chances de ser escolhido:</p>
+        {{'HALL.OPORTUNITY_01' | translate}}<br>
+        <p class="lead" style="font-weight: 400; font-size:14px;">{{'HALL.OPORTUNITY_02' | translate}}</p>
       </div>
       <div class="col-xs-1 col-md-4 text-right botaonext">
         <button ng-disabled="isStepButtonDisabled"
                 ng-class="isStepButtonDisabled ? 'btn-main-disable btn-center' : 'btn-main btn-center'"
-                ng-click="nextStep()" style="float: right; font-size:18px;"> Próximo ></button>
+                ng-click="nextStep()" style="float: right; font-size:18px;"> {{'FIELDS.BUTTON_NEXT' | translate}}</button>
       </div>
 
     </div>
@@ -145,8 +139,8 @@
             <div class="col-md-7 col-lg-7 col-sm-12 col-xs-12" style="margin-top:-70px; margin-bottom:40px;">
               <h2 class="oportunitiesTitle">{{question.title}}</h2>
               <p class="oportunitiesDescription">{{question.description}}</p>
-              <a ng-disabled="disableAnswerButton" class="btn btn-main_2" ng-click="setAnswerQuestion(true)" style="margin-bottom:10px;"  role="button"><b>SIM, Eu quero esta Oportunidade!</b></a>
-              <center><a ng-disabled="disableAnswerButton" href="" ng-click="setAnswerQuestion(false)"role="button" style="font-size:12px; color:#525252; ">Não tenho interesse</a></center>
+              <a ng-disabled="disableAnswerButton" class="btn btn-main_2" ng-click="setAnswerQuestion(true)" style="margin-bottom:10px;"  role="button"><b>{{'HALL.OPORTUNITY_03' | translate}}</b></a>
+              <center><a ng-disabled="disableAnswerButton" href="" ng-click="setAnswerQuestion(false)"role="button" style="font-size:12px; color:#525252; ">{{'HALL.OPORTUNITY_04' | translate}}</a></center>
             </div>
           </div>
 
@@ -172,13 +166,13 @@
       <div class="col-xs-1 col-md-1 stepNumber">3
       </div>
       <div class="col-xs-10 col-md-7">
-        Escolha o que deseja receber:<br>
-        <p class="lead" style="font-weight: 400; font-size:14px;">Diga e que você gostaria de receber e torça para ser um dos nossos selecionados:</p>
+        {{'HALL.FREESAMPLE_01' | translate}}<br>
+        <p class="lead" style="font-weight: 400; font-size:14px;">{{'HALL.FREESAMPLE_02' | translate}}</p>
       </div>
       <div class="col-md-4 text-right botaonext">
         <button ng-disabled="isStepButtonDisabled"
                 ng-class="isStepButtonDisabled ? 'btn-main-disable btn-center' : 'btn-main btn-center'"
-                ng-click="nextStep()" style="float: right; font-size:18px;"> Próximo ></button>      </div>
+                ng-click="nextStep()" style="float: right; font-size:18px;"> {{'FIELDS.BUTTON_NEXT' | translate}}</button>      </div>
 
     </div>
   </div>
@@ -197,12 +191,12 @@
                   <strong>{{product.name}}</strong>
                 </div>
                 <ul class="list-group">
-                  <li class="list-group-item">{{product.quantity}} Unidades <b>Grátis</b></li>
+                  <li class="list-group-item">{{product.quantity}} {{'HALL.FREESAMPLE_03' | translate}} <b>{{'HALL.FREESAMPLE_04' | translate}}</b></li>
                   <li class="list-group-item">
                     <a id="link_{{product._id}}"
                        ng-class="product.marked ? 'product-linkbutton-marked' : 'product-linkbutton'"
                        ng-click="saveProduct(product)">
-                      {{ product.marked  === true ? "ESCOLHIDO" : "EU QUERO!"}}
+                      {{ product.marked  === true ? escolhido : euquero}}
                     </a>
                   </li>
                 </ul>
@@ -223,8 +217,8 @@
         <div class="col-xs-1 col-md-1 stepNumber">4
         </div>
         <div class="col-xs-10 col-md-7">
-          Complete seus dados:<br>
-          <p class="lead" style="font-weight: 400; font-size:14px;">Precisamos das informação para enviar os produtos:</p>
+          {{'HALL.DELIVERY_01' | translate}}<br>
+          <p class="lead" style="font-weight: 400; font-size:14px;">{{'HALL.DELIVERY_02' | translate}}</p>
         </div>
         <div class="col-md-4 text-right">&nbsp;</div>
 
@@ -265,7 +259,7 @@
 
         <div class="col-lg-12">
           <div class="form-group col-md-2">
-            <label for="zipcode">Cep:</label>
+            <label for="zipcode">{{'FIELDS.ZIPCODE' |  translate}}:</label>
             <input ng-required name="user.address.zipcode" ui-mask="99999-999" placeholder="_____-___"
                    ng-model="user.address.zipcode" type="text" class="form-control" id="zipcode"
                    ng-style="{'background-color': bgZipcodeColor}">
@@ -276,16 +270,16 @@
 
           <div class="col-md-12">
             <div class="form-group  col-md-4">
-              <label for="address">Endere&ccedil;o:</label>
+              <label for="address">{{'FIELDS.STREET' |  translate}}:</label>
               <input  ng-required name="user.address.street" ng-model="user.address.street" type="text"
                      class="form-control" id="address" ng-style="{'background-color': bgAddressColor}">
             </div>
           </div>
 
 
-          <div class="col-md-12">
+          <div class="col-md-12" ng-show="isBR">
             <div class="form-group  col-md-4">
-              <label for="address">Bairro:</label>
+              <label for="address">{{'FIELDS.NEIBOR' |  translate}}:</label>
               <input  ng-required name="user.address.neighborhood" ng-model="user.address.neighborhood" type="text"
                      class="form-control" id="neighborhood" ng-style="{'background-color': bgNeighborhoodColor}">
             </div>
@@ -296,12 +290,13 @@
 
           <div class="col-md-12">
             <div class="form-group col-md-3">
-              <label for="city">Cidade:</label>
+              <label for="city">{{'FIELDS.CITY' |  translate}}:</label>
               <input  ng-required name="user.address.city" ng-model="user.address.city" type="text" class="form-control"
                      id="city" ng-style="{'background-color': bgCityColor}">
             </div>
-            <div class="form-group col-md-1">
-              <label for="state">Estado:</label>
+
+            <div class="form-group col-md-1"ng-show="isBR">
+              <label for="state">{{'FIELDS.STATE' |  translate}}:</label>
               <input  ng-required name="user.address.state" ng-model="user.address.state" type="text" class="form-control"
                      id="state" ng-style="{'background-color': bgStateColor}">
             </div>
@@ -310,12 +305,12 @@
 
           <div class="col-md-12">
             <div class="form-group  col-md-1">
-              <label for="number">N&uacute;mero:</label>
+              <label for="number">{{'FIELDS.NUMBER' |  translate}}:</label>
               <input ng-required name="user.address.number" ng-model="user.address.number" type="text"
                      class="form-control" id="number" ng-style="{'background-color': bgNumberColor}">
             </div>
             <div class="form-group col-md-3">
-              <label for="complement">Complemento:</label>
+              <label for="complement">{{'FIELDS.COMPL' |  translate}}:</label>
               <input ng-required name="user.address.complement" ng-model="user.address.complement" type="text"
                      class="form-control" id="complement" ng-style="{'background-color': bgComplementColor}">
             </div>
@@ -331,7 +326,7 @@
         <button type="submit"
                 ng-disabled="disableSubmitButton"
                 ng-class="disableSubmitButton ? 'btn-main-disable btn-center' : 'btn-main btn-center'"
-                style="padding:10px 80px 10px 80px; font-size:20px;">Finalizar
+                style="padding:10px 80px 10px 80px; font-size:20px;">{{'FIELDS.BUTTON_FINISH' |  translate}}
         </button>
       </form>
 
@@ -339,4 +334,24 @@
 
   </div>
 </div>
+
+
+<!-- Facebook Conversion Code for Leads - Gostei.Club -->
+<script>(function() {
+  var _fbq = window._fbq || (window._fbq = []);
+  if (!_fbq.loaded) {
+    var fbds = document.createElement('script');
+    fbds.async = true;
+    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(fbds, s);
+    _fbq.loaded = true;
+  }
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(['track', '6044565660054', {'value':'0.00','currency':'BRL'}]);
+</script>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6044565660054&amp;cd[value]=0.00&amp;cd[currency]=BRL&amp;noscript=1" /></noscript>
+
+
 

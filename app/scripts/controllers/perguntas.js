@@ -8,7 +8,7 @@
  * Controller of the gosteiclubApp
  */
 angular.module('gosteiclubApp')
-  .controller('PerguntasCtrl', function ($scope, $window, $http, $rootScope, $location, Coreg, Menu, Allin, Campaing, User, Utils, Product) {
+  .controller('PerguntasCtrl', function ($scope, $window, $http, $rootScope, $translate, $location, Coreg, Menu, Allin, Campaing, User, Utils, Product) {
 
     Menu.setMenu('PerguntasCtrl');
     $rootScope.showFooter = false;
@@ -23,6 +23,16 @@ angular.module('gosteiclubApp')
     $scope.disableAnswerButton = false;
     $scope.isValidationError = false;
     $scope.indexQuestion = 0;
+
+    $scope.escolhido = $translate.instant('HALL.FREESAMPLE_05');
+    $scope.euquero =  $translate.instant('HALL.FREESAMPLE_06');
+
+    console.log($rootScope.sessionLanding);
+
+    if($rootScope.sessionLanding){
+      $scope.isBR = ($rootScope.sessionLanding.languageOrigin === 'pt-BR');
+    }
+
 
 
 
@@ -175,6 +185,7 @@ angular.module('gosteiclubApp')
 
     $scope.sendCoreg = function(){
 
+      $scope.user.languageOrigin = $rootScope.sessionLanding.languageOrigin;
       User.resourceCoreg.save({'id'  : $scope.user._id}, $scope.user.coregs, function(){}, function(){});
 
     };
@@ -477,7 +488,7 @@ angular.module('gosteiclubApp')
 
       if (Utils.isEmpty($scope.user.address.zipcode)) {
 
-        setMessageOnField('zipcode', 'Preencha o Cep');
+        setMessageOnField('zipcode', $translate.instant('VALIDATION.ZIPCODE_FAILED'));
         return false;
       }
 
@@ -487,24 +498,42 @@ angular.module('gosteiclubApp')
 
       if (Utils.isEmpty($scope.user.address.street)) {
 
-        setMessageOnField('address', 'Preencha o Endereço');
+        setMessageOnField('address', $translate.instant('VALIDATION.STREET_FAILED'));
         return false;
       }
-      if (Utils.isEmpty($scope.user.address.neighborhood)) {
 
-        setMessageOnField('neighborhood', 'Preencha o Bairro');
-        return false;
+
+      if($rootScope.sessionLanding){
+        if($rootScope.sessionLanding.languageOrigin === 'pt-BR'){
+
+          if (Utils.isEmpty($scope.user.address.neighborhood)) {
+
+            setMessageOnField('neighborhood', $translate.instant('VALIDATION.NEIBOR_FAILED'));
+            return false;
+          }
+        }
       }
+
+
+
       if (Utils.isEmpty($scope.user.address.city)) {
 
-        setMessageOnField('city', 'Preencha a Cidade');
+        setMessageOnField('city', $translate.instant('VALIDATION.CITY_FAILED'));
         return false;
       }
-      if (Utils.isEmpty($scope.user.address.state)) {
 
-        setMessageOnField('state', 'Preencha o Estado');
-        return false;
+
+      if($rootScope.sessionLanding){
+        if($rootScope.sessionLanding.languageOrigin === 'pt-BR'){
+
+          if (Utils.isEmpty($scope.user.address.state)) {
+
+            setMessageOnField('state', $translate.instant('VALIDATION.STATE_FAILED'));
+            return false;
+          }
+        }
       }
+
 
 
 
@@ -513,7 +542,7 @@ angular.module('gosteiclubApp')
 
       if (Utils.isEmpty($scope.user.address.number)) {
 
-        setMessageOnField('number', 'Preencha o numero');
+        setMessageOnField('number', $translate.instant('VALIDATION.NUMBER_FAILED'));
         return false;
       }
 

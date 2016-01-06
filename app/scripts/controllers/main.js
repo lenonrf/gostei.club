@@ -10,7 +10,7 @@
 angular.module('gosteiclubApp')
   .controller('MainCtrl', function ($scope, $rootScope, $location, $modal, SessionLanding,
                                     deviceDetector, Cep, Canal, Allin, Menu, Utils, User, Login,
-                                    $http, Product, TermsConditions) {
+                                    $http, Product, $translate, TermsConditions) {
 
     $rootScope.isStepButtonDisabled = false;
     $rootScope.showFooter = true;
@@ -22,12 +22,14 @@ angular.module('gosteiclubApp')
     $rootScope.deviceAccess = Utils.getDevice();
     //SessionLanding.getSessionLanding($location, $rootScope);
 
-    var sessionCode = SessionLanding.getSessionCodeByLocation($location);
+    var sessionCode = SessionLanding.getSessionCode($location);
     if(sessionCode != null){
       $http.get('/api/sessionlanding?code='+sessionCode).success(function(data){
 
         $rootScope.sessionLanding = data[0];
         $rootScope.sessionLandingData = SessionLanding.getDataFromLanding($rootScope, sessionCode);
+
+        //console.log($rootScope.sessionLandingData);
 
 
       }).error(function(){});
@@ -96,6 +98,8 @@ angular.module('gosteiclubApp')
     $scope.checkoutStepOne = function (user) {
 
       if (!validateFieldsStepOne(user)) return false;
+
+      user.languageOrigin = SessionLanding.getLanguageOrigin($location);
 
       User.resourceEmail.get({email:user.email}, function(data){
 
@@ -170,11 +174,11 @@ angular.module('gosteiclubApp')
       console.log('ERROR - onErrorLogin', data);
 
       if (data.status === 404) {
-        setMessageOnLogin('Email não cadastrado');
+        setMessageOnLogin($translate.instant('VALIDATION.EMAIL_NOT_FOUNT'));
       }
 
       if (data.status === 500) {
-        setMessageOnLogin('Erro ao logar');
+        setMessageOnLogin($translate.instant('VALIDATION.LOGIN_FAILED'));
       }
     }
 
@@ -186,7 +190,7 @@ angular.module('gosteiclubApp')
     function onErrorCheckout(data, status, transformResponse) {
 
       if (status === 400) {
-        setMessageOnField('email', 'Erro ao cadastrar');
+        setMessageOnField('email', $translate.instant('VALIDATION.SIGNUP_FAILED'));
         $scope.disableButton = false;
 
       }
@@ -219,7 +223,7 @@ angular.module('gosteiclubApp')
       $scope.showFormFields = false;
       $scope.showFormFields_STEP2 = true;
       $scope.bgMsgColor = '#3498db';
-      angular.element('#messageStatus').html('Complete o formul&aacute;rio');
+      angular.element('#messageStatus').html( $translate.instant('VALIDATION.FORM_FAILED'));
     }
 
 
@@ -246,7 +250,7 @@ angular.module('gosteiclubApp')
 
         if (Utils.isEmpty(user.name)) {
 
-          setMessageOnField('name', 'Preencha o usu&aacuterio');
+          setMessageOnField('name', $translate.instant('VALIDATION.USER_FAILED'));
           return false;
 
         }else{
@@ -255,21 +259,21 @@ angular.module('gosteiclubApp')
           var isFullName = /^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$/.test(user.name);
 
           if(!isFullName){
-            setMessageOnField('name', 'Preencha com nome completo');
+            setMessageOnField('name', $translate.instant('VALIDATION.FULLNAME_FAILED'));
             return false;
           }
         }
 
         if (Utils.isEmpty(user.email)) {
 
-          setMessageOnField('email', 'Preencha o email');
+          setMessageOnField('email', $translate.instant('VALIDATION.EMAIL_FAILED'));
           return false;
         }
 
 
         if (Utils.isEmpty(user.gender)) {
 
-          setMessageOnField('gender', 'Preencha o sexo');
+          setMessageOnField('gender', $translate.instant('VALIDATION.GENDER_FAILED'));
           return false;
         }
 
@@ -282,7 +286,7 @@ angular.module('gosteiclubApp')
         $scope.bgUserColor = '#FFFACD';
 
         angular.element('#lname').focus();
-        angular.element('#messageStatus').html('Preencha o formul&aacute;rio');
+        angular.element('#messageStatus').html($translate.instant('VALIDATION.FORM_FAILED'));
 
         status = false;
       }
@@ -305,7 +309,7 @@ angular.module('gosteiclubApp')
 
         if (Utils.isEmpty(user.birthDate)) {
 
-          setMessageOnField('birthDate', 'Preencha a Data de Nascimento');
+          setMessageOnField('birthDate', $translate.instant('VALIDATION.FORM_FAILED'));
           return false;
 
         }else{
@@ -315,12 +319,12 @@ angular.module('gosteiclubApp')
           //var year  = user.birthDate.substr(4, 4);
 
           if(day>31){
-            setMessageOnField('birthDate', 'Preencha um dia válido');
+            setMessageOnField('birthDate', $translate.instant('VALIDATION.BIRTH_DAY_FAILED'));
             return false;
           }
 
           if(month>12){
-            setMessageOnField('birthDate', 'Preencha um mês válido');
+            setMessageOnField('birthDate', $translate.instant('VALIDATION.BIRTH_MONTH_FAILED'));
             return false;
           }
 
@@ -329,14 +333,14 @@ angular.module('gosteiclubApp')
 
         if (Utils.isEmpty(user.cellphone)) {
 
-          setMessageOnField('cellphone', 'Preencha o Celular');
+          setMessageOnField('cellphone', $translate.instant('VALIDATION.CELLPHONE_FAILED'));
           return false;
         }
 
 
         if (Utils.isEmpty(user.address.zipcode)) {
 
-          setMessageOnField('zipcode', 'Cep Inválido');
+          setMessageOnField('zipcode', $translate.instant('VALIDATION.ZIPCODE_FAILED'));
           return false;
 
         }
@@ -350,7 +354,7 @@ angular.module('gosteiclubApp')
         $scope.bgZipCodeColor = '#FFFACD';
 
         angular.element('#lname').focus();
-        angular.element('#messageStatus').html('Preencha o formul&aacute;rio');
+        angular.element('#messageStatus').html($translate.instant('VALIDATION.FORM_FAILED'));
 
         status = false;
       }

@@ -9,34 +9,36 @@
 
       <div class="col-md-7">
         <h3
-          style="font-weight: 300; letter-spacing: -1px; color:#fdb72c;  font-size:36px; font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif; margin-bottom:5px">{{sessionLandingData.main.title}}</h3>
+          style="font-weight: 300; letter-spacing: -1px; color:#fdb72c;  font-size:36px; font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif; margin-bottom:5px">
+          {{'MAIN.TITLE' | translate}}</h3>
 
-        <div class="col-md-14" style="  font-size: 16px; color: #fff; font-weight: 200; font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif; margin-bottom:3%;">{{sessionLandingData.main.desc}}
+        <div class="col-md-14" style="  font-size: 16px; color: #fff; font-weight: 200; font-family: Open Sans,Helvetica Neue,Helvetica,Arial,sans-serif; margin-bottom:3%;">
+          {{'MAIN.DESC' | translate}}
         </div>
-        <img id="bonecos" class="img-responsive" src="{{sessionLandingData.bgHome}}" alt="" style="">
+        <img id="bonecos" class="img-responsive" src="{{'BGHOME' | translate}}" alt="" style="">
       </div>
 
       <div class="col-md-5 col-lg-5  col-sm-12 sub-form" id="loginForm" style="display: none">
 
           <form class="subscribe" novalidate id="inviteLogin">
 
-            <h4  id="messageStatusLogin" style="margin-top:-15px; margin-bottom:20px; text-align:left; font-weight: 500; color:#888585;">Digite seu email para entrar!</h4>
+            <h4  id="messageStatusLogin" style="margin-top:-15px; margin-bottom:20px; text-align:left; font-weight: 500; color:#888585;">
+              {{'MAIN.TITLE_LOGIN_BOX' | translate}}</h4>
 
             <div>
 
-              <input ng-style="{'background-color': bgEmailLoginColor}" type="email" name="email" id="emailLogin" class="lname"
-                     placeholder="exemplo@email.com" ng-model="user.email">
+              <input ng-style="{'background-color': bgEmailLoginColor}" type="email" name="email" id="emailLogin" class="lname" ng-model="user.email">
 
               <div class="clearfix"></div>
               <div class="space20"></div>
 
               <button type="button" ng-disabled="disableButton"
                       ng-class="disableButton ? 'btn-main-disable btn-center' : 'btn-main btn-center'"
-                      ng-click="login(user)">Entrar
+                      ng-click="login(user)">{{'FIELDS.BUTTON_ENTER'|translate}}
               </button>
 
               <div class="pos_bt" style="text-align: center; padding-top: 15px;">
-                <span ><a href="" ng-click="showCheckoutForm()">ou cadastre-se</a></span>
+                <span ><a href="" ng-click="showCheckoutForm()">{{'MAIN.CHECKOUT_LINK'|translate}}</a></span>
               </div>
 
             </div>
@@ -54,24 +56,22 @@
               é 100% Grátis</h4>-->
 
             <h5  ng-style="{'background-color': bgMsgColor}" class="sub-form-h5"
-                 style="text-align:left;" id="messageStatus">O Gostei é 100% Grátis. Participe!</h5>
+                 style="text-align:left;" id="messageStatus">{{ 'MAIN.BOX_DESC' | translate }}</h5>
 
             <div ng-show="showFormFields">
 
-              <label style="color:#898989;">Nome Completo</label>
-              <input ng-style="{'background-color': bgUserColor}" type="text" name="lname" id="lname" class="lname"
-                     placeholder="" ng-model="user.name" style="margin-bottom:15px;">
+              <label style="color:#898989;">{{ 'FIELDS.FULL_NAME' | translate }}</label>
+              <input ng-style="{'background-color': bgUserColor}" type="text" name="lname" id="lname" class="lname" ng-model="user.name" style="margin-bottom:15px;">
 
-              <label style="color:#898989;">Email</label>
-              <input ng-style="{'background-color': bgEmailColor}" type="email" name="email" id="email" class="lname"
-                     placeholder="" ng-model="user.email" style="margin-bottom:15px;">
+              <label style="color:#898989;">{{ 'FIELDS.EMAIL' | translate }}</label>
+              <input ng-style="{'background-color': bgEmailColor}" type="email" name="email" id="email" class="lname" ng-model="user.email" style="margin-bottom:15px;">
 
-              <label style="color:#898989;">Sexo</label>
+              <label style="color:#898989;">{{ 'FIELDS.GENDER' | translate }}</label>
               <select ng-style="{'background-color': bgGenderColor}" class="lname" name="gender" id="gender"
                       ng-model="user.gender">
                 <option value="" disabled selected>&nbsp;&nbsp;</option>
-                <option value="F">&nbsp;&nbsp;Feminino</option>
-                <option value="M">&nbsp;&nbsp;Masculino</option>
+                <option value="F">&nbsp;&nbsp;{{ 'FIELDS.GENDER_W' | translate }}</option>
+                <option value="M">&nbsp;&nbsp;{{ 'FIELDS.GENDER_M' | translate }}</option>
               </select>
 
               <div class="clearfix"></div>
@@ -80,31 +80,31 @@
               <div class="pos_bt">
                 <button id="checkoutButton" class="btn-main btn-center" type="button" ng-disabled="disableButton"
                         ng-class="disableButton ? 'btn-main-disable btn-center' : 'btn-main btn-center'"
-                        ng-click="checkoutStepOne(user)">Quero Participar! <i class="i-free-label"></i>
+                        ng-click="checkoutStepOne(user)">{{ 'FIELDS.BUTTON_ICO_NAME' | translate }}<i class="i-free-label"></i>
                 </button>
               </div>
 
               <div class="pos_bt" style="text-align: center; padding-top: 15px;">
-                <span ><a href="" ng-click="showLoginForm()">ou acesse sua conta</a></span>
+                <span ><a href="" ng-click="showLoginForm()">{{'MAIN.ACCESS_ACCOUNT' | translate}}</a></span>
               </div>
             </div>
 
 
             <div ng-show="showFormFields_STEP2">
 
-              <label style="color:#898989;">Data de Nascimento</label>
+              <label style="color:#898989;">{{'FIELDS.BIRTH' | translate}}</label>
               <input ng-style="{'background-color': bgBirthColor}" ui-mask="99/99/9999" type="text" name="birthDate" id="birthDate" class="lname"
                      placeholder="dd/mm/yyyy" ng-model="user.birthDate" style="margin-bottom:15px;">
 
-              <label style="color:#898989;">Celular</label>
+              <label style="color:#898989;">{{'FIELDS.CELLPHONE' | translate}}</label>
               <input ng-style="{'background-color': bgCellphoneColor}" ui-mask="(99) 99999-9999" type="text" name="cellphone" id="cellphone" class="lname"
                      placeholder="(__) _____-____" ng-model="user.cellphone" style="margin-bottom:15px;">
 
-              <label style="color:#898989;">Cep</label>
+              <label style="color:#898989;">{{'FIELDS.ZIPCODE' | translate}}</label>
               <input ng-style="{'background-color': bgZipCodeColor}" ui-mask="99999-999" type="text" name="zipcode" id="zipcode" class="lname"
                      placeholder="_____-___" ng-model="user.address.zipcode" style="margin-bottom:15px;">
 
-              <label style="color:#888585;"><span>* Concordo com os <a class="term-popup" href="">Termos e Condições</a></span></label>
+              <label style="color:#888585;"><span>* {{'MAIN.AGREE_WITH' | translate}} <a class="term-popup" href="">{{'MAIN.TERMS_CONDITIONS' | translate}}</a></span></label>
 
               <div class="clearfix"></div>
               <div class="space20"></div>
@@ -112,7 +112,7 @@
               <div class="pos_bt">
                 <button id="" class="btn-main btn-center" type="button" ng-disabled="disableButton"
                         ng-class="disableButton ? 'btn-main-disable btn-center' : 'btn-main btn-center'"
-                        ng-click="checkoutStepTwo(user)">Entrar
+                        ng-click="checkoutStepTwo(user)">{{'FIELDS.BUTTON_ENTER' | translate}}
                 </button>
               </div>
 
@@ -155,49 +155,49 @@
 <section class="info-content" style="padding-top: 50px;">
   <div class="container">
     <div class="content-head" ng-show="sessionLandingData.showDeGraca">
-      <h3 style="margin-bottom:10px;">{{sessionLandingData.deGraca.title}}</h3>
+      <h3 style="margin-bottom:10px;">{{'DEGRACA.TITLE' | translate}}</h3>
 
-      <p>{{sessionLandingData.deGraca.desc}}</p>
+      <p>{{'DEGRACA.DESC' | translate}}</p>
     </div>
     <div class="row" ng-show="sessionLandingData.showDeGracaImages">
       <div class="col-md-4 ic-inner">
-        <img src="{{sessionLandingData.deGraca.item1.image}}" class="img-responsive" alt=""/>
-        <h4>{{sessionLandingData.deGraca.item1.title}}</h4>
+        <img src="{{'DEGRACA.ITEM1.IMAGE' | translate}}" class="img-responsive" alt=""/>
+        <h4>{{'DEGRACA.ITEM1.TITLE' | translate}}</h4>
 
         <p>
         <ul class="space40" style="color:#898989;">
-          <li><i class="fa fa-check"></i> {{sessionLandingData.deGraca.item1.mark1}}</li>
-          <li><i class="fa fa-check"></i> {{sessionLandingData.deGraca.item1.mark2}}</li>
-          <li><i class="fa fa-check"></i> {{sessionLandingData.deGraca.item1.mark3}}</li>
-          <li><i class="fa fa-check"></i> {{sessionLandingData.deGraca.item1.mark4}}</li>
+          <li><i class="fa fa-check"></i> {{'DEGRACA.ITEM1.MARK1' | translate}}</li>
+          <li><i class="fa fa-check"></i> {{'DEGRACA.ITEM1.MARK2' | translate}}</li>
+          <li><i class="fa fa-check"></i> {{'DEGRACA.ITEM1.MARK3' | translate}}</li>
+          <li><i class="fa fa-check"></i> {{'DEGRACA.ITEM1.MARK4' | translate}}</li>
         </ul>
 
         </p>
       </div>
       <div class="col-md-4 ic-inner">
-        <img src="{{sessionLandingData.deGraca.item2.image}}" class="img-responsive" alt=""/>
-        <h4>{{sessionLandingData.deGraca.item2.title}}</h4>
+        <img src="{{'DEGRACA.ITEM2.IMAGE' | translate}}" class="img-responsive" alt=""/>
+        <h4>{{'DEGRACA.ITEM2.TITLE' | translate}}</h4>
 
         <p>
         <ul class="space40" style="color:#898989;">
-          <li><i class="fa fa-check"></i> {{sessionLandingData.deGraca.item2.mark1}}</li>
-          <li><i class="fa fa-check"></i> {{sessionLandingData.deGraca.item2.mark2}}</li>
-          <li><i class="fa fa-check"></i> {{sessionLandingData.deGraca.item2.mark3}}</li>
-          <li><i class="fa fa-check"></i> {{sessionLandingData.deGraca.item2.mark4}}</li>
+          <li><i class="fa fa-check"></i> {{'DEGRACA.ITEM2.MARK1' | translate}}</li>
+          <li><i class="fa fa-check"></i> {{'DEGRACA.ITEM2.MARK2' | translate}}</li>
+          <li><i class="fa fa-check"></i> {{'DEGRACA.ITEM2.MARK3' | translate}}</li>
+          <li><i class="fa fa-check"></i> {{'DEGRACA.ITEM2.MARK4' | translate}}</li>
         </ul>
 
         </p>
       </div>
       <div class="col-md-4 ic-inner" >
-        <img src="{{sessionLandingData.deGraca.item3.image}}" class="img-responsive" alt=""/>
-        <h4>{{sessionLandingData.deGraca.item3.title}}</h4>
+        <img src="{{'DEGRACA.ITEM3.IMAGE' | translate}}" class="img-responsive" alt=""/>
+        <h4>{{'DEGRACA.ITEM3.TITLE' | translate}}</h4>
 
         <p>
         <ul class="space40" style="color:#898989;">
-          <li><i class="fa fa-check"></i> {{sessionLandingData.deGraca.item3.mark1}}</li>
-          <li><i class="fa fa-check"></i> {{sessionLandingData.deGraca.item3.mark2}}</li>
-          <li><i class="fa fa-check"></i> {{sessionLandingData.deGraca.item3.mark3}}</li>
-          <li><i class="fa fa-check"></i> {{sessionLandingData.deGraca.item3.mark4}}</li>
+          <li><i class="fa fa-check"></i> {{'DEGRACA.ITEM3.MARK1' | translate}}</li>
+          <li><i class="fa fa-check"></i> {{'DEGRACA.ITEM3.MARK2' | translate}}</li>
+          <li><i class="fa fa-check"></i> {{'DEGRACA.ITEM3.MARK3' | translate}}</li>
+          <li><i class="fa fa-check"></i> {{'DEGRACA.ITEM3.MARK4' | translate}}</li>
         </ul>
 
         </p>
@@ -215,9 +215,9 @@
 
 
     <div class="content-head">
-      <h3 style="">OPORTUNIDADES DO MOMENTO</h3>
+      <h3 style="">{{'OPORTUNITY.TITLE' | translate }}</h3>
 
-      <p>Veja alguns produtos que estamos testando neste momento e clique para participar: </p>
+      <p>{{'OPORTUNITY.DESC' | translate }}</p>
     </div>
 
 
@@ -232,9 +232,9 @@
               <strong>{{product.name}}</strong>
             </div>
             <ul class="list-group">
-              <li class="list-group-item">{{product.quantity}} Unidades <b>Grátis</b></li>
+              <li class="list-group-item">{{product.quantity}} {{'OPORTUNITY.UNITIES' | translate }} <b>{{'OPORTUNITY.FREE' | translate }}</b></li>
               <li class="list-group-item">
-                <a id="link_{{product._id}}" ng-click="showCheckoutForm()" class="btn-main" href="">Eu Quero!</a>
+                <a id="link_{{product._id}}" ng-click="showCheckoutForm()" class="btn-main" href="">{{'FIELDS.BUTTON_IWANT' | translate }}</a>
               </li>
             </ul>
           </div>
@@ -265,10 +265,9 @@
   <div class="container" >
     <div class="row">
       <div class="col-md-12">
-        <h2 style="color:#fff; text-align:center; margin-top:10px; font-size:40px;">DEPOIMENTOS</h2>
+        <h2 style="color:#fff; text-align:center; margin-top:10px; font-size:40px;">{{'TESTIMONIALS.TITLE' | translate }}</h2>
 
-        <p style="color:#e2e1e1; margin-bottom:10px; text-align:center;">Várias pessoas já foram selecionadas para
-          receber em sua casa, gratuítamente os produtos que enviamos. Faça parte deste clube você também.</p>
+        <p style="color:#e2e1e1; margin-bottom:10px; text-align:center;">{{'TESTIMONIALS.DESC' | translate }}</p>
       </div>
 
       <div class="col-md-4" style="margin-bottom:100px;">
@@ -279,17 +278,17 @@
           <img src="images/p1.jpg"
                style="width:70px; border-radius: 40px; float:left;">
 
-          <p style="padding-top:5px; ;">"Adorei receber os produtos na minha casa"
+          <p style="padding-top:5px; ;">{{'TESTIMONIALS.ITEM1.DESC' | translate }}
 
-          <p><b>Jacira Pacheco</b></p></p>
+          <p><b>{{'TESTIMONIALS.ITEM1.NAME' | translate }}</b></p></p>
         </div>
         <div class="feature-content">
           <img src="images/p2.jpg"
                style="width:70px; border-radius: 40px; float:left;">
 
-          <p style="padding-top:5px;">"Produtos novos na minha casa, sem pagar nada? Claro que quero."
+          <p style="padding-top:5px;">{{'TESTIMONIALS.ITEM2.DESC' | translate }}
 
-          <p><b>Alcione Herzog</b></p></p>
+          <p><b>{{'TESTIMONIALS.ITEM2.NAME' | translate }}</b></p></p>
         </div>
       </div>
       <div class="col-md-4">
@@ -298,17 +297,17 @@
           <img src="images/p6.jpg"
                style="width:70px; border-radius: 40px; float:left;">
 
-          <p style="padding-top:5px;">"Realmente chegou. Agora vou me candidatar para todas as oportunidades!"
+          <p style="padding-top:5px;">{{'TESTIMONIALS.ITEM3.DESC' | translate }}
 
-          <p><b>Livia Rodrigues</b></p></p>
+          <p><b>{{'TESTIMONIALS.ITEM3.NAME' | translate }}</b></p></p>
         </div>
         <div class="feature-content">
           <img src="images/p5.jpg"
                style="width:70px; border-radius: 40px; float:left;">
 
-          <p style="padding-top:5px;">"Nem acreditei, chegou certinho pelos correios!"
+          <p style="padding-top:5px;">{{'TESTIMONIALS.ITEM4.DESC' | translate }}
 
-          <p><b>Lais Santana</b></p></p>
+          <p><b>{{'TESTIMONIALS.ITEM4.NAME' | translate }}</b></p></p>
         </div>
       </div>
       <div class="col-md-4">
@@ -317,17 +316,17 @@
           <img src="images/p7.jpg"
                style="width:70px; border-radius: 40px; float:left;">
 
-          <p style="padding-top:5px;">"Nada melhor do que participar deste clube testando produtos"
+          <p style="padding-top:5px;">{{'TESTIMONIALS.ITEM5.DESC' | translate }}
 
-          <p><b>Lúcia Helena</b></p></p>
+          <p><b>{{'TESTIMONIALS.ITEM5.NAME' | translate }}</b></p></p>
         </div>
         <div class="feature-content">
           <img src="images/p8.jpg"
                style="width:70px; border-radius: 40px; float:left;">
 
-          <p style="padding-top:5px;">"Gostei dos produtos e a ideia do site é fantástica!"
+          <p style="padding-top:5px;">{{'TESTIMONIALS.ITEM6.DESC' | translate }}
 
-          <p><b>Andressa Egas</b></p></p>
+          <p><b>{{'TESTIMONIALS.ITEM6.NAME' | translate }}</b></p></p>
         </div>
       </div>
     </div>
@@ -340,9 +339,9 @@
 <section class="shots" id="marcas" ng-show="sessionLandingData.showMarcas">
   <div class="container">
     <div class="content-head">
-      <h3>{{sessionLandingData.marcas.title}}</h3>
+      <h3>{{'BRANDS.TITLE' | translate }}</h3>
 
-      <p>{{sessionLandingData.marcas.desc}}</p>
+      <p>{{'BRANDS.DESC' | translate }}</p>
     </div>
     <div class="row">
 

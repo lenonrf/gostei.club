@@ -85,6 +85,13 @@
 
        console.log('sessionLanding', sessionLanding);
 
+       var languagePrefix = '';
+       if(sessionLanding.languageOrigin === 'pt-BR'){
+         languagePrefix = 'BR';
+       }else if(sessionLanding.languageOrigin === 'fr-FR'){
+         languagePrefix = 'FR';
+       }
+
        var devicePrefix = '';
        if(deviceAccess === 'mobile'){
          devicePrefix = 'M';
@@ -101,16 +108,29 @@
          sessionCode = 'RVD';
        }
 
-       if (isUtmCampaingParameter) {
+       /*if (isUtmCampaingParameter) {
          return location.search().utm_campaign;
-       }
+       }*/
 
        if(location.path() === '/perguntas'){
-         return sessionCode+'_'+devicePrefix+'_GPG';
+
+         if (isUtmCampaingParameter) {
+           return languagePrefix+'_'+sessionCode+'_'+devicePrefix+'_GPG'+'_'+location.search().utm_campaign;
+         }else{
+           return languagePrefix+'_'+sessionCode+'_'+devicePrefix+'_GPG';
+
+         }
+
        }
 
        if(location.path() === '/home'){
-         return sessionCode+'_'+devicePrefix+'_GBC';
+
+         if (isUtmCampaingParameter) {
+           return languagePrefix+'_'+sessionCode+'_'+devicePrefix+'_GBC'+'_'+location.search().utm_campaign;
+         }else{
+           return languagePrefix+'_'+sessionCode+'_'+devicePrefix+'_GBC';
+         }
+
        }
 
 
