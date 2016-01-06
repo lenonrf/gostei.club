@@ -27,7 +27,7 @@ angular
 
     $routeProvider
       .when('/', {
-        templateUrl: 'views/MAIN.html',
+        templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
       .when('/perguntas', {
@@ -47,7 +47,7 @@ angular
         controller: ''
       })
       .when('/marcas', {
-        templateUrl: 'views/MARCAS.html',
+        templateUrl: 'views/marcas.html',
         controller: ''
       })
       .when('/home', {
