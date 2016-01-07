@@ -51,7 +51,8 @@ angular.module('gosteiclubApp')
 
 
     Canal.resource.query(
-      {code: Canal.defineUserCanal($location)}, function(data){
+      //{code: Canal.defineUserCanal($location)}, function(data){
+      {code: 'gostei.club'}, function(data){
         $scope.user.canal =  data[0]._id;
     });
 

@@ -48,7 +48,7 @@ angular.module('gosteiclubApp')
         canalParam = location.search().utm_source;
       }
 
-      return canalParam;
+      return 'gostei.club';
 
 
     };
