@@ -263,7 +263,8 @@ angular.module('gosteiclubApp')
         'ZIPCODE_FAILED' : 'Remplissez le Code Postal',
         'NUMBER_FAILED' : 'Remplissez numéros',
         'CITY_FAILED' : 'Remplissez la ville',
-        'STREET_FAILED' : 'Remplissez l\'adresse postale'
+        'STREET_FAILED' : 'Remplissez l\'adresse postale',
+        'DDD_FAILED' : 'Remplissez le DDD'
 
       };
     };

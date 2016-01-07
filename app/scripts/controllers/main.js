@@ -23,6 +23,10 @@ angular.module('gosteiclubApp')
     $rootScope.sessionLanding = {};
     $scope.user = User.getData() || {};
     $scope.user.address = {}
+    $scope.user.ddd = '';
+
+    $scope.ddds = [null,11,12,13,14,15,16,17,18,19,21,22,24,27,28,31,32,33,34,35,37,38,41,42,43,44,45,46,47,48,49,
+      51,53,54,55,61,62,63,64,65,66,67,68,69,71,73,74,75,77,79,81,82,83,84,85,86,87,88,89,91,92,93,94,95,96,97,98,99];
 
     $scope.user.terms = true;
     $scope.disableButton = false;
@@ -48,11 +52,10 @@ angular.module('gosteiclubApp')
     }
 
 
-
-
+    var canal = (sessionCode === 'echantillon') ? 'fr.gostei.club' : 'gostei.club';
     Canal.resource.query(
       //{code: Canal.defineUserCanal($location)}, function(data){
-      {code: 'gostei.club'}, function(data){
+      {code: canal}, function(data){
         $scope.user.canal =  data[0]._id;
     });
 
@@ -126,6 +129,9 @@ angular.module('gosteiclubApp')
 
       if (!validateFieldsStepTwo(user)) return false;
       $scope.disableButton = true;
+
+      user.cellphone = user.ddd+''+user.cellphone;
+      console.log(user.cellphone);
 
       user.birthDate = Utils.getBirthDate(user.birthDate);
       User.resourceEmail.put({'email'  : user.email}, user, onSuccess, onErrorCheckout);
@@ -306,6 +312,23 @@ angular.module('gosteiclubApp')
       if (!Utils.isEmpty(user)) {
 
 
+        if (Utils.isEmpty(user.ddd)) {
+
+          setMessageOnField('ddd', $translate.instant('VALIDATION.DDD_FAILED'));
+          return false;
+        }
+
+
+
+        if (Utils.isEmpty(user.cellphone)) {
+
+          setMessageOnField('cellphone', $translate.instant('VALIDATION.CELLPHONE_FAILED'));
+          return false;
+        }
+
+
+
+
         if (Utils.isEmpty(user.birthDate)) {
 
           setMessageOnField('birthDate', $translate.instant('VALIDATION.FORM_FAILED'));
@@ -329,12 +352,6 @@ angular.module('gosteiclubApp')
 
         }
 
-
-        if (Utils.isEmpty(user.cellphone)) {
-
-          setMessageOnField('cellphone', $translate.instant('VALIDATION.CELLPHONE_FAILED'));
-          return false;
-        }
 
 
         if (Utils.isEmpty(user.address.zipcode)) {
@@ -404,6 +421,14 @@ angular.module('gosteiclubApp')
           $scope.bgMsgColor = msgErrorColor;
           $scope.bgBirthColor = warningColor;
           angular.element('#bithDate').focus();
+          break;
+
+
+        case 'ddd':
+
+          $scope.bgMsgColor = msgErrorColor;
+          $scope.bgCellphoneColor = warningColor;
+          angular.element('#ddd').focus();
           break;
 
         case 'cellphone':

@@ -312,7 +312,7 @@ angular.module('gosteiclubApp')
       return {
 
         'QUESTIONS': 'Perguntas',
-        'OPORTUNITIES': 'Oportunidadads',
+        'OPORTUNITIES': 'Oportunidadades',
         'BUTTON_IWANT': 'Eu Quero!',
         'FREESAMPLES': 'Amostra Grátis',
         'DELIVERY': 'Entrega',
@@ -380,7 +380,8 @@ angular.module('gosteiclubApp')
         'NEIBOR_FAILED' : 'Preencha o bairro',
         'STATE_FAILED' : 'Preencha o estado',
         'CITY_FAILED' : 'Preencha a cidade',
-        'STREET_FAILED' : 'Preencha o endereço'
+        'STREET_FAILED' : 'Preencha o endereço',
+        'DDD_FAILED' : 'Preencha o DDD'
 
 
       };
