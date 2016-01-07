@@ -10,39 +10,8 @@
 angular.module('gosteiclubApp')
   .controller('PerguntasCtrl', function ($scope, $window, $http, $rootScope, $translate, $location, Coreg, Menu, Allin, Campaing, User, Utils, Product) {
 
-    Menu.setMenu('PerguntasCtrl');
-    $rootScope.showFooter = false;
 
-    $scope.user = User.getData();
-    $scope.user.coregs = [];
-    $scope.coregsSelecteds = 0;
-    $rootScope.steps = ['complete', 'active', 'disabled', 'disabled'];
-
-    // controla os botões da tela
-    $rootScope.isStepButtonDisabled = true;
-    $scope.disableAnswerButton = false;
-    $scope.isValidationError = false;
-    $scope.indexQuestion = 0;
-
-    $scope.escolhido = $translate.instant('HALL.FREESAMPLE_05');
-    $scope.euquero =  $translate.instant('HALL.FREESAMPLE_06');
-
-    console.log($rootScope.sessionLanding);
-
-    if($rootScope.sessionLanding){
-      $scope.isBR = ($rootScope.sessionLanding.languageOrigin === 'pt-BR');
-    }
-
-
-
-
-
-    /**
-     * -------------------------------------------------------------------
-     * Login
-     */
-
-    if(!Utils.isLogged(User.data)){
+     if(!Utils.isLogged(User.data)){
       if(User.isUserFromLandingPage($location)){
 
         User.resource.get({email:$location.search().email}, function(data){
@@ -57,11 +26,37 @@ angular.module('gosteiclubApp')
         });
 
       }else{
-        $location.path('/main');
+        if($location.path() !== '/'){
+          $location.path('/main');
+          return null;
+        }
       }
 
     }else{
       $rootScope.firstName = Utils.getFirstName(User.getData().name);
+    }
+
+
+    Menu.setMenu('PerguntasCtrl');
+
+    $rootScope.showFooter = false;
+    $rootScope.isStepButtonDisabled = true;
+    $scope.disableAnswerButton = false;
+    $scope.isValidationError = false;
+
+    $scope.user = User.getData();
+
+    $scope.user.coregs = [];
+    $rootScope.steps = ['complete', 'active', 'disabled', 'disabled'];
+
+    $scope.coregsSelecteds = 0;
+    $scope.indexQuestion = 0;
+
+    $scope.escolhido = $translate.instant('HALL.FREESAMPLE_05');
+    $scope.euquero =  $translate.instant('HALL.FREESAMPLE_06');
+
+    if($rootScope.sessionLanding){
+      $scope.isBR = ($rootScope.sessionLanding.languageOrigin === 'pt-BR');
     }
 
 
@@ -205,10 +200,6 @@ angular.module('gosteiclubApp')
       if(!$rootScope.sessionLanding){
         return null;
       }
-
-      console.log('/api/oportunities/user/'+$scope.user._id
-      +'?sessionlanding='+$rootScope.sessionLanding._id
-      +'&deviceAccess='+$rootScope.deviceAccess);
 
       $http.get('/api/oportunities/user/'+$scope.user._id
         +'?sessionlanding='+$rootScope.sessionLanding._id

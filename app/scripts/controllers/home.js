@@ -11,11 +11,8 @@ angular.module('gosteiclubApp')
       $location.path('/main');
     }
 
-    Utils.setFixedMenu();
-
     $scope.user = User.getData();
-    $scope.campaign =
-      User.getCampaing($location, $rootScope.deviceAccess, $rootScope.sessionLanding);
+    $scope.campaign = User.getCampaing($location, $rootScope.deviceAccess, $rootScope.sessionLanding);
 
     getProducts();
     getOportunityList();

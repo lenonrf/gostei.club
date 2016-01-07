@@ -12,18 +12,30 @@ angular.module('gosteiclubApp')
                                     deviceDetector, Cep, Canal, Allin, Menu, Utils, User, Login,
                                     $http, Product, $translate, TermsConditions) {
 
+    if(User.isUserFromEmail($location)){
+      var user = {};
+      user.email = $location.search().email;
+      $scope.executeLogin(user, 'home');
+    }
 
-    $rootScope.titleMain = $translate.instant('TITLE');
+    Menu.setMenu('MainCtrl');
 
-    $rootScope.isStepButtonDisabled = false;
+    $rootScope.sessionLanding = {};
+    $scope.user = User.getData() || {};
+    $scope.user.address = {}
+
+    $scope.user.terms = true;
+    $scope.disableButton = false;
+    $scope.showFormFields = true;
+    $scope.showFormFields_STEP2 = false;
     $rootScope.showFooter = true;
+
     $rootScope.titleModal = 'Termos e Condoções';
     $rootScope.textModal = TermsConditions.getTermsConditionsText();
-    $rootScope.sessionLanding = {};
 
-
+    $rootScope.titleMain = $translate.instant('TITLE');
     $rootScope.deviceAccess = Utils.getDevice();
-    //SessionLanding.getSessionLanding($location, $rootScope);
+
 
     var sessionCode = SessionLanding.getSessionCode($location);
     if(sessionCode != null){
@@ -32,39 +44,25 @@ angular.module('gosteiclubApp')
         $rootScope.sessionLanding = data[0];
         $rootScope.sessionLandingData = SessionLanding.getDataFromLanding($rootScope, sessionCode);
 
-        //console.log($rootScope.sessionLandingData);
-
-
       }).error(function(){});
     }
 
 
 
 
-    Menu.setMenu('MainCtrl');
-
-    $scope.user = User.getData() || {};
-    $scope.user.address = {}
-    $scope.user.terms = true;
-    $scope.disableButton = false;
-    $scope.showFormFields = true;
-    $scope.showFormFields_STEP2 = false;
-
     Canal.resource.query(
       {code: Canal.defineUserCanal($location)}, function(data){
         $scope.user.canal =  data[0]._id;
     });
 
-
-    if(User.isUserFromEmail($location)){
-      var user = {};
-      user.email = $location.search().email;
-      executeLogin(user, 'home');
-    }
-
     Product.resource.query(function(data){
       $scope.products = data;
     }, function(err){ });
+
+
+
+
+
 
 
     /**
@@ -73,11 +71,10 @@ angular.module('gosteiclubApp')
      * @returns {boolean}
      */
     $scope.login = function(user){
-      executeLogin(user, 'home');
+      $scope.executeLogin(user, 'home');
     };
 
-
-    function executeLogin(user, page) {
+    $scope.executeLogin = function(user, page) {
 
       if(!validateLogin(user)) return false;
 
@@ -92,10 +89,9 @@ angular.module('gosteiclubApp')
           $location.path('/perguntas');
         }
 
-
       }, onErrorLogin);
 
-    }
+    };
 
 
     $scope.checkoutStepOne = function (user) {
@@ -103,7 +99,6 @@ angular.module('gosteiclubApp')
       if (!validateFieldsStepOne(user)) return false;
 
       user.languageOrigin = SessionLanding.getLanguageOrigin($location);
-
       User.resourceEmail.get({email:user.email}, function(data){
 
         User.setData(data);

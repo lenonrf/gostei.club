@@ -17,7 +17,7 @@ angular
     'ng.deviceDetector',
     'pascalprecht.translate'
   ])
-  .config(function ($routeProvider, $httpProvider, $translateProvider,
+  .config(function ($locationProvider, $routeProvider, $httpProvider, $translateProvider,
                     AppTranslateFRProvider, AppTranslateBRProvider, showErrorsConfigProvider) {
 
     $httpProvider.defaults.useXDomain = true;
@@ -57,8 +57,6 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-
-
 
 
     $translateProvider.translations('pt-BR-RVD', {
@@ -178,8 +176,6 @@ angular
             $translate.use('fr-FR');
             break;
         }
-
-        console.log('x-language-origin', config.headers["x-language-origin"]);
 
         return config;
 

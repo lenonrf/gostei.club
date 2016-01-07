@@ -4,35 +4,23 @@
 angular.module('gosteiclubApp')
   .service('Menu', function ($rootScope, $location, $translate, SessionLanding) {
 
-    $rootScope.menu = {};
-
 
     this.setMenu = function(controller){
 
-      if(controller === 'PerguntasCtrl'){
+      switch(controller){
 
-        $rootScope.showMenuItems = false;
-        this.setFixedMenu();
-        return null;
+        case 'MainCtrl':
+          this.setDefaultMenu();
+          break;
 
+        case 'PerguntasCtrl':
+          case 'HomeCtrl':
+            $rootScope.showMenuItems = false;
+            this.setFixedMenu();
+            break;
       }
 
-      $rootScope.showMenuItems = true;
-      this.setDefaultMenu();
-
-
-      var menuItemsTranslation = {
-        freeSamples: {nome: $translate.instant('MENU.FREESAMPLES_NAME'), href: $translate.instant('MENU.FREESAMPLES_HREF')},
-        itsFree: {nome: $translate.instant('MENU.ITSFREE_NAME'), href: $translate.instant('MENU.ITSFREE_HREF')},
-        oportunity: {nome: $translate.instant('MENU.OPORTUNITY_NAME'), href: $translate.instant('MENU.OPORTUNITY_HREF')},
-        testimonials: {nome: $translate.instant('MENU.TESTIMONIALS_NAME'), href: $translate.instant('MENU.TESTIMONIALS_HREF')},
-        brands: {nome: $translate.instant('MENU.BRANDS_NAME'), href: $translate.instant('MENU.BRANDS_HREF')},
-      };
-
-      var sessionLandingCode = SessionLanding.getSessionCode($location);
-      $rootScope.menu = SessionLanding.getItemsMenu(sessionLandingCode, controller, menuItemsTranslation);
-
-
+      $rootScope.menu = SessionLanding.getItemsMenu(controller);
 
     };
 

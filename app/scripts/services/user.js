@@ -83,8 +83,6 @@
 
        var isUtmCampaingParameter = !Utils.isEmpty(location.search().utm_campaign);
 
-       console.log('sessionLanding', sessionLanding);
-
        var languagePrefix = '';
        if(sessionLanding.languageOrigin === 'pt-BR'){
          languagePrefix = 'BR';

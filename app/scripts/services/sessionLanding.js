@@ -8,12 +8,24 @@
  * Factory in the gosteiclubApp.
  */
 angular.module('gosteiclubApp')
-  .factory('SessionLanding', function () {
+  .factory('SessionLanding', function ($translate, $location) {
 
     this.data = {};
 
 
-    this.getItemsMenu = function(sessionLandingCode, controller, menuItemsTranslation){
+
+    this.getItemsMenu = function(controller){
+
+      var sessionLandingCode = this.getSessionCode($location);
+
+      var menuItemsTranslation = {
+        freeSamples: {nome: $translate.instant('MENU.FREESAMPLES_NAME'), href: $translate.instant('MENU.FREESAMPLES_HREF')},
+        itsFree: {nome: $translate.instant('MENU.ITSFREE_NAME'), href: $translate.instant('MENU.ITSFREE_HREF')},
+        oportunity: {nome: $translate.instant('MENU.OPORTUNITY_NAME'), href: $translate.instant('MENU.OPORTUNITY_HREF')},
+        testimonials: {nome: $translate.instant('MENU.TESTIMONIALS_NAME'), href: $translate.instant('MENU.TESTIMONIALS_HREF')},
+        brands: {nome: $translate.instant('MENU.BRANDS_NAME'), href: $translate.instant('MENU.BRANDS_HREF')},
+      };
+
 
       switch(sessionLandingCode) {
 
@@ -23,19 +35,16 @@ angular.module('gosteiclubApp')
 
           if (controller === 'MainCtrl') {
 
-            return [
-              menuItemsTranslation.itsFree,
-              menuItemsTranslation.oportunity,
-              menuItemsTranslation.testimonials,
-              menuItemsTranslation.brands
-            ];
+            return [ menuItemsTranslation.itsFree, menuItemsTranslation.oportunity,
+              menuItemsTranslation.testimonials, menuItemsTranslation.brands];
+          }
+
+          if (controller === 'PerguntasCtrl') {
+            return null;
           }
 
           if (controller === 'HomeCtrl') {
-            return [
-              menuItemsTranslation.oportunity,
-              menuItemsTranslation.freeSamples]
-              ;
+            return [menuItemsTranslation.oportunity, menuItemsTranslation.freeSamples];
           }
 
           break;
@@ -57,10 +66,7 @@ angular.module('gosteiclubApp')
         case 'revendas':
 
           if (controller === 'MainCtrl') {
-            return [
-              menuItemsTranslation.itsFree,
-              menuItemsTranslation.brands
-            ];
+            return [menuItemsTranslation.itsFree, menuItemsTranslation.brands];
           }
 
           if (controller === 'HomeCtrl') {
@@ -74,6 +80,13 @@ angular.module('gosteiclubApp')
     };
 
 
+
+
+
+
+
+
+
     this.getSessionCode = function(location){
 
       var sessionCode = null;
@@ -82,10 +95,9 @@ angular.module('gosteiclubApp')
 
         //TODO
         case 'www.fr.gostei.club':
-        case 'fr.gostei.club':
-          sessionCode = 'echantillon';
-          break;
-
+          case 'fr.gostei.club':
+            sessionCode = 'echantillon';
+            break;
 
         case 'www.gostei.club':
           case 'gostei.club':
@@ -98,11 +110,13 @@ angular.module('gosteiclubApp')
             break;
 
         case 'www.videncias.gostei.club':
-        case 'videncias.gostei.club':
-          sessionCode = 'videncias';
-          break;
+          case 'videncias.gostei.club':
+            sessionCode = 'videncias';
+            break;
       }
-      return sessionCode
+
+      return sessionCode;
+
     };
 
 
@@ -129,6 +143,7 @@ angular.module('gosteiclubApp')
       }
 
       return 'pt-BR';
+
     };
 
 
