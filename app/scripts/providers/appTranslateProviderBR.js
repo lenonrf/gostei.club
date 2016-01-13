@@ -25,6 +25,11 @@ angular.module('gosteiclubApp')
     };
 
 
+    this.getLogo = function(){
+      return 'http://gosteiclub-12bd.kxcdn.com/images/logo_BR.png';
+    };
+
+
 
 
     this.getFields = function(){
@@ -48,7 +53,8 @@ angular.module('gosteiclubApp')
           'NEIBOR': 'Bairro',
           'COMPL': 'Complemento',
           'STATE': 'Estado',
-          'CITY': 'Cidade'
+          'CITY': 'Cidade',
+          'BIRTHMASK' : 'dd/mm/aaaa'
       };
     };
 
@@ -66,7 +72,8 @@ angular.module('gosteiclubApp')
         'TESTIMONIALS_NAME': 'Depoimentos',
         'TESTIMONIALS_HREF': '#depoimentos',
         'BRANDS_NAME': 'Marcas',
-        'BRANDS_HREF': '#marcas'
+        'BRANDS_HREF': '#marcas',
+        'IWANT_PARTICIPATE' : 'Quero Participar'
       };
     };
 

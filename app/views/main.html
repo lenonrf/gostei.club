@@ -60,19 +60,38 @@
 
             <div ng-show="showFormFields">
 
-              <label style="color:#898989;">{{ 'FIELDS.FULL_NAME' | translate }}</label>
-              <input ng-style="{'background-color': bgUserColor}" type="text" name="lname" id="lname" class="lname" ng-model="user.name" style="margin-bottom:15px;">
+              <div class="row">
+                <div class="col-md-12">
+                  <label style="color:#898989;">{{ 'FIELDS.FULL_NAME' | translate }}</label>
+                  <input ng-style="{'background-color': bgUserColor}" type="text" name="lname" id="lname" class="email"
+                         ng-model="user.name" style="margin-bottom:15px;">
+                </div>
+              </div>
 
-              <label style="color:#898989;">{{ 'FIELDS.EMAIL' | translate }}</label>
-              <input ng-style="{'background-color': bgEmailColor}" type="email" name="email" id="email" class="lname" ng-model="user.email" style="margin-bottom:15px;">
 
-              <label style="color:#898989;">{{ 'FIELDS.GENDER' | translate }}</label>
-              <select ng-style="{'background-color': bgGenderColor}" class="lname" name="gender" id="gender"
-                      ng-model="user.gender">
-                <option value="" disabled selected>&nbsp;&nbsp;</option>
-                <option value="F">&nbsp;&nbsp;{{ 'FIELDS.GENDER_W' | translate }}</option>
-                <option value="M">&nbsp;&nbsp;{{ 'FIELDS.GENDER_M' | translate }}</option>
-              </select>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <label style="color:#898989;">{{ 'FIELDS.EMAIL' | translate }}</label>
+                  <input ng-style="{'background-color': bgEmailColor}" type="email" name="email" id="email" class="lname" ng-model="user.email" style="margin-bottom:15px;">
+
+                </div>
+              </div>
+
+
+
+              <div class="row">
+                <div class="col-md-12">
+                  <label style="color:#898989;">{{ 'FIELDS.GENDER' | translate }}</label>
+                  <select ng-style="{'background-color': bgGenderColor}" class="email" name="gender" id="gender"
+                          ng-model="user.gender">
+                    <option value="" disabled selected>&nbsp;&nbsp;</option>
+                    <option value="F">&nbsp;&nbsp;{{ 'FIELDS.GENDER_W' | translate }}</option>
+                    <option value="M">&nbsp;&nbsp;{{ 'FIELDS.GENDER_M' | translate }}</option>
+                  </select>
+                </div>
+              </div>
+
 
               <div class="clearfix"></div>
               <div class="space20"></div>
@@ -80,7 +99,7 @@
               <div class="pos_bt">
                 <button id="checkoutButton" class="btn-main btn-center" type="button" ng-disabled="disableButton"
                         ng-class="disableButton ? 'btn-main-disable btn-center' : 'btn-main btn-center'"
-                        ng-click="checkoutStepOne(user)">{{ 'FIELDS.BUTTON_ICO_NAME' | translate }}<i class="i-free-label"></i>
+                        ng-click="checkoutStepOne(user)">{{ 'FIELDS.BUTTON_ICO_NAME' | translate }}
                 </button>
               </div>
 
@@ -95,7 +114,23 @@
 
 
 
-              <div class="row">
+
+              <div class="row" ng-show="sessionLanding.languageOrigin === 'fr-FR'">
+                <div class="col-md-5">
+                  <label style="color:#898989;">{{'FIELDS.TELEPHONE' | translate}}</label>
+                  <input ng-style="{'background-color': bgTelephoneColor}" type="text" maxlength="10" name="cellphone" id="telefone" class="email"
+                         ng-model="user.telephone" style="margin-bottom:15px;">
+                </div>
+
+                <div class="col-md-6">
+                  <label style="color:#898989;">{{'FIELDS.CELLPHONE' | translate}}</label>
+                  <input ng-style="{'background-color': bgCellphoneColor}" type="text" maxlength="10" name="cellphone" id="cellphoneFR" class="email"
+                         ng-model="user.cellphone" style="margin-bottom:15px;">
+                </div>
+              </div>
+
+
+              <div class="row" ng-show="sessionLanding.languageOrigin != 'fr-FR'">
                 <div class="col-md-3">
                   <label style="color:#898989;">DDD</label>
                   <select id="ddd" class="form-control"  ng-model="user.ddd">
@@ -105,7 +140,7 @@
 
                 <div class="col-md-9">
                   <label style="color:#898989;">{{'FIELDS.CELLPHONE' | translate}}</label>
-                  <input ng-style="{'background-color': bgCellphoneColor}" type="text" maxlength="9" name="cellphone" id="cellphone" class="lname"
+                  <input ng-style="{'background-color': bgCellphoneColor}" type="text" maxlength="9" name="cellphone" id="cellphone" class="email"
                          ng-model="user.cellphone" style="margin-bottom:15px;">
                 </div>
               </div>
@@ -114,14 +149,14 @@
               <div class="row">
                 <div class="col-md-7">
                   <label style="color:#898989;">{{'FIELDS.BIRTH' | translate}}</label>
-                  <input ng-style="{'background-color': bgBirthColor}" ui-mask="99/99/9999" type="text" name="birthDate" id="birthDate" class="lname"
-                         placeholder="dd/mm/yyyy" ng-model="user.birthDate" style="margin-bottom:15px;">
+                  <input ng-style="{'background-color': bgBirthColor}" ui-mask="99/99/9999" type="text" name="birthDate" id="birthDate" class="email"
+                         placeholder="{{'FIELDS.BIRTHMASK' | translate}}" ng-model="user.birthDate" style="margin-bottom:15px;">
 
                 </div>
 
                 <div class="col-md-5">
                   <label style="color:#898989;">{{'FIELDS.ZIPCODE' | translate}}</label>
-                  <input ng-style="{'background-color': bgZipCodeColor}" type="text" name="zipcode" id="zipcode" class="lname"
+                  <input ng-style="{'background-color': bgZipCodeColor}" type="text" name="zipcode" id="zipcode" class="email"
                           ng-model="user.address.zipcode" style="margin-bottom:15px;">
 
                 </div>

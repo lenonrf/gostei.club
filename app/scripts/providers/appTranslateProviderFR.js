@@ -11,6 +11,9 @@ angular.module('gosteiclubApp')
     };
 
 
+    this.getLogo = function(){
+      return 'http://gosteiclub-12bd.kxcdn.com/images/logo_FR.png';
+    };
 
 
     this.getFields = function(){
@@ -19,8 +22,8 @@ angular.module('gosteiclubApp')
         'BUTTON_ENTER': 'Entrer',
         'BUTTON_ICO_NAME': 'Je souhaite participer',
         'BUTTON_IWANT': 'Je veux!',
-        'BUTTON_NEXT': 'Prochain >',
-        'BUTTON_FINISH': 'Fin',
+        'BUTTON_NEXT': 'Opportunité suivante',
+        'BUTTON_FINISH': 'Terminer mon inscription',
         'GENDER_M': 'Homme',
         'GENDER_W': 'Femme',
         'GENDER': 'Civilité',
@@ -28,13 +31,17 @@ angular.module('gosteiclubApp')
         'FULL_NAME': 'Nom / Prénom',
         'BIRTH': 'Date de Naissance',
         'CELLPHONE': 'Téléphone portable',
+        'TELEPHONE': 'Téléphone',
         'ZIPCODE': 'Code Postal',
         'NUMBER': 'Numéro',
         'STREET': 'Adresse Postale',
         //'NEIBOR': 'Bairro',
         'COMPL': 'Complément',
         //'STATE': 'Estado',
-        'CITY': 'Ville'
+        'CITY': 'Ville',
+        'BIRTHMASK' : 'jj/mm/aaaa',
+        'NAME' : 'Nom',
+        'LASTNAME': 'Prénom'
       };
     };
 
@@ -52,7 +59,8 @@ angular.module('gosteiclubApp')
         'TESTIMONIALS_NAME': 'Témoignages',
         'TESTIMONIALS_HREF': '#depoimentos',
         'BRANDS_NAME': 'Marques',
-        'BRANDS_HREF': '#marcas'
+        'BRANDS_HREF': '#marcas',
+        'IWANT_PARTICIPATE' : 'Je veux participer'
       };
     };
 
@@ -63,9 +71,9 @@ angular.module('gosteiclubApp')
       return {
 
         'TITLE' : 'GRATUIT?',
-        'DESC' : 'Oui, gratuit. Notre objectif é de partager votre opinion sur la qualité des produits à tous les membre de notre communauté de testeurs. Nous voulons vous faire découvrir des marques, en toute transparence et vous aidez à mieux acheter au quotidien.',
+        'DESC' : 'Oui, gratuit. Notre objectif est de partager votre opinion sur la qualité des produits à tous les membre de notre communauté de testeurs. Nous voulons vous faire découvrir des marques, en toute transparence et vous aider à mieux acheter au quotidien.',
 
-        'ITEM1.TITLE' : 'Vêtements et accesoires',
+        'ITEM1.TITLE' : 'Vêtements et accessoires',
         'ITEM1.MARK1' : 'Chemises et t-shirts',
         'ITEM1.MARK2' : 'Robes, jupes, bijoux',
         'ITEM1.MARK3' : 'Casquettes, bonnets, parfums',
@@ -81,9 +89,9 @@ angular.module('gosteiclubApp')
 
         'ITEM3.TITLE' : 'Aliments, boissons, produits de ménage',
         'ITEM3.MARK1' : 'Jus de fruits, sodas',
-        'ITEM3.MARK2' : 'Désserts',
+        'ITEM3.MARK2' : 'Desserts',
         'ITEM3.MARK3' : 'Produits domestques',
-        'ITEM3.MARK4' : 'E bien plus encore...',
+        'ITEM3.MARK4' : 'Et bien plus encore...',
         'ITEM3.IMAGE' : 'http://gosteiclub-12bd.kxcdn.com/images/xtra/3.jpg'
       };
     };
@@ -99,7 +107,7 @@ angular.module('gosteiclubApp')
           return  {
 
             'TITLE': 'Recevez vos produits gratuitement chez vous',
-            'DESC' : 'Faites partie de notre club d’Opportunités et découvrer toutes les astuces pour gagner de l’argent directement depuis chez vous!',
+            'DESC' : 'Faites partie de notre club d’Opportunités et découvrez toutes les astuces pour gagner de l’argent directement depuis chez vous!',
             'TITLE_LOGIN_BOX' : 'Renseignez votre email pour entrer',
             'CHECKOUT_LINK' : 'ou inscrivez vous',
             'BOX_DESC' : 'Gostei est 100% gratuit. Essayez!',
@@ -139,7 +147,7 @@ angular.module('gosteiclubApp')
 
 
     this.getBgHome = function(){
-      return 'http://gosteiclub-12bd.kxcdn.com/images/bg_home_videncia2.png';
+      return 'http://gosteiclub-12bd.kxcdn.com/images/bonecos_home_fr.png';
     };
 
 
@@ -167,15 +175,15 @@ angular.module('gosteiclubApp')
         'DESC': 'Plusieurs personnes ont déjà été selectionnées pour recevoir à domicilie, gratuitement, les produits que nous faisons tester. Faites partie vous aussi de notre communauté de testeurs.',
 
         'ITEM1.NAME': 'Claire Lefebvre',
-        'ITEM1.DESC': '“J’ai adore recevoir ces produits directement chez moi”',
+        'ITEM1.DESC': '“J’ai adoré recevoir ces produits directement chez moi”',
         'ITEM1.IMAGE': 'http://gosteiclub-12bd.kxcdn.com/images/p1.jpg',
 
-        'ITEM2.NAME': 'Mathieu Russon',
+        'ITEM2.NAME': 'Augustine Russon',
         'ITEM2.DESC': '“Des produits exclusifs, sans rien payer? On ne peut qu’aimer!”',
         'ITEM2.IMAGE': 'http://gosteiclub-12bd.kxcdn.com/images/p2.jpg',
 
         'ITEM3.NAME': 'Estelle Maréchal',
-        'ITEM3.DESC': '“Contrairement à d’autres sites, les produits ont bien été envoyé. J’ai donc retenté ma chance pour d’autres produits!”',
+        'ITEM3.DESC': '“Contrairement à d’autres sites, les produits ont bien été envoyés. J’ai donc retenté ma chance pour d’autres produits!”',
         'ITEM3.IMAGE': 'http://gosteiclub-12bd.kxcdn.com/images/p6.jpg',
 
         'ITEM4.NAME': 'Sophie Bouvet',
@@ -207,15 +215,15 @@ angular.module('gosteiclubApp')
 
         'OPORTUNITY_01' : 'Augmentez vos chances d’être selectionné(e)',
         'OPORTUNITY_02' : 'Choisissez une des opportunités qui vous correspondent et augmentez vos chances d’être selectionné(e)',
-        'OPORTUNITY_03' : 'SIM, Eu quero esta Oportunidade!',
-        'OPORTUNITY_04' : 'Não tenho interesse',
+        'OPORTUNITY_03' : 'OUI, je veux bénéficier de cette opportunité',
+        'OPORTUNITY_04' : 'ça ne m’intéresse pas',
 
-        'FREESAMPLE_01' : 'Choisissez ce que vous souhaiter recevoir:',
+        'FREESAMPLE_01' : 'Choisissez ce que vous souhaitez recevoir:',
         'FREESAMPLE_02' : 'Dites nous ce que vous souhaiteriez recevoir pour espérer faire partie des selectionés',
-        'FREESAMPLE_03' : 'Unidades',
-        'FREESAMPLE_04' : 'Grátis',
-        'FREESAMPLE_05' : 'ESCOLHIDO',
-        'FREESAMPLE_06' : 'EU QUERO!',
+        'FREESAMPLE_03' : 'unités',
+        'FREESAMPLE_04' : 'gratuites',
+        'FREESAMPLE_05' : 'CHOISI',
+        'FREESAMPLE_06' : 'JE VEUX',
 
         'DELIVERY_01' : 'Complétez vos informations',
         'DELIVERY_02' : 'Nous avons besoin des ces informations pour vous envoyer les produits'
@@ -259,7 +267,7 @@ angular.module('gosteiclubApp')
         'BIRTH_FAILED' : 'Remplissez la date de naissance',
         'BIRTH_DAY_FAILED' : 'Remplissez un jour valide',
         'BIRTH_MONTH_FAILED' : 'Remplissez un mois valides',
-        'CELLPHONE_FAILED' : 'Remplissez le Téléphone portable',
+        'CELLPHONE_FAILED' : 'Remplissez le Téléphone',
         'ZIPCODE_FAILED' : 'Remplissez le Code Postal',
         'NUMBER_FAILED' : 'Remplissez numéros',
         'CITY_FAILED' : 'Remplissez la ville',

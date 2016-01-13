@@ -52,7 +52,9 @@ angular.module('gosteiclubApp')
     }
 
 
-    var canal = (sessionCode === 'echantillon') ? 'fr.gostei.club' : 'gostei.club';
+
+
+    var canal = (sessionCode === 'echantillon') ? 'opportunites.club' : 'gostei.club';
     Canal.resource.query(
       //{code: Canal.defineUserCanal($location)}, function(data){
       {code: canal}, function(data){
@@ -111,12 +113,16 @@ angular.module('gosteiclubApp')
 
       }, function(){
 
-          User.resource.save(user, function(data){
-            Allin.sendDataToWelcomeLifeCycle(data);
-            showStep2();
-          });
-      });
+        if($rootScope.sessionLanding.languageOrigin === 'fr-FR'){
+          user.name = user.name+' '+user.lastName;
+        }
 
+        User.resource.save(user, function(data){
+          Allin.sendDataToWelcomeLifeCycle(data);
+          showStep2();
+        });
+
+      });
     };
 
 
@@ -131,8 +137,6 @@ angular.module('gosteiclubApp')
       $scope.disableButton = true;
 
       user.cellphone = user.ddd+''+user.cellphone;
-      console.log(user.cellphone);
-
       user.birthDate = Utils.getBirthDate(user.birthDate);
       User.resourceEmail.put({'email'  : user.email}, user, onSuccess, onErrorCheckout);
 
@@ -312,19 +316,41 @@ angular.module('gosteiclubApp')
       if (!Utils.isEmpty(user)) {
 
 
-        if (Utils.isEmpty(user.ddd)) {
+        if($rootScope.sessionLanding.languageOrigin != 'fr-FR'){
 
-          setMessageOnField('ddd', $translate.instant('VALIDATION.DDD_FAILED'));
-          return false;
+          if (Utils.isEmpty(user.ddd)) {
+            setMessageOnField('ddd', $translate.instant('VALIDATION.DDD_FAILED'));
+            return false;
+          }
         }
 
 
 
-        if (Utils.isEmpty(user.cellphone)) {
 
-          setMessageOnField('cellphone', $translate.instant('VALIDATION.CELLPHONE_FAILED'));
-          return false;
+
+        if($rootScope.sessionLanding.languageOrigin === 'fr-FR'){
+
+          console.log('user.cellphone', user.cellphone);
+          console.log('user.telephone', user.telephone);
+
+          if ( Utils.isEmpty(user.cellphone) && Utils.isEmpty(user.telephone)) {
+
+            setMessageOnField('', $translate.instant('VALIDATION.CELLPHONE_FAILED'));
+            return false;
+          }
+
+        }else{
+
+          if (Utils.isEmpty(user.cellphone)) {
+
+            setMessageOnField('cellphone', $translate.instant('VALIDATION.CELLPHONE_FAILED'));
+            return false;
+          }
+
         }
+
+
+
 
 
 
@@ -388,6 +414,9 @@ angular.module('gosteiclubApp')
       angular.element('#messageStatus').html(message);
     }
 
+
+
+
     function setFieldWarning(field) {
 
       var warningColor = '#FFFACD';
@@ -436,6 +465,13 @@ angular.module('gosteiclubApp')
           $scope.bgMsgColor = msgErrorColor;
           $scope.bgCellphoneColor = warningColor;
           angular.element('#cellphone').focus();
+          break;
+
+        case 'telephone':
+
+          $scope.bgMsgColor = msgErrorColor;
+          $scope.bgTelephoneColor = warningColor;
+          angular.element('#telephone').focus();
           break;
 
         case 'zipcode':

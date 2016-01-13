@@ -63,7 +63,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" style="  margin-left: 0px; margin-top: -5px;"><img id="logoHome" src="images/logo.png" width="115px;" /></a>
+          <a class="navbar-brand" style="  margin-left: 0px; margin-top: -5px;">
+            <img id="logoHome" src="{{ 'LOGO_IMG' | translate}}" width="{{ 'LOGO_SIZE' | translate}}" />
+          </a>
 
         </div>
         <div ng-show="!showMenuItems" class="itemNext">
@@ -83,7 +85,7 @@
             <li id="itemNext"> </li>
 
             <li style="display: none;" id="itemMenuEntrar">
-              <button onclick="$('#loginForm').css('display', 'none');$('#formFields').css('display', 'block');$('#lname').focus();" class="botaoMenu">Quero Participar</button>
+              <button onclick="$('#loginForm').css('display', 'none');$('#formFields').css('display', 'block');$('#lname').focus();" class="botaoMenu">{{ 'MENU.IWANT_PARTICIPATE' | translate}}</button>
             </li>
           </ul>
 

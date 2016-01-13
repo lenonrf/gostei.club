@@ -93,9 +93,10 @@ angular.module('gosteiclubApp')
 
       switch (location.host()){
 
-        //TODO
-        case 'www.fr.gostei.club':
-          case 'fr.gostei.club':
+        case 'www.opportunités.club':
+        case 'opportunités.club':
+        case 'www.opportunites.club':
+        case 'opportunites.club':
             sessionCode = 'echantillon';
             break;
 
@@ -126,9 +127,10 @@ angular.module('gosteiclubApp')
 
       switch (location.host()){
 
-        //TODO
-        case 'www.fr.gostei.club':
-        case 'fr.gostei.club':
+        case 'www.opportunités.club':
+        case 'opportunités.club':
+        case 'www.opportunites.club':
+        case 'opportunites.club':
           return 'fr-FR'
           break;
 

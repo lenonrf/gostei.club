@@ -61,6 +61,9 @@ angular
 
     $translateProvider.translations('pt-BR-RVD', {
 
+      'LOGO_IMG' : AppTranslateBRProvider.getLogo(),
+      'LOGO_SIZE' : '115px',
+
       'TITLE'   : AppTranslateBRProvider.getTitle('pt-BR-RVD'),
       'MAIN'    : AppTranslateBRProvider.getMain('pt-BR-RVD'),
       'BRANDS'  : AppTranslateBRProvider.getBrands('pt-BR-RVD'),
@@ -80,6 +83,9 @@ angular
 
 
     $translateProvider.translations('pt-BR-AMT', {
+
+      'LOGO_IMG' : AppTranslateBRProvider.getLogo(),
+      'LOGO_SIZE' : '115px',
 
       'TITLE'   : AppTranslateBRProvider.getTitle('pt-BR-AMT'),
       'MAIN'    : AppTranslateBRProvider.getMain('pt-BR-AMT'),
@@ -101,6 +107,9 @@ angular
 
     $translateProvider.translations('pt-BR-VDC', {
 
+      'LOGO_IMG' : AppTranslateBRProvider.getLogo(),
+      'LOGO_SIZE' : '115px',
+
       'TITLE'   : AppTranslateBRProvider.getTitle('pt-BR-VDC'),
       'MAIN'    : AppTranslateBRProvider.getMain('pt-BR-VDC'),
       'BGHOME'  : AppTranslateBRProvider.getBgHome('pt-BR-VDC'),
@@ -120,6 +129,9 @@ angular
 
 
     $translateProvider.translations('fr-FR', {
+
+      'LOGO_IMG' : AppTranslateFRProvider.getLogo(),
+      'LOGO_SIZE' : '140px',
 
       'TITLE'   : AppTranslateFRProvider.getTitle(),
       'MAIN'    : AppTranslateFRProvider.getMain(),
@@ -171,7 +183,10 @@ angular
             $translate.use('pt-BR-VDC');
             break;
 
-          case 'fr.gostei.club':
+          case 'www.opportunités.club':
+          case 'opportunités.club':
+          case 'www.opportunites.club':
+          case 'opportunites.club':
             config.headers['x-language-origin'] = 'fr-FR';
             $translate.use('fr-FR');
             break;
