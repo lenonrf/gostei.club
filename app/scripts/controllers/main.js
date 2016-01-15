@@ -12,6 +12,11 @@ angular.module('gosteiclubApp')
                                     deviceDetector, Cep, Canal, Allin, Menu, Utils, User, Login,
                                     $http, Product, $translate, TermsConditions) {
 
+
+
+    $scope.googleAnaliticsId = '';
+
+
     if(User.isUserFromEmail($location)){
       var user = {};
       user.email = $location.search().email;
@@ -48,6 +53,29 @@ angular.module('gosteiclubApp')
         $rootScope.sessionLanding = data[0];
         $rootScope.sessionLandingData = SessionLanding.getDataFromLanding($rootScope, sessionCode);
 
+
+        switch($rootScope.sessionLanding.languageOrigin){
+
+          case 'fr-FR':
+            $scope.googleAnaliticsId = 'UA-72415942-1';
+            break;
+
+          case 'pt-BR':
+            $scope.googleAnaliticsId = 'UA-61389086-1';
+            break;
+        }
+
+       // console.log('GA', $scope.googleAnaliticsId);
+
+
+        /*!function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+          (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+          r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+        }(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', $scope.googleAnaliticsId, 'auto');
+        */
+
       }).error(function(){});
     }
 
@@ -64,6 +92,7 @@ angular.module('gosteiclubApp')
     Product.resource.query(function(data){
       $scope.products = data;
     }, function(err){ });
+
 
 
 
@@ -114,7 +143,7 @@ angular.module('gosteiclubApp')
       }, function(){
 
         if($rootScope.sessionLanding.languageOrigin === 'fr-FR'){
-          user.name = user.name+' '+user.lastName;
+          user.name = user.name;
         }
 
         User.resource.save(user, function(data){

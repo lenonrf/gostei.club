@@ -22,7 +22,7 @@ angular.module('gosteiclubApp')
         'BUTTON_ENTER': 'Entrer',
         'BUTTON_ICO_NAME': 'Je souhaite participer',
         'BUTTON_IWANT': 'Je veux!',
-        'BUTTON_NEXT': 'Opportunité suivante',
+        'BUTTON_NEXT': 'Etape Suivante',
         'BUTTON_FINISH': 'Terminer mon inscription',
         'GENDER_M': 'Homme',
         'GENDER_W': 'Femme',
@@ -110,7 +110,7 @@ angular.module('gosteiclubApp')
             'DESC' : 'Faites partie de notre club d’Opportunités et découvrez toutes les astuces pour gagner de l’argent directement depuis chez vous!',
             'TITLE_LOGIN_BOX' : 'Renseignez votre email pour entrer',
             'CHECKOUT_LINK' : 'ou inscrivez vous',
-            'BOX_DESC' : 'Gostei est 100% gratuit. Essayez!',
+            'BOX_DESC' : 'Opportunités.club est 100% gratuit',
             'ACCESS_ACCOUNT' : 'Ou accédez à votre compte',
             'AGREE_WITH' : 'J’accepte les ',
             'TERMS_CONDITIONS' : 'conditions générales de vente'
