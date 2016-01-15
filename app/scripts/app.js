@@ -16,14 +16,12 @@ angular
     'angulartics.google.analytics',
     'ng.deviceDetector',
     'pascalprecht.translate',
-    'angulartics', 'angulartics.google.analytics'
+
   ])
   .config(function ($locationProvider, $routeProvider, $httpProvider, $translateProvider,
-                    AppTranslateFRProvider, AppTranslateBRProvider, showErrorsConfigProvider,
-                    $analyticsProvider) {
+                    AppTranslateFRProvider, AppTranslateBRProvider, showErrorsConfigProvider) {
 
-    $analyticsProvider.firstPageview(true); /* Records pages that don't use $state or $route */
-    $analyticsProvider.withAutoBase(true);  /* Records full path */
+
 
     $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
