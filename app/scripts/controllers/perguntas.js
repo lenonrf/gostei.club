@@ -51,12 +51,41 @@ angular.module('gosteiclubApp')
 
     $scope.coregsSelecteds = 0;
     $scope.indexQuestion = 0;
+    $scope.pixelFacebookId = null;
 
     $scope.escolhido = $translate.instant('HALL.FREESAMPLE_05');
     $scope.euquero =  $translate.instant('HALL.FREESAMPLE_06');
 
     if($rootScope.sessionLanding){
       $scope.isBR = ($rootScope.sessionLanding.languageOrigin === 'pt-BR');
+      $scope.isFR = ($rootScope.sessionLanding.languageOrigin === 'fr-FR');
+
+      switch($rootScope.sessionLanding.languageOrigin){
+
+        case 'fr-FR':
+          $scope.pixelFacebookId = 6045526204254;
+          break;
+
+        case 'pt-BR':
+          $scope.pixelFacebookId = 6044565660054;
+          break;
+      }
+
+      (function() {
+        var _fbq = window._fbq || (window._fbq = []);
+        if (!_fbq.loaded) {
+          var fbds = document.createElement('script');
+          fbds.async = true;
+          fbds.src = '//connect.facebook.net/en_US/fbds.js';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(fbds, s);
+          _fbq.loaded = true;
+        }
+      })();
+      window._fbq = window._fbq || [];
+      window._fbq.push(['track', $scope.pixelFacebookId, {'value':'0.00','currency':'BRL'}]);
+
+
     }
 
 
