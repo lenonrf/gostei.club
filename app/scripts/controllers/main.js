@@ -53,32 +53,8 @@ angular.module('gosteiclubApp')
         $rootScope.sessionLanding = data[0];
         $rootScope.sessionLandingData = SessionLanding.getDataFromLanding($rootScope, sessionCode);
 
-
-        switch($rootScope.sessionLanding.languageOrigin){
-
-          case 'fr-FR':
-            $scope.googleAnaliticsId = 'UA-72415942-1';
-            break;
-
-          case 'pt-BR':
-            $scope.googleAnaliticsId = 'UA-61389086-1';
-            break;
-        }
-
-       // console.log('GA', $scope.googleAnaliticsId);
-
-
-        /*!function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-          (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-          r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-        }(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', $scope.googleAnaliticsId, 'auto');
-        */
-
       }).error(function(){});
     }
-
 
 
 
