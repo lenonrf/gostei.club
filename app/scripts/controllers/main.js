@@ -12,8 +12,6 @@ angular.module('gosteiclubApp')
                                     deviceDetector, Cep, Canal, Allin, Menu, Utils, User, Login,
                                     $http, Product, $translate, TermsConditions) {
 
-
-
     $scope.googleAnaliticsId = '';
 
 
@@ -172,8 +170,15 @@ angular.module('gosteiclubApp')
      */
     function onSuccess(data, status) {
 
+      // Envia Sponsorings
+      $http.post('/api/users/'+data._id +'/sponsoring'
+      + '?sessionlanding='+$rootScope.sessionLanding._id
+      + '&deviceAccess='+$rootScope.deviceAccess).success(function(data){
+
+      }).error(function(){});
+
+
       User.setData(data);
-      User.sendSponsoring();
       User.setLogged(true);
       $location.path('/perguntas');
     }

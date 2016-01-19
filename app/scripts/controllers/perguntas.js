@@ -57,6 +57,7 @@ angular.module('gosteiclubApp')
     $scope.euquero =  $translate.instant('HALL.FREESAMPLE_06');
 
     if($rootScope.sessionLanding){
+
       $scope.isBR = ($rootScope.sessionLanding.languageOrigin === 'pt-BR');
       $scope.isFR = ($rootScope.sessionLanding.languageOrigin === 'fr-FR');
 
@@ -97,86 +98,40 @@ angular.module('gosteiclubApp')
 
     /**
      * -------------------------------------------------------------------
-     * Coregs
+     * COREGS
      */
 
-    Coreg.resource.query(function(data){
+    $http.get('/api/coregs/user/'+$scope.user._id
+    + '?sessionlanding='+$rootScope.sessionLanding._id
+    + '&deviceAccess='+$rootScope.deviceAccess).success(function(data){
 
-      $scope.coregs = [];
-
-        for(var x=0; x<data.length; x++){
-
-          if(data[x].status){
-            data[x].answer = true;
+      for(var x=0; x<data.length; x++){
 
 
-            if(data[x].code === 'oqueha'){
+        // TODO
+        if(data[x].code === 'oqueha'){
 
-              for(var y=0; y<data[x].questions.length; y++){
-
-                if(data[x].questions[y].isCorrect === true){
-                  data[x].questions[y].isSelected = true;
-                  //$scope.addUserCoreg(data[x]._id, true);
-
-                 /* $scope.user.coregs.push({
-                    _id : data[x]._id,
-                    answer : true
-                  });*/
-
-
-                }else{
-                  data[x].questions[y].isSelected = false;
-                }
-              }
-
-
-            }
-
-
-
-
-            if(data[x].code === 'estrelafone'){
-
-              var date = new Date();
-              var hour = date.getHours();
-              var weekday = date.getDay();
-
-              //TODO - SEGUIMENTACAO
-              var userYears = Utils.getUserYears($scope.user.birthDate);
-              if((userYears >= 30) && ($scope.user.gender === 'F')){
-
-                if((weekday != 0) && (weekday != 6)){
-                  if((hour>7) && (hour<24)){
-
-                    $scope.coregs.push(data[x]);
-
-                    $scope.user.coregs.push({
-                      _id : data[x]._id,
-                      answer : true
-                    });
-                  }
-                }
-              }
-
+          for(var y=0; y<data[x].questions.length; y++){
+            if(data[x].questions[y].isCorrect === true){
+              data[x].questions[y].isSelected = true;
             }else{
-              $scope.coregs.push(data[x]);
-              $scope.user.coregs.push({
-                _id : data[x]._id,
-                answer : true
-              });
+              data[x].questions[y].isSelected = false;
             }
           }
+        }
+
+        $scope.coregs = data;
+
+        console.log('$scope.coregs', $scope.coregs);
+
+        if( $scope.coregs.length === 0){
+          $rootScope.steps = ['complete', 'active', 'disabled', 'disabled'];
+        }else{
+          $rootScope.steps = ['active', 'disabled', 'disabled', 'disabled'];
+        }
       }
 
-
-      if( $scope.coregs.length === 0){
-        $rootScope.steps = ['complete', 'active', 'disabled', 'disabled'];
-      }else{
-        $rootScope.steps = ['active', 'disabled', 'disabled', 'disabled'];
-      }
-
-    });
-
+    }).error(function(){});
 
 
 
