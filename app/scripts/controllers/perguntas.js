@@ -118,11 +118,14 @@ angular.module('gosteiclubApp')
               data[x].questions[y].isSelected = false;
             }
           }
+
+          $scope.user.coregs.push({
+            _id : data[x]._id,
+            answer : true
+          });
         }
 
         $scope.coregs = data;
-
-        console.log('$scope.coregs', $scope.coregs);
 
         if( $scope.coregs.length === 0){
           $rootScope.steps = ['complete', 'active', 'disabled', 'disabled'];
