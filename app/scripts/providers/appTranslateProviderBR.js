@@ -154,6 +154,7 @@ angular.module('gosteiclubApp')
 
           return  {
 
+            'TERMS' : 'Termos e Condições',
             'TITLE' : 'Ganhe Dinheiro sendo um super revendedor!',
             'DESC' : 'Faça parte do nosso clube de Oportunidades e descubra todas as revendas disponíveis no mercado para você aumentar a sua renda trabalhando de casa!',
             'TITLE_LOGIN_BOX' : 'Digite seu email para entrar!',
@@ -169,6 +170,8 @@ angular.module('gosteiclubApp')
         case 'pt-BR-VDC':
 
           return {
+
+            'TERMS' : 'Termos e Condições',
             'TITLE': 'Descubra agora o seu futuro, é Grátis!',
             'DESC': 'Separamos dentro do nosso Clube de Oportunidades os melhores especialistas para você saber sobre Astrologia, Tarot, Horóscopo, entre outros!',
             'TITLE_LOGIN_BOX': 'Digite seu email para entrar!',
@@ -184,6 +187,8 @@ angular.module('gosteiclubApp')
         case 'pt-BR-AMT':
 
           return {
+
+            'TERMS' : 'Termos e Condições',
             'TITLE': 'Receba Produtos Grátis em Casa!',
             'DESC': 'Faça parte do nosso Clube de Oportunidades, receba produtos em casa sem pagar nada e nos conte o que achou!',
             'TITLE_LOGIN_BOX': 'Digite seu email para entrar!',

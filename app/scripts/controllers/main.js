@@ -173,8 +173,7 @@ angular.module('gosteiclubApp')
       // Envia Sponsorings
       $http.post('/api/users/'+data._id +'/sponsoring'
       + '?sessionlanding='+$rootScope.sessionLanding._id
-      + '&deviceAccess='+$rootScope.deviceAccess).success(function(data){
-
+      + '&deviceAccess='+$rootScope.deviceAccess).success(function(dataResult){
       }).error(function(){});
 
 

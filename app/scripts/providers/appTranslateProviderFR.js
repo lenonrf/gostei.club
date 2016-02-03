@@ -106,6 +106,7 @@ angular.module('gosteiclubApp')
 
           return  {
 
+            'TERMS' : 'Conditions générales de vente',
             'TITLE': 'Recevez vos produits gratuitement chez vous',
             'DESC' : 'Faites partie de notre club d’Opportunités et découvrez toutes les astuces pour gagner de l’argent directement depuis chez vous!',
             'TITLE_LOGIN_BOX' : 'Renseignez votre email pour entrer',

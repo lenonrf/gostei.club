@@ -121,7 +121,7 @@
 	<div class="footer-copy" ng-controller="FooterCtrl">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6">
+				<div class="col-md-8">
 					<p>&copy; {{ 'FOOTER.DESC' | translate}}</p>
 				</div>
 
@@ -129,9 +129,9 @@
           <a class="term-popup" href="" ng-click="showTermos()">{{ 'FOOTER.TERMS_CONDITIONS' | translate}}</a>
         </div>
 
-        <div class="col-md-2" ng-show="showFooter">
+        <!--<div class="col-md-2" ng-show="showFooter">
           <a class="term-popup" href="" ng-click="showPoliticaPrivacidade()">{{ 'FOOTER.PRIVACY_POLICY' | translate}}</a>
-        </div>
+        </div>-->
 
 				<div class="col-md-2" ng-show="showFooter">
 					<a  href="#page-top">{{ 'FOOTER.IWANT_PARTICIPATE' | translate}}</a>
@@ -146,7 +146,7 @@
 <div class="overlay-dark"></div>
 <div class="terms">
   <span class="t-close fa fa-close"></span>
-  <h3>{{titleModal}}:</h3>
+  <h3>{{ 'MAIN.TERMS' | translate}}:</h3>
 
   <div data-ng-bind-html="textModal"></div>
 
