@@ -2,12 +2,12 @@
 
 
 angular.module('gosteiclubApp')
-  .service('TermsConditions', function ($rootScope) {
+  .service('TermsConditions', function ($rootScope, $location, SessionLanding) {
 
 
     this.getTermsConditionsText = function(){
 
-      switch($rootScope.sessionLanding.languageOrigin){
+      switch(SessionLanding.getLanguageOrigin($location)){
 
       case 'fr-FR':
         return this.getTermsConditionsTextFr();

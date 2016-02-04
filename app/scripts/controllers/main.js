@@ -69,7 +69,9 @@ angular.module('gosteiclubApp')
 
 
 
-
+    $scope.showTermos = function(){
+      $rootScope.textModal = TermsConditions.getTermsConditionsText();
+    };
 
 
 
