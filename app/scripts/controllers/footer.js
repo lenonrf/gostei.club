@@ -2,7 +2,10 @@
 
 
 angular.module('gosteiclubApp')
-  .controller('FooterCtrl', function ($scope, $rootScope, TermsConditions) {
+  .controller('FooterCtrl', function ($scope, $location, SessionLanding, $rootScope, TermsConditions) {
+
+
+    $scope.isFR = (SessionLanding.getLanguageOrigin($location) === 'fr-FR');
 
 
     $scope.showPoliticaPrivacidade = function(){

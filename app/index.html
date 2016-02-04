@@ -120,6 +120,15 @@
 	<!-- FOOTER / COPYRIGHT -->
 	<div class="footer-copy" ng-controller="FooterCtrl">
 		<div class="container">
+      <div class="row">
+        <div class="col-md-8" ng-show="isFR">
+          <p>Partenaire:
+            <img src="http://www.affaireenor.fr/css/images/logo.png" style="height: 80px; width: 180px;"> &nbsp;
+            <img src="http://gosteiclub-12bd.kxcdn.com/images/ohmymag.png">
+          </p><br><br>
+        </div>
+      </div>
+
 			<div class="row">
 				<div class="col-md-8">
 					<p>&copy; {{ 'FOOTER.DESC' | translate}}</p>
@@ -137,6 +146,7 @@
 					<a  href="#page-top">{{ 'FOOTER.IWANT_PARTICIPATE' | translate}}</a>
 				</div>
 			</div>
+
 		</div>
 	</div>
 	<!-- FOOTER / COPYRIGHT -->
