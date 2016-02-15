@@ -31,7 +31,15 @@ angular.module('gosteiclubApp')
     this.getFirstName = function(name){
       var nameSplited = name.split(' ');
       return nameSplited[0];
-    }
+    };
+
+
+    this.getLastname = function(name){
+      var nameSplited = name.split(' ');
+      return nameSplited[1];
+    };
+
+
 
 
     this.getDateFormated = function(date){
