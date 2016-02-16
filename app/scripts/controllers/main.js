@@ -10,7 +10,7 @@
 angular.module('gosteiclubApp')
   .controller('MainCtrl', function ($scope, $rootScope, $location, $modal, SessionLanding,
                                     deviceDetector, Cep, Canal, Allin, Menu, Utils, User, Login,
-                                    $http, Product, $translate, TermsConditions) {
+                                    $http, Product, $translate, TermsConditions, Malling) {
 
     $scope.googleAnaliticsId = '';
 
@@ -124,6 +124,7 @@ angular.module('gosteiclubApp')
 
         User.resource.save(user, function(data){
           Allin.sendDataToWelcomeLifeCycle(data);
+          Malling.createContact(data);
           showStep2();
         });
 
@@ -174,9 +175,11 @@ angular.module('gosteiclubApp')
 
       // Envia Sponsorings
       $http.post('/api/users/'+data._id +'/sponsoring'
-      + '?sessionlanding='+$rootScope.sessionLanding._id
-      + '&deviceAccess='+$rootScope.deviceAccess).success(function(dataResult){
-      }).error(function(){});
+        + '?sessionlanding='+$rootScope.sessionLanding._id
+        + '&deviceAccess='+$rootScope.deviceAccess).success(function(dataResult){
+        }).error(function(){});
+
+      Malling.updateContact(data);
 
 
       User.setData(data);

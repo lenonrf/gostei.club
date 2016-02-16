@@ -8,7 +8,9 @@
  * Controller of the gosteiclubApp
  */
 angular.module('gosteiclubApp')
-  .controller('PerguntasCtrl', function ($scope, $window, $http, $rootScope, $translate, $location, Coreg, Menu, Allin, Campaing, User, Utils, Product) {
+  .controller('PerguntasCtrl', function ($scope, $window, Malling, $http, $rootScope,
+                                         $translate, $location, Coreg, Menu, Allin,
+                                         Campaing, User, Utils, Product) {
 
 
      if(!Utils.isLogged(User.data)){
@@ -374,6 +376,7 @@ angular.module('gosteiclubApp')
 
     function onSuccess(data) {
       User.setData(data);
+      Malling.updateContact(data);
       $location.path('/home');
     }
 
