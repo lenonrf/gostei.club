@@ -115,7 +115,7 @@
 
 
 
-              <div class="row" ng-show="sessionLanding.languageOrigin === 'fr-FR'">
+              <div class="row" ng-show="isFR">
                 <div class="col-md-5">
                   <label style="color:#898989;">{{'FIELDS.TELEPHONE' | translate}}</label>
                   <input ng-style="{'background-color': bgTelephoneColor}" type="text" maxlength="10" name="cellphone" id="telefone" class="email"
@@ -130,7 +130,7 @@
               </div>
 
 
-              <div class="row" ng-show="sessionLanding.languageOrigin != 'fr-FR'">
+              <div class="row" ng-show="isBR">
                 <div class="col-md-3">
                   <label style="color:#898989;">DDD</label>
                   <select id="ddd" class="form-control"  ng-model="user.ddd">

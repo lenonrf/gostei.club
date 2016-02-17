@@ -13,6 +13,8 @@ angular.module('gosteiclubApp')
                                     $http, Product, $translate, TermsConditions, Malling) {
 
     $scope.googleAnaliticsId = '';
+    $rootScope.isFR = (SessionLanding.getLanguageOrigin($location) === 'fr-FR');
+    $rootScope.isBR = (SessionLanding.getLanguageOrigin($location) === 'pt-BR');
 
 
     if(User.isUserFromEmail($location)){
