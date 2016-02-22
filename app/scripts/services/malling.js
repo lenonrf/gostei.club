@@ -18,6 +18,13 @@ angular.module('gosteiclubApp')
     };
 
 
+    this.sendWelcomeMail = function(user){
+
+      $http.post('/api/malling/welcome/'+user.email, user)
+        .success(function(data, status) {});
+    };
+
+
 
 
   });

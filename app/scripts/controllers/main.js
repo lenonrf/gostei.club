@@ -125,8 +125,9 @@ angular.module('gosteiclubApp')
         }
 
         User.resource.save(user, function(data){
-          Allin.sendDataToWelcomeLifeCycle(data);
+          //Allin.sendDataToWelcomeLifeCycle(data);
           Malling.createContact(data);
+          //Malling.sendWelcomeMail(data);
           showStep2();
         });
 
@@ -346,12 +347,15 @@ angular.module('gosteiclubApp')
 
         if($rootScope.sessionLanding.languageOrigin === 'fr-FR'){
 
-          console.log('user.cellphone', user.cellphone);
-          console.log('user.telephone', user.telephone);
+          if (Utils.isEmpty(user.telephone)) {
 
-          if ( Utils.isEmpty(user.cellphone) && Utils.isEmpty(user.telephone)) {
+            setMessageOnField('telephone', $translate.instant('VALIDATION.TELEPHONE_FAILED'));
+            return false;
+          }
 
-            setMessageOnField('', $translate.instant('VALIDATION.CELLPHONE_FAILED'));
+          if (Utils.isEmpty(user.cellphone)) {
+
+            setMessageOnField('cellphone', $translate.instant('VALIDATION.CELLPHONE_FAILED'));
             return false;
           }
 
