@@ -20,7 +20,21 @@ angular.module('gosteiclubApp')
     if(User.isUserFromEmail($location)){
       var user = {};
       user.email = $location.search().email;
-      $scope.executeLogin(user, 'home');
+
+      if(!validateLogin(user)) return false;
+
+      User.resourceEmail.get({email:user.email}, function(data){
+
+        User.setData(data);
+        User.setLogged(true);
+
+        if(User.isUserCompleted(data)){
+          $location.path('/home');
+        }else{
+          $location.path('/perguntas');
+        }
+
+      }, onErrorLogin);
     }
 
     Menu.setMenu('MainCtrl');
@@ -127,7 +141,7 @@ angular.module('gosteiclubApp')
         User.resource.save(user, function(data){
           //Allin.sendDataToWelcomeLifeCycle(data);
           Malling.createContact(data);
-          //Malling.sendWelcomeMail(data);
+          Malling.sendWelcomeMail(data);
           showStep2();
         });
 
