@@ -377,7 +377,8 @@ angular.module('gosteiclubApp')
               || (user.telephone.startsWith('02'))
               || (user.telephone.startsWith('03'))
               || (user.telephone.startsWith('04'))
-              || (user.telephone.startsWith('05'))){
+              || (user.telephone.startsWith('05'))
+              || (user.telephone.startsWith('09'))){
 
             }else{
               setMessageOnField('telephone', $translate.instant('VALIDATION.TELEPHONE_FAILED'));
