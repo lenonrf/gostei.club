@@ -368,11 +368,6 @@ angular.module('gosteiclubApp')
 
           }else{
 
-            console.log('user.telephone.length', user.telephone.length);
-            console.log('user.telephone.startsWith(01)', user.telephone.startsWith('01'));
-            console.log('user.telephone.startsWith(02)', user.telephone.startsWith('02'));
-
-
             if(user.telephone.length != 10){
               setMessageOnField('telephone', $translate.instant('VALIDATION.TELEPHONE_FAILED'));
               return false;
@@ -397,10 +392,6 @@ angular.module('gosteiclubApp')
             return false;
 
           }else{
-
-            console.log('user.cellphone.length', user.cellphone.length);
-            console.log('user.cellphone.startsWith(01)', user.cellphone.startsWith('06'));
-            console.log('user.cellphone.startsWith(02)', user.cellphone.startsWith('07'));
 
             if(user.cellphone.length != 10){
               setMessageOnField('cellphone', $translate.instant('VALIDATION.CELLPHONE_FAILED'));
