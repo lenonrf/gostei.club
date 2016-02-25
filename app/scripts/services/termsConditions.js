@@ -7,7 +7,7 @@ angular.module('gosteiclubApp')
 
     this.getTermsConditionsText = function(){
 
-      switch(SessionLanding.getLanguageOrigin($location)){
+      switch(SessionLanding.getLanguageOrigin()){
 
       case 'fr-FR':
         return this.getTermsConditionsTextFr();

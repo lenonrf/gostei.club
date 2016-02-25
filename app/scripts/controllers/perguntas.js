@@ -10,7 +10,7 @@
 angular.module('gosteiclubApp')
   .controller('PerguntasCtrl', function ($scope, $window, Malling, $http, $rootScope,
                                          $translate, $location, Coreg, Menu, Allin,
-                                         Campaing, User, Utils, Product) {
+                                         Campaing, User, Utils, Product, SessionLanding) {
 
 
      if(!Utils.isLogged(User.data)){
@@ -60,8 +60,8 @@ angular.module('gosteiclubApp')
 
     if($rootScope.sessionLanding){
 
-      $scope.isBR = ($rootScope.sessionLanding.languageOrigin === 'pt-BR');
-      $scope.isFR = ($rootScope.sessionLanding.languageOrigin === 'fr-FR');
+      $scope.isBR = (SessionLanding.getLanguageOrigin() === 'pt-BR');
+      $scope.isFR = (SessionLanding.getLanguageOrigin() === 'fr-FR');
 
       switch($rootScope.sessionLanding.languageOrigin){
 
@@ -109,7 +109,6 @@ angular.module('gosteiclubApp')
 
       for(var x=0; x<data.length; x++){
 
-
         // TODO
         if(data[x].code === 'oqueha'){
 
@@ -137,7 +136,6 @@ angular.module('gosteiclubApp')
       }
 
     }).error(function(){});
-
 
 
 
@@ -169,7 +167,7 @@ angular.module('gosteiclubApp')
 
     $scope.sendCoreg = function(){
 
-      $scope.user.languageOrigin = $rootScope.sessionLanding.languageOrigin;
+      $scope.user.languageOrigin = SessionLanding.getLanguageOrigin();
       User.resourceCoreg.save({'id'  : $scope.user._id}, $scope.user.coregs, function(){}, function(){});
 
     };
@@ -217,11 +215,6 @@ angular.module('gosteiclubApp')
     }
 
 
-
-
-
-
-
     $scope.setAnswerQuestion = function (answerType) {
 
       var question = $scope.corredor[$scope.indexQuestion];
@@ -238,9 +231,6 @@ angular.module('gosteiclubApp')
         $scope.nextStep();
       }
     };
-
-
-
 
 
     function hasNextQuestion() {
@@ -262,9 +252,6 @@ angular.module('gosteiclubApp')
         urlAnswer: question.urlAnswer
       };
     }
-
-
-
 
 
     $scope.nextStep = function(){
@@ -386,30 +373,6 @@ angular.module('gosteiclubApp')
       $scope.validationMessage = 'Ocorreu um erro no envio dos dados.';
     }
 
-    /*$scope.$watch('user.address.zipcode', function() {
-
-     if($scope.user.address.zipcode){
-
-     $http.get('http://api.postmon.com.br/v1/cep/'+$scope.user.address.zipcode).success(function(data){
-
-     $scope.user.address.city = data.cidade;
-     $scope.user.address.state = data.estado;
-     $scope.user.address.neighborhood = data.bairro;
-     $scope.user.address.street = data.logradouro;
-
-     $('#endereco').css('display', 'block');
-     $scope.isValidationError = false;
-
-     }).error(function(){
-
-     //setMessageOnField('zipcode', 'CEP inválido');
-     //$('#endereco').css('display', 'none');
-
-     });
-     }
-     });*/
-
-
 
     /**
      * -------------------------------------------------------------------
@@ -426,63 +389,17 @@ angular.module('gosteiclubApp')
       $scope.bgZipcodeColor = '#FFFFFF';
 
 
-      /*if (Utils.isEmpty($scope.user.birthDate)) {
-
-        setMessageOnField('birthDate', 'Preencha a data de nascimento');
-        return false;
-
-      } else {
-
-        if ($scope.user.birthDate.length === 8) {
-
-          var day = $scope.user.birthDate.substr(0, 2);
-          var month = $scope.user.birthDate.substr(2, 2);
-          var year = $scope.user.birthDate.substr(4, 4);
-
-          if (day > '31') {
-            setMessageOnField('birthDate', 'Dia Invalido');
-            return false;
-          }
-
-          if (month > '12') {
-            setMessageOnField('birthDate', 'Mes Invalido');
-            return false;
-          }
-
-          if (year > new Date().getFullYear()) {
-            setMessageOnField('birthDate', 'Ano Invalido');
-            return false;
-          }
-
-        } else {
-          setMessageOnField('birthDate', 'Preencha a data de nascimento');
-          return false;
-        }
-      }
-
-      if (Utils.isEmpty($scope.user.cellphone)) {
-
-        setMessageOnField('cellphone', 'Preencha o celular');
-        return false;
-      }*/
-
-
       if (Utils.isEmpty($scope.user.address.zipcode)) {
 
         setMessageOnField('zipcode', $translate.instant('VALIDATION.ZIPCODE_FAILED'));
         return false;
       }
 
-
-
-
-
       if (Utils.isEmpty($scope.user.address.street)) {
 
         setMessageOnField('address', $translate.instant('VALIDATION.STREET_FAILED'));
         return false;
       }
-
 
       if($rootScope.sessionLanding){
         if($rootScope.sessionLanding.languageOrigin === 'pt-BR'){
@@ -494,7 +411,6 @@ angular.module('gosteiclubApp')
           }
         }
       }
-
 
 
       if (Utils.isEmpty($scope.user.address.city)) {
@@ -515,18 +431,11 @@ angular.module('gosteiclubApp')
         }
       }
 
-
-
-
-
-
-
       if (Utils.isEmpty($scope.user.address.number)) {
 
         setMessageOnField('number', $translate.instant('VALIDATION.NUMBER_FAILED'));
         return false;
       }
-
 
       return true;
 

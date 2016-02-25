@@ -123,9 +123,9 @@ angular.module('gosteiclubApp')
 
 
 
-    this.getLanguageOrigin = function(location){
+    this.getLanguageOrigin = function(){
 
-      switch (location.host()){
+      switch ($location.host()){
 
         case 'www.opportunités.club':
         case 'opportunités.club':
@@ -143,8 +143,6 @@ angular.module('gosteiclubApp')
           return 'pt-BR';
           break;
       }
-
-      return 'pt-BR';
 
     };
 
