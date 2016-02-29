@@ -114,7 +114,11 @@ angular.module('gosteiclubApp')
             'BOX_DESC' : 'Opportunités.club est 100% gratuit',
             'ACCESS_ACCOUNT' : 'Ou accédez à votre compte',
             'AGREE_WITH' : 'J’accepte les ',
-            'TERMS_CONDITIONS' : 'conditions générales de vente'
+            'TERMS_CONDITIONS' : 'conditions générales de vente',
+            'ACCEPT_EMAILS' : 'et accepter de recevoir des courriels de gostei.club',
+            'ACCEPT_PARTNERS' : 'Je suis d\'accord pour recevoir des opportunités ',
+            'PARTNERS' : 'pour les partenaires'
+
           };
     };
 
@@ -274,7 +278,8 @@ angular.module('gosteiclubApp')
         'NUMBER_FAILED' : 'Remplissez numéros',
         'CITY_FAILED' : 'Remplissez la ville',
         'STREET_FAILED' : 'Remplissez l\'adresse postale',
-        'DDD_FAILED' : 'Remplissez le DDD'
+        'DDD_FAILED' : 'Remplissez le DDD',
+        'ISAGREEWITH' : 'Aceite os Termos e Condições'
 
       };
     };

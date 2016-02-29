@@ -162,7 +162,10 @@ angular.module('gosteiclubApp')
             'BOX_DESC' : 'O Gostei é 100% Grátis. Participe!',
             'ACCESS_ACCOUNT' : 'ou acesse sua conta',
             'AGREE_WITH' : 'Concordo com os ',
-            'TERMS_CONDITIONS' : 'Termos e Condições'
+            'TERMS_CONDITIONS' : 'Termos e Condições',
+            'ACCEPT_EMAILS' : 'e aceito receber emails do gostei.club',
+            'ACCEPT_PARTNERS' : 'Aceito receber oportunidades dos ',
+            'PARTNERS' : 'Parceiros'
           };
           break;
 
@@ -179,7 +182,11 @@ angular.module('gosteiclubApp')
             'BOX_DESC': 'O Gostei é 100% Grátis. Participe!',
             'ACCESS_ACCOUNT': 'ou acesse sua conta',
             'AGREE_WITH': 'Concordo com os ',
-            'TERMS_CONDITIONS': 'Termos e Condições'
+            'TERMS_CONDITIONS': 'Termos e Condições',
+            'ACCEPT_EMAILS' : 'e aceito receber emails do gostei.club',
+            'ACCEPT_PARTNERS' : 'Aceito receber oportunidades dos ',
+            'PARTNERS' : 'Parceiros'
+
           }
           break;
 
@@ -196,7 +203,11 @@ angular.module('gosteiclubApp')
             'BOX_DESC': 'O Gostei é 100% Grátis. Participe!',
             'ACCESS_ACCOUNT': 'ou acesse sua conta',
             'AGREE_WITH': 'Concordo com os ',
-            'TERMS_CONDITIONS': 'Termos e Condições'
+            'TERMS_CONDITIONS': 'Termos e Condições',
+            'ACCEPT_EMAILS' : 'e aceito receber emails do gostei.club',
+            'ACCEPT_PARTNERS' : 'Aceito receber oportunidades dos ',
+            'PARTNERS' : 'Parceiros'
+
           }
           break;
 
@@ -393,7 +404,8 @@ angular.module('gosteiclubApp')
         'STATE_FAILED' : 'Preencha o estado',
         'CITY_FAILED' : 'Preencha a cidade',
         'STREET_FAILED' : 'Preencha o endereço',
-        'DDD_FAILED' : 'Preencha o DDD'
+        'DDD_FAILED' : 'Preencha o DDD',
+        'ISAGREEWITH' : 'Aceite os Termos e Condições'
 
 
       };

@@ -10,10 +10,12 @@ angular.module('gosteiclubApp')
       switch(SessionLanding.getLanguageOrigin()){
 
       case 'fr-FR':
+        $rootScope.titleModal = 'Conditions générales de vente';
         return this.getTermsConditionsTextFr();
         break;
 
       case 'pt-BR':
+        $rootScope.titleModal = 'Termos e Condições';
         return this.getTermsConditionsTextBr();
         break;
       }

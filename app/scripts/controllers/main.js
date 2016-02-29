@@ -10,11 +10,28 @@
 angular.module('gosteiclubApp')
   .controller('MainCtrl', function ($scope, $rootScope, $location, $modal, SessionLanding,
                                     deviceDetector, Cep, Canal, Allin, Menu, Utils, User, Login,
-                                    $http, Product, $translate, TermsConditions, Malling) {
+                                    $http, Product, $translate, TermsConditions, Malling, Partners) {
 
     $scope.googleAnaliticsId = '';
     $rootScope.isFR = (SessionLanding.getLanguageOrigin() === 'fr-FR');
     $rootScope.isBR = (SessionLanding.getLanguageOrigin() === 'pt-BR');
+
+    $scope.isPartnersAllowed = true;
+    $scope.partners = [];
+    $scope.isAgreeWith = true;
+
+
+    /**
+     * Parceiros
+     */
+    $http.get('/api/sponsoring').success(function(dataResult){
+
+      for(var x=0; x<dataResult.length; x++){
+        if(dataResult[x].partner.isPartner){
+          $scope.partners.push(dataResult[x].partner);
+        }
+      }
+    }).error(function(){});
 
 
     if(User.isUserFromEmail($location)){
@@ -87,6 +104,10 @@ angular.module('gosteiclubApp')
 
     $scope.showTermos = function(){
       $rootScope.textModal = TermsConditions.getTermsConditionsText();
+    };
+
+    $scope.showPartners = function(){
+      $rootScope.textModal = Partners.getPartners($scope.partners);
     };
 
 
@@ -181,7 +202,7 @@ angular.module('gosteiclubApp')
 
       // Envia Sponsorings
       $http.post('/api/users/'+data._id +'/sponsoring'
-        + '?sessionlanding='+$rootScope.sessionLanding._id
+        + '?sessionlanding='+$rootScope.sessionLanding._id+'&isPartnerAllowed='+$scope.isPartnersAllowed
         + '&deviceAccess='+$rootScope.deviceAccess).success(function(dataResult){
         }).error(function(){});
 
@@ -333,10 +354,14 @@ angular.module('gosteiclubApp')
       $scope.bgBirthColor = '#FFFFFF';
       $scope.bgZipCodeColor = '#FFFFFF';
 
+
+
       if (!Utils.isEmpty(user)) {
 
 
-        if($rootScope.sessionLanding.languageOrigin != 'fr-FR'){
+
+
+        if($rootScope.sessionLanding.languageOrigin === 'pt-BR'){
 
           if (Utils.isEmpty(user.ddd)) {
             setMessageOnField('ddd', $translate.instant('VALIDATION.DDD_FAILED'));
@@ -405,11 +430,6 @@ angular.module('gosteiclubApp')
         }
 
 
-
-
-
-
-
         if (Utils.isEmpty(user.birthDate)) {
 
           setMessageOnField('birthDate', $translate.instant('VALIDATION.FORM_FAILED'));
@@ -440,6 +460,13 @@ angular.module('gosteiclubApp')
           setMessageOnField('zipcode', $translate.instant('VALIDATION.ZIPCODE_FAILED'));
           return false;
 
+        }
+
+
+
+        if(!$scope.isAgreeWith){
+          setMessageOnField('isAgreeWith', $translate.instant('VALIDATION.ISAGREEWITH'));
+          return false;
         }
 
 
@@ -541,6 +568,13 @@ angular.module('gosteiclubApp')
           $scope.bgMsgColor = '#749c0d';
           $scope.bgEmailAlreadyColor = '#3498db';
           angular.element('#checkoutButton').html('Entrar');
+          break;
+
+
+        case 'isAgreeWith':
+
+          $scope.bgMsgColor = msgErrorColor;
+          angular.element('#isAgreeWith').focus();
           break;
       }
     }

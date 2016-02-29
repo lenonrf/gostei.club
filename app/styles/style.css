@@ -442,7 +442,7 @@ button:hover {
 input:focus, textarea:focus {
 	outline:0;
 }
-
+/*
 input[type=checkbox] {
 	display: none;
 }
@@ -479,7 +479,7 @@ input[type=checkbox].css-checkbox + label.css-label {
 input[type=checkbox].css-checkbox:checked + label.css-label {
 	background-position: 0 -22px;
 }
-
+*/
 label.css-label {
 	background-image: url(../images/cbox.png);
 	-webkit-touch-callout: none;
