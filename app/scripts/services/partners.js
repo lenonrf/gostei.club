@@ -10,7 +10,7 @@ angular.module('gosteiclubApp')
       switch (SessionLanding.getLanguageOrigin()) {
 
         case 'fr-FR':
-          $rootScope.titleModal = 'Partenaires';
+          $rootScope.titleModal = 'Sponsor';
           return this.getPartnersText(partners);
           break;
 
