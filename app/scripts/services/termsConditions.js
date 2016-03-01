@@ -61,8 +61,8 @@ angular.module('gosteiclubApp')
         '<p><b>6. O tratamento responsável</b></p>' +
         '<p>O proprietário dos dados fornecidos pelos usuários é Gostei.club. O processador de dados é a pessoa responsável pela empresa de gestão de banco de dados. Em seu pedido, o proprietário vai fornecer o nome do seu processador de dados. </p>' +
         '<br>' +
-        '<p><b>7. Direitos de artigo 7 do Código</b></p>' +
-        '<p>Os indivíduos cujos dados pessoais são recolhidos e processados têm o direito a qualquer momento de obter a confirmação da existência desses dados e de conhecer o conteúdo e a origem, além de verificar sua exatidão ou solicitar sua integração, atualização, correção.</p>' +
+        '<p><b>8 - Propriedade Intelectual</b></p>' +
+        '<p>O Gostei.club é um site explorado pela empresa SPMEG Produtora e Internet Eireli, CNPJ: 20.259.749/0001-65, Rua Pais Leme 136 cj 807 Pinheiros – São Paulo – SP - Brasil, CEP: 05424-010</p>'+
         '<br><br><br><br><br>';
     };
 
