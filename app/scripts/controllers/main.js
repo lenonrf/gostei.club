@@ -307,7 +307,7 @@ angular.module('gosteiclubApp')
 
           user.name = user.name.trim();
 
-          var isFullName = /^(([A-Za-z\u00E0-\u00FC]+[\-\']?)*([A-Za-z\u00E0-\u00FC]+)?\s)+([A-Za-z\u00E0-\u00FC]+[\-\']?)*([A-Za-z\u00E0-\u00FC]+)?$/.test(user.name);
+          var isFullName = /^(([A-Za-zàèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸçÇßØøÅåÆæœ]+[\-\']?)*([A-Za-zàèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸçÇßØøÅåÆæœ]+)?\s)+([A-Za-zàèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸçÇßØøÅåÆæœ]+[\-\']?)*([A-Za-zàèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸçÇßØøÅåÆæœ]+)?$/.test(user.name);
 
           if(!isFullName){
             setMessageOnField('name', $translate.instant('VALIDATION.FULLNAME_FAILED'));
