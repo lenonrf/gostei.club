@@ -115,7 +115,7 @@ angular.module('gosteiclubApp')
             'ACCESS_ACCOUNT' : 'Ou accédez à votre compte',
             'AGREE_WITH' : 'J’accepte les ',
             'TERMS_CONDITIONS' : 'conditions générales de vente',
-            'ACCEPT_EMAILS' : 'et accepter de recevoir des courriels de gostei.club',
+            'ACCEPT_EMAILS' : 'et accepter de recevoir des courriels de opportunites.club',
             'ACCEPT_PARTNERS' : 'J’accepte de recevoir les offres  ',
             'PARTNERS' : 'sponsors'
 
