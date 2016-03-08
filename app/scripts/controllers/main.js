@@ -329,6 +329,13 @@ angular.module('gosteiclubApp')
         }
 
 
+
+        if(!$scope.isAgreeWith){
+          setMessageOnField('isAgreeWith', $translate.instant('VALIDATION.ISAGREEWITH'));
+          return false;
+        }
+
+
       } else {
 
         $scope.bgMsgColor = '#CD0000';
@@ -465,10 +472,6 @@ angular.module('gosteiclubApp')
 
 
 
-        if(!$scope.isAgreeWith){
-          setMessageOnField('isAgreeWith', $translate.instant('VALIDATION.ISAGREEWITH'));
-          return false;
-        }
 
 
       } else {
