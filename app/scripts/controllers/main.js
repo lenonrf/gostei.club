@@ -155,8 +155,8 @@ angular.module('gosteiclubApp')
 
 
         User.resource.save(user, function(data){
-          //Malling.createContact(data);
-          //Malling.sendWelcomeMail(data);
+          Malling.createContact(data);
+          Malling.sendWelcomeMail(data);
           //Allin.sendDataToWelcomeLifeCycle(data);
           showStep2();
         });
@@ -206,7 +206,7 @@ angular.module('gosteiclubApp')
         + '&deviceAccess='+$rootScope.deviceAccess).success(function(dataResult){
         }).error(function(){});
 
-      //Malling.updateContact(data);
+      Malling.updateContact(data);
 
 
       User.setData(data);
