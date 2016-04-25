@@ -6,6 +6,7 @@ angular.module('gosteiclubApp')
 
 
     $scope.isFR = (SessionLanding.getLanguageOrigin() === 'fr-FR');
+    $scope.isMX = (SessionLanding.getLanguageOrigin() === 'es-MX');
 
 
     $scope.showPoliticaPrivacidade = function(){

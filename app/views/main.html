@@ -136,7 +136,7 @@
             <!--<div ng-show="showFormFields_STEP2">-->
             <div ng-show="showFormFields_STEP2">
 
-              <div class="row" ng-show="isFR">
+              <div class="row" ng-show="isFR  || isMX">
                 <div class="col-md-5">
                   <label style="color:#898989;">{{'FIELDS.TELEPHONE' | translate}}</label>
                   <input ng-style="{'background-color': bgTelephoneColor}" type="text" maxlength="10" name="cellphone" id="telefone" class="email"
@@ -175,14 +175,14 @@
 
                 </div>
 
-                <div class="col-md-5" ng-show="sessionLanding.languageOrigin != 'fr-FR'">
+                <div class="col-md-5" ng-show="isFR === false">
                   <label style="color:#898989;">{{'FIELDS.ZIPCODE' | translate}}</label>
                   <input ng-style="{'background-color': bgZipCodeColor}" type="text" name="zipcode" id="zipcode" class="email"
                           ng-model="user.address.zipcode" style="margin-bottom:15px;">
 
                 </div>
 
-                <div class="col-md-5" ng-show="sessionLanding.languageOrigin === 'fr-FR'">
+                <div class="col-md-5" ng-show="isFR">
                   <label style="color:#898989;">{{'FIELDS.ZIPCODE' | translate}}</label>
                   <input ng-style="{'background-color': bgZipCodeColor}" type="text" name="zipcode" id="zipcode" class="email"
                          ng-model="user.address.zipcode" style="margin-bottom:15px;" maxlength="5">

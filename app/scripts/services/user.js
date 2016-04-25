@@ -88,6 +88,8 @@
          languagePrefix = 'BR';
        }else if(sessionLanding.languageOrigin === 'fr-FR'){
          languagePrefix = 'FR';
+       }else if(sessionLanding.languageOrigin === 'es-MX'){
+         languagePrefix = 'MX';
        }
 
        var devicePrefix = '';

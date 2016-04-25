@@ -8,7 +8,7 @@
  * Factory in the gosteiclubApp.
  */
 angular.module('gosteiclubApp')
-  .factory('Canal', function ($resource, $http, Utils) {
+  .factory('Canal', function ($resource, $http, Utils, SessionLanding) {
 
     this.data = {};
     var self = this;
@@ -39,8 +39,25 @@ angular.module('gosteiclubApp')
      * @param location
      * @returns {string}
      */
-    this.defineUserCanal = function(location){
+    this.getCanalCode = function(location){
 
+
+      switch(SessionLanding.getLanguageOrigin()){
+        case 'fr-FR':
+          return 'opportunites.club'
+          break;
+
+        case 'pt-BR':
+          return 'gostei.club'
+          break;
+
+        case 'es-MX':
+          return 'megusta'
+          break;
+      }
+
+
+      /*
       var canalParam = location.host(); //'gostei.club';
       canalParam = canalParam.replace('www.','');
 
@@ -49,7 +66,7 @@ angular.module('gosteiclubApp')
       }
 
       return 'gostei.club';
-
+      */
 
     };
 

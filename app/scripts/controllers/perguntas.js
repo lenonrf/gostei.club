@@ -62,8 +62,13 @@ angular.module('gosteiclubApp')
 
       $scope.isBR = (SessionLanding.getLanguageOrigin() === 'pt-BR');
       $scope.isFR = (SessionLanding.getLanguageOrigin() === 'fr-FR');
+      $scope.isMX = (SessionLanding.getLanguageOrigin() === 'es-MX');
 
       switch($rootScope.sessionLanding.languageOrigin){
+
+        case 'es-MX':
+          $scope.pixelFacebookId = 0;
+          break;
 
         case 'fr-FR':
           $scope.pixelFacebookId = 6045526204254;
@@ -188,6 +193,8 @@ angular.module('gosteiclubApp')
         return null;
       }
 
+      console.log('$rootScope.sessionLanding', $rootScope.sessionLanding);
+
       $http.get('/api/oportunities/user/'+$scope.user._id
         +'?sessionlanding='+$rootScope.sessionLanding._id
         +'&deviceAccess='+$rootScope.deviceAccess).success(function(data){
@@ -195,11 +202,15 @@ angular.module('gosteiclubApp')
         $scope.campaings = data;
         $scope.corredor = [];
 
+
         for(var i=0; i<$scope.campaings.length; i++){
           if($scope.campaings[i].isQuestion === true){
             $scope.corredor.push($scope.campaings[i]);
           }
         }
+
+        console.log('$scope.campaings', $scope.campaings);
+        console.log('$scope.corredor', $scope.corredor);
 
         $scope.question = {
 

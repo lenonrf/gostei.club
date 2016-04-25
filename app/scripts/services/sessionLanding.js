@@ -114,6 +114,13 @@ angular.module('gosteiclubApp')
           case 'videncias.gostei.club':
             sessionCode = 'videncias';
             break;
+
+        case 'www.me-gusta.com.mx':
+        case 'me-gusta.com.mx':
+        case 'megusta.com.es':
+        case 'www.megusta.com.es':
+          sessionCode = 'megusta';
+          break;
       }
 
       return sessionCode;
@@ -126,6 +133,14 @@ angular.module('gosteiclubApp')
     this.getLanguageOrigin = function(){
 
       switch ($location.host()){
+
+
+        case 'me-gusta.com.mx':
+        case 'www.me-gusta.com.mx':
+        case 'megusta.com.es':
+        case 'www.megusta.com.es':
+          return 'es-MX'
+          break;
 
         case 'www.opportunités.club':
         case 'opportunités.club':
@@ -167,6 +182,7 @@ angular.module('gosteiclubApp')
       switch (sessionCode){
 
 
+        case 'megusta':
         case 'echantillon':
         case 'amostras':
 

@@ -15,6 +15,7 @@ angular.module('gosteiclubApp')
     $scope.googleAnaliticsId = '';
     $rootScope.isFR = (SessionLanding.getLanguageOrigin() === 'fr-FR');
     $rootScope.isBR = (SessionLanding.getLanguageOrigin() === 'pt-BR');
+    $scope.isMX = (SessionLanding.getLanguageOrigin() === 'es-MX');
 
     $scope.isPartnersAllowed = true;
     $scope.partners = [];
@@ -89,17 +90,14 @@ angular.module('gosteiclubApp')
 
 
 
-    var canal = (sessionCode === 'echantillon') ? 'opportunites.club' : 'gostei.club';
-    Canal.resource.query(
-      //{code: Canal.defineUserCanal($location)}, function(data){
-      {code: canal}, function(data){
-        $scope.user.canal =  data[0]._id;
+    Canal.resource.query({code: Canal.getCanalCode($location) }, function(data){
+      $scope.user.canal =  data[0]._id;
     });
+
 
     Product.resource.query(function(data){
       $scope.products = data;
     }, function(err){ });
-
 
 
     $scope.showTermos = function(){
@@ -157,8 +155,8 @@ angular.module('gosteiclubApp')
 
 
         User.resource.save(user, function(data){
-          Malling.createContact(data);
-          Malling.sendWelcomeMail(data);
+          //Malling.createContact(data);
+          //Malling.sendWelcomeMail(data);
           //Allin.sendDataToWelcomeLifeCycle(data);
           showStep2();
         });
@@ -182,7 +180,8 @@ angular.module('gosteiclubApp')
         user.cellphone = user.ddd+''+user.cellphone;
       }
 
-      if(SessionLanding.getLanguageOrigin() === 'fr-FR'){
+      if(SessionLanding.getLanguageOrigin() === 'fr-FR' ||
+         SessionLanding.getLanguageOrigin() === 'es-MX'){
         user.cellphone = user.cellphoneFR;
         user.telephone = user.telephoneFR;
       }
@@ -207,7 +206,7 @@ angular.module('gosteiclubApp')
         + '&deviceAccess='+$rootScope.deviceAccess).success(function(dataResult){
         }).error(function(){});
 
-      Malling.updateContact(data);
+      //Malling.updateContact(data);
 
 
       User.setData(data);
@@ -370,7 +369,7 @@ angular.module('gosteiclubApp')
 
 
 
-        if($rootScope.sessionLanding.languageOrigin === 'pt-BR'){
+        if(SessionLanding.getLanguageOrigin() === 'pt-BR'){
 
           if (Utils.isEmpty(user.ddd)) {
             setMessageOnField('ddd', $translate.instant('VALIDATION.DDD_FAILED'));
@@ -379,7 +378,8 @@ angular.module('gosteiclubApp')
         }
 
 
-        if($rootScope.sessionLanding.languageOrigin === 'fr-FR'){
+        if(SessionLanding.getLanguageOrigin() === 'fr-FR'||
+          SessionLanding.getLanguageOrigin() === 'es-MX'){
 
           if (Utils.isEmpty(user.telephoneFR)) {
 
@@ -393,17 +393,21 @@ angular.module('gosteiclubApp')
               return false;
             }
 
-            if((user.telephoneFR.startsWith('01'))
-              || (user.telephoneFR.startsWith('02'))
-              || (user.telephoneFR.startsWith('03'))
-              || (user.telephoneFR.startsWith('04'))
-              || (user.telephoneFR.startsWith('05'))
-              || (user.telephoneFR.startsWith('09'))){
+            if(SessionLanding.getLanguageOrigin() === 'fr-FR'){
 
-            }else{
-              setMessageOnField('telephone', $translate.instant('VALIDATION.TELEPHONE_FAILED'));
-              return false;
+              if((user.telephoneFR.startsWith('01'))
+                || (user.telephoneFR.startsWith('02'))
+                || (user.telephoneFR.startsWith('03'))
+                || (user.telephoneFR.startsWith('04'))
+                || (user.telephoneFR.startsWith('05'))
+                || (user.telephoneFR.startsWith('09'))){
+
+              }else{
+                setMessageOnField('telephone', $translate.instant('VALIDATION.TELEPHONE_FAILED'));
+                return false;
+              }
             }
+
           }
 
 
@@ -419,12 +423,16 @@ angular.module('gosteiclubApp')
               return false;
             }
 
-            if((user.cellphoneFR.startsWith('06'))
-              || (user.cellphoneFR.startsWith('07'))){
+            if(SessionLanding.getLanguageOrigin() === 'fr-FR'){
 
-            }else{
-              setMessageOnField('cellphone', $translate.instant('VALIDATION.CELLPHONE_FAILED'));
-              return false;
+
+              if((user.cellphoneFR.startsWith('06'))
+                || (user.cellphoneFR.startsWith('07'))){
+
+              }else{
+                setMessageOnField('cellphone', $translate.instant('VALIDATION.CELLPHONE_FAILED'));
+                return false;
+              }
             }
           }
 

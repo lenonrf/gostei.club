@@ -19,7 +19,7 @@ angular
 
   ])
   .config(function ($locationProvider, $routeProvider, $httpProvider, $translateProvider,
-                    AppTranslateFRProvider, AppTranslateBRProvider, showErrorsConfigProvider) {
+                    AppTranslateFRProvider, AppTranslateMXProvider, AppTranslateBRProvider, showErrorsConfigProvider) {
 
 
 
@@ -156,6 +156,33 @@ angular
     });
 
 
+
+    $translateProvider.translations('es-MX', {
+
+      'LOGO_IMG' : AppTranslateMXProvider.getLogo(),
+      'LOGO_SIZE' : '140px',
+
+      'TITLE'   : AppTranslateMXProvider.getTitle(),
+      'MAIN'    : AppTranslateMXProvider.getMain(),
+      'BRANDS'  : AppTranslateMXProvider.getBrands(),
+      'BGHOME'  : AppTranslateMXProvider.getBgHome(),
+      'MENU'    : AppTranslateMXProvider.getMenuItems(),
+      'FIELDS'  : AppTranslateMXProvider.getFields(),
+      'DEGRACA' : AppTranslateMXProvider.getItsFree(),
+      'FOOTER'  : AppTranslateMXProvider.getFooter(),
+      'TESTIMONIALS' : AppTranslateMXProvider.getTestimonials(),
+      'OPORTUNITY'   : AppTranslateMXProvider.getOportunity(),
+
+      'HALL' : AppTranslateMXProvider.getHall(),
+      'HOME' : AppTranslateMXProvider.getHome(),
+      'VALIDATION' : AppTranslateMXProvider.getValidation()
+
+
+    });
+
+
+
+
     $translateProvider.preferredLanguage('pt-BR');
     $translateProvider.useSanitizeValueStrategy('escapeParameters');
 
@@ -194,6 +221,17 @@ angular
             config.headers['x-language-origin'] = 'fr-FR';
             $translate.use('fr-FR');
             break;
+
+
+          case 'me-gusta.com.mx':
+          case 'www.me-gusta.com.mx':
+          case 'megusta.com.es':
+          case 'www.megusta.com.es':
+            config.headers['x-language-origin'] = 'es-MX';
+            $translate.use('es-MX');
+            break;
+
+
         }
 
         return config;

@@ -9,15 +9,20 @@ angular.module('gosteiclubApp')
 
       switch(SessionLanding.getLanguageOrigin()){
 
-      case 'fr-FR':
-        $rootScope.titleModal = 'Conditions générales de vente';
-        return this.getTermsConditionsTextFr();
-        break;
+        case 'es-MX':
+          $rootScope.titleModal = 'Política de privacidad';
+          return this.getTermsConditionsTextMx();
+          break;
 
-      case 'pt-BR':
-        $rootScope.titleModal = 'Termos e Condições';
-        return this.getTermsConditionsTextBr();
-        break;
+        case 'fr-FR':
+          $rootScope.titleModal = 'Conditions générales de vente';
+          return this.getTermsConditionsTextFr();
+          break;
+
+        case 'pt-BR':
+          $rootScope.titleModal = 'Termos e Condições';
+          return this.getTermsConditionsTextBr();
+          break;
       }
 
     };
@@ -68,6 +73,88 @@ angular.module('gosteiclubApp')
       '<p>O Gostei.club é um site explorado pela empresa SPMEG Produtora e Internet Eireli, CNPJ: 20.259.749/0001-65, Rua Pais Leme 136 cj 807 Pinheiros – São Paulo – SP - Brasil, CEP: 05424-010</p>'+
       '<br><br><br><br><br>';
     };
+
+
+
+
+
+
+    this.getTermsConditionsTextMx = function(){
+
+      return '<p><b>1. PRESENTACIÓN Y DERECHO DE INFORMACIÓN:</p></b>' +
+        '<p>MEGUSTA.MX.COM se toma muy en serio la protección de su privacidad y de sus datos personales. Por lo tanto, su información personal se conserva de forma segura y se trata con el máximo cuidado, estando el fichero inscrito en el Registro General de Protección de Datos. La presente política de privacidad regula el acceso y el uso del servicio este Sitio Web (en adelante, el "Sitio Web"), que MEGUSTA.MX.COM, con domicilio social Rua Pais Leme,136 CJ 807 São Paulo CEP: 05420­010 Brasil. pone a disposición de los Usuarios (en adelante, los "Usuarios" o el "Usuario") interesados en los servicios que se prestan a través del Sitio Web.</p>' +
+        '<br>' +
+        '<p><b>2. RECOMENDACIONES:</b></p>' +
+        '<p>Por favor lea detenidamente y siga las siguientes recomendaciones:</p>' +
+        '<p>El Sitio Web no está dirigido a menores de edad. Por favor active el control parental para prevenir y controlar el acceso de menores de edad a Internet e informar a los menores de edad sobre aspectos relativos a la seguridad.</p>' +
+        '<p>Mantenga en su equipo un software antivirus instalado y debidamente actualizado, que garantice que su equipo se encuentra libre de software maligno, así como de aplicaciones spyware que pongan en riesgo su navegación en Internet, y en peligro la información alojada en el equipo.</p>' +
+        '<p>Revise y lea los textos legales, así como la presente Política de Privacidad que MEGUSTA.MX.COM pone a su disposición en el Sitio Web.</p>' +
+
+        '<br>' +
+        '<p><b>3. CONTENIDO DE LA POLÍTICA DE PRIVACIDAD</b></p>' +
+        '<br>' +
+        '<p><b>3.1 Aceptación de la Política de Privacidad</b></p>' +
+
+        '<p>El Usuario acepta expresamente la presente Política de Privacidad y otorga su consentimiento expreso al tratamiento automatizado de los datos personales facilitados. No obstante, el Usuario podrá revocar el consentimiento, en cada comunicado comercial o publicitario que se le haga llegar, y en cualquier momento, mediante notificación en la siguiente dirección de correo electrónico baja@megusta.mx.com o mediante carta dirigida a Rua Pais Leme,136 CJ 807 São Paulo CEP: 05420­010 Brasil.</p>' +
+        '<p>MEGUSTA.MX.COM se compromete a que los datos de carácter personal solicitados serán los estrictamente necesarios para llevar a cabo el servicio demandado. Se le informará en su caso de la obligatoriedad de facilitar determinados datos, sin los cuales no sería posible llevar a cabo la prestación.</p>' +
+        '<p>Asimismo, el Usuario al facilitar sus datos a través del formulario, garantiza que ha leído y acepta las Políticas de Privacidad de los Sponsors de la promoción.</p>' +
+        '<br>' +
+        '<p><b>3.2 Descripción de los tratamientos de datos que se realizan a través del Portal</b></p>' +
+        '<br>' +
+        '<p>MEGUSTA.MX.COMcumple con las exigencias establecidas en la Ley Orgánica 15/1999 de 13 de diciembre, sobre Protección de Datos de Carácter Personal (LOPD) y el Real Decreto 1720/2007, de 21 de diciembre, por el que se aprueba el Reglamento de desarrollo de la LOPD (RLOPD), así como con las disposiciones de la Ley 34/2002 de 11 de julio, de Servicios de Sociedad de la Información (LSSI) y la Ley 9/2014, de 9 de mayo, General de Telecomunicaciones (LGT). Sus datos personales son tratados de acuerdo con lo dispuesto en dicha normativa, guardándose las medidas técnicas, organizativas y de seguridad necesarias para garantizar la confidencialidad de los mismos y para evitar su alteración, pérdida y tratamiento o acceso no autorizados. En cumplimiento de lo dispuesto en la LOPD y su normativa de desarrollo, ponemos  en conocimiento del Usuario que los datos recabados a través de cualesquiera formularios de recogida de datos del Sitio Web serán incorporados a un fichero automatizado de datos de carácter personal del que es responsable NETSALES. Todos los campos de los formularios de recogida de datos serán de obligada cumplimentación, de tal modo que la omisión de alguno de ellos comportará la imposibilidad de que podamos atender su solicitud. Sus datos de carácter personal podrán ser utilizados por MEGUSTA.MX.COMcon las siguientes finalidades: (i) la prestación de servicios de publicidad y prospección comercial, incluyendo la remisión al usuario mediante cualquier canal, incluidos los electrónicos, de ofertas e información de productos y servicios tanto propios como de terceras empresas exclusivamente pertenecientes a los sectores de: • Marketing o pertenecientes a Adigital • Telecomunicaciones: Productos y Servicios de telecomunicaciones y tecnología. • Financiero: Prestados por entidades financieras, Aseguradoras y de Previsión social. • Ocio: Editorial, Turismo, Deportes, Coleccionismo, Fotografía, Pasatiempos, Juguetería, Transporte, Jardinería, Hobbies, Loterías, peñas de loterías, Comunicación y entretenimiento. • Gran consumo: Electrónica, Informática, Textil, Imagen y Sonido, Complementos, Hogar, Bazar, Cuidado personal (Cosmética, Perfumería, Parafarmacia, especialidades Farmacéuticas publicitarias) Mobiliario, Inmobiliario, Alimentación y Bebidas, salud y belleza, Material de oficina. Moda y decoración. • Automoción: Productos y Servicios relacionados con el Automóvil, Motocicletas y Camiones. • Energía y agua: Productos relacionados con la Electricidad, Hidrocarburos, Gas y Agua. • ONG: Productos y Servicios relacionados con ONG e ideologías. • Joyería y piedras preciosas: productos y servicios relacionados con la joyería, bisutería y piedras preciosas. (ii) el estudio de la utilización de los servicios por parte del usuario; (iii) verificar, mantener y desarrollar sistemas y análisis estadísticos; (iv) gestionar la participación del usuario en los distintos sorteos, concursos y/o promociones en los que se haya inscrito; (v) enviar formularios de encuestas, que el Usuario no queda obligado a contestar y; (vi) recibir llamadas automáticas o mensajes SMS con fines de venta directa, publicitarios, o relacionados con el servicio contratado o cualquiera de sus finalidades. Los datos personales serán tratados con el grado de protección legalmente exigido para evitar que se produzca cualquier pérdida, alteración, tratamiento o acceso no autorizado. El Usuario acepta que las medidas de seguridad en Internet no son inexpugnables.  </p>' +
+        '<br>' +
+        '<p><b>3.3 Comunicaciones comerciales por parte de los patrocinadores y cesión de datos</b></p>' +
+        '<br>' +
+        '<p><b>3.3 a) Cesiones a patrocinadores:</b></p>' +
+        '<br>' +
+        '<p> Mediante la aceptación de esta Política de Privacidad Usted consiente expresamente que sus datos puedan ser utilizados y/o cedidos a las empresas patrocinadoras, cuyos datos se pueden consultar directamente en el apartado "Patrocinadores" en el Sitio Web. Al aceptar estas condiciones Usted conoce y acepta recibir comunicaciones comerciales de las empresas patrocinadoras. </p>' +
+        '<br>' +
+        '<p><b>3.3 b) Cesiones a empresas del grupo MEGUSTA.MX</b></p>' +
+        '<br>' +
+        '<p> Asimismo sus datos podrán ser cedidos a las empresas del grupo de MEGUSTA.MX. cuya actividad es la prestación de servicios de marketing online y e­mail marketing. La finalidad de la cesión será la utilización de sus datos para remitirle comunicaciones comerciales y/o para depurar y segmentar sus datos personales. En concreto, el fin de tales cesiones será el envío, por carta, teléfono, correo electrónico, SMS/MMS, o por otros medios de comunicación electrónica equivalentes, a través nuestro o de otras entidades, publicidad y ofertas comerciales y de servicios relacionados con los sectores especificados en el apartado 3.2 de la presente Política de Privacidad. </p>' +
+        '<br>' +
+        '<p><b>3.3. c) Cesiones a terceras empresas:</b></p>' +
+        '<br>' +
+        '<p> Del mismo modo, sus datos podrán ser cedidos a otras terceras empresas, con la finalidad de poder prestarle servicios de publicidad y remitirle comunicaciones comerciales de estas terceras empresas, mediante carta, teléfono, correo electrónico, SMS/MMS, o por otros medios de comunicación electrónica equivalentes, en relación con de los sectores especificados en el apartado.  </p>' +
+        '<br>' +
+
+        '<p><b>3.4 Tratamiento de datos con fines estadísticos</b></p>' +
+        '<br>' +
+        '<p> Asimismo, le informamos que Usted consiente el tratamiento de sus datos para la elaboración de perfiles, así como para la segmentación de sus datos. Los citados tratamientos pueden tener como finalidad tanto el análisis y realización de estadísticas para conocer el tráfico y utilización del Sitio Web por parte de los Usuarios, como la determinación de sus gustos y preferencias para remitirle información promocional de los patrocinadores o de terceras empresas acorde con sus intereses. </p>' +
+        '<br>' +
+        '<p><b>3.5 Seguridad</b></p>' +
+        '<br>' +
+        '<p> MEGUSTA.MX.COMt iene implantadas las medidas de índole técnica y organizativas necesarias que garanticen la seguridad de sus datos y eviten su alteración, pérdida, tratamiento o acceso no autorizado, habida cuenta del estado de la tecnología, la naturaleza de los datos almacenados y los riesgos a que están expuestos, todo ello en cumplimiento de los dispuesto en el RLOPD. </p>' +
+        '<br>' +
+        '<p><b>3.6 Enlaces</b></p>' +
+        '<br>' +
+        '<p> Este Sitio Web puede contener enlaces a otros sitios web. Tenga en cuenta que no somos responsables del tratamiento de datos que puedan realizar los titulares de otros sitios web. La presente Política de Privacidad se aplica exclusivamente a la información que recopilamos en este Sitio Web. Le recomendamos que lea las políticas de privacidad de otros sitios web con los que enlace desde nuestro Sitio Web o que visite de cualquier otro modo. </p>' +
+        '<br>' +
+        '<p><b>3.7 Calidad de los datos</b></p>' +
+        '<br>' +
+        '<p> El Usuario se compromete a comunicar a MEGUSTA.MX.COM cualquier modificación de sus datos de carácter personal a fin de que los mismos se encuentren actualizados en todo momento y no contengan errores. Asimismo, el Usuario declara que los datos que facilita a través de los distintos formularios de recogida de datos son exactos y veraces. </p>' +
+        '<br>' +
+        '<p><b>3.8 Ejercicio de los derechos de acceso, rectificación, cancelación y oposición</b></p>' +
+        '<br>' +
+        '<p> Ponemos en conocimiento del Usuario que podrá ejercer, en cualquier momento, sus derechos de acceso, rectificación, cancelación y oposición al tratamiento de sus datos mediante la remisión de una comunicación escrita, incluyendo copia de su Documento Nacional de Identidad, a la siguiente dirección: Departamento legal de MEGUSTA.MX.COM Rua Pais Leme,136 CJ 807 São Paulo CEP: 05420­010 Brasil. También podrá ejercitar sus derechos de acceso, rectificación, cancelación y oposición mediante correo electrónico a la dirección baja@netsalesfactory.com, o bien utilizando los medios específicos que se reconozcan en las propias comunicaciones comerciales. </p>' +
+        '<br>' +
+        '<p><b>4. COOKIES</b></p>' +
+        '<br>' +
+        '<p> De conformidad con el artículo 22.2 de la Ley 34/2012, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico, MEGUSTA.MX.COM ofrece al usuario que accede al "Sitio Web " aceptar o rechazar la utilización de cookies en su navegador. Las cookies son ficheros enviados al navegador por medio de un servidor web con la finalidad de registrar las actividades del usuario durante su tiempo de navegación. Las cookies utilizadas por el sitio web se asocian únicamente con un usuario anónimo y su ordenador, y no proporcionan por sí mismas los datos personales del usuario. Mediante el uso de las cookies resulta posible que el servidor donde se encuentra la web, reconozca el navegador web utilizado por el usuario con la finalidad de que la navegación sea más sencilla, permitiendo, por ejemplo, el acceso a los usuarios que se hayan registrado previamente, acceder a las áreas, servicios, promociones o concursos reservados exclusivamente a ellos sin tener que registrarse en cada visita. Se utilizan también para medir la audiencia y parámetros del tráfico, controlar el progreso y número de entradas. Para más información pinche en el enlace de "política de cookies" Así mismo, y mediante la aceptación de la presente Política de Privacidad, el Usuario acepta los servicios de email retargeting mediante los cuales se podrán llevar a cabo el envío de comunicaciones comerciales. El Usuario consiente que dichas comunicaciones comerciales contengan dispositivos de almacenamiento o cookies de publicidad que se instalarán en su navegador. Estos servicios de email retargeting tienen como finalidad proporcionar más información sobre productos o servicios que puedan interesar al Usuario mediante: • La instalación de dispositivos de almacenamiento y recuperación de datos o cookies en equipos terminales en algunos de los correos electrónicos enviados a los usuarios. • Envío de correos electrónicos con comunicaciones comerciales a los que se haya instalado las Cookies mediante la visita de una página web o mediante la instalación a través de correo electrónico. Además, en cada comunicación comercial que contenga cookies, se informará al usuario de qué tipo de cookies contiene y cómo desactivarlas. En todo caso, el usuario, mediante la aceptación de la política de protección de datos y de privacidad del Sitio Web, salvo mención expresa en contrario por el usuario, acepta expresamente que MEGUSTA.MX.COM pueda utilizar las cookies. En cualquier caso, el usuario tiene la posibilidad de configurar su navegador para ser avisado de la recepción de cookies y para impedir su instalación en su equipo. Por favor, consulte las instrucciones y manuales de su navegador para ampliar esta información. Puede obtener más información acerca del funcionamiento de las cookies en http://www.youronlinechoices.com/es/</p>' +
+        '<br>' +
+        '<p><b>5. PREGUNTAS</b></p>' +
+        '<br>' +
+        '<p> Si tiene alguna pregunta sobre la presente Política de Privacidad, le rogamos que se ponga en contacto con nosotros enviando un correo electrónico a la dirección baja@megusta.mx.com</p>' +
+        '<br>' +
+        '<br>' +'<p><b>6. CAMBIOS</b></p>' +
+
+        '<p> MEGUSTA.MX.COM se reserva el derecho de revisar su Política de Privacidad en el momento que lo considere oportuno. Por esta razón, le rogamos que compruebe de forma regular esta Política de Privacidad para leer la versión más reciente publicada por parte de MEGUSTAMX.COM</p>' +
+        '<br><br><br><br><br>';
+    };
+
+
+
+
 
     return this;
 
