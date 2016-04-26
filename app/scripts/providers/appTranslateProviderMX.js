@@ -152,7 +152,7 @@ angular.module('gosteiclubApp')
 
 
     this.getBgHome = function(){
-      return 'http://gosteiclub-12bd.kxcdn.com/images/bonecos_home_fr.png';
+      return 'http://gosteiclub-12bd.kxcdn.com/images/bonecos_home_mx.png';
     };
 
 
