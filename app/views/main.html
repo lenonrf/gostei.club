@@ -133,10 +133,9 @@
             </div>
 
 
-            <!--<div ng-show="showFormFields_STEP2">-->
             <div ng-show="showFormFields_STEP2">
 
-              <div class="row" ng-show="isFR  || isMX">
+              <div class="row" ng-show="isFR">
                 <div class="col-md-5">
                   <label style="color:#898989;">{{'FIELDS.TELEPHONE' | translate}}</label>
                   <input ng-style="{'background-color': bgTelephoneColor}" type="text" maxlength="10" name="cellphone" id="telefone" class="email"
@@ -151,6 +150,24 @@
               </div>
 
 
+              <div class="row" ng-show="isMX">
+
+                <div class="col-md-5">
+                  <label style="color:#898989;">{{'FIELDS.CELLPHONE' | translate}}</label>
+                  <input ng-style="{'background-color': bgCellphoneColor}" type="text"  name="cellphone" id="cellphoneFR" class="email"
+                         ng-model="user.cellphone" style="margin-bottom:15px;">
+                </div>
+
+                <div class="col-md-6">
+                  <label style="color:#898989;">{{'FIELDS.BIRTH' | translate}}</label>
+                  <input ng-style="{'background-color': bgBirthColor}" ui-mask="99/99/9999" type="text" name="birthDate" id="birthDate" class="email"
+                         placeholder="{{'FIELDS.BIRTHMASK' | translate}}" ng-model="user.birthDate" style="margin-bottom:15px;">
+
+                </div>
+
+              </div>
+
+
               <div class="row" ng-show="isBR">
                 <div class="col-md-3">
                   <label style="color:#898989;">DDD</label>
@@ -159,7 +176,7 @@
                   </select>
                 </div>
 
-                <div class="col-md-9">
+                <div class="col-md-6">
                   <label style="color:#898989;">{{'FIELDS.CELLPHONE' | translate}}</label>
                   <input ng-style="{'background-color': bgCellphoneColor}" type="text" maxlength="9" name="cellphone" id="cellphone" class="email"
                          ng-model="user.cellphone" style="margin-bottom:15px;">
@@ -167,7 +184,8 @@
               </div>
 
 
-              <div class="row">
+
+              <div class="row" ng-show="!isMX">
                 <div class="col-md-7">
                   <label style="color:#898989;">{{'FIELDS.BIRTH' | translate}}</label>
                   <input ng-style="{'background-color': bgBirthColor}" ui-mask="99/99/9999" type="text" name="birthDate" id="birthDate" class="email"
@@ -175,7 +193,9 @@
 
                 </div>
 
-                <div class="col-md-5" ng-show="isFR === false">
+
+
+                <div class="col-md-5" ng-show="isBR">
                   <label style="color:#898989;">{{'FIELDS.ZIPCODE' | translate}}</label>
                   <input ng-style="{'background-color': bgZipCodeColor}" type="text" name="zipcode" id="zipcode" class="email"
                           ng-model="user.address.zipcode" style="margin-bottom:15px;">

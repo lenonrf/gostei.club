@@ -366,8 +366,10 @@ angular.module('gosteiclubApp')
 
       if (!Utils.isEmpty(user)) {
 
-
-
+        /**
+         * ---------------------------------------------------
+         * BR
+         */
 
         if(SessionLanding.getLanguageOrigin() === 'pt-BR'){
 
@@ -375,11 +377,100 @@ angular.module('gosteiclubApp')
             setMessageOnField('ddd', $translate.instant('VALIDATION.DDD_FAILED'));
             return false;
           }
+
+          if (Utils.isEmpty(user.cellphone)) {
+
+            setMessageOnField('cellphone', $translate.instant('VALIDATION.CELLPHONE_FAILED'));
+            return false;
+
+          }
+
+
+          if (Utils.isEmpty(user.birthDate)) {
+
+            setMessageOnField('birthDate', $translate.instant('VALIDATION.FORM_FAILED'));
+            return false;
+
+          }else{
+
+            var day   = user.birthDate.substr(0, 2);
+            var month = user.birthDate.substr(2, 2);
+            //var year  = user.birthDate.substr(4, 4);
+
+            if(day>31){
+              setMessageOnField('birthDate', $translate.instant('VALIDATION.BIRTH_DAY_FAILED'));
+              return false;
+            }
+
+            if(month>12){
+              setMessageOnField('birthDate', $translate.instant('VALIDATION.BIRTH_MONTH_FAILED'));
+              return false;
+            }
+
+          }
+
+
+
+          if (Utils.isEmpty(user.address.zipcode)) {
+
+            setMessageOnField('zipcode', $translate.instant('VALIDATION.ZIPCODE_FAILED'));
+            return false;
+
+          }
+
+
         }
 
 
-        if(SessionLanding.getLanguageOrigin() === 'fr-FR'||
-          SessionLanding.getLanguageOrigin() === 'es-MX'){
+        /**
+         * ---------------------------------------------------
+         * MX
+         */
+
+
+        if(SessionLanding.getLanguageOrigin() === 'es-MX'){
+
+          if (Utils.isEmpty(user.cellphone)) {
+
+            setMessageOnField('cellphone', $translate.instant('VALIDATION.CELLPHONE_FAILED'));
+            return false;
+
+          }
+
+          if (Utils.isEmpty(user.birthDate)) {
+
+            setMessageOnField('birthDate', $translate.instant('VALIDATION.BIRTH_DAY_FAILED'));
+            return false;
+
+          }else{
+
+            var day   = user.birthDate.substr(0, 2);
+            var month = user.birthDate.substr(2, 2);
+            //var year  = user.birthDate.substr(4, 4);
+
+            if(day>31){
+              setMessageOnField('birthDate', $translate.instant('VALIDATION.BIRTH_DAY_FAILED'));
+              return false;
+            }
+
+            if(month>12){
+              setMessageOnField('birthDate', $translate.instant('VALIDATION.BIRTH_MONTH_FAILED'));
+              return false;
+            }
+
+          }
+
+
+        }
+
+
+
+        /**
+         * ---------------------------------------------------
+         * FR
+         */
+
+        if(SessionLanding.getLanguageOrigin() === 'fr-FR'){
 
           if (Utils.isEmpty(user.telephoneFR)) {
 
@@ -436,50 +527,39 @@ angular.module('gosteiclubApp')
             }
           }
 
-        }else{
 
-          if (Utils.isEmpty(user.cellphone)) {
+          if (Utils.isEmpty(user.birthDate)) {
 
-            setMessageOnField('cellphone', $translate.instant('VALIDATION.CELLPHONE_FAILED'));
+            setMessageOnField('birthDate', $translate.instant('VALIDATION.FORM_FAILED'));
             return false;
+
+          }else{
+
+            var day   = user.birthDate.substr(0, 2);
+            var month = user.birthDate.substr(2, 2);
+            //var year  = user.birthDate.substr(4, 4);
+
+            if(day>31){
+              setMessageOnField('birthDate', $translate.instant('VALIDATION.BIRTH_DAY_FAILED'));
+              return false;
+            }
+
+            if(month>12){
+              setMessageOnField('birthDate', $translate.instant('VALIDATION.BIRTH_MONTH_FAILED'));
+              return false;
+            }
+
+          }
+
+
+          if (Utils.isEmpty(user.address.zipcode)) {
+
+            setMessageOnField('zipcode', $translate.instant('VALIDATION.ZIPCODE_FAILED'));
+            return false;
+
           }
 
         }
-
-
-        if (Utils.isEmpty(user.birthDate)) {
-
-          setMessageOnField('birthDate', $translate.instant('VALIDATION.FORM_FAILED'));
-          return false;
-
-        }else{
-
-          var day   = user.birthDate.substr(0, 2);
-          var month = user.birthDate.substr(2, 2);
-          //var year  = user.birthDate.substr(4, 4);
-
-          if(day>31){
-            setMessageOnField('birthDate', $translate.instant('VALIDATION.BIRTH_DAY_FAILED'));
-            return false;
-          }
-
-          if(month>12){
-            setMessageOnField('birthDate', $translate.instant('VALIDATION.BIRTH_MONTH_FAILED'));
-            return false;
-          }
-
-        }
-
-
-
-        if (Utils.isEmpty(user.address.zipcode)) {
-
-          setMessageOnField('zipcode', $translate.instant('VALIDATION.ZIPCODE_FAILED'));
-          return false;
-
-        }
-
-
 
 
 
