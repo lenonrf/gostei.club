@@ -14,7 +14,11 @@ angular.module('gosteiclubApp')
 
 
     this.isOutBrain = function(location){
-      return (location.search().utm_source.toLowerCase() === 'outbrain');
+      if(location.search().utm_source){
+        return (location.search().utm_source.toLowerCase() === 'outbrain');
+      }
+
+      return false;
     };
 
 
