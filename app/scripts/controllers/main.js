@@ -12,6 +12,9 @@ angular.module('gosteiclubApp')
                                     deviceDetector, Cep, Canal, Allin, Menu, Utils, User, Login,
                                     $http, Product, $translate, TermsConditions, Malling, Partners) {
 
+
+    $rootScope.isFromOutBrain = SessionLanding.isOutBrain($location);
+
     $scope.googleAnaliticsId = '';
     $rootScope.isFR = (SessionLanding.getLanguageOrigin() === 'fr-FR');
     $rootScope.isBR = (SessionLanding.getLanguageOrigin() === 'pt-BR');
@@ -155,13 +158,29 @@ angular.module('gosteiclubApp')
 
 
         User.resource.save(user, function(data){
+
           Malling.createContact(data);
           Malling.sendWelcomeMail(data);
           //Allin.sendDataToWelcomeLifeCycle(data);
-          showStep2();
-        });
 
+          if($rootScope.isFromOutBrain){
+            $scope.executePixelOutBrain();
+          }
+
+          showStep2();
+
+        });
       });
+    };
+
+
+
+
+    $scope.executePixelOutBrain = function () {
+
+      var scheme = (("https:" == document.location.protocol) ? "https://" : "http://");
+      $.getScript(scheme+'widgets.outbrain.com/obtp.js');
+
     };
 
 

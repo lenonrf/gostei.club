@@ -13,6 +13,10 @@ angular.module('gosteiclubApp')
     this.data = {};
 
 
+    this.isOutBrain = function(location){
+      return (location.search().utm_source.toLowerCase() === 'outbrain');
+    };
+
 
     this.getItemsMenu = function(controller){
 
