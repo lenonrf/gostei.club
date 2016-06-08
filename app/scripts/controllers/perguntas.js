@@ -193,7 +193,7 @@ angular.module('gosteiclubApp')
         return null;
       }
 
-      console.log('$rootScope.sessionLanding', $rootScope.sessionLanding);
+      //console.log('$rootScope.sessionLanding', $rootScope.sessionLanding);
 
       $http.get('/api/oportunities/user/'+$scope.user._id
         +'?sessionlanding='+$rootScope.sessionLanding._id
@@ -209,8 +209,8 @@ angular.module('gosteiclubApp')
           }
         }
 
-        console.log('$scope.campaings', $scope.campaings);
-        console.log('$scope.corredor', $scope.corredor);
+        //console.log('$scope.campaings', $scope.campaings);
+        //console.log('$scope.corredor', $scope.corredor);
 
         $scope.question = {
 
@@ -367,7 +367,8 @@ angular.module('gosteiclubApp')
         return false;
       }
 
-      $scope.user.birthDate = Utils.getBirthDate($scope.user.birthDate);
+      //$scope.user.birthDate = Utils.getBirthDate($scope.user.birthDate);
+
       User.resourceEmail.put({'email'  : User.data.email}, $scope.user, onSuccess, onError);
 
     };

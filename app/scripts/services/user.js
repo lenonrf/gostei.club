@@ -25,7 +25,7 @@
            method: 'PUT',
            interceptor: {
              response: function(response){
-               response.data.birthDate = getDateFormated(response.data.birthDate);
+               //response.data.birthDate = getDateFormated(response.data.birthDate);
                return response.data;
              }
            }

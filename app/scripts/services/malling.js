@@ -8,7 +8,7 @@ angular.module('gosteiclubApp')
 
       $http.post('/api/malling/contact', user)
         .success(function(data, status) {
-          console.log('data', data, status);
+          //console.log('data', data, status);
         });
     };
 

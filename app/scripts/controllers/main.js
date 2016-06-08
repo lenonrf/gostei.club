@@ -192,19 +192,17 @@ angular.module('gosteiclubApp')
     $scope.checkoutStepTwo = function (user) {
 
       if (!validateFieldsStepTwo(user)) return false;
+
+      var languageOrigin = SessionLanding.getLanguageOrigin();
       $scope.disableButton = true;
 
-
-      if(SessionLanding.getLanguageOrigin() === 'pt-BR'){
+      if(languageOrigin === 'pt-BR'){
         user.cellphone = user.ddd+''+user.cellphone;
-      }
 
-      if(SessionLanding.getLanguageOrigin() === 'fr-FR' ||
-         SessionLanding.getLanguageOrigin() === 'es-MX'){
+      } else {
         user.cellphone = user.cellphoneFR;
         user.telephone = user.telephoneFR;
       }
-
 
 
       user.birthDate = Utils.getBirthDate(user.birthDate);
@@ -219,16 +217,18 @@ angular.module('gosteiclubApp')
      */
     function onSuccess(data, status) {
 
+      var user = data;
+
       // Envia Sponsorings
-      $http.post('/api/users/'+data._id +'/sponsoring'
+      $http.post('/api/users/'+user._id +'/sponsoring'
         + '?sessionlanding='+$rootScope.sessionLanding._id+'&isPartnerAllowed='+$scope.isPartnersAllowed
         + '&deviceAccess='+$rootScope.deviceAccess).success(function(dataResult){
         }).error(function(){});
 
-      Malling.updateContact(data);
+      Malling.updateContact(user);
 
 
-      User.setData(data);
+      User.setData(user);
       User.setLogged(true);
       $location.path('/perguntas');
     }
