@@ -401,11 +401,19 @@ angular.module('gosteiclubApp')
             return false;
           }
 
-          if (Utils.isEmpty(user.cellphone)) {
+          if (!Utils.isEmpty(user.cellphone)) {
+
+            var isValidNumber = /^9?[4-9|2]\d{3}[-\\.\s]?\d{4}$/;
+
+            if(!isValidNumber.test(user.cellphone)){
+              setMessageOnField('cellphone', $translate.instant('VALIDATION.CELLPHONE_FAILED'));
+              return false;
+            }
+
+          }else{
 
             setMessageOnField('cellphone', $translate.instant('VALIDATION.CELLPHONE_FAILED'));
             return false;
-
           }
 
 
