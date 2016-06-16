@@ -24,6 +24,10 @@ angular.module('gosteiclubApp')
     $scope.partners = [];
     $scope.isAgreeWith = true;
 
+    $rootScope.isMobile  = deviceDetector.isMobile();
+    $rootScope.isDesktop = deviceDetector.isDesktop();
+    $rootScope.isTablet = deviceDetector.isTablet();
+
 
     /**
      * Parceiros

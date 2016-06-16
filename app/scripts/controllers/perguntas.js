@@ -13,6 +13,32 @@ angular.module('gosteiclubApp')
                                          Campaing, User, Utils, Product, SessionLanding) {
 
 
+    /** ------------------------------------------------------ */
+
+    /**
+     * CHILDFUND
+     *
+     */
+
+    $scope.isCreditCard = true;
+    $scope.isChild = true;
+
+    $scope.hideChild = function(){
+      $scope.isCreditCard = false;
+      $scope.isChild = false;
+      $rootScope.isStepButtonDisabled = false;
+
+    };
+
+    $scope.showChild = function(){
+      $scope.isCreditCard = true;
+      $scope.isChild = true;
+    };
+
+
+
+    /** ------------------------------------------------------ */
+
      if(!Utils.isLogged(User.data)){
       if(User.isUserFromLandingPage($location)){
 
@@ -176,7 +202,6 @@ angular.module('gosteiclubApp')
       User.resourceCoreg.save({'id'  : $scope.user._id}, $scope.user.coregs, function(){}, function(){});
 
     };
-
 
 
 

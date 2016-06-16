@@ -74,33 +74,127 @@
 
   <div class="row">
 
-    <div class="col-md-12" ng-repeat="coreg in coregs">
-      <div class="blockquote-box clearfix">
-        <div class="row">
-          <div class="col-xs-4 col-md-2">
-            <div class="pull-left">
-              <img class="imageCoreg" ng-src="{{coreg.image}}" alt="" class="" />
+
+    <!-- ------------------------------------------------------------ -->
+
+    <div ng-repeat="coreg in coregs">
+
+
+      <div ng-if="coreg.code === 'childfund'">
+
+        <div class="col-md-12" ng-show="isDesktop">
+          <div class="blockquote-box clearfix">
+
+            <div class="row">
+
+              <div class="col-md-3 col-lg-2">
+                <div class="pull-left">
+                  <img class="imageCoreg" ng-src="http://arvestblogprod.blob.core.windows.net/image/ARV_Woman%20Holding%20Arvest%20Credit%20Cards.jpg" alt="" class="" />
+                </div>
+              </div>
+
+              <div class="col-md-9 col-md-10">
+                <div class="row">
+
+                  <div class="col-md-12">
+                    <h4>Possui cartão de credito?</h4>
+                    <p></p>
+                    <p><input ng-click="showChild()" ng-checked="isCreditCard" type="radio" name="creditCard" ng-click="">&nbsp;&nbsp;<b>Sim</b></p>
+                    <p><input ng-click="hideChild()" type="radio" name="creditCard" ng-click="">&nbsp;&nbsp;Não</p>
+                  </div>
+
+                  <div ng-show="isChild" class="col-md-12" style="padding-top: 15px;">
+                    <div class="row">
+                      <div class="col-md-3 col-lg-3">
+                        <div class="pull-left">
+                          <img class="imageCoreg" ng-src="http://wac.450f.edgecastcdn.net/80450F/kkyr.com/files/2013/02/child-fund-e1361381176625.jpg" alt="" class="" />
+                        </div>
+                      </div>
+
+                      <div class="col-md-9 col-lg-9">
+                        <h4>{{coreg.title}}</h4>
+                        <p>{{coreg.description}}</p>
+                        <p ng-repeat="item in coreg.questions">
+                          <input ng-checked="item.isSelected" type="radio" name="{{coreg.code}}" ng-click="addUserCoreg(coreg._id, item.isCorrect)">&nbsp;&nbsp;{{item.text}}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-
-          <div class="col-xs-8 col-md-10">
-            <h4>{{coreg.title}}</h4>
-            <p>{{coreg.description}}</p>
-            <p ng-repeat="item in coreg.questions">
-              <input ng-checked="item.isSelected" type="radio" name="{{coreg.code}}" ng-click="addUserCoreg(coreg._id, item.isCorrect)">&nbsp;&nbsp;{{item.text}}
-            </p>
-          </div>
-
-
-          <!--<div class="col-xs-8 col-md-10" ng-show="coreg.isSurvey">
-            <h4>{{coreg.title}}</h4>
-            <p>{{coreg.description}}</p>
-            <p ng-repeat="item in coreg.questions">
-              <input ng-checked="item.isSelected" type="radio" name="{{coreg.code}}" ng-click="executeSurvey(item)">&nbsp;&nbsp;{{item.text}}
-            </p>
-          </div>-->
-
         </div>
+
+
+        <div ng-show="isMobile || isTablet">
+          <div class="col-md-12">
+            <div class="blockquote-box clearfix">
+              <div class="row">
+                <div class="col-xs-4 col-md-2">
+                  <div class="pull-left">
+                    <img class="imageCoreg" ng-src="http://arvestblogprod.blob.core.windows.net/image/ARV_Woman%20Holding%20Arvest%20Credit%20Cards.jpg" alt="" class="" />
+                  </div>
+                </div>
+                <div class="col-xs-8 col-md-10">
+                  <h4>Possui cartão de credito?</h4>
+                  <p></p>
+                  <p><input ng-click="showChild()" ng-checked="isCreditCard" type="radio" name="childfund" ng-click="">&nbsp;&nbsp;Sim</p>
+                  <p><input ng-click="hideChild()" type="radio" name="childfund" ng-click="">&nbsp;&nbsp;Não</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="blockquote-box clearfix">
+              <div class="row">
+                <div class="col-xs-4 col-md-2">
+                  <div class="pull-left">
+                    <img class="imageCoreg" ng-src="http://wac.450f.edgecastcdn.net/80450F/kkyr.com/files/2013/02/child-fund-e1361381176625.jpg" alt="" class="" />
+                  </div>
+                </div>
+                <div class="col-xs-8 col-md-9" style="padding-left: 0px;">
+                  <h4>{{coreg.title}}</h4>
+                  <p>{{coreg.description}}</p>
+                  <p ng-repeat="item in coreg.questions">
+                    <input ng-checked="item.isSelected" type="radio" name="{{coreg.code}}" ng-click="addUserCoreg(coreg._id, item.isCorrect)">&nbsp;&nbsp;{{item.text}}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+
+
+
+      <div class="col-md-12" ng-if="coreg.code !== 'childfund'">
+
+        <div class="blockquote-box clearfix">
+          <div class="row">
+            <div class="col-xs-4 col-md-2">
+              <div class="pull-left">
+                <img class="imageCoreg" ng-src="{{coreg.image}}" alt="" class="" />
+              </div>
+            </div>
+
+            <div class="col-xs-8 col-md-10">
+              <h4>{{coreg.title}}</h4>
+              <p>{{coreg.description}}</p>
+              <p ng-repeat="item in coreg.questions">
+                <input ng-checked="item.isSelected" type="radio" name="{{coreg.code}}" ng-click="addUserCoreg(coreg._id, item.isCorrect)">&nbsp;&nbsp;{{item.text}}
+              </p>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </div>
 
