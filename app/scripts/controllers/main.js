@@ -14,6 +14,7 @@ angular.module('gosteiclubApp')
 
 
     $rootScope.isFromOutBrain = SessionLanding.isOutBrain($location);
+    $rootScope.isFromTaboola = SessionLanding.isTaboola($location);
 
     $scope.googleAnaliticsId = '';
     $rootScope.isFR = (SessionLanding.getLanguageOrigin() === 'fr-FR');
@@ -171,6 +172,11 @@ angular.module('gosteiclubApp')
             $scope.executePixelOutBrain();
           }
 
+          if($rootScope.isFromTaboola){
+            $scope.executePixelTaboola();
+          }
+
+
           showStep2();
 
         });
@@ -186,6 +192,16 @@ angular.module('gosteiclubApp')
       $.getScript(scheme+'widgets.outbrain.com/obtp.js');
 
     };
+
+
+    $scope.executePixelTaboola = function () {
+
+      window._tfa = window._tfa || [];
+      _tfa.push({notify:"action", name: 'conversion'});
+
+    };
+
+
 
 
     /**

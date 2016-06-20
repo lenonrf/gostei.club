@@ -21,6 +21,15 @@ angular.module('gosteiclubApp')
       return false;
     };
 
+    this.isTaboola = function(location){
+      if(location.search().utm_source){
+        return (location.search().utm_source.toLowerCase() === 'taboola');
+      }
+
+      return false;
+    };
+
+
 
     this.getItemsMenu = function(controller){
 
