@@ -256,8 +256,17 @@ angular.module('gosteiclubApp')
       var question = $scope.corredor[$scope.indexQuestion];
 
       if (answerType === true) {
-        $window.open(question.urlAnswer+'&aff_sub='
-        +User.getCampaing($location, $rootScope.deviceAccess, $rootScope.sessionLanding), '_blank');
+
+        if(question.urlAnswer.indexOf('<user_id>') > -1){
+
+          question.urlAnswer = question.urlAnswer.replace('<user_id>', $scope.user._id);
+          $window.open(question.urlAnswer, '_blank');
+
+        }else{
+          $window.open(question.urlAnswer+'&aff_sub='
+            +User.getCampaing($location, $rootScope.deviceAccess, $rootScope.sessionLanding), '_blank');
+        }
+
       }
 
       if (hasNextQuestion()) {
