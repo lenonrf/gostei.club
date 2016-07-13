@@ -10,17 +10,86 @@ angular.module('gosteiclubApp')
     $scope.isConectai = false;
 
 
-    if($location.search().utm_source){
-      if ($location.search().utm_source.toLowerCase() === 'conectai'){
-        $scope.isConectai = true;
+    $scope.isPixel = function(){
 
-        $http.post('/api/conectai').success(function(dataResult){
+      if($location.search().pixel){
+        if ($location.search().pixel.toLowerCase() === 'true'){
+          return true;
+        }
+
+      }
+
+      return false;
+    };
+
+
+    $scope.isConectaiClient = function(){
+
+      if ($location.search().utm_source){
+        if ($location.search().utm_source.toLowerCase() === 'conectai') {
+          $scope.isConectai = true;
+          return true;
+        }
+      }
+
+      return false;
+    };
+
+
+    $scope.executeAPI = function(){
+
+      var url = '/api/conectai?';
+
+      if ($location.search().offer_id) {
+
+        url += 'offer_id=' + $location.search().offer_id
+
+        if ($location.search().p) {
+          url += '&p=' + $location.search().p;
+        }
+
+        if ($location.search().r) {
+          url += '&r=' + $location.search().r;
+        }
+
+
+        console.log('url', url);
+
+        $http.post(url).success(function (dataResult) {
           console.log('SUCCESS', dataResult);
-        }).error(function(){
+        }).error(function () {
           console.log('ERROR');
         });
 
       }
+
+    };
+
+
+
+
+
+    if($location.search().utm_source){
+
+
+      if($scope.isPixel()){
+
+        $scope.isPixel = true;
+
+      }else{
+
+        if($scope.isConectaiClient()){
+          $scope.executeAPI();
+        }
+      }
+
+
+
+
+
+
+
+
     }
 
   });
