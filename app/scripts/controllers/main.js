@@ -166,7 +166,7 @@ angular.module('gosteiclubApp')
 
           Malling.createContact(data);
           Malling.sendWelcomeMail(data);
-          //Allin.sendDataToWelcomeLifeCycle(data);
+          Allin.sendDataToWelcomeLifeCycle(data);
 
           if($rootScope.isFromOutBrain){
             $scope.executePixelOutBrain();
