@@ -269,29 +269,15 @@ angular.module('gosteiclubApp')
           $window.open(question.urlAnswer, '_blank');
 
 
-
-
-        }else if(question.urlAnswer.indexOf('<conectai_random_key>') > -1){
-
+        /*}else if(question.urlAnswer.indexOf('<conectai_random_key>') > -1){
           console.log('is conectai_random_key');
-
           $http.get('/api/randomkey?cellphone='+$scope.user.cellphone).success(function(data){
-
             question.urlAnswer = question.urlAnswer.replace('<conectai_random_key>', data.key);
-
-             console.log('question.urlAnswer', question.urlAnswer);
-
+            console.log('question.urlAnswer', question.urlAnswer);
             $window.open(question.urlAnswer, '_blank');
-
-          }).error(function(){});
+          }).error(function(){});*/
 
           
-
-
-
-
-
-
         }else{
           $window.open(question.urlAnswer+'&aff_sub='
             +User.getCampaing($location, $rootScope.deviceAccess, $rootScope.sessionLanding), '_blank');
