@@ -20,8 +20,9 @@ angular.module('gosteiclubApp')
      *
      */
 
-    $scope.isCreditCard = true;
-    $scope.isChild = true;
+    $scope.isCreditCard = null;
+    $scope.isChild = false;
+    $scope.isPixelImoveis = false;
 
     $scope.hideChild = function(){
       $scope.isCreditCard = false;
@@ -140,23 +141,6 @@ angular.module('gosteiclubApp')
 
       for(var x=0; x<data.length; x++){
 
-        // TODO
-        if(data[x].code === 'oqueha'){
-
-          for(var y=0; y<data[x].questions.length; y++){
-            if(data[x].questions[y].isCorrect === true){
-              data[x].questions[y].isSelected = true;
-            }else{
-              data[x].questions[y].isSelected = false;
-            }
-          }
-
-          $scope.user.coregs.push({
-            _id : data[x]._id,
-            answer : true
-          });
-        }
-
         $scope.coregs = data;
 
         if( $scope.coregs.length === 0){
@@ -170,7 +154,7 @@ angular.module('gosteiclubApp')
 
 
 
-    $scope.addUserCoreg = function(coregId, answer){
+    $scope.addUserCoreg = function(coregId, answer, code){
 
       var isExists = false;
 
@@ -186,7 +170,8 @@ angular.module('gosteiclubApp')
 
         $scope.user.coregs.push({
           _id : coregId,
-          answer : answer
+          answer : answer,
+          code: code
         });
       }
 
@@ -197,6 +182,16 @@ angular.module('gosteiclubApp')
     };
 
     $scope.sendCoreg = function(){
+
+
+
+      // TODO REMOVE
+      for(var x=0; x<$scope.user.coregs.length; x++){
+        if($scope.user.coregs[x].code === 'empreendimentoImobiliario'){
+          $scope.isPixelImoveis = true;
+          console.log("$scope.isPixelImoveis", $scope.isPixelImoveis);
+        }
+      }
 
       $scope.user.languageOrigin = SessionLanding.getLanguageOrigin();
       User.resourceCoreg.save({'id'  : $scope.user._id}, $scope.user.coregs, function(){}, function(){});

@@ -80,7 +80,7 @@
     <div ng-repeat="coreg in coregs">
 
 
-      <div ng-if="coreg.code === 'childfund'">
+      <div ng-if="coreg.code === 'empreendimentoImobiliario'">
 
         <div class="col-md-12" ng-show="isDesktop">
           <div class="blockquote-box clearfix">
@@ -89,7 +89,7 @@
 
               <div class="col-md-3 col-lg-2">
                 <div class="pull-left">
-                  <img class="imageCoreg" ng-src="http://arvestblogprod.blob.core.windows.net/image/ARV_Woman%20Holding%20Arvest%20Credit%20Cards.jpg" alt="" class="" />
+                  <img class="imageCoreg" ng-src="http://popunder01.gostei.club/images/coreg_imovel.jpg" alt="" class="" />
                 </div>
               </div>
 
@@ -97,8 +97,8 @@
                 <div class="row">
 
                   <div class="col-md-12">
-                    <h4>Possui cartão de credito?</h4>
-                    <p></p>
+                    <h4>Nos ultimos meses o mercado imobiliário tem sido uma excelente alternativa de investimento</h4>
+                    <p>Você acredita que investir em imóveis neste momento é uma boa opção</p>
                     <p><input ng-click="showChild()" ng-checked="isCreditCard" type="radio" name="creditCard" ng-click="">&nbsp;&nbsp;<b>Sim</b></p>
                     <p><input ng-click="hideChild()" type="radio" name="creditCard" ng-click="">&nbsp;&nbsp;Não</p>
                   </div>
@@ -107,7 +107,7 @@
                     <div class="row">
                       <div class="col-md-3 col-lg-3">
                         <div class="pull-left">
-                          <img class="imageCoreg" ng-src="http://wac.450f.edgecastcdn.net/80450F/kkyr.com/files/2013/02/child-fund-e1361381176625.jpg" alt="" class="" />
+                          <img class="imageCoreg" ng-src="http://popunder01.gostei.club/images/destiny_lapa.jpg" alt="" class="" />
                         </div>
                       </div>
 
@@ -115,7 +115,7 @@
                         <h4>{{coreg.title}}</h4>
                         <p>{{coreg.description}}</p>
                         <p ng-repeat="item in coreg.questions">
-                          <input ng-checked="item.isSelected" type="radio" name="{{coreg.code}}" ng-click="addUserCoreg(coreg._id, item.isCorrect)">&nbsp;&nbsp;{{item.text}}
+                          <input ng-checked="item.isSelected" type="radio" name="{{coreg.code}}" ng-click="addUserCoreg(coreg._id, item.isCorrect, coreg.code)">&nbsp;&nbsp;{{item.text}}
                         </p>
                       </div>
                     </div>
@@ -127,18 +127,26 @@
         </div>
 
 
+
+            <!-- Offer Conversion: COREG - Destiny Lapa - BR -->
+            <iframe ng-if="isPixelImoveis" src="http://springmedia.go2cloud.org/aff_l?offer_id=1409&adv_sub=SUB_ID" scrolling="no" frameborder="0" width="1" height="1"></iframe>
+            <!-- // End Offer Conversion -->
+
+
+
         <div ng-show="isMobile || isTablet">
           <div class="col-md-12">
             <div class="blockquote-box clearfix">
               <div class="row">
                 <div class="col-xs-4 col-md-2">
                   <div class="pull-left">
-                    <img class="imageCoreg" ng-src="http://arvestblogprod.blob.core.windows.net/image/ARV_Woman%20Holding%20Arvest%20Credit%20Cards.jpg" alt="" class="" />
+                  <img class="imageCoreg" ng-src="http://popunder01.gostei.club/images/coreg_imovel.jpg" alt="" class="" />
+
                   </div>
                 </div>
                 <div class="col-xs-8 col-md-10">
-                  <h4>Possui cartão de credito?</h4>
-                  <p></p>
+                    <h4>Nos ultimos meses o mercado imobiliário tem sido uma excelente alternativa de investimento</h4>
+                    <p>Você acredita que investir em imóveis neste momento é uma boa opção</p>
                   <p><input ng-click="showChild()" ng-checked="isCreditCard" type="radio" name="childfund" ng-click="">&nbsp;&nbsp;Sim</p>
                   <p><input ng-click="hideChild()" type="radio" name="childfund" ng-click="">&nbsp;&nbsp;Não</p>
                 </div>
@@ -150,14 +158,14 @@
               <div class="row">
                 <div class="col-xs-4 col-md-2">
                   <div class="pull-left">
-                    <img class="imageCoreg" ng-src="http://wac.450f.edgecastcdn.net/80450F/kkyr.com/files/2013/02/child-fund-e1361381176625.jpg" alt="" class="" />
+                      <img class="imageCoreg" ng-src="http://popunder01.gostei.club/images/destiny_lapa.jpg" alt="" class="" />
                   </div>
                 </div>
                 <div class="col-xs-8 col-md-9" style="padding-left: 0px;">
                   <h4>{{coreg.title}}</h4>
                   <p>{{coreg.description}}</p>
                   <p ng-repeat="item in coreg.questions">
-                    <input ng-checked="item.isSelected" type="radio" name="{{coreg.code}}" ng-click="addUserCoreg(coreg._id, item.isCorrect)">&nbsp;&nbsp;{{item.text}}
+                    <input ng-checked="item.isSelected" type="radio" name="{{coreg.code}}" ng-click="addUserCoreg(coreg._id, item.isCorrect, coreg.code)">&nbsp;&nbsp;{{item.text}}
                   </p>
                 </div>
               </div>
@@ -174,7 +182,7 @@
 
 
 
-      <div class="col-md-12" ng-if="coreg.code !== 'childfund'">
+      <div class="col-md-12" ng-if="coreg.code !== 'empreendimentoImobiliario'">
 
         <div class="blockquote-box clearfix">
           <div class="row">
@@ -188,7 +196,7 @@
               <h4>{{coreg.title}}</h4>
               <p>{{coreg.description}}</p>
               <p ng-repeat="item in coreg.questions">
-                <input ng-checked="item.isSelected" type="radio" name="{{coreg.code}}" ng-click="addUserCoreg(coreg._id, item.isCorrect)">&nbsp;&nbsp;{{item.text}}
+                <input ng-checked="item.isSelected" type="radio" name="{{coreg.code}}" ng-click="addUserCoreg(coreg._id, item.isCorrect, coreg.code)">&nbsp;&nbsp;{{item.text}}
               </p>
             </div>
 
