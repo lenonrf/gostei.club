@@ -188,8 +188,15 @@ angular.module('gosteiclubApp')
       // TODO REMOVE
       for(var x=0; x<$scope.user.coregs.length; x++){
         if($scope.user.coregs[x].code === 'empreendimentoImobiliario'){
-          $scope.isPixelImoveis = true;
-          console.log("$scope.isPixelImoveis", $scope.isPixelImoveis);
+
+            $http.post('/api/empremobiliario').success(function (dataResult) {
+              console.log('SUCCESS', dataResult);
+            }).error(function () {
+              console.log('ERROR');
+            });
+
+          //$scope.isPixelImoveis = true;
+          //console.log("$scope.isPixelImoveis", $scope.isPixelImoveis);
         }
       }
 
