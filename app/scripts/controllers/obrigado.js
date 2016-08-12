@@ -52,6 +52,9 @@ angular.module('gosteiclubApp')
           url += '&r=' + $location.search().r;
         }
 
+        if ($location.search().user_id) {
+          url += '&user_id=' + $location.search().user_id;
+        }
 
         console.log('url', url);
 
