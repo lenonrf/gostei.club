@@ -133,11 +133,11 @@ angular.module('gosteiclubApp')
 
 
 
-    $http.get('/api/offers/affiliation/579271a2cbf2e4130bb724b0?user='+$scope.user.email).success(function(data){
+    /*$http.get('/api/offers/affiliation/579271a2cbf2e4130bb724b0?user='+$scope.user.email).success(function(data){
 
       console.log('offers', data);
 
-    }).error(function(){});
+    }).error(function(){});*/
 
 
 
