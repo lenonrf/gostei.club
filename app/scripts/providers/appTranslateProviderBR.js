@@ -306,11 +306,11 @@ angular.module('gosteiclubApp')
         'ITEM1.DESC': '"Adorei receber os produtos na minha casa"',
         'ITEM1.IMAGE': 'http://gosteiclub-12bd.kxcdn.com/images/p1.jpg',
 
-        'ITEM2.NAME': 'Alcione Herzog',
+        'ITEM2.NAME': 'Alcione Oliveira',
         'ITEM2.DESC': '"Produtos novos na minha casa, sem pagar nada? Claro que quero."',
         'ITEM2.IMAGE': 'http://gosteiclub-12bd.kxcdn.com/images/p2.jpg',
 
-        'ITEM3.NAME': 'Livia Rodrigues',
+        'ITEM3.NAME': 'Livia Noronha',
         'ITEM3.DESC': '"Realmente chegou. Agora vou me candidatar para todas as oportunidades!"',
         'ITEM3.IMAGE': 'http://gosteiclub-12bd.kxcdn.com/images/p6.jpg',
 
@@ -318,11 +318,11 @@ angular.module('gosteiclubApp')
         'ITEM4.DESC': '"Nem acreditei, chegou certinho pelos correios!"',
         'ITEM4.IMAGE': 'http://gosteiclub-12bd.kxcdn.com/images/p5.jpg',
 
-        'ITEM5.NAME': 'Lúcia Helena',
+        'ITEM5.NAME': 'Lúcia Ferreira',
         'ITEM5.DESC': '"Nada melhor do que participar deste clube testando produtos"',
         'ITEM5.IMAGE': 'http://gosteiclub-12bd.kxcdn.com/images/p7.jpg',
 
-        'ITEM6.NAME': 'Andressa Egas',
+        'ITEM6.NAME': 'Nailce Braga',
         'ITEM6.DESC': '"Gostei dos produtos e a ideia do site é fantástica!"',
         'ITEM6.IMAGE': 'http://gosteiclub-12bd.kxcdn.com/images/p8.jpg'
       };
@@ -335,7 +335,7 @@ angular.module('gosteiclubApp')
       return {
 
         'QUESTIONS': 'Perguntas',
-        'OPORTUNITIES': 'Oportunidadades',
+        'OPORTUNITIES': 'Oportunidades',
         'BUTTON_IWANT': 'Eu Quero!',
         'FREESAMPLES': 'Amostra Grátis',
         'DELIVERY': 'Entrega',

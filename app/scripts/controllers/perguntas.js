@@ -15,10 +15,6 @@ angular.module('gosteiclubApp')
 
     /** ------------------------------------------------------ */
 
-    /**
-     * CHILDFUND
-     *
-     */
 
     $scope.isCreditCard = null;
     $scope.isChild = false;
@@ -36,6 +32,18 @@ angular.module('gosteiclubApp')
       $scope.isChild = true;
     };
 
+
+    $scope.isCatho = false;
+
+    $scope.hideCatho = function(){
+      $scope.isCatho = false;
+      $rootScope.isStepButtonDisabled = false;
+
+    };
+
+    $scope.showCatho = function(){
+      $scope.isCatho = true;
+    };
 
 
     /** ------------------------------------------------------ */
@@ -131,8 +139,6 @@ angular.module('gosteiclubApp')
 
 
 
-
-
     /*$http.get('/api/offers/affiliation/579271a2cbf2e4130bb724b0?user='+$scope.user.email).success(function(data){
 
       console.log('offers', data);
@@ -199,19 +205,23 @@ angular.module('gosteiclubApp')
     $scope.sendCoreg = function(){
 
 
-
       // TODO REMOVE
       for(var x=0; x<$scope.user.coregs.length; x++){
-        if($scope.user.coregs[x].code === 'empreendimentoImobiliario'){
+        
+        console.log($scope.user.coregs[x].code, $scope.user.coregs[x].answer);
 
-            $http.post('/api/empremobiliario').success(function (dataResult) {
-              console.log('SUCCESS', dataResult);
-            }).error(function () {
-              console.log('ERROR');
-            });
+        if($scope.user.coregs[x].code === 'empreendimentoImobiliario'
+          && $scope.user.coregs[x].answer){
 
-          //$scope.isPixelImoveis = true;
-          //console.log("$scope.isPixelImoveis", $scope.isPixelImoveis);
+            $http.post('/api/empremobiliario')
+              .success(function(dataResult){}).error(function(){});
+        }
+
+        if($scope.user.coregs[x].code === 'catho'
+          && $scope.user.coregs[x].answer){
+
+            $http.post('/api/catho')
+              .success(function(dataResult){}).error(function(){});
         }
       }
 

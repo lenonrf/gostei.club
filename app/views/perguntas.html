@@ -74,11 +74,17 @@
 
   <div class="row">
 
+    <div ng-repeat="coreg in coregs">
+
+
+
+
 
     <!-- ------------------------------------------------------------ -->
 
-    <div ng-repeat="coreg in coregs">
 
+
+      <!-- EMPREENDIMENTO IMOBILIARIO -->
 
       <div ng-if="coreg.code === 'empreendimentoImobiliario'">
 
@@ -126,14 +132,6 @@
           </div>
         </div>
 
-
-
-            <!-- Offer Conversion: COREG - Destiny Lapa - BR -->
-            <iframe ng-if="isPixelImoveis" src="http://springmedia.go2cloud.org/aff_l?offer_id=1409&adv_sub=SUB_ID" scrolling="no" frameborder="0" width="1" height="1"></iframe>
-            <!-- // End Offer Conversion -->
-
-
-
         <div ng-show="isMobile || isTablet">
           <div class="col-md-12">
             <div class="blockquote-box clearfix">
@@ -173,16 +171,117 @@
           </div>
         </div>
 
-
       </div>
 
 
 
 
 
+      <!-- CATHO -->
+
+      <div ng-if="coreg.code === 'catho'">
+
+        <div class="col-md-12" ng-show="isDesktop">
+          <div class="blockquote-box clearfix">
+
+            <div class="row">
+
+              <div class="col-md-3 col-lg-2">
+                <div class="pull-left">
+                  <img class="imageCoreg" ng-src="http://studiobeautyhair.com.br/wp-content/uploads/2015/03/Formandas-2.jpg" alt="" class="" />
+                </div>
+              </div>
+
+              <div class="col-md-9 col-md-10">
+                <div class="row">
+
+                  <div class="col-md-12">
+                    <h4>Qual é o seu grau de instrução?</h4>
+                    <p></p>
+                    <p><input name="cathocoreg" ng-click="hideCatho()" type="radio">&nbsp;&nbsp;Ensino Médio (Completo, incompleto ou cursando)</p>
+                    <p><input name="cathocoreg" ng-click="hideCatho()" type="radio">&nbsp;&nbsp;Ensino Superior (Incompleto ou cursando)</p>
+                    <p><input name="cathocoreg" ng-click="showCatho()" type="radio">&nbsp;&nbsp;Superior Completo</p>
+                    <p><input name="cathocoreg" ng-click="hideCatho()" type="radio">&nbsp;&nbsp;Pós-graduado (Completo, incompleto ou cursando)</p>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+                  <div class="row" ng-show="isCatho">
+                      <div class="col-md-3 col-lg-2">
+                        <div class="pull-left">
+                          <img class="imageCoreg" ng-src="https://pbs.twimg.com/profile_images/665208253593362432/weF5cAF7.png" alt="" class="" />
+                        </div>
+                      </div>
+
+                      <div class="col-md-9 col-lg-10">
+
+                        <div class="row">
+
+                          <div class="col-md-12">
+                            <h4>{{coreg.title}}</h4>
+                            <p>{{coreg.description}}</p>
+                            <p ng-repeat="item in coreg.questions">
+                              <input ng-checked="item.isSelected" type="radio" name="{{coreg.code}}" ng-click="addUserCoreg(coreg._id, item.isCorrect, coreg.code)">&nbsp;&nbsp;{{item.text}}
+                            </p>                          
+                          </div>
 
 
-      <div class="col-md-12" ng-if="coreg.code !== 'empreendimentoImobiliario'">
+          </div>
+        </div>
+
+        <div ng-show="isMobile || isTablet">
+          <div class="col-md-12">
+            <div class="blockquote-box clearfix">
+              <div class="row">
+                <div class="col-xs-4 col-md-2">
+                  <div class="pull-left">
+                  <img class="imageCoreg" ng-src="http://popunder01.gostei.club/images/coreg_imovel.jpg" alt="" class="" />
+
+                  </div>
+                </div>
+                <div class="col-xs-8 col-md-10">
+                    <p><input name="cathocoreg" ng-click="hideCatho()" type="radio">&nbsp;&nbsp;Ensino Médio (Completo, incompleto ou cursando)</p>
+                    <p><input name="cathocoreg" ng-click="hideCatho()" type="radio">&nbsp;&nbsp;Ensino Superior (Incompleto ou cursando)</p>
+                    <p><input name="cathocoreg" ng-click="showCatho()" type="radio">&nbsp;&nbsp;Superior Completo</p>
+                    <p><input name="cathocoreg" ng-click="hideCatho()" type="radio">&nbsp;&nbsp;Pós-graduado (Completo, incompleto ou cursando)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="blockquote-box clearfix">
+              <div class="row">
+                <div class="col-xs-4 col-md-2">
+                  <div class="pull-left">
+                      <img class="imageCoreg" ng-src="http://popunder01.gostei.club/images/destiny_lapa.jpg" alt="" class="" />
+                  </div>
+                </div>
+                <div class="col-xs-8 col-md-9" style="padding-left: 0px;">
+                  <h4>{{coreg.title}}</h4>
+                  <p>{{coreg.description}}</p>
+                  <p ng-repeat="item in coreg.questions">
+                    <input ng-checked="item.isSelected" type="radio" name="{{coreg.code}}" ng-click="addUserCoreg(coreg._id, item.isCorrect, coreg.code)">&nbsp;&nbsp;{{item.text}}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+    <!-- ------------------------------------------------------------ -->
+
+
+
+
+      <div class="col-md-12" 
+        ng-if="coreg.code !== 'empreendimentoImobiliario' && coreg.code !== 'catho'">
 
         <div class="blockquote-box clearfix">
           <div class="row">
