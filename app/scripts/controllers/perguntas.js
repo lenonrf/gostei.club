@@ -16,9 +16,14 @@ angular.module('gosteiclubApp')
     /** ------------------------------------------------------ */
 
 
+    $rootScope.isStepButtonDisabled = false;
+
+
     $scope.isCreditCard = null;
     $scope.isChild = false;
     $scope.isPixelImoveis = false;
+
+    $scope.isCreditCardSelect = false;
 
     $scope.hideChild = function(){
       $scope.isCreditCard = false;
@@ -77,7 +82,6 @@ angular.module('gosteiclubApp')
     Menu.setMenu('PerguntasCtrl');
 
     $rootScope.showFooter = false;
-    $rootScope.isStepButtonDisabled = true;
     $scope.disableAnswerButton = false;
     $scope.isValidationError = false;
 
@@ -196,9 +200,10 @@ angular.module('gosteiclubApp')
         });
       }
 
-      if($scope.user.coregs.length === $scope.coregs.length){
-        $rootScope.isStepButtonDisabled = false;
-      }
+
+      //if($scope.user.coregs.length === $scope.coregs.length){
+        //$rootScope.isStepButtonDisabled = false;
+      //}
 
     };
 
@@ -213,14 +218,14 @@ angular.module('gosteiclubApp')
         if($scope.user.coregs[x].code === 'empreendimentoImobiliario'
           && $scope.user.coregs[x].answer){
 
-            $http.post('/api/empremobiliario')
+            $http.post('/api/empremobiliario', $scope.user)
               .success(function(dataResult){}).error(function(){});
         }
 
         if($scope.user.coregs[x].code === 'catho'
           && $scope.user.coregs[x].answer){
 
-            $http.post('/api/catho')
+            $http.post('/api/catho', $scope.user)
               .success(function(dataResult){}).error(function(){});
         }
       }
