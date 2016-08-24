@@ -9,12 +9,14 @@
  */
 angular.module('gosteiclubApp')
   .controller('PerguntasCtrl', function ($scope, $window, Malling, $http, $rootScope,
-                                         $translate, $location, Coreg, Menu, Allin,
-                                         Campaing, User, Utils, Product, SessionLanding) {
+                                         $translate, $location, Coreg, Menu, Allin, $compile, $sce, 
+                                         Campaing, Survey, WsUriBuilder, WsClient, User, Utils, 
+                                         Product, SessionLanding) {
 
 
     /** ------------------------------------------------------ */
 
+    $rootScope.avaliableOffers = [];
 
     $scope.isCreditCard = null;
     $scope.isChild = false;
@@ -113,22 +115,6 @@ angular.module('gosteiclubApp')
           $scope.pixelFacebookId = 6044565660054;
           break;
       }
-
-      (function() {
-        var _fbq = window._fbq || (window._fbq = []);
-        if (!_fbq.loaded) {
-          var fbds = document.createElement('script');
-          fbds.async = true;
-          fbds.src = '//connect.facebook.net/en_US/fbds.js';
-          var s = document.getElementsByTagName('script')[0];
-          s.parentNode.insertBefore(fbds, s);
-          _fbq.loaded = true;
-        }
-      })();
-      window._fbq = window._fbq || [];
-      window._fbq.push(['track', $scope.pixelFacebookId, {'value':'0.00','currency':'BRL'}]);
-
-
     }
 
 
@@ -139,11 +125,162 @@ angular.module('gosteiclubApp')
 
 
 
-    /*$http.get('/api/offers/affiliation/579271a2cbf2e4130bb724b0?user='+$scope.user.email).success(function(data){
 
-      console.log('offers', data);
 
-    }).error(function(){});*/
+
+    
+
+    /**
+     * -------------------------------------------------------------------------------------
+     */
+
+
+    $scope.deliveryWS = {
+      survey: [],
+      questionHall: [],
+      balcony: []
+    };
+
+
+    /**
+     * Call the API and Get all offers flterd by offer by and user segmentation
+     */
+      $http.get('/api/offers/affiliation/579271a2cbf2e4130bb724b0?user='+$scope.user.email)
+        .success(function(data){
+
+          $scope.setProgressBar(data.survey);
+
+          $scope.survey = data.survey;
+          $scope.dynamicSegmentation = data.dynamicSegmentation
+
+      }).error(function(){});
+
+
+
+
+    /**
+     * Avaliate if the survey is complete and allow the next button to proceed
+     * to the next step
+     */
+    $scope.isNextStepAvaliableForSurvey = function(){
+      $rootScope.isStepButtonDisabled = 
+        !(Survey.isAllChoisesSelected($scope.dynamicSegmentation, $rootScope.avaliableOffers));
+    };
+
+
+
+
+    /**
+     * Inicialize the progress bar with de default values
+     */
+    $scope.setProgressBar = function (survey){
+
+      if(survey.length === 0){
+        $rootScope.steps = ['complete', 'active', 'disabled', 'disabled'];
+      }else{
+        $rootScope.steps = ['active', 'disabled', 'disabled', 'disabled'];
+      }
+    };
+
+
+
+
+    /**
+     * Move forward to next step in the progress bar
+     */
+    $scope.nextStep = function(){
+
+      if($scope.isSurveyStep()){
+        $scope.sendSurvey();
+      }
+
+      //$scope.moveProgressBar();
+
+    };
+
+
+
+
+    /**
+     * Move foward the progress bar
+     */
+    $scope.isSurveyStep = function(){
+      return ($rootScope.steps[0] === 'active' && $rootScope.steps[1] === 'disabled');
+    };
+
+
+
+
+    /**
+     * Move foward the progress bar
+     */
+    $scope.moveProgressBar = function(){
+
+
+      for(var x=0; x<$rootScope.steps.length; x++){
+
+        if($rootScope.sessionLandingData.isAmostras){
+
+          if($rootScope.steps[x] === 'active'){
+
+            $rootScope.steps[x] = 'complete';
+            $rootScope.steps[x+1] = 'active';
+
+            $rootScope.isStepButtonDisabled = true;
+            break;
+          }
+
+        }else{
+
+          if($rootScope.steps[x] === 'active'){
+
+            if(x === 1){
+              onSuccess($scope.user);
+              break;
+            }
+
+            $rootScope.steps[x] = 'complete';
+            $rootScope.isStepButtonDisabled = true;
+            $rootScope.steps[x+1] = 'active';
+            break;
+          }
+        }
+      }
+    };
+
+
+
+
+    /**
+     * Call the API to send que survey to avaiable web services
+     */
+    $scope.sendSurvey = function(){
+
+      var uri = '';
+
+      for (var i = 0; i < $scope.deliveryWS.survey.length; i++) {
+        
+        uri = WsUriBuilder.buildUri(
+          $scope.user, 'survey', $scope.deliveryWS.survey[i]);
+
+        WsClient.executeUri(uri, 'survey', $scope.deliveryWS.survey[i], $scope.user);
+
+      };
+        
+    };
+
+
+
+
+
+
+    
+
+
+
+
+
+
 
 
 
@@ -153,8 +290,15 @@ angular.module('gosteiclubApp')
 
     /**
      * -------------------------------------------------------------------
+     * COREGS/**
+     * -------------------------------------------------------------------
      * COREGS
-     */
+
+
+    /**
+     * -------------------------------------------------------------------
+     * COREGS
+     
 
     $http.get('/api/coregs/user/'+$scope.user._id
     + '?sessionlanding='+$rootScope.sessionLanding._id
@@ -171,7 +315,20 @@ angular.module('gosteiclubApp')
         }
       }
 
-    }).error(function(){});
+    /*
+     *
+     * CAMPANHAS
+     
+      $http.get('/api/offers/affiliation/579271a2cbf2e4130bb724b0?user='+$scope.user.email)
+        .success(function(data){
+
+          $scope.survey = data.survey;
+          $scope.dynamicSegmentation = data.dynamicSegmentation
+
+        }).error(function(){});
+
+    }).error(function(){});*/
+
 
 
 
@@ -342,36 +499,6 @@ angular.module('gosteiclubApp')
     }
 
 
-    $scope.nextStep = function(){
-
-      for(var x=0; x<$rootScope.steps.length; x++){
-
-        if($rootScope.sessionLandingData.isAmostras){
-
-          if($rootScope.steps[x] === 'active'){
-            $rootScope.steps[x] = 'complete';
-            $rootScope.isStepButtonDisabled = true;
-            $rootScope.steps[x+1] = 'active';
-            break;
-          }
-
-        }else{
-
-          if($rootScope.steps[x] === 'active'){
-
-            if(x === 1){
-              onSuccess($scope.user);
-              break;
-            }
-
-            $rootScope.steps[x] = 'complete';
-            $rootScope.isStepButtonDisabled = true;
-            $rootScope.steps[x+1] = 'active';
-            break;
-          }
-        }
-      }
-    };
 
 
 

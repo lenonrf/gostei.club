@@ -1,0 +1,25 @@
+
+    <div ng-repeat="item in dynamicSegmentation">
+      <div class="col-md-12">
+
+        <div class="blockquote-box clearfix">
+          <div class="row">
+            <div class="col-xs-4 col-md-2">
+              <div class="pull-left">
+                <img class="imageCoreg" ng-src="{{item.smallImage}}" alt="" class="" />
+              </div>
+            </div>
+
+            <div class="col-xs-8 col-md-10">
+              <h4>{{item.title}}</h4>
+              <p>{{item.description}}</p>
+              <p ng-repeat="itemAnswer in item.answerList">
+                <input type="radio" value="{{itemAnswer.actionType}}" 
+                  name="answer_{{item._id}}" id="answer_{{item._id}}"
+                  ng-click="showOffers()">&nbsp;&nbsp;{{itemAnswer.answer}}
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>

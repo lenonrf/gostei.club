@@ -1,0 +1,34 @@
+
+    <div ng-repeat="item in survey">
+
+      <div class="col-md-12" id="offer_{{item._id}}" 
+        style="{{(item.segmentation.dynamicSegmentation.length > 0) && 'display:none;' || 'display:block;'}}">
+
+        <div class="blockquote-box clearfix">
+          <div class="row">
+            <div class="col-xs-4 col-md-2">
+              <div class="pull-left">
+                <img class="imageCoreg" ng-src="{{item.delivery.survey.smallImage}}" alt="" class="" />
+              </div>
+            </div>
+
+            <div class="col-xs-8 col-md-10">
+              <h4>{{item.mainQuestion.title}}</h4>
+              <p>{{item.mainQuestion.description}}</p>
+              <div ng-repeat="itemAnswer in item.mainQuestion.answerList">
+                <p>
+                  <input type="radio" name="answer_{{item._id}}" 
+                    ng-click="verifyAnswers(itemAnswer, item)">
+                    &nbsp;&nbsp;{{itemAnswer.answer}}
+                </p>
+                <div id="answer_{{itemAnswer._id}}" style="display: none;">
+                  <p>
+                    {{(itemAnswer.action.type == 'confirm_user_fields') && itemAnswer.action.textConfirmation || itemAnswer.action.textInput}}</p>
+                  <p><input ng-model="item.textInput" size="40"></p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>

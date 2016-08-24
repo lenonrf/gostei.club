@@ -16,6 +16,7 @@ angular
     'angulartics.google.analytics',
     'ng.deviceDetector',
     'pascalprecht.translate',
+    'ngLodash'
 
   ])
   .config(function ($locationProvider, $routeProvider, $httpProvider, $translateProvider,
