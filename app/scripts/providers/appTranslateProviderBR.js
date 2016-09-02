@@ -346,6 +346,7 @@ angular.module('gosteiclubApp')
         'OPORTUNITY_01' : 'Aumente suas chances de ser escolhido!',
         'OPORTUNITY_02' : 'Escolha as oportunidades que combinam com você e aumente suas chances de ser escolhido:',
         'OPORTUNITY_03' : 'SIM, Eu quero esta Oportunidade!',
+        'OPORTUNITY_05' : 'Proxima Oportunidade !!!',
         'OPORTUNITY_04' : 'Não tenho interesse',
 
         'FREESAMPLE_01' : 'Escolha o que deseja receber:',

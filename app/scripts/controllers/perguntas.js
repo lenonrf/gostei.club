@@ -119,7 +119,7 @@ angular.module('gosteiclubApp')
 
 
 
-    getCampaings();
+    //getCampaings();
     getProducts(User);
 
 
@@ -134,16 +134,17 @@ angular.module('gosteiclubApp')
      * -------------------------------------------------------------------------------------
      */
 
+    $scope.showButtomOpportunity = false;
 
     $scope.deliveryWS = {
       survey: [],
-      questionHall: [],
-      balcony: []
+      questionHall: {},
+      balcony: {}
     };
 
 
     /**
-     * Call the API and Get all offers flterd by offer by and user segmentation
+     * Call the API and Get all offers filtered by offer by and user segmentation
      */
       $http.get('/api/offers/affiliation/579271a2cbf2e4130bb724b0?user='+$scope.user.email)
         .success(function(data){
@@ -151,7 +152,9 @@ angular.module('gosteiclubApp')
           $scope.setProgressBar(data.survey);
 
           $scope.survey = data.survey;
-          $scope.dynamicSegmentation = data.dynamicSegmentation
+          $scope.dynamicSegmentation = data.dynamicSegmentation;
+          $scope.questionHall = data.questionHall;
+
 
       }).error(function(){});
 
@@ -175,11 +178,13 @@ angular.module('gosteiclubApp')
      */
     $scope.setProgressBar = function (survey){
 
-      if(survey.length === 0){
+      $rootScope.steps = ['complete', 'active', 'disabled', 'disabled'];
+
+      /*if(survey.length === 0){
         $rootScope.steps = ['complete', 'active', 'disabled', 'disabled'];
       }else{
         $rootScope.steps = ['active', 'disabled', 'disabled', 'disabled'];
-      }
+      }*/
     };
 
 
@@ -194,7 +199,7 @@ angular.module('gosteiclubApp')
         $scope.sendSurvey();
       }
 
-      //$scope.moveProgressBar();
+      $scope.moveProgressBar();
 
     };
 
@@ -274,6 +279,7 @@ angular.module('gosteiclubApp')
 
 
 
+
     
 
 
@@ -327,7 +333,7 @@ angular.module('gosteiclubApp')
 
         }).error(function(){});
 
-    }).error(function(){});*/
+    }).error(function(){});
 
 
 
@@ -385,7 +391,7 @@ angular.module('gosteiclubApp')
       $scope.user.languageOrigin = SessionLanding.getLanguageOrigin();
       User.resourceCoreg.save({'id'  : $scope.user._id}, $scope.user.coregs, function(){}, function(){});
 
-    };
+    };*/
 
 
 
@@ -394,7 +400,7 @@ angular.module('gosteiclubApp')
     /**
      * -------------------------------------------------------------------
      * Campanhas corredor
-     */
+     
 
     function getCampaings() {
 
@@ -432,7 +438,7 @@ angular.module('gosteiclubApp')
 
 
       }).error(function(){});
-    }
+    }*/
 
 
 

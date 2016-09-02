@@ -1,0 +1,69 @@
+  <div  id="step_1">
+    <section ng-repeat="item in questionHall track by $index" ng-show="$index === indexItemQuestionHall"
+      id="features" style=" font-weight: 400; font-size:20px; background-color:#fff; margin-top:-40px;">
+      <div class="container">
+        <div id="headerPergunta">
+          <div class="row">
+            <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12" style="margin-top:-90px; background-color: #fff;">
+                <img style=" border-radius: 5px; margin-bottom: 20%; margin-top:15px; margin-left: auto; margin-right: auto;" class="img-responsive" ng-src="{{item.delivery.questionHall.largeImage}}" >
+            </div>
+
+            <div class="col-md-7 col-lg-7 col-sm-12 col-xs-12" style="margin-top:-70px; margin-bottom:40px;">
+              
+              <h2 class="oportunitiesTitle">{{item.mainQuestion.title}}</h2>
+              <p class="oportunitiesDescription">{{item.mainQuestion.description}}</p>
+              
+              
+              <!-- ANSWER LIST -->
+              <div ng-if="item.delivery.questionHall.isShowAnswerList == true"> 
+                <div ng-repeat="itemAnswer in item.mainQuestion.answerList">
+                  <p>
+                    <input type="radio" name="answer_{{item._id}}" 
+                      ng-click="verifyAnswersQuestionHall(itemAnswer, item)">
+                      &nbsp;&nbsp;{{itemAnswer.answer}}
+                  </p>
+                  
+                  <div id="answer_question_{{itemAnswer._id}}" style="display: none;">
+                  
+                    <p>
+                      {{(itemAnswer.action.type == 'confirm_user_fields') && itemAnswer.action.textConfirmation || itemAnswer.action.textInput}}
+                    </p>
+                    
+                    <p ng-if="itemAnswer.action.field == 'cellphone'">
+                      <input ui-mask="(99) 99999-9999" ng-model="user.cellphone" size="40">
+                    </p>
+                    
+                    <p ng-if="itemAnswer.action.field == 'email'">
+                      <input ng-model="user.email" size="40">
+                    </p>
+
+                    <p ng-if="itemAnswer.action.type == 'open_new_input_field'">
+                      <input size="40" id="{{itemAnswer._id}}_userfield_custom">
+                    </p>
+
+                  </div>
+
+                </div>
+                  
+                  <a ng-show="showButtomOpportunity" style="margin-top:40px;" class="btn btn-main_2" ng-click="defineDeliveryStrategy(itemAnswerSelected, item)" 
+                    style="margin-bottom:10px;"  role="button">
+                    <b>{{'HALL.OPORTUNITY_03' | translate}}</b>
+                  </a>
+                
+              </div>
+
+              <div ng-if="item.delivery.questionHall.isShowAnswerList == false">
+
+                <a style="margin-top:20px;" class="btn btn-main_2" ng-click="defineDeliveryStrategy(itemAnswerSelected, item)" 
+                  style="margin-bottom:10px;"  role="button">
+                  <b>{{'HALL.OPORTUNITY_03' | translate}}</b>
+                </a>
+                <center><a ng-disabled="disableAnswerButton" href="" ng-click="nextItemQuenstionHall()"role="button" style="font-size:12px; color:#525252; ">{{'HALL.OPORTUNITY_04' | translate}}</a></center>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>

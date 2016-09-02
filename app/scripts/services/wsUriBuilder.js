@@ -11,12 +11,30 @@ angular.module('gosteiclubApp')
   .factory('WsUriBuilder', function () {
 
 
+
+    this.buildUriCustom = function(user, offerType, offer, fieldTag, customValue){
+
+      if(offer.delivery.survey.wsUrl.indexOf('?') > -1){
+        offer.delivery.survey.wsUrl += '&'+fieldTag+'='+customValue;
+      }else{
+        offer.delivery.survey.wsUrl += '?'+fieldTag+'='+customValue;
+      }
+
+      this.buildUri(user, offerType, offer);
+
+    };
+
+
+
     this.buildUri = function(user, offerType, offer){
       
       switch(offerType){
 
         case 'survey':
           return this.replaceValues(offer.delivery.survey.wsUrl, user);
+
+        case 'questionHall':
+          return this.replaceValues(offer.delivery.questionHall.wsUrl, user);
 
       }
     };
@@ -27,9 +45,15 @@ angular.module('gosteiclubApp')
 
       var keyValuesArray = offerUri.match(/<([a-z]|[A-Z])*>/g);
 
+      if(!keyValuesArray){
+        return offerUri;
+      }
+
       for (var i = 0; i < keyValuesArray.length; i++) {
         offerUri = this.searchAndReplaceUserValues(keyValuesArray[i], offerUri, user);
       };
+
+      console.log('offerUri', offerUri);
 
       return offerUri;
     };
