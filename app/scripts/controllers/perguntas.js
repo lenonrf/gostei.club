@@ -349,6 +349,10 @@ angular.module('gosteiclubApp')
 
     $scope.nextStep = function(){
 
+      if($rootScope.steps[0] === 'active'){
+        $scope.sendCoreg();
+      }
+
       for(var x=0; x<$rootScope.steps.length; x++){
 
         if($rootScope.sessionLandingData.isAmostras){
