@@ -45,7 +45,7 @@ angular.module('gosteiclubApp')
                             break;
 
                             case 'delivery':
-                                $scope.defineDeliveryStrategy(offer);
+                                $scope.defineDeliveryStrategy(itemAnswer, offer);
                             break;    
 
                             case 'confirm_user_fields':
@@ -96,7 +96,7 @@ angular.module('gosteiclubApp')
                     $scope.validateInputField = function(itemAnswerSelected){
                        
                         if(!$scope.showButtomOpportunity){
-                            return false;
+                            return true;
                         }
 
                         switch(itemAnswerSelected.action.type){
@@ -151,9 +151,6 @@ angular.module('gosteiclubApp')
                             uri = WsUriBuilder.buildUriCustom(
                                 $scope.user, 'questionHall', offer, customKey, customValue);
 
-                            console.log('uri', uri);
-
-
                             WsClient.executeUri(uri, 'questionHall', offer, $scope.user);
 
                         
@@ -161,8 +158,6 @@ angular.module('gosteiclubApp')
 
                             uri = WsUriBuilder.buildUri(
                                 $scope.user, 'questionHall', offer);
-
-                            console.log('uri', uri);
                             
                             WsClient.executeUri(uri, 'questionHall', offer, $scope.user);
                         }

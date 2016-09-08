@@ -11,7 +11,7 @@ angular.module('gosteiclubApp')
   .controller('PerguntasCtrl', function ($scope, $window, Malling, $http, $rootScope,
                                          $translate, $location, Coreg, Menu, Allin, $compile, $sce, 
                                          Campaing, Survey, WsUriBuilder, WsClient, User, Utils, 
-                                         Product, SessionLanding) {
+                                         Product, SessionLanding, lodash) {
 
 
     /** ------------------------------------------------------ */
@@ -142,6 +142,10 @@ angular.module('gosteiclubApp')
       balcony: {}
     };
 
+    $scope.offers = {
+      questionHall: []
+    }
+
 
     /**
      * Call the API and Get all offers filtered by offer by and user segmentation
@@ -153,7 +157,9 @@ angular.module('gosteiclubApp')
 
           $scope.survey = data.survey;
           $scope.dynamicSegmentation = data.dynamicSegmentation;
-          $scope.questionHall = data.questionHall;
+          $scope.offers.questionHall = data.questionHall;
+
+          console.log('$scope.offers.questionHall', $scope.offers.questionHall);
 
 
       }).error(function(){});
@@ -178,13 +184,13 @@ angular.module('gosteiclubApp')
      */
     $scope.setProgressBar = function (survey){
 
-      $rootScope.steps = ['complete', 'active', 'disabled', 'disabled'];
+      //$rootScope.steps = ['complete', 'active', 'disabled', 'disabled'];
 
-      /*if(survey.length === 0){
+      if(survey.length === 0){
         $rootScope.steps = ['complete', 'active', 'disabled', 'disabled'];
       }else{
         $rootScope.steps = ['active', 'disabled', 'disabled', 'disabled'];
-      }*/
+      }
     };
 
 
@@ -195,22 +201,53 @@ angular.module('gosteiclubApp')
      */
     $scope.nextStep = function(){
 
+      $scope.moveProgressBar();
+
       if($scope.isSurveyStep()){
         $scope.sendSurvey();
       }
 
-      $scope.moveProgressBar();
+      if($scope.isQuestionHallStep()){
+        //$scope.questionHall = $scope.applyDynamicSegmentation($scope.questionHall);
+      }
 
     };
 
 
+    $scope.applyDynamicSegmentation = function(offers){
+
+      var offersAvailable = [];
+      
+      console.log('$scope.questionHall', $scope.questionHall);
+      console.log('$rootScope.avaliableDynamicSegmentation', $rootScope.avaliableDynamicSegmentation);
+
+      for (var x = 0; x < $scope.questionHall.length; x++) {
+        for (var y = 0; y < $scope.questionHall[x].segmentation.dynamicSegmentation.length; y++) {
+
+          var dynamicSegId = $scope.questionHall[x].segmentation.dynamicSegmentation[y]._id;
+
+          console.log('dynamicSegId', dynamicSegId, ($rootScope.avaliableDynamicSegmentation.indexOf(dynamicSegId) > -1));
+
+          if($rootScope.avaliableDynamicSegmentation.indexOf(dynamicSegId) > -1){
+
+            offersAvailable.push($scope.questionHall[x]);
+          }
+        };
+      };
+
+      console.log('offersAvailable', offersAvailable);
+      return offersAvailable;
+    };
 
 
-    /**
-     * Move foward the progress bar
-     */
+
     $scope.isSurveyStep = function(){
       return ($rootScope.steps[0] === 'active' && $rootScope.steps[1] === 'disabled');
+    };
+
+
+    $scope.isQuestionHallStep = function(){
+      return ($rootScope.steps[0] === 'complete' && $rootScope.steps[1] === 'active');
     };
 
 

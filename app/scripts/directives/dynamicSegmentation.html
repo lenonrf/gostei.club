@@ -16,7 +16,7 @@
               <p ng-repeat="itemAnswer in item.answerList">
                 <input type="radio" value="{{itemAnswer.actionType}}" 
                   name="answer_{{item._id}}" id="answer_{{item._id}}"
-                  ng-click="showOffers()">&nbsp;&nbsp;{{itemAnswer.answer}}
+                  ng-click="verifyOffersAvailable()">&nbsp;&nbsp;{{itemAnswer.answer}}
               </p>
             </div>
 
