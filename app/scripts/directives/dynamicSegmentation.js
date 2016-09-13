@@ -15,14 +15,9 @@ angular.module('gosteiclubApp')
 
 
 				    $scope.verifyOffersAvailable = function(){
-				      
-				      	console.log('before', $rootScope.questionHall);
-				      	
+				      				      	
 				      	$scope.showSurveySegmented();
 				      	$rootScope.questionHall = $scope.getQuestionHallSegmented();
-
-
-				    	console.log('after', $rootScope.questionHall);
 										      
 				    };
 

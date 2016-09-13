@@ -149,7 +149,7 @@ angular.module('gosteiclubApp')
                             var customValue = $('#'+itemAnswerSelected._id+'_userfield_custom').val();
 
                             uri = WsUriBuilder.buildUriCustom(
-                                $scope.user, 'questionHall', offer, customKey, customValue);
+                                $scope.user, 'questionHall', offer.delivery.questionHall.wsUrl, customKey, customValue);
 
                             WsClient.executeUri(uri, 'questionHall', offer, $scope.user);
 
@@ -157,7 +157,7 @@ angular.module('gosteiclubApp')
                         }else{
 
                             uri = WsUriBuilder.buildUri(
-                                $scope.user, 'questionHall', offer);
+                                $scope.user, 'questionHall', offer.delivery.questionHall.wsUrl);
                             
                             WsClient.executeUri(uri, 'questionHall', offer, $scope.user);
                         }

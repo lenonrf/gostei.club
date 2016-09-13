@@ -12,17 +12,13 @@ angular.module('gosteiclubApp')
 
 
 
-    this.buildUriCustom = function(user, offerType, offer, fieldTag, customValue){
+    this.buildUriCustom = function(user, offerType, offerUri, fieldTag, customValue){
 
-      var offerUri = '';
-
-      if(offer.delivery.survey.wsUrl.indexOf('?') > -1){
-
-        offerUri = offer.delivery.survey.wsUrl + '&'+fieldTag+'='+customValue;
+      if(offerUri.indexOf('?') > -1){
+        offerUri = offerUri + '&'+fieldTag+'='+customValue;
       
       }else{
-        
-        offerUri = offer.delivery.survey.wsUrl + '?'+fieldTag+'='+customValue;
+        offerUri = offerUri + '?'+fieldTag+'='+customValue;
       }
 
       return this.buildUri(user, offerType, offerUri);
