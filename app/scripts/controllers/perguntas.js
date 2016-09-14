@@ -267,7 +267,7 @@ angular.module('gosteiclubApp')
         }
 
         //console.log('$scope.campaings', $scope.campaings);
-        //console.log('$scope.corredor', $scope.corredor);
+        console.log('$scope.corredor', $scope.corredor);
 
         $scope.question = {
 
