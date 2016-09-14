@@ -55,7 +55,7 @@ angular.module('gosteiclubApp')
 
     this.getDateAllin = function(){
 
-      date = new Date();
+      var date = new Date();
       return date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
     };
 
