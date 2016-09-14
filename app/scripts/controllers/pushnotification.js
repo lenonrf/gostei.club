@@ -2,7 +2,7 @@
 
 
 angular.module('gosteiclubApp')
-  .controller('PushNotificationCtrl', function ($scope, $location, Canal, Product, $http, SessionLanding, User, $rootScope, Menu) {
+  .controller('PushNotificationCtrl', function ($scope, $location, Utils, Canal, Product, $http, SessionLanding, User, $rootScope, Menu) {
 
     $rootScope.showFooter = false;
     Menu.setMenu('PerguntasCtrl');
