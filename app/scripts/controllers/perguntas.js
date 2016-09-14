@@ -250,7 +250,9 @@ angular.module('gosteiclubApp')
         return null;
       }
 
-      //console.log('$rootScope.sessionLanding', $rootScope.sessionLanding);
+      console.log('$rootScope.sessionLanding', '/api/oportunities/user/'+$scope.user._id
+        +'?sessionlanding='+$rootScope.sessionLanding._id
+        +'&deviceAccess='+$rootScope.deviceAccess);
 
       $http.get('/api/oportunities/user/'+$scope.user._id
         +'?sessionlanding='+$rootScope.sessionLanding._id
@@ -267,7 +269,7 @@ angular.module('gosteiclubApp')
         }
 
         //console.log('$scope.campaings', $scope.campaings);
-        console.log('$scope.corredor', $scope.corredor);
+        console.log('$scope.corredor', $scope.corredor, data);
 
         $scope.question = {
 
