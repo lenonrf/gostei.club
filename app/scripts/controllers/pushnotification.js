@@ -10,7 +10,7 @@ angular.module('gosteiclubApp')
     $rootScope.sessionLanding = {};
     $scope.user = {};
 
-    var sessionCode = SessionLanding.getSessionCode($location);
+    var sessionCode = 'amostras';
     if(sessionCode != null){
       $http.get('/api/sessionlanding?code='+sessionCode).success(function(data){
 
