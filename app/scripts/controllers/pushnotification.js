@@ -14,6 +14,8 @@ angular.module('gosteiclubApp')
     if(sessionCode != null){
       $http.get('/api/sessionlanding?code='+sessionCode).success(function(data){
 
+        console.log('data', data);
+
         $rootScope.sessionLanding = data[0];
         $rootScope.sessionLandingData = SessionLanding.getDataFromLanding($rootScope, sessionCode);
 
