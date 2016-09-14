@@ -290,7 +290,7 @@ angular.module('gosteiclubApp')
 
       console.log('$scope.user.birthDate', $scope.user.birthDate);
 
-      return $scope.user.birthDate.slice(-4);;
+      return $scope.user.birthDate.slice(-4);
     };
 
 
@@ -310,14 +310,14 @@ angular.module('gosteiclubApp')
 
         if(question.urlAnswer.indexOf('<user_id>') > -1){
 
-          var age = $scope.getUserAge();  
-          var gender = ($scope.user.gender === 'M') ? '1' : '2';
-          var region = $scope.getUserRegion();
+          //var age = $scope.getUserAge();  
+          //var gender = ($scope.user.gender === 'M') ? '1' : '2';
+          //var region = $scope.getUserRegion();
 
           question.urlAnswer = question.urlAnswer.replace('<user_id>', $scope.user._id);
-          question.urlAnswer = question.urlAnswer.replace('<user_age>', age);
-          question.urlAnswer = question.urlAnswer.replace('<user_gender>', gender);
-          question.urlAnswer = question.urlAnswer.replace('<user_region>', region);
+          //question.urlAnswer = question.urlAnswer.replace('<user_age>', age);
+          //question.urlAnswer = question.urlAnswer.replace('<user_gender>', gender);
+          //question.urlAnswer = question.urlAnswer.replace('<user_region>', region);
 
 
 
