@@ -1,0 +1,54 @@
+'use strict';
+
+
+angular.module('gosteiclubApp')
+  .controller('PushNotificationCtrl', function ($scope, $location, Canal, Product, $http, SessionLanding, User, $rootScope, Menu) {
+
+    $rootScope.showFooter = false;
+    Menu.setMenu('PerguntasCtrl');
+
+    $rootScope.sessionLanding = {};
+    $scope.user = {};
+
+    var sessionCode = SessionLanding.getSessionCode($location);
+    if(sessionCode != null){
+      $http.get('/api/sessionlanding?code='+sessionCode).success(function(data){
+
+        $rootScope.sessionLanding = data[0];
+        $rootScope.sessionLandingData = SessionLanding.getDataFromLanding($rootScope, sessionCode);
+
+      }).error(function(){});
+    }
+
+
+    Canal.resource.query({code: Canal.getCanalCode($location) }, function(data){
+      $scope.user.canal =  data[0]._id;
+    });
+
+
+    Product.resource.query(function(data){
+      $scope.products = data;
+    }, function(err){ });
+
+
+
+    User.resourceEmail.get({email:$location.search().email}, function(data){
+
+          User.setData(data);
+          User.setLogged(true);
+          $scope.user = User.getData();
+
+        }, function(){
+          $location.path('/main');
+        });
+
+
+
+
+
+    $scope.enter = function(){
+      $location.path('/perguntas');
+    }
+
+
+  });

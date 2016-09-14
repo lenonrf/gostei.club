@@ -62,6 +62,10 @@ angular
         templateUrl: 'views/obrigado.html',
         controller: 'ObrigadoCtrl'
       })
+      .when('/pushnotification', {
+        templateUrl: 'views/pushnotification.html',
+        controller: 'PushNotificationCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
