@@ -45,11 +45,18 @@ angular.module('gosteiclubApp')
     this.getDateFormated = function(date){
 
       if(date === null){
-        date = new Date();
+        
         return date.getDate()+'/'+(date.getMonth()+1)+'/'+date.getFullYear();
       }
 
       return date.getDate()+'/'+(date.getMonth()+1)+'/'+date.getFullYear();
+    };
+
+
+    this.getDateAllin = function(){
+
+      date = new Date();
+      return date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
     };
 
 
