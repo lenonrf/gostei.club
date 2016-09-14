@@ -6,7 +6,7 @@ angular.module('gosteiclubApp')
     this.sendDataToWelcomeLifeCycle = function(data){
 
       var allin = {
-        evento : 'Welcome',
+        evento : 'Novo Cadastro',
         nm_email: data.email,
         lista:{
           nm_lista: 'gostei.club',
