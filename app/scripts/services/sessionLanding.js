@@ -22,9 +22,9 @@ angular.module('gosteiclubApp')
       
       }else{
 
-        if(location.search().utm_campaing){
+        if(location.search().utm_campaign){
 
-          switch(location.search().utm_campaing.toLowerCase()){
+          switch(location.search().utm_campaign.toLowerCase()){
 
             case 'g_amostras':
             case 'g_trabalhe':
@@ -41,7 +41,7 @@ angular.module('gosteiclubApp')
       }
 
       return originTraficSource;
-      
+
     };
 
 
