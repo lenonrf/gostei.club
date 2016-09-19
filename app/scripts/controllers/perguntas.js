@@ -394,6 +394,10 @@ angular.module('gosteiclubApp')
           $window.open(question.urlAnswer+'&aff_sub='
             +User.getCampaing($location, $rootScope.deviceAccess, $rootScope.sessionLanding), '_blank')
             +'&aff_sub5='+$rootScope.originTrafficSource;
+
+            console.log('HO URL', question.urlAnswer+'&aff_sub='
+            +User.getCampaing($location, $rootScope.deviceAccess, $rootScope.sessionLanding), '_blank')
+            +'&aff_sub5='+$rootScope.originTrafficSource);
         }
 
       }
