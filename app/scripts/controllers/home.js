@@ -2,7 +2,11 @@
 
 
 angular.module('gosteiclubApp')
-  .controller('HomeCtrl', function ($scope, $rootScope, $http,$translate, $location, Menu, User, Utils, Product) {
+  .controller('HomeCtrl', function ($scope, $rootScope, $http,$translate, $location, Menu, User, Utils, Product, SessionLanding) {
+
+      
+    $rootScope.originTrafficSource = SessionLanding.getOriginTraficSource($location);
+
 
     Menu.setMenu('HomeCtrl');
     $rootScope.showFooter = false;

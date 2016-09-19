@@ -15,6 +15,7 @@ angular.module('gosteiclubApp')
 
     /** ------------------------------------------------------ */
 
+    $rootScope.originTrafficSource = SessionLanding.getOriginTraficSource($location);
 
     $rootScope.isStepButtonDisabled = false;
 
@@ -250,9 +251,9 @@ angular.module('gosteiclubApp')
         return null;
       }
 
-      console.log('$rootScope.sessionLanding', '/api/oportunities/user/'+$scope.user._id
-        +'?sessionlanding='+$rootScope.sessionLanding._id
-        +'&deviceAccess='+$rootScope.deviceAccess);
+      //console.log('$rootScope.sessionLanding', '/api/oportunities/user/'+$scope.user._id
+        //+'?sessionlanding='+$rootScope.sessionLanding._id
+        //+'&deviceAccess='+$rootScope.deviceAccess);
 
       $http.get('/api/oportunities/user/'+$scope.user._id
         +'?sessionlanding='+$rootScope.sessionLanding._id
@@ -269,7 +270,7 @@ angular.module('gosteiclubApp')
         }
 
         //console.log('$scope.campaings', $scope.campaings);
-        console.log('$scope.corredor', $scope.corredor, data);
+        //console.log('$scope.corredor', $scope.corredor, data);
 
         $scope.question = {
 
@@ -391,7 +392,8 @@ angular.module('gosteiclubApp')
           
         }else{
           $window.open(question.urlAnswer+'&aff_sub='
-            +User.getCampaing($location, $rootScope.deviceAccess, $rootScope.sessionLanding), '_blank');
+            +User.getCampaing($location, $rootScope.deviceAccess, $rootScope.sessionLanding), '_blank')
+            +'&aff_sub5='+$rootScope.originTrafficSource;
         }
 
       }

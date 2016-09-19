@@ -12,6 +12,40 @@ angular.module('gosteiclubApp')
 
     this.data = {};
 
+    this.getOriginTraficSource = function(location){
+
+      var originTraficSource = 'organic'
+
+      if(location.search().utm_source){
+      
+        originTraficSource = location.search().utm_source.toLowerCase();
+      
+      }else{
+
+        if(location.search().utm_campaing){
+
+          switch(location.search().utm_campaing.toLowerCase()){
+
+            case 'g_amostras':
+            case 'g_trabalhe':
+            case 'g_revenda':
+            case 'g_testadores':
+            case 'g_relevancia':
+            case 'g_promocoes':
+            case 'g_pesquisas':
+            case 'g_ganhardinheiro':
+              originTraficSource = 'google';
+              break;
+          }
+        }
+      }
+
+      return originTraficSource;
+      
+    };
+
+
+
 
     this.isOutBrain = function(location){
       if(location.search().utm_source){

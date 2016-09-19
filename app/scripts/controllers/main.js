@@ -13,6 +13,8 @@ angular.module('gosteiclubApp')
                                     $http, Product, $translate, TermsConditions, Malling, Partners) {
 
 
+    $rootScope.originTrafficSource = SessionLanding.getOriginTraficSource($location);
+
     $rootScope.isFromOutBrain = SessionLanding.isOutBrain($location);
     $rootScope.isFromTaboola = SessionLanding.isTaboola($location);
 
