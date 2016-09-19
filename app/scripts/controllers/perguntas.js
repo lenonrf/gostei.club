@@ -17,7 +17,7 @@ angular.module('gosteiclubApp')
 
     $rootScope.originTrafficSource = SessionLanding.getOriginTraficSource($location);
 
-    $rootScope.isStepButtonDisabled = false;
+    $rootScope.isStepButtonDisabled = true;
 
 
     $scope.isCreditCard = null;
@@ -164,6 +164,8 @@ angular.module('gosteiclubApp')
     $http.get('/api/coregs/user/'+$scope.user._id
     + '?sessionlanding='+$rootScope.sessionLanding._id
     + '&deviceAccess='+$rootScope.deviceAccess).success(function(data){
+
+      $rootScope.isStepButtonDisabled = true;
 
       for(var x=0; x<data.length; x++){
 
@@ -392,11 +394,11 @@ angular.module('gosteiclubApp')
           
         }else{
           $window.open(question.urlAnswer+'&aff_sub='
-            +User.getCampaing($location, $rootScope.deviceAccess, $rootScope.sessionLanding), '_blank'
-            +'&aff_sub5='+$rootScope.originTrafficSource);
+            +User.getCampaing($location, $rootScope.deviceAccess, $rootScope.sessionLanding)
+            +'&aff_sub5='+$rootScope.originTrafficSource, '_blank');
 
             console.log('HO URL', question.urlAnswer+'&aff_sub='
-            +User.getCampaing($location, $rootScope.deviceAccess, $rootScope.sessionLanding), '_blank'
+            +User.getCampaing($location, $rootScope.deviceAccess, $rootScope.sessionLanding)
             +'&aff_sub5='+$rootScope.originTrafficSource);
         }
 
