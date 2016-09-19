@@ -392,11 +392,11 @@ angular.module('gosteiclubApp')
           
         }else{
           $window.open(question.urlAnswer+'&aff_sub='
-            +User.getCampaing($location, $rootScope.deviceAccess, $rootScope.sessionLanding), '_blank')
-            +'&aff_sub5='+$rootScope.originTrafficSource;
+            +User.getCampaing($location, $rootScope.deviceAccess, $rootScope.sessionLanding), '_blank'
+            +'&aff_sub5='+$rootScope.originTrafficSource);
 
             console.log('HO URL', question.urlAnswer+'&aff_sub='
-            +User.getCampaing($location, $rootScope.deviceAccess, $rootScope.sessionLanding), '_blank')
+            +User.getCampaing($location, $rootScope.deviceAccess, $rootScope.sessionLanding), '_blank'
             +'&aff_sub5='+$rootScope.originTrafficSource);
         }
 
