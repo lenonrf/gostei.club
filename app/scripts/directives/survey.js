@@ -39,14 +39,14 @@ angular.module('gosteiclubApp')
                             break;
 
                             case 'delivery':
-                                $scope.defineDeliveryStrategy(survey);
+                                $scope.defineDeliveryStrategy(itemAnswer, survey);
                             break;    
 
                             case 'confirm_user_fields':
                             case 'open_new_input_field':
 
                                 $('#answer_'+itemAnswer._id).css('display', 'block');
-                                $scope.defineDeliveryStrategy(survey);
+                                $scope.defineDeliveryStrategy(itemAnswer, survey);
 
                             break;
                         }
@@ -57,7 +57,7 @@ angular.module('gosteiclubApp')
 
 
 
-                    $scope.defineDeliveryStrategy = function(survey){
+                    $scope.defineDeliveryStrategy = function(itemAnswer, survey){
                     
                         if(survey.delivery.survey.type === 'tb'){
                             $window.open(survey.delivery.survey.targetBlankUrl);
@@ -70,6 +70,7 @@ angular.module('gosteiclubApp')
                                 lodash.uniq($scope.deliveryWS.survey, function(item, key, _id) { 
                                     return item._id;
                                 });
+
                         }
                     };
 

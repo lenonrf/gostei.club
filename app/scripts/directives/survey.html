@@ -19,7 +19,7 @@
 
                 <div ng-repeat="itemAnswer in item.mainQuestion.answerList">
                   <p>
-                    <input type="radio" name="answer_{{item._id}}" 
+                    <input type="radio" name="answer_survey_{{item._id}}" value="{{itemAnswer.action.type}}_-_{{itemAnswer._id}}"
                       ng-click="verifyAnswers(itemAnswer, item)">
                       &nbsp;&nbsp;{{itemAnswer.answer}}
                   </p>
@@ -39,7 +39,10 @@
                     </p>
 
                     <p ng-if="itemAnswer.action.type == 'open_new_input_field'">
-                      <input size="40" id="{{itemAnswer._id}}_userfield_custom">
+                      <input size="40"     id="userfield_custom_{{itemAnswer._id}}" />
+                      <input type="hidden" id="userfield_custom_tag_{{itemAnswer._id}}" 
+                        value="{{itemAnswer.action.fieldTag}}" />
+
                     </p>
 
                   </div>

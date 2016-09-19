@@ -8,11 +8,11 @@
  * Factory in the gosteiclubApp.
  */
 angular.module('gosteiclubApp')
-  .factory('Survey', function () {
+  .factory('Survey', function (WsClient, WsUriBuilder) {
 
 
     this.getRadioGroupChoise = function(id){
-      return $("input:radio[name ='answer_"+id+"']:checked").val();
+      return $("input:radio[name ='"+id+"']:checked").val();
     };
 
 
@@ -24,7 +24,7 @@ angular.module('gosteiclubApp')
 
       for (var x = 0; dynamicSegmentation.length>x; x++) { 
 
-        radioChoise = this.getRadioGroupChoise(dynamicSegmentation[x]._id);                    
+        radioChoise = this.getRadioGroupChoise('answer_'+dynamicSegmentation[x]._id);                    
         statusDynamicSegmentation = (!radioChoise) ? false : true;
       }
 
@@ -36,6 +36,58 @@ angular.module('gosteiclubApp')
 
       return (statusDynamicSegmentation && statusAvaliableOffers);
 
+    };
+
+
+
+
+    this.sendSurvey = function(surveyList, user){
+      
+      var uri = '';
+
+      for (var i = 0; i < surveyList.length; i++) { 
+
+          var actionTypeArr = (this.getRadioGroupChoise('answer_survey_'+surveyList[i]._id)).split('_-_');
+
+          var action = {
+            type: actionTypeArr[0],
+            answerId : actionTypeArr[1]
+
+          }; 
+
+          if(action.type !== 'do_nothing'){
+            
+            uri = this.getSurveyURI(surveyList[i], user, action);
+            console.log('uri', uri);
+            //WsClient.executeUri(uri, 'survey', surveyList[i], user);
+          }
+      };
+    };
+
+
+
+
+    this.getSurveyURI = function(survey, user, action){
+
+
+      var uri = '';
+
+      switch(action.type){
+
+        case 'delivery':
+        case 'confirm_user_fields':
+          return WsUriBuilder.buildUri(user, 'survey', survey.delivery.survey.wsUrl);;
+
+
+        case 'open_new_input_field':
+          
+          var customKey   = $('#userfield_custom_tag_'+action.answerId).val();
+          var customValue = $('#userfield_custom_'+action.answerId).val();
+
+          return WsUriBuilder.buildUriCustom(user, 'survey', 
+            survey.delivery.survey.wsUrl, customKey, customValue);
+
+      }
     };
 
     return this;

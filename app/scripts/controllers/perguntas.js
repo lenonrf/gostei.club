@@ -298,45 +298,7 @@ angular.module('gosteiclubApp')
      * Call the API to send que survey to avaiable web services
      */
     $scope.sendSurvey = function(){
-
-      var uri = '';
-
-      console.log('$scope.deliveryWS.survey', $scope.deliveryWS.survey);
-
-      for (var i = 0; i < $scope.deliveryWS.survey.length; i++) {
-        
-        /*uri = WsUriBuilder.buildUri(
-          $scope.user, 'survey', $scope.deliveryWS.survey[i]);
-
-        WsClient.executeUri(uri, 'survey', $scope.deliveryWS.survey[i], $scope.user);       
-        */
-
-
-        /*
-        var uri = '';
-
-        if(itemAnswerSelected.action.type === 'open_new_input_field'){
-                            
-          var customKey   = itemAnswerSelected.action.fieldTag;
-          var customValue = $('#'+itemAnswerSelected._id+'_userfield_custom').val();
-
-          uri = WsUriBuilder.buildUriCustom(
-            $scope.user, 'questionHall', offer.delivery.questionHall.wsUrl, customKey, customValue);
-
-          WsClient.executeUri(uri, 'questionHall', offer, $scope.user);
-
-                        
-        }else{
-
-          uri = WsUriBuilder.buildUri(
-            $scope.user, 'questionHall', offer.delivery.questionHall.wsUrl);
-                            
-          WsClient.executeUri(uri, 'questionHall', offer, $scope.user);
-        }*/
-
-
-      };
-        
+      Survey.sendSurvey($scope.survey, $scope.user);
     };
 
 
