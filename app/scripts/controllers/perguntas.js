@@ -204,9 +204,9 @@ angular.module('gosteiclubApp')
       }
 
 
-      //if($scope.user.coregs.length === $scope.coregs.length){
-        //$rootScope.isStepButtonDisabled = false;
-      //}
+      if($scope.user.coregs.length === $scope.coregs.length){
+        $rootScope.isStepButtonDisabled = false;
+      }
 
     };
 
