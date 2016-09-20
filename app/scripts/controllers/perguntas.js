@@ -427,7 +427,7 @@ angular.module('gosteiclubApp')
       $scope.indexQuestion = $scope.indexQuestion + 1;
       var question = $scope.corredor[$scope.indexQuestion];
 
-      $scope.percentageProgressBar = ($scope.indexQuestion / $scope.corredor.length)*100;
+      $scope.percentageProgressBar = Math.round(($scope.indexQuestion / $scope.corredor.length)*100);
 
       $scope.question = {
 
