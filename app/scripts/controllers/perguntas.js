@@ -13,6 +13,10 @@ angular.module('gosteiclubApp')
                                          Campaing, User, Utils, Product, SessionLanding) {
 
 
+    /* PROGRESS BAR */
+    $scope.maxProgressBar = 100;
+    $scope.percentageProgressBar = 1;
+
     /** ------------------------------------------------------ */
 
     $rootScope.originTrafficSource = SessionLanding.getOriginTraficSource($location);
@@ -422,6 +426,8 @@ angular.module('gosteiclubApp')
 
       $scope.indexQuestion = $scope.indexQuestion + 1;
       var question = $scope.corredor[$scope.indexQuestion];
+
+      $scope.percentageProgressBar = ($scope.indexQuestion / $scope.corredor.length)*100;
 
       $scope.question = {
 

@@ -11,6 +11,7 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui.bootstrap.showErrors',
+    'ui.bootstrap',
     'ui.bootstrap.modal',
     'angulartics',
     'angulartics.google.analytics',
