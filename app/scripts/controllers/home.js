@@ -2,7 +2,8 @@
 
 
 angular.module('gosteiclubApp')
-  .controller('HomeCtrl', function ($scope, $rootScope, $http,$translate, $location, Menu, User, Utils, Product, SessionLanding) {
+  .controller('HomeCtrl', function ($scope, $rootScope, $window,
+    $http,$translate, $location, Menu, User, Utils, Product, SessionLanding) {
 
       
     $rootScope.originTrafficSource = SessionLanding.getOriginTraficSource($location);
@@ -104,9 +105,32 @@ angular.module('gosteiclubApp')
         error(function(data, status) {
           console.log('ERROR '+status, data);
         });
-
-
-
     }
+
+
+
+
+    $scope.setAnswerQuestion = function (urlAnswer) {       
+
+      if(urlAnswer.indexOf('<user_id>') > -1){
+
+        var age = Utils.getUserAge($scope.user);  
+        var gender = ($scope.user.gender === 'M') ? '1' : '2';
+        var region = Utils.getUserRegion($scope.user);
+
+        urlAnswer = urlAnswer.replace('<user_id>', $scope.user._id);
+        urlAnswer = urlAnswer.replace('<user_age>', age);
+        urlAnswer = urlAnswer.replace('<user_gender>', gender);
+        urlAnswer = urlAnswer.replace('<user_region>', region);
+         
+      }
+
+      console.log('user', $scope.user);
+
+      console.log('urlAnswer', urlAnswer);
+
+      $window.open(urlAnswer, '_blank');
+
+    };
 
   });

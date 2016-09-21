@@ -295,84 +295,7 @@ angular.module('gosteiclubApp')
 
 
 
-    $scope.getUserAge = function(){
 
-      var userYearBirth = parseInt($scope.user.birthDate.slice(0, 4), 10);
-      return (2016 - userYearBirth);
-    };
-
-
-    $scope.getUserRegion = function(){
-
-      var cepRange = parseInt($scope.user.address.zipcode.substr(0, 5), 10); 
-
-      // SAO PAULO
-      
-      if((cepRange >= 1000) && (cepRange <= 19999)){
-         return 1;    
-      }
-
-      
-      // RIO
-
-      if((cepRange >= 20000) && (cepRange <= 28999)){
-         return 2;    
-      }
-
-
-      // Belo Horizonte - MG
-
-      if((cepRange >= 30000) && (cepRange <= 39999)){
-         return 3;    
-      }
-
-
-      // Curitiba - PR
-
-      if((cepRange >= 80000) && (cepRange <= 87999)){
-         return 4;    
-      }
-
-
-      // Goiania - GO
-
-      if((cepRange >= 72800) && (cepRange <= 76799)){
-         return 5;    
-      }
-
-
-      // Recife - PE
-
-      if((cepRange >= 50000) && (cepRange <= 56999)){
-         return 5;    
-      }
-
-
-      // Brasília
-
-      if((cepRange >= 70000) && (cepRange <= 73699)){
-         return 6;    
-      }
-
-
-      //  Porto Alegre - RS
-
-      if((cepRange >= 90000) && (cepRange <= 99999)){
-         return 7;    
-      }
-
-
-
-      //  Salvador - BA
-
-      if((cepRange >= 40000) && (cepRange <= 48999)){
-         return 7;    
-      }
-
-      return 1;
-
-
-    };
 
 
     $scope.setAnswerQuestion = function (answerType) {
@@ -383,9 +306,9 @@ angular.module('gosteiclubApp')
 
         if(question.urlAnswer.indexOf('<user_id>') > -1){
 
-          var age = $scope.getUserAge();  
+          var age = Utils.getUserAge($scope.user);  
           var gender = ($scope.user.gender === 'M') ? '1' : '2';
-          var region = $scope.getUserRegion();
+          var region = Utils.getUserRegion($scope.user);
 
           question.urlAnswer = question.urlAnswer.replace('<user_id>', $scope.user._id);
           question.urlAnswer = question.urlAnswer.replace('<user_age>', age);

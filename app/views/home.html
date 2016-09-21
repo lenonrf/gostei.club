@@ -33,7 +33,11 @@
                 <p>{{item.description}}</p>
 
                 <div class="row" style="padding-top: 15px;">
-                  <a class="btn btn-main" href="{{item.urlAnswer+'&aff_sub='+campaign}}" target="_blank"  role="button"><b>{{'HOME.HOME_04' | translate}}</b></a>
+                  <!--<a class="btn btn-main" href="{{item.urlAnswer+'&aff_sub='+campaign}}" target="_blank"  role="button"><b>{{'HOME.HOME_04' | translate}}</b></a>-->
+
+                  <a class="btn btn-main" ng-click="setAnswerQuestion(item.urlAnswer+'&aff_sub='+campaign)"  role="button"><b>{{'HOME.HOME_04' | translate}}</b></a>
+
+
                 </div>
 
 
