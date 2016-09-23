@@ -114,7 +114,7 @@ angular.module('gosteiclubApp')
 
       if(urlAnswer.indexOf('<user_id>') > -1){
 
-        var age = Utils.getUserAge($scope.user);  
+        var age = Utils.getUserAge($scope.user, true);  
         var gender = ($scope.user.gender === 'M') ? '1' : '2';
         var region = Utils.getUserRegion($scope.user);
 

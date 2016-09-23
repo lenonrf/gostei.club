@@ -140,11 +140,11 @@ angular.module('gosteiclubApp')
 
 
 
-    this.getUserAge = function(user){
+    this.getUserAge = function(user, isBalcao){
 
       var userYearBirth = '';
 
-      if(user.birthDate[0] === '0'){
+      if(isBalcao){
         userYearBirth = parseInt(user.birthDate.slice(-4), 10);
 
       }else{
