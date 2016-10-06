@@ -11,7 +11,7 @@ angular.module('gosteiclubApp')
                 replace: false,
                 templateUrl: 'scripts/directives/survey.html',
 
-                link: function($scope, elem, attrs) {
+                link: function($scope, elem, attrs, $http) {
 
                     for (var x = 0; $scope.dynamicSegmentation.length>x; x++) { 
                         for (var y = 0; $scope.dynamicSegmentation[x].relatedOffers.length>y; y++) {                             

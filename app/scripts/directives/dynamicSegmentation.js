@@ -2,7 +2,7 @@
 
 
 angular.module('gosteiclubApp')
-  .directive('dynamicSegmentation', function ($rootScope) {
+  .directive('dynamicSegmentation', function ($rootScope, $http) {
     
     return {
 
@@ -28,12 +28,16 @@ angular.module('gosteiclubApp')
 
 				   	 	for (var x = 0; $scope.survey.length>x; x++) { 					   	 				 
 					      	$('#offer_'+$scope.survey[x]._id).css("display", 'none');
-				   	 	}
+
+					 	}
 
 				   	 	var surveyList = $scope.getOffersAvailable($scope.survey);
 
-				   	 	for (var x = 0; surveyList.length>x; x++) { 	
+				   	 	for (var x = 0; x<surveyList.length; x++) { 	
+					      	
 					      	$('#offer_'+surveyList[x]._id).css("display", 'block');
+					      	$http.post('/api/yhall/offer/'+surveyList[x]._id+'/stats/impressions');
+
 				   	 	}
 
 				   	 	$scope.isNextStepAvaliableForSurvey();

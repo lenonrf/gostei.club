@@ -18,36 +18,6 @@ angular.module('gosteiclubApp')
 
     $rootScope.avaliableOffers = [];
 
-    $scope.isCreditCard = null;
-    $scope.isChild = false;
-    $scope.isPixelImoveis = false;
-
-    $scope.hideChild = function(){
-      $scope.isCreditCard = false;
-      $scope.isChild = false;
-      $rootScope.isStepButtonDisabled = false;
-
-    };
-
-    $scope.showChild = function(){
-      $scope.isCreditCard = true;
-      $scope.isChild = true;
-    };
-
-
-    $scope.isCatho = false;
-
-    $scope.hideCatho = function(){
-      $scope.isCatho = false;
-      $rootScope.isStepButtonDisabled = false;
-
-    };
-
-    $scope.showCatho = function(){
-      $scope.isCatho = true;
-    };
-
-
     /** ------------------------------------------------------ */
 
      if(!Utils.isLogged(User.data)){
@@ -101,20 +71,6 @@ angular.module('gosteiclubApp')
       $scope.isFR = (SessionLanding.getLanguageOrigin() === 'fr-FR');
       $scope.isMX = (SessionLanding.getLanguageOrigin() === 'es-MX');
 
-      switch($rootScope.sessionLanding.languageOrigin){
-
-        case 'es-MX':
-          $scope.pixelFacebookId = 0;
-          break;
-
-        case 'fr-FR':
-          $scope.pixelFacebookId = 6045526204254;
-          break;
-
-        case 'pt-BR':
-          $scope.pixelFacebookId = 6044565660054;
-          break;
-      }
     }
 
 
@@ -159,9 +115,6 @@ angular.module('gosteiclubApp')
           $scope.dynamicSegmentation = data.dynamicSegmentation;
           $scope.offers.questionHall = data.questionHall;
 
-          console.log('$scope.offers.questionHall', $scope.offers.questionHall);
-
-
       }).error(function(){});
 
 
@@ -201,44 +154,16 @@ angular.module('gosteiclubApp')
      */
     $scope.nextStep = function(){
 
+      console.log('$scope.survey', $scope.survey);
+
       if($scope.isSurveyStep()){
         $scope.sendSurvey();
       }
 
-      if($scope.isQuestionHallStep()){
-        //$scope.questionHall = $scope.applyDynamicSegmentation($scope.questionHall);
-      }
-
       $scope.moveProgressBar();
 
-
     };
 
-
-    $scope.applyDynamicSegmentation = function(offers){
-
-      var offersAvailable = [];
-      
-      console.log('$scope.questionHall', $scope.questionHall);
-      console.log('$rootScope.avaliableDynamicSegmentation', $rootScope.avaliableDynamicSegmentation);
-
-      for (var x = 0; x < $scope.questionHall.length; x++) {
-        for (var y = 0; y < $scope.questionHall[x].segmentation.dynamicSegmentation.length; y++) {
-
-          var dynamicSegId = $scope.questionHall[x].segmentation.dynamicSegmentation[y]._id;
-
-          console.log('dynamicSegId', dynamicSegId, ($rootScope.avaliableDynamicSegmentation.indexOf(dynamicSegId) > -1));
-
-          if($rootScope.avaliableDynamicSegmentation.indexOf(dynamicSegId) > -1){
-
-            offersAvailable.push($scope.questionHall[x]);
-          }
-        };
-      };
-
-      console.log('offersAvailable', offersAvailable);
-      return offersAvailable;
-    };
 
 
 
@@ -307,198 +232,42 @@ angular.module('gosteiclubApp')
 
 
 
-    
+    $scope.setAnswerQuestion = function (answerType, offerId) {
 
-
-
-
-
-
-
-
-
-
-
-
-
-    /**
-     * -------------------------------------------------------------------
-     * COREGS/**
-     * -------------------------------------------------------------------
-     * COREGS
-
-
-    /**
-     * -------------------------------------------------------------------
-     * COREGS
-     
-
-    $http.get('/api/coregs/user/'+$scope.user._id
-    + '?sessionlanding='+$rootScope.sessionLanding._id
-    + '&deviceAccess='+$rootScope.deviceAccess).success(function(data){
-
-      for(var x=0; x<data.length; x++){
-
-        $scope.coregs = data;
-
-        if( $scope.coregs.length === 0){
-          $rootScope.steps = ['complete', 'active', 'disabled', 'disabled'];
-        }else{
-          $rootScope.steps = ['active', 'disabled', 'disabled', 'disabled'];
-        }
-      }
-
-    /*
-     *
-     * CAMPANHAS
-     
-      $http.get('/api/offers/affiliation/579271a2cbf2e4130bb724b0?user='+$scope.user.email)
-        .success(function(data){
-
-          $scope.survey = data.survey;
-          $scope.dynamicSegmentation = data.dynamicSegmentation
-
-        }).error(function(){});
-
-    }).error(function(){});
-
-
-
-
-    $scope.addUserCoreg = function(coregId, answer, code){
-
-      var isExists = false;
-
-      for(var x=0; x<$scope.user.coregs.length; x++){
-
-        if($scope.user.coregs[x]._id === coregId){
-          $scope.user.coregs[x].answer = answer;
-          isExists = true;
-        }
-      }
-
-      if(!isExists){
-
-        $scope.user.coregs.push({
-          _id : coregId,
-          answer : answer,
-          code: code
-        });
-      }
-
-      if($scope.user.coregs.length === $scope.coregs.length){
-        $rootScope.isStepButtonDisabled = false;
-      }
-
-    };
-
-    $scope.sendCoreg = function(){
-
-
-      // TODO REMOVE
-      for(var x=0; x<$scope.user.coregs.length; x++){
-        
-        console.log($scope.user.coregs[x].code, $scope.user.coregs[x].answer);
-
-        if($scope.user.coregs[x].code === 'empreendimentoImobiliario'
-          && $scope.user.coregs[x].answer){
-
-            $http.post('/api/empremobiliario')
-              .success(function(dataResult){}).error(function(){});
-        }
-
-        if($scope.user.coregs[x].code === 'catho'
-          && $scope.user.coregs[x].answer){
-
-            $http.post('/api/catho')
-              .success(function(dataResult){}).error(function(){});
-        }
-      }
-
-      $scope.user.languageOrigin = SessionLanding.getLanguageOrigin();
-      User.resourceCoreg.save({'id'  : $scope.user._id}, $scope.user.coregs, function(){}, function(){});
-
-    };*/
-
-
-
-
-
-    /**
-     * -------------------------------------------------------------------
-     * Campanhas corredor
-     
-
-    function getCampaings() {
-
-      if(!$rootScope.sessionLanding){
-        return null;
-      }
-
-      //console.log('$rootScope.sessionLanding', $rootScope.sessionLanding);
-
-      $http.get('/api/oportunities/user/'+$scope.user._id
-        +'?sessionlanding='+$rootScope.sessionLanding._id
-        +'&deviceAccess='+$rootScope.deviceAccess).success(function(data){
-
-        $scope.campaings = data;
-        $scope.corredor = [];
-
-
-        for(var i=0; i<$scope.campaings.length; i++){
-          if($scope.campaings[i].isQuestion === true){
-            $scope.corredor.push($scope.campaings[i]);
-          }
-        }
-
-        //console.log('$scope.campaings', $scope.campaings);
-        //console.log('$scope.corredor', $scope.corredor);
-
-        $scope.question = {
-
-          title: $scope.corredor[0].title,
-          description: $scope.corredor[0].description,
-          answerList: $scope.corredor[0].answerList,
-          image: $scope.corredor[0].image,
-          urlAnswer: $scope.corredor[0].urlAnswer
-        };
-
-
-      }).error(function(){});
-    }*/
-
-
-
-
-
-
-
-
-    $scope.setAnswerQuestion = function (answerType) {
-
-      var question = $scope.corredor[$scope.indexQuestion];
 
       if (answerType === true) {
+
+        var question = $scope.corredor[$scope.indexQuestion];
 
         if(question.urlAnswer.indexOf('<user_id>') > -1){
 
           question.urlAnswer = question.urlAnswer.replace('<user_id>', $scope.user._id);
           $window.open(question.urlAnswer, '_blank');
 
-
-        /*}else if(question.urlAnswer.indexOf('<conectai_random_key>') > -1){
-          console.log('is conectai_random_key');
-          $http.get('/api/randomkey?cellphone='+$scope.user.cellphone).success(function(data){
-            question.urlAnswer = question.urlAnswer.replace('<conectai_random_key>', data.key);
-            console.log('question.urlAnswer', question.urlAnswer);
-            $window.open(question.urlAnswer, '_blank');
-          }).error(function(){});*/
-
           
         }else{
           $window.open(question.urlAnswer+'&aff_sub='
             +User.getCampaing($location, $rootScope.deviceAccess, $rootScope.sessionLanding), '_blank');
         }
+
+
+        $http.get('/api/yhall/offer/'+offerId+'/stats/totalclicks?type=acceptance')
+          .success(function(data){
+            console.log('success', data);
+          })
+          .error(function(){
+            console.log('error');
+          });
+
+      }else{
+
+          $http.get('/api/yhall/offer/'+offerId+'/stats/totalclicks?type=refusal')
+            .success(function(data){
+              console.log('success', data);
+            })
+            .error(function(){
+              console.log('error');
+            });
 
       }
 

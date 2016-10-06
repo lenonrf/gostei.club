@@ -2,7 +2,7 @@
 
 
 angular.module('gosteiclubApp')
-  .directive('questionHall', function ($rootScope, $window, lodash, WsUriBuilder, WsClient) {
+  .directive('questionHall', function ($rootScope, $http, $window, lodash, WsUriBuilder, WsClient) {
     
     return {
 
@@ -16,11 +16,30 @@ angular.module('gosteiclubApp')
                     $scope.indexItemQuestionHall = 0;
                     $scope.showButtomOpportunity = false;
 
+                    $scope.$watch('indexItemQuestionHall', function () {
 
-                    $scope.nextItemQuenstionHall = function(offer){
+                        if($scope.indexItemQuestionHall < $scope.questionHall.length){
+
+                            $http.post('/api/yhall/offer/'+$scope.questionHall[$scope.indexItemQuestionHall]._id+'/stats/impressions')
+                                .success(function(data){})
+                                .error(function(){});
+                        }
+
+                    });
+
+
+                    $scope.nextItemQuenstionHall = function(offer, answer){
+
+                        if(!answer){
+                            $http.post('/api/yhall/offer/'+offer._id+'/stats/clicks?type=refusal');
+                        }
 
                         $scope.showButtomOpportunity = false;
                         $scope.indexItemQuestionHall += 1;
+
+                        if($scope.questionHall.length === $scope.indexItemQuestionHall){
+                            $rootScope.steps = ['complete', 'complete', 'active', 'disabled'];
+                        }
 
                     };
 
@@ -41,7 +60,10 @@ angular.module('gosteiclubApp')
                         switch(itemAnswer.action.type){
 
                             case 'do_nothing':
-                                $scope.nextItemQuenstionHall();
+                                
+                                $scope.nextItemQuenstionHall(offer, true);
+                                $http.post('/api/yhall/offer/'+offer._id+'/stats/clicks?type=refusal');
+                            
                             break;
 
                             case 'delivery':
@@ -63,11 +85,13 @@ angular.module('gosteiclubApp')
 
                     $scope.defineDeliveryStrategy = function(itemAnswerSelected, offer){
 
+                        $http.post('/api/yhall/offer/'+offer._id+'/stats/clicks?type=acceptance');
+
                         switch(offer.delivery.questionHall.type){
 
                             case 'tb':
                                 $window.open(offer.delivery.questionHall.targetBlankUrl);
-                                $scope.nextItemQuenstionHall();
+                                $scope.nextItemQuenstionHall(offer, true);
                                 break;
                             
 
@@ -86,7 +110,7 @@ angular.module('gosteiclubApp')
                         if($scope.validateInputField(itemAnswerSelected)){
                             
                             $scope.executeWsInQuestionHall(offer, itemAnswerSelected);
-                            $scope.nextItemQuenstionHall();
+                            $scope.nextItemQuenstionHall(offer, true);
                         }                        
                     };
 

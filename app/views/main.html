@@ -94,7 +94,7 @@
 
 
 
-              <div class="row">
+              <!--<div class="row">
                 <div class="col-md-12">
 
                   <label style="color:#888585; font-weight: normal;">
@@ -102,14 +102,14 @@
                     {{ 'MAIN.ACCEPT_PARTNERS' | translate }}<a class="term-popup" ng-click="showPartners()" href="">{{ 'MAIN.PARTNERS' | translate }}</a>
                   </label>
                 </div>
-              </div>
+              </div>-->
 
               <div class="row">
                 <div class="col-md-12">
 
                   <label style="color:#888585; font-weight: normal;">
                     <input type="checkbox" ng-model="isAgreeWith" name="isAgreeWith" checked id="isAgreeWith" style="width: 15px;"/>
-                    {{'MAIN.AGREE_WITH' | translate}} <a class="term-popup" ng-click="showTermos()" href="">{{'MAIN.TERMS_CONDITIONS' | translate}}</a>
+                    {{ 'MAIN.ACCEPT_PARTNERS' | translate }}<a class="term-popup" ng-click="showPartners()" href="">{{ 'MAIN.PARTNERS' | translate }}</a>. {{'MAIN.AGREE_WITH' | translate}} <a class="term-popup" ng-click="showTermos()" href="">{{'MAIN.TERMS_CONDITIONS' | translate}}</a>
                     {{'MAIN.ACCEPT_EMAILS' | translate}}
                   </label>
                 </div>

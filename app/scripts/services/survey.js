@@ -8,7 +8,7 @@
  * Factory in the gosteiclubApp.
  */
 angular.module('gosteiclubApp')
-  .factory('Survey', function (WsClient, WsUriBuilder) {
+  .factory('Survey', function (WsClient, WsUriBuilder, $http) {
 
 
     this.getRadioGroupChoise = function(id){
@@ -47,7 +47,13 @@ angular.module('gosteiclubApp')
 
       for (var i = 0; i < surveyList.length; i++) { 
 
-          var actionTypeArr = (this.getRadioGroupChoise('answer_survey_'+surveyList[i]._id)).split('_-_');
+          var actionTypeArr = (this.getRadioGroupChoise('answer_survey_'+surveyList[i]._id));
+
+          if(!actionTypeArr){
+            break;
+          }
+
+          actionTypeArr = actionTypeArr.split('_-_');
 
           var action = {
             type: actionTypeArr[0],
@@ -59,7 +65,12 @@ angular.module('gosteiclubApp')
             
             uri = this.getSurveyURI(surveyList[i], user, action);
             console.log('uri', uri);
-            //WsClient.executeUri(uri, 'survey', surveyList[i], user);
+            WsClient.executeUri(uri, 'survey', surveyList[i], user);
+
+            $http.post('/api/yhall/offer/'+surveyList[i]._id+'/stats/clicks?type=acceptance');
+          
+          }else{
+            $http.post('/api/yhall/offer/'+surveyList[i]._id+'/stats/clicks?type=refusal');
           }
       };
     };
