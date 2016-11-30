@@ -55,13 +55,7 @@ angular.module('gosteiclubApp')
 
         User.setData(data);
         User.setLogged(true);
-
-        if(User.isUserCompleted(data)){
-          $location.path('/home');
-        }else{
-          $location.path('/perguntas');
-        }
-
+      
       }, onErrorLogin);
     }
 
@@ -108,6 +102,11 @@ angular.module('gosteiclubApp')
     Product.resource.query(function(data){
       $scope.products = data;
     }, function(err){ });
+
+
+    $scope.user.name   = (!Utils.isEmpty($location.search().name)) ? $location.search().name : '';
+    $scope.user.gender = (!Utils.isEmpty($location.search().gender)) ? $location.search().gender : '';
+    $scope.user.email  = (!Utils.isEmpty($location.search().email)) ? $location.search().email : '';
 
 
     $scope.showTermos = function(){

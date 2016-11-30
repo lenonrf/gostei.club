@@ -146,9 +146,9 @@
       */
      this.isUserFromEmail = function(location) {
 
-       var isEmailParameter = !Utils.isEmpty(location.search().email);
+       var isEmailParameter = !Utils.isEmpty(location.search().is_welcome_email);
 
-       if (isEmailParameter) {
+       if (isEmailParameter === 'true') {
          return true;
        }
 
