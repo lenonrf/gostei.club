@@ -7,6 +7,8 @@ angular.module('gosteiclubApp')
     $rootScope.showFooter = false;
     Menu.setMenu('PerguntasCtrl');
 
+    $rootScope.isShowPushNotification = true;
+
     $rootScope.sessionLanding = {};
     $scope.user = {};
 

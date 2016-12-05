@@ -7,6 +7,7 @@ angular.module('gosteiclubApp')
     $rootScope.showMenuItems = true;
     $rootScope.menu = {};
     $rootScope.isStepButtonDisabled = false;
+    $rootScope.isShowPushNotification = false;
 
 
     $scope.nextStep = function(){

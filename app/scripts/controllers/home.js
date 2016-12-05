@@ -7,7 +7,7 @@ angular.module('gosteiclubApp')
 
       
     $rootScope.originTrafficSource = SessionLanding.getOriginTraficSource($location);
-
+    $rootScope.isShowPushNotification = false;
 
     Menu.setMenu('HomeCtrl');
     $rootScope.showFooter = false;

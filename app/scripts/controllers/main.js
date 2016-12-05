@@ -8,9 +8,13 @@
  * Controller of the gosteiclubApp
  */
 angular.module('gosteiclubApp')
-  .controller('MainCtrl', function ($scope, $rootScope, $location, $modal, SessionLanding,
+  .controller('MainCtrl', function ($scope, $rootScope, $location, $modal, SessionLanding, $route,
                                     deviceDetector, Cep, Canal, Allin, Menu, Utils, User, Login,
                                     $http, Product, $translate, TermsConditions, Malling, Partners) {
+
+    $rootScope.isShowPushNotification = $route.current.$$route.isShowPushNotification;
+
+    console.log('main isShowPushNotification', $rootScope.isShowPushNotification);
 
 
     $rootScope.originTrafficSource = SessionLanding.getOriginTraficSource($location);

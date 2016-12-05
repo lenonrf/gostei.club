@@ -19,9 +19,8 @@ angular
     'pascalprecht.translate',
 
   ])
-  .config(function ($locationProvider, $routeProvider, $httpProvider, $translateProvider,
+  .config(function ($locationProvider,  $routeProvider, $httpProvider, $translateProvider,
                     AppTranslateFRProvider, AppTranslateMXProvider, AppTranslateBRProvider, showErrorsConfigProvider) {
-
 
 
     $httpProvider.defaults.useXDomain = true;
@@ -33,11 +32,13 @@ angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        isShowPushNotification: true
+
       })
       .when('/perguntas', {
         templateUrl: 'views/perguntas.html',
-        controller: 'PerguntasCtrl'
+        controller: 'PerguntasCtrl',
       })
       .when('/sucesso', {
         templateUrl: 'views/sucesso.html',
@@ -61,7 +62,8 @@ angular
       })
       .when('/obrigado', {
         templateUrl: 'views/obrigado.html',
-        controller: 'ObrigadoCtrl'
+        controller: 'ObrigadoCtrl',
+        isShowPushNotification: false
       })
       .when('/pushnotification', {
         templateUrl: 'views/pushnotification.html',

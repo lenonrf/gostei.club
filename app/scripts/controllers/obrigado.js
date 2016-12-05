@@ -2,12 +2,15 @@
 
 
 angular.module('gosteiclubApp')
-  .controller('ObrigadoCtrl', function ($scope, $location, $http, $rootScope, Menu) {
+  .controller('ObrigadoCtrl', function ($scope,$route, $location, $http, $rootScope, Menu) {
 
     Menu.setMenu('HomeCtrl');
     $rootScope.showFooter = false;
+    $rootScope.isShowPushNotification = $route.current.$$route.isShowPushNotification;;
 
     $scope.isConectai = false;
+
+    console.log('obrigado isShowPushNotification', $rootScope.isShowPushNotification);
 
 
     $scope.isPixel = function(){

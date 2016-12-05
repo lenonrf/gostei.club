@@ -11,7 +11,8 @@ angular.module('gosteiclubApp')
   .controller('PerguntasCtrl', function ($scope, $window, Malling, $http, $rootScope,
                                          $translate, $location, Coreg, Menu, Allin,
                                          Campaing, User, Utils, Product, SessionLanding) {
-
+    
+    $rootScope.isShowPushNotification = false;
 
     /* PROGRESS BAR */
     $scope.maxProgressBar = 100;
