@@ -465,8 +465,19 @@
 
             <div class="col-md-5 col-lg-5 col-sm-12 col-xs-12" style="margin-top:-90px; background-color: #fff;">
 
+              <div ng-if="question.urlAnswer === '<PEOGEOT>'">
+                <SCRIPT language='JavaScript1.1' SRC="https://ad.doubleclick.net/ddm/adj/N431201.752083NETMININGLLC/B10296665.142443510;sz=300x250;click=;ord=[timestamp];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=?">
+                </SCRIPT>
+                <A target="_blank" HREF="https://ad.doubleclick.net/ddm/jump/N431201.752083NETMININGLLC/B10296665.142443510;sz=300x250;ord=[timestamp]?">
+                  <IMG SRC="https://ad.doubleclick.net/ddm/ad/N431201.752083NETMININGLLC/B10296665.142443510;sz=300x250;ord=[timestamp];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=?" BORDER=0 WIDTH=300 HEIGHT=250 ALT="Advertisement">
+                </A>
+
+              </div>
+
+              <div ng-if="question.urlAnswer != '<PEOGEOT>'">
                 <img style=" border-radius: 5px;   margin-bottom: 20%; margin-top:15px; margin-left: auto; margin-right: auto;" class="img-responsive"
                      ng-src="{{question.image}}" >
+              </div>
 
             </div>
 

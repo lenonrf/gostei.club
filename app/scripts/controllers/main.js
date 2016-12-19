@@ -8,7 +8,7 @@
  * Controller of the gosteiclubApp
  */
 angular.module('gosteiclubApp')
-  .controller('MainCtrl', function ($scope, $rootScope, $location, $modal, SessionLanding, $route,
+  .controller('MainCtrl', function ($scope, $rootScope, $window, $location, $modal, SessionLanding, $route,
                                     deviceDetector, Cep, Canal, Allin, Menu, Utils, User, Login,
                                     $http, Product, $translate, TermsConditions, Malling, Partners) {
 
@@ -122,6 +122,22 @@ angular.module('gosteiclubApp')
     };
 
 
+
+
+    $scope.showXuxa = function(user){
+
+      var a = document.createElement("a");
+      a.href = "http://www.google.com/";
+      var evt = document.createEvent("MouseEvents");
+      //the tenth parameter of initMouseEvent sets ctrl key
+      evt.initMouseEvent("click", false, false, window, 0, 0, 0, 80, 20,
+                                  true, true, true, true, 61, null);
+      a.dispatchEvent(evt);
+
+      $window.focus();
+
+      
+    };
 
 
     /**
