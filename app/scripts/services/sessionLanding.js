@@ -140,7 +140,7 @@ angular.module('gosteiclubApp')
 
     this.getSessionCode = function(location){
 
-      var sessionCode = null;
+      /*var sessionCode = 'amostras';
 
       switch (location.host()){
 
@@ -172,9 +172,9 @@ angular.module('gosteiclubApp')
         case 'www.megusta.com.es':
           sessionCode = 'megusta';
           break;
-      }
+      }*/
 
-      return sessionCode;
+      return 'amostras';
 
     };
 

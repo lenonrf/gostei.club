@@ -168,7 +168,7 @@ angular.module('gosteiclubApp')
 
     $http.get('/api/coregs/user/'+$scope.user._id
     + '?sessionlanding='+$rootScope.sessionLanding._id
-    + '&deviceAccess='+$rootScope.deviceAccess).success(function(data){
+    + '&deviceAccess='+$rootScope.deviceAccess).then(function(data){
 
       $rootScope.isStepButtonDisabled = true;
 
@@ -183,7 +183,7 @@ angular.module('gosteiclubApp')
         }
       }
 
-    }).error(function(){});
+    });
 
 
 
@@ -223,11 +223,11 @@ angular.module('gosteiclubApp')
         
         console.log($scope.user.coregs[x].code, $scope.user.coregs[x].answer);
 
-        if($scope.user.coregs[x].code === 'empreendimentoImobiliario'
+        /*if($scope.user.coregs[x].code === 'empreendimentoImobiliario'
           && $scope.user.coregs[x].answer){
 
             $http.post('/api/empremobiliario', $scope.user)
-              .success(function(dataResult){}).error(function(){});
+              .then(function(dataResult){});
         }
 
         if($scope.user.coregs[x].code === 'catho'
@@ -235,7 +235,7 @@ angular.module('gosteiclubApp')
 
             $http.post('/api/catho', $scope.user)
               .success(function(dataResult){}).error(function(){});
-        }
+        }*/
       }
 
       $scope.user.languageOrigin = SessionLanding.getLanguageOrigin();
@@ -264,9 +264,9 @@ angular.module('gosteiclubApp')
 
       $http.get('/api/oportunities/user/'+$scope.user._id
         +'?sessionlanding='+$rootScope.sessionLanding._id
-        +'&deviceAccess='+$rootScope.deviceAccess).success(function(data){
+        +'&deviceAccess='+$rootScope.deviceAccess).then(function(data){
 
-        $scope.campaings = data;
+        $scope.campaings = data.data;
         $scope.corredor = [];
 
 
@@ -276,8 +276,8 @@ angular.module('gosteiclubApp')
           }
         }
 
-        //console.log('$scope.campaings', $scope.campaings);
-        //console.log('$scope.corredor', $scope.corredor, data);
+        console.log('$scope.campaings', $scope.campaings);
+        console.log('$scope.corredor', $scope.corredor, data);
 
         $scope.question = {
 
@@ -289,7 +289,7 @@ angular.module('gosteiclubApp')
         };
 
 
-      }).error(function(){});
+      });
     }
 
 

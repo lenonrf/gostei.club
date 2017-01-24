@@ -83,14 +83,8 @@
 
        var isUtmCampaingParameter = !Utils.isEmpty(location.search().utm_campaign);
 
-       var languagePrefix = '';
-       if(sessionLanding.languageOrigin === 'pt-BR'){
-         languagePrefix = 'BR';
-       }else if(sessionLanding.languageOrigin === 'fr-FR'){
-         languagePrefix = 'FR';
-       }else if(sessionLanding.languageOrigin === 'es-MX'){
-         languagePrefix = 'MX';
-       }
+       var languagePrefix = 'BR';
+       
 
        var devicePrefix = '';
        if(deviceAccess === 'mobile'){
@@ -99,14 +93,8 @@
          devicePrefix = 'D';
        }
 
-       var sessionCode = '';
-       if(sessionLanding.code === 'amostras'){
-         sessionCode = 'AMT';
-       }else if(sessionLanding.code === 'videncias'){
-         sessionCode = 'VDC';
-       }else if(sessionLanding.code  === 'revendas'){
-         sessionCode = 'RVD';
-       }
+       var sessionCode = 'amostras';
+
 
        /*if (isUtmCampaingParameter) {
          return location.search().utm_campaign;

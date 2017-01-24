@@ -12,7 +12,7 @@ angular.module('gosteiclubApp')
           nm_lista: 'gosteiclub',
           nome: data.name,
           sexo: data.gender,
-          dt_cadastro: Utils.getDateAllin()
+          dt_cadastro: data.created.substr(0,10)
         }
       };
 

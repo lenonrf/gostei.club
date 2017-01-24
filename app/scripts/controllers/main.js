@@ -39,14 +39,14 @@ angular.module('gosteiclubApp')
     /**
      * Parceiros
      */
-    $http.get('/api/sponsoring').success(function(dataResult){
+    $http.get('/api/sponsoring').then(function(dataResult){
 
       for(var x=0; x<dataResult.length; x++){
         if(dataResult[x].partner.isPartner){
           $scope.partners.push(dataResult[x].partner);
         }
       }
-    }).error(function(){});
+    },function(){});
 
 
     if(User.isUserFromEmail($location)){
@@ -88,23 +88,24 @@ angular.module('gosteiclubApp')
 
     var sessionCode = SessionLanding.getSessionCode($location);
     if(sessionCode != null){
-      $http.get('/api/sessionlanding?code='+sessionCode).success(function(data){
+      $http.get('/api/sessionlanding?code='+sessionCode).then(function(data){
 
-        $rootScope.sessionLanding = data[0];
+        $rootScope.sessionLanding = data.data;
         $rootScope.sessionLandingData = SessionLanding.getDataFromLanding($rootScope, sessionCode);
 
-      }).error(function(){});
+      },function(){});
     }
 
 
 
-    Canal.resource.query({code: Canal.getCanalCode($location) }, function(data){
+    /*Canal.resource.query({code: Canal.getCanalCode($location) }, function(data){
+      console.log("data", data);
       $scope.user.canal =  data[0]._id;
-    });
+    });*/
 
 
     Product.resource.query(function(data){
-      $scope.products = data;
+       $scope.products = data;
     }, function(err){ });
 
 
@@ -169,8 +170,10 @@ angular.module('gosteiclubApp')
 
         User.resource.save(user, function(data){
 
+          data.origin = 'gostei';
+          User.setData(data);
+
           Malling.createContact(data);
-          Malling.sendWelcomeMail(data);
           Allin.sendDataToWelcomeLifeCycle(data);
 
           if($rootScope.isFromOutBrain){
@@ -229,7 +232,6 @@ angular.module('gosteiclubApp')
         user.telephone = user.telephoneFR;
       }
 
-
       user.birthDate = Utils.getBirthDate(user.birthDate);
       User.resourceEmail.put({'email'  : user.email}, user, onSuccess, onErrorCheckout);
 
@@ -242,18 +244,16 @@ angular.module('gosteiclubApp')
      */
     function onSuccess(data, status) {
 
-      var user = data;
-
       // Envia Sponsorings
-      $http.post('/api/users/'+user._id +'/sponsoring'
+      /*$http.post('/api/users/'+user._id +'/sponsoring'
         + '?sessionlanding='+$rootScope.sessionLanding._id+'&isPartnerAllowed='+$scope.isPartnersAllowed
-        + '&deviceAccess='+$rootScope.deviceAccess).success(function(dataResult){
-        }).error(function(){});
+        + '&deviceAccess='+$rootScope.deviceAccess).then(function(dataResult){
+        },function(){});*/
 
-      Malling.updateContact(user);
+      data.origin = 'gostei';
+      Malling.createContact(data);
 
-
-      User.setData(user);
+      User.setData(data);
       User.setLogged(true);
       $location.path('/perguntas');
     }
@@ -282,6 +282,8 @@ angular.module('gosteiclubApp')
      * @param data
      */
     function onErrorCheckout(data, status, transformResponse) {
+
+      console.log('ERROR - onErrorCheckout', status, data);
 
       if (status === 400) {
         setMessageOnField('email', $translate.instant('VALIDATION.SIGNUP_FAILED'));

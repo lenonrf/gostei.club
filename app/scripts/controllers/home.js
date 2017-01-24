@@ -89,9 +89,9 @@ angular.module('gosteiclubApp')
 
       $http.get('/api/oportunities/user/'+$scope.user._id
       +'?sessionlanding='+$rootScope.sessionLanding._id
-      +'&deviceAccess='+$rootScope.deviceAccess).success(function(data){
+      +'&deviceAccess='+$rootScope.deviceAccess).then(function(data){
 
-          $scope.data = data;
+          $scope.data = data.data;
           $scope.oportunities = [];
 
           for(var i=0; i<$scope.data.length; i++){
@@ -101,9 +101,6 @@ angular.module('gosteiclubApp')
           }
 
 
-        }).
-        error(function(data, status) {
-          console.log('ERROR '+status, data);
         });
     }
 
