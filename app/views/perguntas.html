@@ -46,9 +46,14 @@
 
 
 
+
 <!-- Offer Conversion: Gostei.club - BR -->
-  <iframe ng-src="http://springmedia.go2cloud.org/aff_l?offer_id=1087&adv_sub={{user.email}}" scrolling="no" frameborder="0" width="1" height="1"></iframe>
-<!-- // End Offer Conversion 
+  <iframe src="{{conversionURL | trustAsResourceUrl}}" 
+    scrolling="no" frameborder="0" width="1" height="1"></iframe>
+
+
+
+
 
 <!-- COREG -->
 <section ng-show="(steps[0] === 'active') ? true : false"

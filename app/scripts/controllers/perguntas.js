@@ -170,6 +170,9 @@ angular.module('gosteiclubApp')
     + '?sessionlanding='+$rootScope.sessionLanding._id
     + '&deviceAccess='+$rootScope.deviceAccess).then(function(data){
 
+      $scope.conversionURL = 'http://springmedia.go2cloud.org/aff_l?offer_id=1087&adv_sub='+$scope.user.email;
+
+
 
       /*$http.get('http://springmedia.go2cloud.org/aff_l?offer_id=1087&adv_sub='+$scope.user.email)
             .then(function(response) {
