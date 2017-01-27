@@ -171,11 +171,11 @@ angular.module('gosteiclubApp')
     + '&deviceAccess='+$rootScope.deviceAccess).then(function(data){
 
 
-      $http.get('http://springmedia.go2cloud.org/aff_l?offer_id=1087&adv_sub='+$scope.user.email)
+      /*$http.get('http://springmedia.go2cloud.org/aff_l?offer_id=1087&adv_sub='+$scope.user.email)
             .then(function(response) {
               console.log('conversion', response);
-            });
-      
+            });*/
+
 
       $rootScope.isStepButtonDisabled = true;
 
